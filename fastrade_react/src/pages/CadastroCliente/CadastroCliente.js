@@ -11,7 +11,7 @@ class CadastroCliente extends Component {
     }
     render() {
         return {
-            < div className = "container" >
+            <div className = "container" >
             <div className="card">
                 <form method="POST" id="form_cadastro">
                     <div className="formulario_cadastro">
@@ -21,13 +21,14 @@ class CadastroCliente extends Component {
                             <label for="" />
 
                             <span>Tipo de usuario </span>
-                            <div
-                                className="tipodeusuario">
+
+                            <div className="tipodeusuario">
 
                                 <div>
-                                    className="botao" for=""/>
+                                    className="botao"
                                         <input
-                                         type="radio"
+                                        placeholder=""
+                                        type="radio"
                                         name="usuario"
                                         value="Cliente" 
                                         className="radio"/>
@@ -35,8 +36,8 @@ class CadastroCliente extends Component {
 
                                 <div>
                                     className="botao"
-                                    for="">
                                         <input
+                                        placeholder=""
                                         type="radio"
                                         name="usuario"
                                         value="Fornecedor"
@@ -45,26 +46,28 @@ class CadastroCliente extends Component {
 
                                 <div>
                                     <input
-                                        type="text"
                                         placeholder="Digite o seu email "
+                                        type="text"
                                         name="Email" 
-                                        />
+                                        className=""/>
                                 </div>
 
                                 <div>
                                     <input
-                                        type="text"
-                                        placeholder="Digite sua senha "
-                                        name="Senha" 
-                                        />
+                                       placeholder="Digite sua senha "
+                                       type="text"
+                                       name="Senha" 
+                                       value=""
+                                       className=""/>
                                 </div>
 
 
                                 <div>
                                     <input
-                                        type="text"
                                         placeholder="Digite o nome completo "
-                                        name="Nome" aria-label="Digitar o nome copleto"/>
+                                        type="text"
+                                        name="Nome" aria-label="Digitar o nome copleto"
+                                        className=""/>
                                 </div>
 
 
@@ -72,19 +75,22 @@ class CadastroCliente extends Component {
                                     <input
                                         type="text"
                                         placeholder="Digite seu telefone..."
-                                        name="telefone" aria-label="Digitar seu telefone"/>
+                                        name="telefone" aria-label="Digitar seu telefone"
+                                        className=""/>
                                 </div>
 
                                 <div>
                                     <input
                                         type="text"
                                         placeholder="Digite o CNPJ..."
-                                        name="CNPJ" aria-label="Digitar o CNPJ"/>
+                                        name="CNPJ" aria-label="Digitar o CNPJ"
+                                        className=""/>
                                 </div>
                                 <div>
                                     <input
                                         type="date"
-                                        name="data" aria-label="Digitar a data do Nascimento"/>
+                                        name="data" aria-label="Digitar a data do Nascimento"
+                                        className=""/>
                                 </div>
 
 
@@ -96,27 +102,31 @@ class CadastroCliente extends Component {
                                     <input
                                         type="text"
                                         placeholder="Digite o Endereço"
-                                        name="Endereço" aria-label="Digitar o endereço" />
+                                        name="Endereço" aria-label="Digitar o endereço" 
+                                        className=""/>
                                 </div>
                                 <div>
                                     <input
                                         type="number"
                                         placeholder="000..."
-                                        name="Numero" aria-label="numero" />
+                                        name="Numero" aria-label="numero" 
+                                        className=""/>
                                 </div>
 
                                 <div>
                                     <input
                                         type="text"
                                         placeholder="Bairro"
-                                        name="Bairro" aria-label="Digitar o Bairro" />
+                                        name="Bairro" aria-label="Digitar o Bairro" 
+                                        className=""/>
                                 </div>
 
                                 <div>
                                     <input
                                         type="text"
                                         placeholder="00000-000"
-                                        name="Cadastro" aria-label="Digitar o CEP" />
+                                        name="Cadastro" aria-label="Digitar o CEP"
+                                        className=""/>
                                 </div>
 
 
@@ -124,7 +134,8 @@ class CadastroCliente extends Component {
                                     <input
                                         type="text"
                                         placeholder="Estado"
-                                        name="Cadastro" aria-label="Digitar o Estado" />
+                                        name="Cadastro" aria-label="Digitar o Estado" 
+                                        className=""/>
                                 </div>
 
 
@@ -132,7 +143,8 @@ class CadastroCliente extends Component {
                                     <input
                                         type="text"
                                         placeholder="Complemento"
-                                        name="Cadastro" aria-label="Digitar o complemento" />
+                                        name="Cadastro" aria-label="Digitar o complemento"
+                                        className=""/>
                                     </div>
 
                                 <div>
@@ -145,6 +157,8 @@ class CadastroCliente extends Component {
 
                 </form>
                         </div>
+                    </div>
+                    </div>
                     </div>
 
                     };
