@@ -15,6 +15,7 @@ class cadastroProduto extends Component {
             nomeProd: '',
             precoProd: '',
             categoriaId: '',
+            quantProd:'',
             descProd: '',
             valProd: ''
         }
@@ -47,7 +48,7 @@ class cadastroProduto extends Component {
         //  const{nomeProd,PrecoProd,descProd,valProd} = this.state;
         return (
             <div className="container">
-                <div className="card">
+                <div className="card_produto">
 
                     <h1 className="titulo_cadastro">Cadastro de Produto</h1>
 
@@ -66,16 +67,29 @@ class cadastroProduto extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="precoProd">Preço do Produto</label>
+                            <label htmlFor="quantProd">Quantidade</label>
                             <div className="input-button">
-                                <input id="precoProd"
+                                <input id="quantProd"
                                     type="number"
+                                    name="quantProd"
+                                //   value ={quantProd}
+                                //  onChange = {this.escutadorDeInput}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="PrecoProd">Preço do Produto</label>
+                            <div className="input-button">
+                                <input id="PrecoProd"
+                                    type="valor"
                                     name="PrecoProd"
                                 //   value ={PrecoProd}
                                 //  onChange = {this.escutadorDeInput}
                                 />
                             </div>
                         </div>
+
 
                         <div className="form-group">
                             <label htmlFor="catProd">Categoria do Produto</label>

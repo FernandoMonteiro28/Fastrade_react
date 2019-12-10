@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .styled-container {
     width:1200px;
     background-color: white;
@@ -62,7 +67,7 @@ button.botao:hover{
     display: grid;
     grid-template-columns: 400px 300px 400px;
 }
-.card {
+.card_produto {
     background-color: white;
     padding: 80px 40px;
     margin: 40px 0px;
@@ -73,30 +78,32 @@ button.botao:hover{
     
 }
 
-.card input {
+.card_produto input {
     margin-bottom: 30px;
     border: 0;
-    width: 300px;
-    height: 25px;
+    width: 250px;
+    height: 30px;
 	border-bottom: 2px solid #BC3908;
 	border-left: 2px solid #BC3908;
 	border-right: 2px solid #BC3908;
 	border-radius: 10px;
 	background: transparent;
-	color: black;
+    color: black;
+   
  }
 
 
-.card select{
+.card_produto select{
     border: 0; 
-    width: 300px;
-    height: 25px;
+    width: 250px;
+    height: 30px;
 	border-bottom: 2px solid #BC3908;
 	border-left: 2px solid #BC3908;
 	border-right: 2px solid #BC3908;
 	border-radius: 10px;
-	background: transparent;
+    background: transparent;
+    padding-bottom:33px;
+ 
 	color: black;
-    padding-left: 10px;
-    margin-bottom: 20px;
+    
  }
