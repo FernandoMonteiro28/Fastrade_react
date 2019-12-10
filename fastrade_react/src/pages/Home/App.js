@@ -151,36 +151,7 @@ class App extends Component {
             <div className="frase_destaque"><p>Sua melhor plataforma de venda</p></div>
           </div>
 
-          <div className="espaco_comentario">
-
-            <div className="titulo_comentario">
-              <p className="frase_comentario">Deixe seu Comentário sobre Fastrade</p>
-            </div>
-
-            <div className="tod_comentario">
-              <div><img src={CirculaPng} alt="" className="img_comentario" /></div>
-              <div className="comentario">
-                <p className="adm">Joselaine Romão</p>
-                <p className="comenta">Uma plataforma interessante e inovadora</p>
-                <p className="comenta">Data: 25/07/2019</p></div>
-            </div >
-
-            <div className="tod_comentario">
-              <div><img src={CirculaPng} alt="" className="img_comentario" /></div>
-              <div className="comentario">
-                <p className="adm">Joselaine Romão</p>
-                <p className="comenta">Muito fácil  o acesso, consegui navegar todas as páginas tranquilamente.Parabéns</p>
-                <p className="comenta">Data: 25/07/2019</p></div>
-            </div>
-
-            <div className="tod_comentario">
-              <div><img src={CirculaPng} alt="" className="img_comentario" /></div>
-              <div className="comentario1">
-                <a href="#"><p className="adm">Deixe seus comentários</p></a>
-
-              </div>
-            </div>
-          </div>
+          
         </main>
       </div>
     );
