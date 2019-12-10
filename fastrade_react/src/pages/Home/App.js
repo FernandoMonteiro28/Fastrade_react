@@ -74,7 +74,7 @@ class App extends Component {
 
         <i class="fa fa-angle-double-down icone"></i>
         <main>
-          <div className="container_oferta">
+          {/* <div className="container_oferta">
             <p className="oferte">Produtos em ofertas</p>
             <div className="conteudo">
               {
@@ -92,7 +92,7 @@ class App extends Component {
               }
 
             </div>
-          </div>
+          </div> */}
 
           <div className="tod_informativo">
             <div className="dica_informativa">
