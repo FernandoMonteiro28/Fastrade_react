@@ -8,12 +8,12 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 // import './assets/css/cadastroProduto.css';
 import './assets/css/dicas.css';
 import './assets/css/receita.css';
-import './assets/css/pproduto.css';
+import './assets/css/produtos.css';
+import './assets/css/login.css';
 
 
 //importamos as paginas
-import produtos from './pages/produtos/produtos';
-import './assets/css/login.css';
+import Produtos from'./pages/produtos/produtos';
 import App from './pages/Home/App';
 import Dicas from './pages/Dicas/Dicas';
 import quemSomos from './pages/quemSomos/quemSomos';
@@ -36,12 +36,6 @@ import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import './assets/css/login.css';
 
-
-
-
-
-
-
 //Criamos uma variavel que Realiza a criação das rotas:
 const Rotas = (
 	<Router>
@@ -57,11 +51,11 @@ const Rotas = (
 				<Route path="/Brigadeiro de Casca de Banana" component={Brigadeiro} />
 				<Route path="/Creme de Couve-Flor" component={Creme} />
 				<Route path="/Patê de Alho Poró" component={Pate} />
-				
-				<Route exact path="/" component={App} />
 				<Route path="/Home" component={App} />
 				<Route path="/Dicas" component={Dicas} />
 				<Route path="/Dica" component={Dicas} />
+				<Route path="/produtos" component={Produtos} />
+				<Route path="/quemSomos" component={quemSomos} />
 				<Route path="/receitas" component={Receitas} />
 				<Route path="/cadastroProduto" component={cadastroProduto} />
 				<Route path="/CadastroCliente" component={CadastroCliente} />

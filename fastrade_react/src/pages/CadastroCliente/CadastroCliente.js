@@ -5,7 +5,12 @@ import '../../assets/css/cadastroCliente.css';
 
 class CadastroCliente extends Component {
     render() {
-        return (
+        return {
+
+            <div className = "container">
+            <div className="card">
+                <form method="POST" id="form_cadastro">
+                    <div className="formulario_cadastro">
 
             <div className="container_cadastro" >
                 <div className="card">
@@ -133,12 +138,10 @@ class CadastroCliente extends Component {
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-
-        );
-    }
+                    </div>
+                    
+                    };
+                }
 }
-
+                
 export default CadastroCliente;
