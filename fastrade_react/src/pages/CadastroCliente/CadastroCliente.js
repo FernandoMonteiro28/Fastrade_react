@@ -11,7 +11,8 @@ class CadastroCliente extends Component {
     }
     render() {
         return {
-            <div className = "container" >
+            <div>  
+            <div className = "container">
             <div className="card">
                 <form method="POST" id="form_cadastro">
                     <div className="formulario_cadastro">
@@ -160,7 +161,6 @@ class CadastroCliente extends Component {
                     </div>
                     </div>
                     </div>
-
                     };
                 }
                         }

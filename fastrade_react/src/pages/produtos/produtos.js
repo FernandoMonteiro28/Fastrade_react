@@ -9,19 +9,6 @@ class Produtos extends Component {
         return (
             <div>
                 <Cabecalho />
-                <a href="#abrirModal">Open Modal</a>
-
-                <div id="abrirModal" class="modal">
-                    {/* <!-- conteúdo do modal aqui --> */}
-                </div>
-                <a href="#abrirModal">Open Modal</a>
-
-                <div id="abrirModal" class="modal">
-                    <a href="#fechar" title="Fechar" class="fechar">x</a>
-                    <h2>Janela Modal</h2>
-                    <p>Esta é uma simples janela de modal.</p>
-                    <p>Você pode fazer qualquer coisa aqui, página de Login, pop-ups, ou formulários</p>
-                </div>
                 <div class="container_lista">
                     <div class="busca">
                         <h3 class="ordenar">Ordenar por:</h3>
@@ -34,6 +21,14 @@ class Produtos extends Component {
                             <option value="">Melhor Desconto</option>
                         </select>
                     </div>
+                </div>
+                <a href="#abrirModal">Open Modal</a>
+
+                <div id="abrirModal" class="modal">
+                    <a href="#fechar" title="Fechar" class="fechar">x</a>
+                    <h2>Janela Modal</h2>
+                    <p>Esta é uma simples janela de modal.</p>
+                    <p>Você pode fazer qualquer coisa aqui, página de Login, pop-ups, ou formulários</p>
                 </div>
                 <div class="container_cards">
                     <div class="card">
