@@ -60,6 +60,7 @@ class App extends Component {
 
   render() {
     return (
+     
       <div className="App" >
       <cabecalho {...this.props}/>
         <div className="tod_home">
