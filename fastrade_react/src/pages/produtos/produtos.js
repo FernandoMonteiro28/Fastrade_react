@@ -12,7 +12,7 @@ class Produtos extends Component {
                 <a href="#abrirModal">Open Modal</a>
 
                 <div id="abrirModal" class="modal">
-                    <!-- conteúdo do modal aqui -->
+                    {/* <!-- conteúdo do modal aqui --> */}
                 </div>
                 <a href="#abrirModal">Open Modal</a>
 
