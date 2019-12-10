@@ -38,7 +38,7 @@ export default class PerfilConsumidor extends Component {
     componentDidMount() {
         console.log('Did');
 
-        localStorage.setItem("usuario-fastrade", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG0gRG8gQ2hpcXVpbmhvIiwiZW1haWwiOiJBZG1ATGl2ZS5jb20iLCJqdGkiOiJhMmIwNmRhZS1lMTFhLTQyNjQtYWI3Yy1hMjEwOTFlODFjYzkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwiUm9sZSI6IjMiLCJJZFVzdWFyaW8iOiIzIiwiSWRFbmRlcmVjbyI6IjEiLCJleHAiOjE1NzU2NjU2MzYsImlzcyI6ImZhc3RyYWRlLmNvbSIsImF1ZCI6ImZhc3RyYWRlLmNvbSJ9.v_UMgBmBw3L0ib8JXPk-DhcPglIhmCnQGtEc1--99LA");
+        localStorage.setItem("usuario-fastrade", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG0gRG8gQ2hpcXVpbmhvIiwiZW1haWwiOiJBZG1ATGl2ZS5jb20iLCJqdGkiOiI4Yzg1ZjZmOS04NDJmLTRhMjAtYWYzNC02MTlhOTZmNmU3MzgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwiUm9sZSI6IjMiLCJJZFVzdWFyaW8iOiIzIiwiSWRFbmRlcmVjbyI6IjEiLCJleHAiOjE1NzYwMTEwMTksImlzcyI6ImZhc3RyYWRlLmNvbSIsImF1ZCI6ImZhc3RyYWRlLmNvbSJ9.GgSUwhK_j_oM_p1IbG9OV46haZ18CcFpCYNhcMlUJzA")
         this.buscarUsuario();
 
         this.setState({id : parseJwt().idUsuario});
@@ -111,8 +111,6 @@ export default class PerfilConsumidor extends Component {
 
             erroDeDados: "",
 
-            id:0,
-
             usuarioLogado: {
                 nomeRazaoSocial: "",
                 cpfCnpj: "",
@@ -133,96 +131,7 @@ export default class PerfilConsumidor extends Component {
             }
         }
 
-        // Declara os estados das funções para que possam ser chamadas no componente
-        // this.atualizaUsuario = this.atualizaUsuario.bind(this);
-        // this.atualizaEndereco = this.atualizaEndereco.bind(this);
-
-        // this.cadastraUsuario = this.cadastraUsuario.bind(this);
-        // this.cadastraEndereco = this.cadastraEndereco.bind(this);
-
-        // this.buscarUsuario = this.buscarUsuario.bind(this);
-        // this.buscarEndereco = this.buscarEndereco.bind(this);
     }
-
-
-    atualizaUsuario(event) {
-        this.setState({ nomeRazaoSocial: event.target.value })
-    }
-    atualizaUsuario(event) {
-        this.setState({ email: event.target.value })
-    }
-    atualizaUsuario(event) {
-        this.setState({ cpfCnpj: event.target.value })
-    }
-    atualizaUsuario(event) {
-        this.setState({ celularTelefone: event.target.value })
-    }
-
-
-    //caminha para que o usuario consiga digitar na tela
-    //Em seguida, podemos adicionar um método handleChange que aceita o argumento do event 
-    //. Este objeto de evento conterá nosso nome e valor de entrada.
-
-    handleNomeRazaoSocialChange = (event) => {
-        this.setState({ nomeRazaoSocial: event.target.value });
-    }
-    handleEmailChange = (event) => {
-        this.setState({ email: event.target.value });
-    }
-    handleCpfCnpjChange = (event) => {
-        this.setState({ cpfCnpj: event.target.value });
-    }
-    handleCelularTelefoneChange = (event) => {
-        this.setState({ celularTelefone: event.target.value });
-    }
-    handleRuaAvChange = (event) => {
-        this.setState({ ruaAv: event.target.value });
-    }
-    handleNumeroChange = (event) => {
-        this.setState({ numero: event.target.value });
-    }
-    handleComplementoChange = (event) => {
-        this.setState({ complemento: event.target.value });
-    }
-    handleBairroChange = (event) => {
-        this.setState({ bairro: event.target.value });
-    }
-    handleEstadoChange = (event) => {
-        this.setState({ estado: event.target.value });
-    }
-    handleCEPChange = (event) => {
-        this.setState({ cep: event.target.value });
-    }
-
-    //usamos um método handleSubmit que chama uma caixa de 
-    //alerta que imprime os valores de estado.
-    // Separei por id = {id_Usuario}
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { nomeRazaoSocial, email, cpfCNPJ, celularTelefone } = this.state
-        alert(`Seus valores de estado:  n
-        nomeRazaoSocial: $ {nomeRazaoSocial}  n
-        email: $ {email} n 
-        cpfCNPJ: $ {cpfCNPJ} n
-        celularTelefone: $ {celularTelefone} `)
-    }
-
-    //usamos um método handleSubmit que chama uma caixa de 
-    //alerta que imprime os valores de estado.
-    // Separei por id = {id_Endereco}
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { ruaAv, numero, complemento, bairro, estado, cep } = this.state
-        alert(`Seus valores de estado:  n
-        ruaAv: $ {ruaAv}  n
-        numero: $ { numero} n 
-        complemento: $ {complemento} n
-        bairro: $ {bairro} n
-        estado: $ {estado} n
-        cep: $ {cep}`)
-    }
-
-
 
     render() {
         return (
@@ -243,7 +152,6 @@ export default class PerfilConsumidor extends Component {
 
                         </div>
 
-
                         <div className="dados_perf">
                             <form onSubmit>
                                 <div className="conj_img">
@@ -253,7 +161,6 @@ export default class PerfilConsumidor extends Component {
                                         src={usuario}
                                         alt="Insire uma imagem"
                                         name="fotoUrlUsuario"
-                                        onChange={this.handleFotoUrlUsuarioChange}
                                         value={this.state.fotoUrlUsuario} />
                                 </div>
                             </form>
@@ -270,8 +177,8 @@ export default class PerfilConsumidor extends Component {
                                             placeholder="Nome Completo"
                                             type="text"
                                             name="nomeRazaoSocial"
-                                            onChange={this.handleNomeRazaoSocialChange}
-                                            value={this.state.usuarioLogado.nomeRazaoSocial} />
+                                            // value={this.state.usuarioLogado.nomeRazaoSocial}
+                                            />
                                     </div>
                                     <div className="item_perfil">
                                         <input
@@ -279,8 +186,8 @@ export default class PerfilConsumidor extends Component {
                                             placeholder="Email"
                                             type="text"
                                             name="email"
-                                            onChange={this.handleEmailChange}
-                                            value={this.state.usuarioLogado.email} />
+                                            // value={this.state.usuarioLogado.email}
+                                             />
                                     </div>
                                 </form>
                             </div>
@@ -294,8 +201,8 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="CPF"
                                         type="text"
                                         name="cpfCNPJ"
-                                        onChange={this.handleCpfCnpjChange}
-                                        value={this.state.usuarioLogado.cpfCnpj} />
+                                        // value={this.state.usuarioLogado.cpfCnpj}
+                                         />
                                 </div>
                                 <div className="item_perfil2">
                                     <input
@@ -303,8 +210,8 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="Telefone para contato"
                                         type="text"
                                         name="celular_telefone"
-                                        onChange={this.handleCelularTelefoneChange}
-                                        value={this.state.usuarioLogado.celularTelefone} />
+                                        // value={this.state.usuarioLogado.celularTelefone} 
+                                        />
                                 </div>
                             </div>
                             <div className="dados_principais">
@@ -314,8 +221,8 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="Endereço:"
                                         type="text"
                                         name="ruaAv"
-                                        onChange={this.handleRuaAvChange}
-                                        value={this.state.usuarioLogado.ruaAv} />
+                                        // value={this.state.usuarioLogado.ruaAv} 
+                                        />
                                 </div>
 
                                 <div className="item_perfil2">
@@ -324,8 +231,8 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="Complemento"
                                         type="text"
                                         name="complemento"
-                                        onChange={this.handleComplementoChange}
-                                        value={this.state.usuarioLogado.complemento} />
+                                        // value={this.state.usuarioLogado.complemento} 
+                                        />
                                 </div>
                                 <div className="item_perfil2">
                                     <input
@@ -333,8 +240,8 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="Numero"
                                         type="text"
                                         name="numero"
-                                        onChange={this.handleNumeroChange}
-                                        value={this.state.usuarioLogado.numero} />
+                                        // value={this.state.usuarioLogado.numero} 
+                                        />
                                 </div>
                             </div>
                             <div className="dados_principais">
@@ -345,8 +252,8 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="CEP"
                                         type="text"
                                         name="cep"
-                                        onChange={this.handleCEPChange}
-                                        value={this.state.usuarioLogado.cep} />
+                                        // value={this.state.usuarioLogado.cep} 
+                                        />
                                 </div>
                                 <div className="item_perfil2">
                                     <input
@@ -354,8 +261,8 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="Bairro"
                                         type="text"
                                         name="bairro"
-                                        onChange={this.handleBairroChange}
-                                        value={this.state.usuarioLogado.bairro} />
+                                        // value={this.state.usuarioLogado.bairro} 
+                                        />
                                 </div>
                                 <div className="item_perfil2">
                                     <input
@@ -363,16 +270,14 @@ export default class PerfilConsumidor extends Component {
                                         placeholder="Estado"
                                         type="text"
                                         name="estado"
-                                        onChange={this.handleEstadoChange}
-                                        value={this.state.usuarioLogado.estado} />
+                                        // value={this.state.usuarioLogado.estado} 
+                                        />
                                 </div>
                             </div>
                             <div className="botao_ficha_perfil">
                                 <div >
                                     <button
                                         type="submit"
-                                        onClick={this.handleClick}
-                                        value="Submit"
                                         className="botao_perfil">ALTERAR</button>
                                 </div>
                             </div>

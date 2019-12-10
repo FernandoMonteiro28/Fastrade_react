@@ -46,7 +46,7 @@ class cadastroProduto extends Component {
 
     // get
     listaProdutos = () => {
-        api.get('/Catproduto')
+        api.get('/Produto')
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listarProd: response.data })
@@ -69,7 +69,7 @@ class cadastroProduto extends Component {
         p.preventDefault();
         console.log("Cadastrando");
 
-        api.post('/Catproduto', this.state.postProduto)
+        api.post('/Produto', this.state.postProduto)
             .then(response => {
                 console.log(response);
                 this.setState({ sucessMsg: "Produto cadastrado com sucesso!" });
@@ -146,8 +146,8 @@ class cadastroProduto extends Component {
                                     <input id="PrecoProd"
                                         type="valor"
                                         name="PrecoProd"
-                                        //value={this.state.listaProdutos.PrecoProd}
-                                        //onChange={this.postSetState} 
+                                        value={this.state.listaProdutos.PrecoProd}
+                                        onChange={this.postSetState} 
                                         />
                                 </div>
                             </div>
