@@ -26,18 +26,29 @@ class Login extends Component {
         this.setState({ erroMensagem: '' })
 
         this.setState({ isLoading: true })
+<<<<<<< HEAD
 
         fetch("http://localhost:3000/api/login", {
+=======
+        
+        fetch("https://localhost:5001/api/login", {
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
             method: "POST",
             body: JSON.stringify(
                 {
                     email: this.state.email,
+<<<<<<< HEAD
                     senha: this.state.senha
+=======
+                    senha: this.state.senha,
+
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
                 }),
             headers: {
                 "Content-Type": "application/json"
             }
         })
+<<<<<<< HEAD
             .then(response => response.json())
             .then(response => {
                 console.log(response);
@@ -50,6 +61,19 @@ class Login extends Component {
 
                     // Exibe no console somente o token
                     console.log("Meu token é: " + response.data.token)
+=======
+
+            .then(response => response.json().then(data => ({ status: response.status, body: data })))
+            .then(response => {
+                console.log(response);
+
+                if (response.status === 200) {
+                    localStorage.setItem('usuario-fastrade', response.body.token)
+                    this.setState({ isLoading: false })
+
+                    // Exibe no console somente o token
+                    console.log("Meu token é: " + response.body.token)
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
 
                     // Define base64 recebendo o payload do token
                     var base64 = localStorage.getItem('usuario-fastrade').split('.')[1]
@@ -63,14 +87,25 @@ class Login extends Component {
                     console.log(JSON.parse(window.atob(base64)))
 
                     // Exibe no console o tipo de usuário logado
+<<<<<<< HEAD
                     console.log(parseJwt().Role)
 
                     if (parseJwt().Role === 'Administrador') {
+=======
+                     console.log("O seu tipo de id é ", parseJwt().Role)
+
+                     //Caso o usuario seja um administrador ele vai para home
+                    if (parseJwt().Role === '3') {
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
                         //console.log(this.props)
                         this.props.history.push('/Home');
                     }
                     else {
+<<<<<<< HEAD
                         this.props.history.push('/Consumidor');
+=======
+                        this.props.history.push('/Dicas');
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
                     }
                 }
 
@@ -78,12 +113,21 @@ class Login extends Component {
 
             .catch(error => console.log(error))
 
+<<<<<<< HEAD
         if (parseJwt().Role === 'Administrador') {
             this.props.history.push('/Home');
         }
         else {
             this.props.history.push('/cadastrarProduto');
         }
+=======
+        // if (parseJwt().Role === 'Administrador') {
+        //     this.props.history.push('/Home');
+        // }
+        // else {
+        //     this.props.history.push('/cadastrarProduto');
+        // }
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
     }
 
     atualizaEmail(input) {
@@ -105,7 +149,11 @@ class Login extends Component {
                             <div className="conteudotodo">
                                 <label className="e-mail">
                                     <p className="login">Email</p>
+<<<<<<< HEAD
                                     <input name="email"
+=======
+                                    <input className="login" name="email"
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
                                         type="text" required className="caixa_cadastro"
                                         placeholder="exemplo@hotmail.com"
                                         arial-label="exemplo@hotmail.com"
@@ -115,7 +163,11 @@ class Login extends Component {
                             <div className="conteudotodo">
                                 <label>
                                     <p className="login">Senha</p>
+<<<<<<< HEAD
                                     <input name="Senha" type="password" required className="caixa_cadastro"
+=======
+                                    <input className="login" name="Senha" type="password" required className="caixa_cadastro"
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
                                         placeholder="Digite sua senha..."
                                         arial-label="Digite sua senha"
                                         onChange={this.atualizaSenha.bind(this)} />
@@ -131,7 +183,11 @@ class Login extends Component {
                                 <a href="https://pt-br.facebook.com/"><img className="botaolink" src={logoface} alt="Logar com facebook" /></a>
                                 <a
                                     href="https://accounts.google.com/signin/v2/identifier?hl=pt-BR&passive=true&continue=https%3A%2F%2Fwww.google.com.br%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img
+<<<<<<< HEAD
                                         src={logogoogle} className="botaolink" alt="Logar com google" /></a>
+=======
+                                        src={logogoogle} className="botaolink" alt="Logar com google"/></a>
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
                             </div>
                         </form>
                     </div>

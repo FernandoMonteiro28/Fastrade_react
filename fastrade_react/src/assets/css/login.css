@@ -52,7 +52,11 @@ header {
 }
 
 
+<<<<<<< HEAD
 input{
+=======
+.login input{
+>>>>>>> 459942d8808b1ba2efd9e3609a989951aa4bf142
     font-size: 2.0em;
 }
 
