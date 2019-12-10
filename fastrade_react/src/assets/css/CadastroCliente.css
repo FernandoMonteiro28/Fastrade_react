@@ -32,9 +32,10 @@
     width: 20px;
 }
 
-.tipodeusuario{
+/* .tipodeusuario{
     
-}
+} */
+
 .direito{
     width: 50%;
     align-items: center;
@@ -93,6 +94,7 @@ h3{
 
 
 .formulario_cadastro {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
