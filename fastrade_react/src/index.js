@@ -33,7 +33,13 @@ import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
 import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
 import Erro from './pages/paginaErro/Erro';
 
-import Login from './pages/Login/Login';
+import Login from'./pages/Login/Login';
+import './assets/css/login.css';
+
+
+
+
+
 
 
 //Criamos uma variavel que Realiza a criação das rotas:
@@ -51,6 +57,8 @@ const Rotas = (
 				<Route path="/Brigadeiro de Casca de Banana" component={Brigadeiro} />
 				<Route path="/Creme de Couve-Flor" component={Creme} />
 				<Route path="/Patê de Alho Poró" component={Pate} />
+				
+				<Route exact path="/" component={App} />
 				<Route path="/Home" component={App} />
 				<Route path="/Dicas" component={Dicas} />
 				<Route path="/Dica" component={Dicas} />
@@ -60,6 +68,9 @@ const Rotas = (
 				<Route path="/PerfilComerciante" component={PerfilComerciante} />
             	<Route path="/PerfilConsumidor" component={PerfilConsumidor} />
             	<Route path="/PerfilProduto" component={PerfilProduto} />
+				<Route path="/cadastroProdutos" component={cadastroProduto} />
+				<Route path="/Login" component={Login}/>
+
 				<Route component={Erro} />
 			</Switch>
 		</div>
