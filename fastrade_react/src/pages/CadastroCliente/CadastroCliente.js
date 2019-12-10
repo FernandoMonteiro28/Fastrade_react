@@ -5,15 +5,10 @@ import '../../assets/css/cadastroCliente.css';
 
 class CadastroCliente extends Component {
     render() {
-        return {
-
-            <div className = "container">
-            <div className="card">
-                <form method="POST" id="form_cadastro">
-                    <div className="formulario_cadastro">
-
+        return (
             <div className="container_cadastro" >
                 <div className="card">
+
                     <form method="POST" id="form_cadastro">
                         <div className="formulario_cadastro">
 
@@ -138,10 +133,13 @@ class CadastroCliente extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    };
-                }
+                    </form>
+
+                </div>
+            </div>
+
+        );
+    }
 }
-                
+
 export default CadastroCliente;

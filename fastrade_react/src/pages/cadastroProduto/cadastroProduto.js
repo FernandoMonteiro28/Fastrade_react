@@ -21,7 +21,6 @@ class cadastroProduto extends Component {
         }
 
     }
-
     //Ciclo de vida 
 
     componentDidMount() {
@@ -37,13 +36,8 @@ class cadastroProduto extends Component {
             .catch(error => {
                 console.log(error)
             })
-    }
-
-
-
+}
     render() {
-
-
 
         //  const{nomeProd,PrecoProd,descProd,valProd} = this.state;
         return (
