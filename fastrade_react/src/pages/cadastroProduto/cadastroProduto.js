@@ -94,9 +94,9 @@ class cadastroProduto extends Component {
             })
     }
 
-    //#endregion
+//#endregion
 
-    //#region POST
+//#region POST
     postSetState = (input) => {
         this.setState({
             postOferta: {
@@ -126,8 +126,7 @@ class cadastroProduto extends Component {
             this.getOfertas();
         }, 1500);
     }
-
-    //#endregion
+//#endregion
 
 //#region buscar imagens
 postOferta = (event) => {
@@ -136,14 +135,14 @@ postOferta = (event) => {
 
     let informacao_produto = this.state.oferta;
 
-    let usuarioFormData = new FormData();
-    usuarioFormData.set("id_Produto", this.state.oferta.id_Produto);
-    usuarioFormData.set("id_Usuario", this.state.oferta.id_Usuario);
-    usuarioFormData.set("id_Cat_Produto", this.state.oferta.id_Cat_Produto);
-    usuarioFormData.set("preco", this.state.oferta.preco);
-    usuarioFormData.set("validade", this.state.oferta.validade);
+    let ofertaFormData = new FormData();
+    ofertaFormData.set("id_Produto", this.state.oferta.id_Produto);
+    ofertaFormData.set("id_Usuario", this.state.oferta.id_Usuario);
+    ofertaFormData.set("id_Cat_Produto", this.state.oferta.id_Cat_Produto);
+    ofertaFormData.set("preco", this.state.oferta.preco);
+    ofertaFormData.set("validade", this.state.oferta.validade);
 
-    usuarioFormData.set('fotoUrlOferta', this.state.updateUsuario.fotoUrlOferta.current.files[0] , this.state.postOferta.fotoUrlOferta.value);
+    ofertaFormData.set('fotoUrlOferta', this.state.fotoUrlOferta.current.files[0] , this.state.postOferta.fotoUrlOferta.value);
 
 
 //#endregion
