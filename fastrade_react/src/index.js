@@ -32,7 +32,6 @@ import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
 import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
 import Erro from './pages/paginaErro/Erro';
-
 import Login from'./pages/Login/Login';
 import './assets/css/login.css';
 

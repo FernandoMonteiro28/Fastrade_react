@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logoface from '../../assets/img/face.png';
 import logogoogle from '../../assets/img/Agrupar 20.png';
 import { parseJwt } from '../../services/auth';
+import Cabecalho from '../../components/cabecalho/cabecalho';
+
+
 
 class Login extends Component {
 
@@ -26,7 +29,7 @@ class Login extends Component {
         this.setState({ erroMensagem: '' })
 
         this.setState({ isLoading: true })
-        
+
         fetch("https://localhost:5001/api/login", {
             method: "POST",
             body: JSON.stringify(
@@ -63,15 +66,15 @@ class Login extends Component {
                     console.log(JSON.parse(window.atob(base64)))
 
                     // Exibe no console o tipo de usuário logado
-                     console.log("O seu tipo de id é ", parseJwt().Role)
+                    console.log("O seu tipo de id é ", parseJwt().Role)
 
-                     //Caso o usuario seja um administrador ele vai para home
+                    //Caso o usuario seja um administrador ele vai para home
                     if (parseJwt().Role === '3') {
                         //console.log(this.props)
-                        this.props.history.push('/Home');
+                        this.props.history.push('/PerfilComerciante');
                     }
                     else {
-                        this.props.history.push('/Dicas');
+                        this.props.history.push('/PerfilComerciante');
                     }
                 }
 
@@ -100,6 +103,7 @@ class Login extends Component {
         return (
             <div>
                 <div className="container">
+                    <Cabecalho {...this.props} />
                     <div className="card">
                         <h1 className="conta">Criar sua conta/Logar</h1>
                         <form onSubmit={this.realizarLogin.bind(this)}>
@@ -132,7 +136,7 @@ class Login extends Component {
                                 <a href="https://pt-br.facebook.com/"><img className="botaolink" src={logoface} alt="Logar com facebook" /></a>
                                 <a
                                     href="https://accounts.google.com/signin/v2/identifier?hl=pt-BR&passive=true&continue=https%3A%2F%2Fwww.google.com.br%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img
-                                        src={logogoogle} className="botaolink" alt="Logar com google"/></a>
+                                        src={logogoogle} className="botaolink" alt="Logar com google" /></a>
                             </div>
                         </form>
                     </div>
