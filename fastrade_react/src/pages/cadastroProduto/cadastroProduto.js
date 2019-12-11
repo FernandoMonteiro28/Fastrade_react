@@ -61,6 +61,9 @@ class cadastroProduto extends Component {
     componentDidUpdate() {
         console.log("Atualizado")
     }
+
+   
+
     //lista de produtos
     listaProdutos = () => {
         api.get('/Produto')
@@ -112,10 +115,10 @@ class cadastroProduto extends Component {
                 <Header></Header>
                 <main>
 
-                    <div className="container">
+                    <div className="container_cadastro">
                         <div className="card_produto">
                             <h1 className="titulo_cadastro">Cadastro de Produto</h1>
-                            <MDBTable>
+                            {/* <MDBTable>
                                 <MDBTableHead>
                                     <tr>
                                         <th>#</th>
@@ -128,24 +131,25 @@ class cadastroProduto extends Component {
                                 <MDBTableBody >
                                     {
                                         this.state.listaProdutos.map(
-                                            function (f) {
+                                            function (o) {
                                                 return (
-                                                    <tr key={f.idProduto, f.idOferta} >
-                                                        <td>{f.idProduto}</td>
-                                                        <td>{f.idOferta}</td>
-                                                        <td>{f.nomeNomeProduto}</td>
-                                                        <td>{f.nomedescricaoDoProduto}</td>
-                                                        <td>{f.nomeQuantidade}</td>
-                                                        <td>{f.nomePreco}</td>
-                                                        <td>{f.nomevalidade}</td>
-                                                        <td>{f.idCategoriaNavigation.nomeCategoria}</td>
+                                                    <tr key={o.idProduto, o.idOferta} >
+
+                                                        <td>{o.idProduto}</td>
+                                                        <td>{o.idOferta}</td>
+                                                        <td>{o.nomeProduto}</td>
+                                                        <td>{o.descricaoDoProduto}</td>
+                                                        <td>{o.quantidade}</td>
+                                                        <td>{o.preco}</td>
+                                                        <td>{o.validade}</td>
+                                                        <td>{o.idCategoriaNavigation.nomeCategoria}</td>
                                                     </tr>
                                                 )
                                             }.bind(this)
                                         )
                                     }
                                 </MDBTableBody>
-                            </MDBTable>
+                            </MDBTable> */}
 
                             <form onSubmit={this.postProduto}>
                                 <div className="conjunto_cadastro">
@@ -156,7 +160,7 @@ class cadastroProduto extends Component {
                                                 id="nomeProduto"
                                                 type="text"
                                                 name="nomeProduto"
-                                                value={this.state.props.listaProdutos.nomeProduto}
+                                                // value={this.state.props.listaProdutos.nomeProduto}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -236,7 +240,7 @@ class cadastroProduto extends Component {
                                                 type="date"
                                                 name="validade"
                                             // value={this.state.listaProdutos.validade}
-                                            // onChange={this.postSetState}
+                                                onChange={this.postSetState}
                                             />
                                         </div>
                                     </div>
@@ -253,9 +257,10 @@ class cadastroProduto extends Component {
                                 </MDBModalFooter>
                             </form>
                         </div>
-                        <Rodape></Rodape>
+                        
                     </div>
                 </main>
+                <Rodape></Rodape>
             </div>
 
         );

@@ -28,7 +28,7 @@
 
 }
 
-.container{
+.container_cadastro{
     width: 1200px;
     margin: auto;
     text-align: center;
@@ -53,7 +53,7 @@ button.botao:hover{
     display: grid;
     grid-template-columns: 110px 120px;
     margin: auto;
-    width: 250px;
+    width: 132px;
 }
 .botao2{
     background-color: #BC3908;

@@ -126,8 +126,8 @@ class Login extends Component {
                                         onChange={this.atualizaSenha.bind(this)} />
                                 </label>
                                 <div className="caixabotao">
-                                    <button type="submit">Continuar</button>
-                                    <button type="submit">Registrar</button>
+                                    <button className="acesso"type="submit">Continuar</button>
+                                    <button className="acesso"type="submit">Registrar</button>
                                 </div>
 
                             </div>

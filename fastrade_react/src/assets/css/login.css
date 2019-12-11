@@ -100,7 +100,7 @@ header {
     padding-top: 20px;
 }
 
-button{
+.acesso button{
     width: 200px;
     margin: 10px auto;
     text-align: center;
@@ -283,7 +283,7 @@ footer {
         margin-left: 10px;
     }
     
-    .button{
+    .acesso button{
         width: 220px;
         margin: 0px;
         padding: 0px;

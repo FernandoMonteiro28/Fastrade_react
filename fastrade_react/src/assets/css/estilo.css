@@ -111,7 +111,7 @@ footer {
     margin: 10px;
 }
 
- button {
+.button_e {
      width: 50%;
     margin: 50px auto;
     font-size: 1.2em;
@@ -128,7 +128,7 @@ footer {
      width: 100%;
      margin-bottom: 10px;
  }
- .card input {
+ input.card {
     background-color: white;
     border-radius: 8px;
     width: 300px;
@@ -136,7 +136,7 @@ footer {
     border: solid 1px black;
     padding-left: 10px;
  }
- h3{
+ .h3{
     font-family: 'Dosis', sans-serif;
  
     
@@ -158,7 +158,7 @@ footer {
     display: flex;
     flex-direction: column;
 }
-.card input{
+input.card{
     height: 50px;
     border-style: 1px outset #707070;
 

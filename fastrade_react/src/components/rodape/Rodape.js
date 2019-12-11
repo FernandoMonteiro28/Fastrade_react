@@ -7,9 +7,9 @@ function Rodape() {
     return (
         <div>
             <footer className="rodapePrincipal">
-                <div className="container">
-                    <div className="todo">
-                        <div className="contato">
+                <div className="container_rodape">
+                    <div className="todo_rodape">
+                        <div className="contato_rodape">
                             <p>telefone: (11) 0000-0000</p>
                             <p>Site: exemplo@fastrade.com</p>
                             <p>Email: frastrade@frastrade.com</p>
