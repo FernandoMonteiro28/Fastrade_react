@@ -94,14 +94,12 @@ button.botao:hover{
 .card_produto select{
     border: 0; 
     width: 250px;
-    height: 30px;
+    height: 33px;
 	border-bottom: 2px solid #BC3908;
 	border-left: 2px solid #BC3908;
 	border-right: 2px solid #BC3908;
 	border-radius: 10px;
     background: transparent;
-    padding-bottom:33px;
- 
 	color: black;
     
  }
