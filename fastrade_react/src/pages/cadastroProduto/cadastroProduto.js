@@ -87,20 +87,20 @@ class cadastroProduto extends Component {
     //#region POST
     postSetState = (input) => {
         this.setState({
-            postProduto: {
+            postOferta: {
                 ...this.state.postOferta, [input.target.name]: input.target.value
             }
 
         })
     }
 
-    postProduto = (p) => {
+    postOferta = (p) => {
 
         p.preventDefault();
         console.log("Cadastrando");
 
-        api.post('/Produto', this.state.postProduto)
-            ('/Oferta', this.state.postProduto)
+        api.post ('/Oferta', this.state.postOferta)
+           
             .then(response => {
                 console.log(response);
                 this.setState({ sucessMsg: "Produto cadastrado com sucesso!" });
@@ -111,7 +111,7 @@ class cadastroProduto extends Component {
             })
 
         setTimeout(() => {
-            this.listaProdutos();
+            this.listaOfertas();
         }, 1500);
     }
 
@@ -129,7 +129,7 @@ class cadastroProduto extends Component {
                         <div className="card_produto">
                             <h1 className="titulo_cadastro">Cadastro de Produto</h1>
 
-                            <form onSubmit={this.postProduto}>
+                            <form onSubmit={this.postOferta}>
                                 <div className="conjunto_cadastro">
                                     <div className="form-group">
                                         <label htmlFor="nomeProd">Nome do Produto</label>
@@ -138,7 +138,7 @@ class cadastroProduto extends Component {
                                                 id="nomeProduto"
                                                 type="text"
                                                 name="nomeProduto"
-                                                // value={this.state.props.listaProdutos.nomeProduto}
+                                                value={this.state.listaOfertas.nomeProduto}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -150,7 +150,7 @@ class cadastroProduto extends Component {
                                             <input id="quantidade"
                                                 type="number"
                                                 name="quantidade"
-                                                // value={this.state.listaProdutos.quantidade}
+                                                value={this.state.listaOfertas.quantidade}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -162,7 +162,7 @@ class cadastroProduto extends Component {
                                             <input id="preco"
                                                 type="valor"
                                                 name="preco"
-                                                // value={this.state.listaProdutos.preco}
+                                                value={this.state.listaOfertas.preco}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
