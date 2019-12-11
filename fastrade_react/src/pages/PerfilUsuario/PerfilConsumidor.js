@@ -22,79 +22,7 @@ import { parseJwt, usuarioAutenticado } from '../../services/auth';
 export default class PerfilConsumidor extends Component {
 
 
-    UNSAFE_componentWillMount() {
-        console.log('Carregando');
-    }
-
-    buscarUsuario() {
-        api.get('/usuario/' + this.state.id)
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ usuarioLogado: response.data });
-                };
-            })
-    }
-    // É executado quando a página carrega
-    componentDidMount() {
-        console.log('Did');
-
-        localStorage.setItem("usuario-fastrade", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG0gRG8gQ2hpcXVpbmhvIiwiZW1haWwiOiJBZG1ATGl2ZS5jb20iLCJqdGkiOiI4Yzg1ZjZmOS04NDJmLTRhMjAtYWYzNC02MTlhOTZmNmU3MzgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwiUm9sZSI6IjMiLCJJZFVzdWFyaW8iOiIzIiwiSWRFbmRlcmVjbyI6IjEiLCJleHAiOjE1NzYwMTEwMTksImlzcyI6ImZhc3RyYWRlLmNvbSIsImF1ZCI6ImZhc3RyYWRlLmNvbSJ9.GgSUwhK_j_oM_p1IbG9OV46haZ18CcFpCYNhcMlUJzA")
-        this.buscarUsuario();
-
-        this.setState({id : parseJwt().idUsuario});
-    }
-
-    maisInformacoes = (usuario) => {
-        this.toggle()
-
-        this.setState({
-            InformacoesUsuario: {
-                nomeRazaoSocial: usuario.nomeRazaoSocial,
-                email: usuario.email,
-                cpfCnpj: usuario.cpfCnpj,
-                celularTelefone: usuario.celularTelefone,
-            }
-        })
-    }
-
-    //Adicionar o get, para receber os dados do banco
-
-    // Faz a chamada para a API usando fetch
-    //     fetch("https://localhost:5001/api/Usuario/",
-    //         {
-    //             // Define o método da requisição ( GET )
-    //             method: 'GET',
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             }
-    //         })
-    //         .then(resposta => resposta.json())
-    //         .then(resposta => {
-    //             // Caso a requisição retorne um status code 200,
-    //             if (resposta.status === 200) {
-    //                 // exibe no console do navegador a mensagem 'Usuario cadastrada!'
-    //                 console.log('Usuario cadastrada!');
-    //             };
-    //         })
-
-    //         // Caso ocorra algum erro,
-    //         // exibe este erro no console do navegador
-    //         .catch(erro => console.log(erro))
-
-    //         // Então, atualiza a lista de categorias
-    //         // sem o usuário precisar executar outra ação
-    //         .then(this.buscarUsuario)
-
-
-    componentDidUpdate() {
-        console.log("Update");
-    }
-
-
-    componentWillUnmount() {
-        console.log("Unmount")
-    }
-
+    
     //props é usado para passar dados para elementos JSX
     constructor(props) {
         super(props);
@@ -106,10 +34,8 @@ export default class PerfilConsumidor extends Component {
             listaUsuario: [],
             listaEndereco: [],
 
-            idUsuario: "",
+            idUsuario: parseJwt().idUsuario,
             idEndereco: "",
-
-            erroDeDados: "",
 
             usuarioLogado: {
                 nomeRazaoSocial: "",
@@ -128,10 +54,124 @@ export default class PerfilConsumidor extends Component {
                     estado: "",
                     usuario: []
                 },
+                nomeCategoria: "",
+                erroMsg: "",
+                sucessMsg: "",
+                modal: false
             }
         }
 
     }
+
+    UNSAFE_componentWillMount() {
+        console.log('Carregando');
+    }
+
+    buscarUsuario() {
+        api.get('/usuario/' + this.state.id)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ usuarioLogado: response.data });
+                };
+            })
+    }
+    // É executado quando a página carrega
+    componentDidMount() {
+        this.getUsuario();
+        console.log('Did');
+    }
+
+    getUsuario = () => {
+        //pegando id do usuario
+        api.get('/usuario/' + parseJwt().id)
+
+        .then(response => {
+            if (response.status === 200) {
+                this.setState({ usuario: response.data })
+            }
+        })
+    }
+
+    alterarStateUsuario = event => {
+        this.setState({
+            usuario : {
+                ...this.state.usuario, [event.target.name] : event.target.value
+            }
+        });
+    }
+
+    maisInformacoes = (usuario) => {
+        this.toggle()
+
+        this.setState({
+            InformacoesUsuario: {
+                nomeRazaoSocial: usuario.nomeRazaoSocial,
+                email: usuario.email,
+                cpfCnpj: usuario.cpfCnpj,
+                celularTelefone: usuario.celularTelefone,
+            }
+        })
+    }
+
+    componentDidUpdate() {
+        console.log("Update");
+    }
+
+
+    componentWillUnmount() {
+        console.log("Unmount")
+    }
+
+
+    updateUsuario = (event) =>{
+
+        event.preventDefault();
+
+        let usuario_alterado = this.state.usuario;
+
+        let usuarioFormData = new FormData();
+        usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
+        usuarioFormData.set("nomeRazaoSocial", this.state.usuario.nome);
+        usuarioFormData.set("cpfCnpj", this.state.usuario.identificador);
+        usuarioFormData.set("email", this.state.usuario.email);
+        usuarioFormData.set("senha", this.state.usuario.senha);
+        
+        let enderecoFormData = new FormData();
+        enderecoFormData.set("idEndereco", this.state.usuario.senha);
+        enderecoFormData.set("celularTelefone", this.state.usuario.senha);
+        enderecoFormData.set("idEndereco", this.state.usuario.senha);
+        enderecoFormData.set("ruaAv", this.state.usuario.senha);
+        enderecoFormData.set("numero", this.state.usuario.senha);
+        enderecoFormData.set("complemento", this.state.usuario.senha);
+        enderecoFormData.set("cep", this.state.usuario.senha);
+        enderecoFormData.set("bairro", this.state.usuario.senha);
+        enderecoFormData.set("estado", this.state.usuario.senha); 
+
+        usuarioFormData.set('imgusuario', this.state.updateUsuario.imgusuario.current.files[0] , this.state.updateUsuario.imgusuario.value);
+
+            api.FormData.put('/usuario/'+ parseJwt().id ,usuarioFormData)
+            api.FormData.put('/endereco/'+ parseJwt().id ,enderecoFormData)
+            
+            .then(() => {
+                
+                this.setState({successMsg : "Perfil alterado com sucesso!"});
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+            setTimeout(() => {
+                this.getUsuario();
+            }, 1500);
+        }
+
+    habilitaInput = () => {
+        this.setState({
+            isEdit: false,
+        })
+    }
+    
+
 
     render() {
         return (
@@ -165,9 +205,6 @@ export default class PerfilConsumidor extends Component {
                                 </div>
                             </form>
 
-                            {/* O estado fornece um valor à entrada e a entrada solicita uma atualização 
-                            de estado quando o evento onChange é acionado – o evento onChange será 
-                            acionado em cada pressionamento de tecla. */}
 
                             <div className="usuario_perfil">
                                 <form onSubmit={this.cadastrarPerfilConsumidor}>
