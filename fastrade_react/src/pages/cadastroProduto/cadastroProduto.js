@@ -5,17 +5,10 @@ import Rodape from '../../components/rodape/Rodape.js';
 import api from './../../services/api';
 
 
-import {
-    MDBBtn,
+import {    
     MDBTable,
     MDBTableBody,
-    MDBTableHead,
-    MDBAlert,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter,
-    MDBInput
+    MDBTableHead   
 } from 'mdbreact';
 
 class cadastroProduto extends Component {
@@ -25,18 +18,19 @@ class cadastroProduto extends Component {
         super(props);
         this.state = {
 
-            listarProd: [],
-            listarOferta: [],
+            listaProdutos: [],
+            listaOfertas: [],
+            listaCategorias: [],
 
-
-            postProduto: {
-                nomeProduto: "",
-                preco: "",
-                categoriaId: "",
+            postOferta: {
                 quantidade: "",
-                descricaoDoProduto: "",
-                validade: ""
+                preco: "",
+                validade: "",
+                id_Produto: "",
+                id_Usuario: "",
+                id_Cat_Produto: ""
             },
+            
             erroMsg: "",
             sucessMsg: "",
             modal: false
@@ -51,36 +45,50 @@ class cadastroProduto extends Component {
     //Ciclo de vida 
 
     componentDidMount() {
-        console.log('Carregado');
-        console.log(this.listarProd);
-        console.log(this.listarProd);
-        console.log(this.listarOferta);
-        this.listaProdutos();
+        this.getOfertas();
+        this.getProdutos();
+        this.getCategorias();
     }
 
     componentDidUpdate() {
         console.log("Atualizado")
     }
 
-   
-
-    //lista de produtos
-    listaProdutos = () => {
-        api.get('/Produto')
-        api.get('/Oferta')
+    //#region GET
+    getOfertas = () => {
+        api.get('/oferta')
             .then(response => {
                 if (response.status === 200) {
-                    this.setState({ listarProd: response.data })
-                    this.setState({ listarOferta: response.data })
+                    this.setState({ listaOfertas: response.data })
                 }
             })
     }
 
-    // post
+    getCategorias = () => {
+        api.get('/catproduto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaCategorias: response.data })
+                }
+            })
+    }
+
+    getProdutos = () => {
+        api.get('/produto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaProdutos: response.data })
+                }
+            })
+    }
+
+    //#endregion
+
+    //#region POST
     postSetState = (input) => {
         this.setState({
             postProduto: {
-                ...this.state.postProduto, [input.target.name]: input.target.value
+                ...this.state.postOferta, [input.target.name]: input.target.value
             }
 
         })
@@ -107,6 +115,8 @@ class cadastroProduto extends Component {
         }, 1500);
     }
 
+    //#endregion
+
     render() {
 
         return (
@@ -118,38 +128,6 @@ class cadastroProduto extends Component {
                     <div className="container_cadastro">
                         <div className="card_produto">
                             <h1 className="titulo_cadastro">Cadastro de Produto</h1>
-                            {/* <MDBTable>
-                                <MDBTableHead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nome do produto</th>
-                                        <th>Descrição</th>
-                                        <th>Categoria</th>
-                                        <th>Açõe</th>
-                                    </tr>
-                                </MDBTableHead >
-                                <MDBTableBody >
-                                    {
-                                        this.state.listaProdutos.map(
-                                            function (o) {
-                                                return (
-                                                    <tr key={o.idProduto, o.idOferta} >
-
-                                                        <td>{o.idProduto}</td>
-                                                        <td>{o.idOferta}</td>
-                                                        <td>{o.nomeProduto}</td>
-                                                        <td>{o.descricaoDoProduto}</td>
-                                                        <td>{o.quantidade}</td>
-                                                        <td>{o.preco}</td>
-                                                        <td>{o.validade}</td>
-                                                        <td>{o.idCategoriaNavigation.nomeCategoria}</td>
-                                                    </tr>
-                                                )
-                                            }.bind(this)
-                                        )
-                                    }
-                                </MDBTableBody>
-                            </MDBTable> */}
 
                             <form onSubmit={this.postProduto}>
                                 <div className="conjunto_cadastro">
@@ -196,13 +174,11 @@ class cadastroProduto extends Component {
                                         <div className="input-button">
                                             <select id="descProd"
                                                 name="categoriaId"
-                                                // value={this.state.listaProdutos.categoriaId}
-                                                onChange={this.postSetState}
-                                            >
+                                                value={this.state.listaOfertas.idCatProduto}
+                                                onChange={this.postSetState}>
                                                 {
-                                                    this.state.listarProd.map(function (c) {
+                                                    this.state.listaCategorias.map(function (c) {
                                                         return (
-
                                                             <option key={c.idCatProduto} value={c.idCatProduto}>
                                                                 {c.tipo}
                                                             </option>
@@ -210,12 +186,7 @@ class cadastroProduto extends Component {
                                                         )
                                                     })
                                                 }
-                                                {/* <option value="">Enlatado</option>
-                        <option value="">Opel</option>
-                        <option value="">Audi</option> */}
-
                                             </select>
-
                                         </div>
                                     </div>
 
@@ -226,7 +197,7 @@ class cadastroProduto extends Component {
                                             <input id="descricaoDoProduto"
                                                 type="text"
                                                 name="descricaoDoProduto"
-                                                // value={this.state.listaProdutos.descricaoDoProduto}
+                                                value={this.state.listaOfertas.descricaoDoProduto}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -239,24 +210,45 @@ class cadastroProduto extends Component {
                                             <input id="validade"
                                                 type="date"
                                                 name="validade"
-                                            // value={this.state.listaProdutos.validade}
+                                                value={this.state.listaOfertas.validade}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <MDBModalFooter>
-
-                                    <div className="buttons-area">
-
-                                        <MDBBtn
-                                            type="submit"
-                                            color="secondary"
-                                            className="botao">ADICIONAR</MDBBtn >
+                                <div className="botao_ficha_perfil">
+                                        <button type="submit" className="botao_perfil">CADASTRAR</button>
                                     </div>
-                                </MDBModalFooter>
-                            </form>
+                           </form>
                         </div>
+                        <MDBTable>
+                        <MDBTableHead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome Produto</th>
+                                <th>Descrição</th>
+                                <th>Preço</th>
+                                <th>Quantidade</th>
+                                <th>Validade</th>
+                            </tr>
+                        </MDBTableHead>
+                        <MDBTableBody>
+                            {
+                                this.state.listaOfertas.map(function (o) {
+                                    return (
+                                        <tr key={o.idOferta}>
+                                            <td>{o.idOferta}</td>
+                                            <td>{o.idProdutoNavigation.nomeProduto}</td>
+                                            <td>{o.idProdutoNavigation.descricaoDoProduto}</td>
+                                            <td>{o.preco}</td>
+                                            <td>{o.quantidade}</td>
+                                            <td>{o.validade}</td>
+                                        </tr>
+                                    )
+                                }.bind(this))
+                            }
+                        </MDBTableBody>
+                    </MDBTable>
                         
                     </div>
                 </main>
