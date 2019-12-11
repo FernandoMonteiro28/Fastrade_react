@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Cabecalho from '../../components/cabecalho/cabecalho';
 
 //Aqui importamos imagens
 import logo_banner from '../../assets/img/logo_banner.png';
@@ -14,9 +13,9 @@ import bannerFinal from '../../assets/img/img_2.png';
 import { Link } from 'react-router-dom';
 
 //importamos a css da home
+import Cabecalho from '../../components/cabecalho/cabecalho';
 import Home from '../../assets/css/Home.css'
 import { parseJwt } from '../../services/auth';
-import cabecalho from '../../components/cabecalho/cabecalho';
 
 
 //Aqui importamos paginas
@@ -52,7 +51,7 @@ class App extends Component {
 
   }
   // temos uma lista atualizada onde escolhemos qual produto ira aparecer
-  listaAtualizada = () => { 
+  listaAtualizada = () => {
     fetch("https://localhost:5001/api/oferta")
       .then(response => response.json())
       .then(data => this.setState({ listaNomeOferta: data }));
@@ -60,9 +59,9 @@ class App extends Component {
 
   render() {
     return (
-     
+
       <div className="App" >
-      <cabecalho {...this.props}/>
+        <Cabecalho {...this.props} />
         <div className="tod_home">
           <div className="estrut_frase">
             <p className="frase_dicas">
@@ -110,7 +109,7 @@ class App extends Component {
               <div className="global_informativa">
                 <div className="caixa_informativa">
                   <div><img src={shopPng} alt="Imagem de shopping" className="img_informativa" /></div>
-                   <div className="frase_informativa"><p> Visite nossa página produtos de produtos. E aproveite para comprar!</p></div>
+                  <div className="frase_informativa"><p> Visite nossa página produtos de produtos. E aproveite para comprar!</p></div>
                 </div>
               </div>
 
