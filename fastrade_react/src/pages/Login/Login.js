@@ -63,31 +63,26 @@ class Login extends Component {
 
                     // Exibe no console o valor do payload convertido para JSON
                     console.log(JSON.parse(window.atob(base64)))
-
+                    
                     // Exibe no console o tipo de usuário logado
-
+                    
                     console.log(parseJwt().Role)
-
-                    if (parseJwt().Role === 'Administrador') {
-
-                     console.log("O seu tipo de id é ", parseJwt().Role)
-
+                    
                     console.log("O seu tipo de id é ", parseJwt().Role)
-
-                    //Caso o usuario seja um administrador ele vai para home
+                        
+                        //Caso o usuario seja um administrador ele vai para home
                     if (parseJwt().Role === '3') {
 
                         //console.log(this.props)
                         this.props.history.push('/PerfilComerciante');
                     }
                     else {
-                        this.props.history.push('/Dicas');
                         this.props.history.push('/PerfilComerciante');
-
                     }
                 }
-
-            })
+            
+            }
+            )
 
             .catch(error => console.log(error))
 

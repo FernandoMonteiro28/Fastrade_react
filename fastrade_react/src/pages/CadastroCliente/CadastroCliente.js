@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 //  import '../../assets/css/cadastroCliente.css';
 
-class CadastroCliente extends Component {
 
-constructor() {
-super();
 
 class CadastroCliente extends Component {
     render() {

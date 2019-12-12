@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import usuario from '../../assets/img/usuario.png';
 import api from '../../services/api.js';
 import apiFormData from '../../services/apiFormData.js';
-import { parseJwt } from '../../services';
+import { parseJwt } from '../../services/auth';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
