@@ -39,6 +39,7 @@ class Login extends Component {
                 "Content-Type": "application/json"
             }
         })
+<<<<<<< HEAD
             .then(response => response.json())
             .then(response => {
                 console.log(response);
@@ -51,6 +52,19 @@ class Login extends Component {
 
                     // Exibe no console somente o token
                     console.log("Meu token é: " + response.data.token)
+=======
+
+            .then(response => response.json().then(data => ({ status: response.status, body: data })))
+            .then(response => {
+                console.log(response);
+
+                if (response.status === 200) {
+                    localStorage.setItem('usuario-fastrade', response.body.token)
+                    this.setState({ isLoading: false })
+
+                    // Exibe no console somente o token
+                    console.log("Meu token é: " + response.body.token)
+>>>>>>> 2f3a23d0d5a7dcf7ad10ceb8cf2e9be871309253
 
                     // Define base64 recebendo o payload do token
                     var base64 = localStorage.getItem('usuario-fastrade').split('.')[1]
@@ -64,14 +78,25 @@ class Login extends Component {
                     console.log(JSON.parse(window.atob(base64)))
 
                     // Exibe no console o tipo de usuário logado
+<<<<<<< HEAD
                     console.log(parseJwt().Role)
 
                     if (parseJwt().Role === 'Administrador') {
+=======
+                     console.log("O seu tipo de id é ", parseJwt().Role)
+
+                     //Caso o usuario seja um administrador ele vai para home
+                    if (parseJwt().Role === '3') {
+>>>>>>> 2f3a23d0d5a7dcf7ad10ceb8cf2e9be871309253
                         //console.log(this.props)
                         this.props.history.push('/Home');
                     }
                     else {
+<<<<<<< HEAD
                         this.props.history.push('/Consumidor');
+=======
+                        this.props.history.push('/Dicas');
+>>>>>>> 2f3a23d0d5a7dcf7ad10ceb8cf2e9be871309253
                     }
                 }
 

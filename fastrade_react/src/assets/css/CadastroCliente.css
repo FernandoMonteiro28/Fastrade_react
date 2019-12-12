@@ -6,7 +6,7 @@
 }
 
 
-.card {
+.card_cliente {
     width: 1200px;
     background-color: white;
     padding: 80px 40px;
@@ -53,11 +53,11 @@
 /* #form_cadastro div{
     margin: 10px;
 } */
-.botao{
+.botao_cliente{
     width: 50%;
     }
 
-button {
+.botao_cliente button {
      width: 50%;
     margin: 50px auto;
     font-size: 1.2em;
@@ -74,7 +74,7 @@ label{
      width: 50%;
      margin-bottom: 10px;
  }
-.card input {
+.card_cliente input {
     background-color: white;
     border-radius: 8px;
     width: 300px;
@@ -82,7 +82,7 @@ label{
     border: solid 1px black;
     padding-left: 10px;
  }
-h3{
+ .cadastro_cliente h3{
     font-family: 'Dosis', sans-serif;
  
     
@@ -105,7 +105,7 @@ h3{
     display: flex;
     flex-direction: column;
 }
-.card input{
+.card_cliente input{
     height: 40px;
     border-style: 1px outset #707070;
 
@@ -133,7 +133,7 @@ h3{
         
 
     }
-    .card{
+    .card_cliente{
         width: 350px;
 
     }
