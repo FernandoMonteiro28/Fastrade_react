@@ -16,9 +16,15 @@ import pproduto from '../../assets/css/pproduto.css';
 //importamos as dependencias de Route
 
 
-
-
 export default class PerfilProduto extends Component{
+        constructor(){
+            super();
+            this.state ={
+                lis
+            }
+        }
+
+
     render() {
         return (
             <div className="cabeca_produto">
