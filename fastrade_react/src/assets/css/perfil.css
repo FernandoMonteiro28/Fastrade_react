@@ -14,7 +14,7 @@
     --branco:#FFFFFF;
 }
 .cabeca_perfil{
-	width: 1200px;
+	width: 1100px;
     background-color: white;
     margin: auto;
 	display: flex;
@@ -23,8 +23,9 @@
 }
 .conj_barra{
 	display: block;
-	align-content: center;
-	align-items: center;
+	margin-left: 10px;
+	/* align-content: center;
+	align-items: center; */
 }
 .perfil h1{
 	padding-bottom: 15px;
@@ -34,14 +35,13 @@
 	font-family:'Dosis', sans-serif;
 }
 .barra_lateral_perfil{
-	margin:auto;
+	/* margin:auto; */
 	width:270px;
 	height:560px;
 	border: 1px solid #BC3908;
 	border-radius: 6px;
 	display: flex;
-	flex-direction: column;
-	padding: 10px;
+	padding: 5px;
 	box-sizing: border-box;	  
 	margin-top: 70px; 
 	margin-bottom: 70px; 
@@ -60,8 +60,7 @@ a.opcoes_perfil:hover{
 	color: white;
 }
 .pri_barra_perfil{	
-	width:830px;
-	margin: auto;
+	width:830px; 	
 	align-items: center;	
 }
 .titulo_usuario{
@@ -80,7 +79,7 @@ a.opcoes_perfil:hover{
 }
 .img_usuario{
 	width: 150px;
-	padding-left: 100px;
+	
 }
 .usuario_perfil{
 	height: 100px;
@@ -92,12 +91,12 @@ a.opcoes_perfil:hover{
 	color: #220901;
 	align-items: flex-start;
 }
-#conj_perfil{
+/* #conj_perfil{
 	display: block;
 
 	align-items: center;
 	width: 600px;	
-}
+} */
 .item_perfil{
 	margin:35px;
 }
@@ -141,29 +140,107 @@ a.opcoes_perfil:hover{
 	border-radius: 20px;
 	color: #BC3908;
 	width: 150px;
-    padding: 2px;
+	padding-bottom: 5px;
 	text-align: center;
 	margin: auto;
 	margin-top: 60px;
 }
-
-button.botao_perfil{
+.botao_ficha_perfil:hover{
+	color: white;
+	background-color:#BC3908;
+	cursor: pointer; 
+}
+.botao_perfil{
 	border: 0;	
 	background: none;
 	color:#BC3908;
 	font-family:'Dosis', sans-serif;
 	font-size: 20px;
 	font-weight: bold;
-}
-button.botao_perfil:hover{
-	color: white;
 	cursor: pointer; 
 }
-.botao_ficha_perfil:hover{
+.botao_perfil:hover{
+	color: white;
 	background-color:#BC3908;
 	cursor: pointer; 
-
+	
 }
 
 
+@media(max-width:1169px){
 
+	.cabeca_perfil{
+		width: 900px;
+	}
+    .barra_lateral_perfil{
+		width:250px;
+		height:560px;
+	}
+
+	.conj_barra{
+		width:400px;
+		/* margin-right:55px; */
+	}
+
+	.titulo_usuario{
+		font-size:20px;
+		width:620px;
+	}
+
+	.img_usuario{
+		width:120px;
+	}
+
+	.estilo_input_perfil{
+		width: 260px;
+		height: 20px;
+	}
+
+	.estilo_dados_perfil{	
+		width: 160px;		
+	
+	}
+	.botao_ficha_perfil{
+		margin-top: 40px;
+		margin-right: 445px;
+	}
+}
+
+@media(max-width:768px){
+
+	.cabeca_perfil{
+		width: 600px;
+	}
+    .barra_lateral_perfil{
+		width:120px;
+		height:560px;
+		/* margin-left:45px; */
+	}
+
+	.conj_barra{
+		width:200px;
+	}
+
+	.titulo_usuario{
+		font-size:20px;
+		width:530px;
+	}
+
+	.img_usuario{
+		width:120px;
+	}
+
+	.estilo_input_perfil{
+		width: 200px;
+		height: 20px;
+	}
+
+	.estilo_dados_perfil{	
+		width: 120px;		
+	
+	}
+	.botao_ficha_perfil{
+		margin-top: 40px;
+		margin-right: 485px;
+	}
+}

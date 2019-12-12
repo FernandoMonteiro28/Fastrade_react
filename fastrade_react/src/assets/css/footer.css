@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.todo {
+.todo_rodape{
     padding: 30px 0px;
     display: flex;
     justify-content: space-between;

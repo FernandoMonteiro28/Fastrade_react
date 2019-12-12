@@ -10,6 +10,7 @@ import './assets/css/dicas.css';
 import './assets/css/receita.css';
 import './assets/css/produtos.css';
 import './assets/css/login.css';
+import 'mdbreact/dist/css/mdb.css'; 	
 
 
 //importamos as paginas
@@ -32,9 +33,9 @@ import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
 import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
 import Erro from './pages/paginaErro/Erro';
-
 import Login from'./pages/Login/Login';
 import './assets/css/login.css';
+import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
 
 //Criamos uma variavel que Realiza a criação das rotas:
 const Rotas = (
@@ -64,6 +65,7 @@ const Rotas = (
             	<Route path="/PerfilProduto" component={PerfilProduto} />
 				<Route path="/cadastroProdutos" component={cadastroProduto} />
 				<Route path="/Login" component={Login}/>
+				<Route path="/CadastroImagens" component={CadastroImagens}/>
 
 				<Route component={Erro} />
 			</Switch>
