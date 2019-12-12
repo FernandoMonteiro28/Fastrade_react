@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import usuario from '../../assets/img/usuario.png';
 import api from '../../services/api.js';
 import apiFormData from '../../services/apiFormData.js';
-import { parseJwt } from '../../services';
+import { parseJwt } from '../../services/auth';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
@@ -18,14 +18,14 @@ import perfil from '../../assets/css/perfil.css';
 
 export default class PerfilConsumidor extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
 
             listaUsuario: [],
             listaEndereco: [],
 
-            perfilUsuario: {
+            perfilUsuario: {    
                 idUsuario: parseJwt().idUsuario,
                 nomeRazaoSocial: "",
                 cpfCnpj: "",
@@ -45,10 +45,10 @@ export default class PerfilConsumidor extends Component {
                 isEdit: true,
                 erroMsg: "",
                 sucessMsg: "",
-                modal: false
             }
         }
 
+        this.postUsuario = this.postUsuario.bind(this);
     }
 
 //#region GET
@@ -85,7 +85,37 @@ getEndereco = () => {
 
 //#region POST
 
-// Cadastrar produto
+// Cadastrar informação do usuario
+postSetState = (input) => {
+    this.setState({
+        postUsuario: {
+            ...this.state.postUsuario,
+            [input.target.name]: input.target.value
+        }
+        //adicinamos um metodo callback para mostramos o objeto da oferta, apos o set state
+    }, () => console.log("Objeto da oferta: ", this.state.postUsuario))
+}
+
+postUsuario = (p) => {
+
+    p.preventDefault();
+    console.log("Cadastrando");
+
+    api.post('/usuario', this.state.postUsuario)
+        .then(response => {
+            console.log(response);
+            this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({erroMsg: "O campo precisa ser preenchido corretamente"});
+        })
+
+    setTimeout(() => {
+        this.postUsuario();
+    }, 1500);
+
+}
 
 //#endregion
 
@@ -184,6 +214,7 @@ habilitaInput = () => {
                                             //value={this.state.fotoUrlUsuario} 
                                             />
                                         </div>
+
                                     </form>
 
 
@@ -195,7 +226,7 @@ habilitaInput = () => {
                                                     placeholder="Nome Completo"
                                                     type="text"
                                                     name="nomeRazaoSocial"
-                                                // value={this.state.usuarioLogado.nomeRazaoSocial}
+                                                // value={this.state.perfilUsuario.nomeRazaoSocial}
                                                 />
                                             </div>
 
@@ -205,7 +236,7 @@ habilitaInput = () => {
                                                     placeholder="Email"
                                                     type="text"
                                                     name="email"
-                                                // value={this.state.usuarioLogado.email}
+                                                // value={this.state.perfilUsuario.email}
                                                 />
                                             </div>
                                         </form>
@@ -220,7 +251,7 @@ habilitaInput = () => {
                                                 placeholder="CPF"
                                                 type="text"
                                                 name="cpfCNPJ"
-                                            //value={this.state.usuarioLogado.cpfCnpj}
+                                            //value={this.state.perfilUsuario.cpfCnpj}
                                             />
                                         </div>
                                         <div className="item_perfil2">
@@ -229,7 +260,7 @@ habilitaInput = () => {
                                                 placeholder="Telefone para contato"
                                                 type="text"
                                                 name="celular_telefone"
-                                            //value={this.state.usuarioLogado.celularTelefone} 
+                                            //value={this.state.perfilUsuario.celularTelefone} 
                                             />
                                         </div>
                                     </div>
@@ -240,7 +271,7 @@ habilitaInput = () => {
                                                 placeholder="Endereço:"
                                                 type="text"
                                                 name="nomeEndereco"
-                                            //value={this.state.usuarioLogado.nomeEndereco} 
+                                            //value={this.state.perfilUsuario.nomeEndereco} 
                                             />
                                         </div>
 
@@ -250,7 +281,7 @@ habilitaInput = () => {
                                                 placeholder="Complemento"
                                                 type="text"
                                                 name="complemento"
-                                            // value={this.state.usuarioLogado.complemento} 
+                                            // value={this.state.perfilUsuario.complemento} 
                                             />
                                         </div>
                                         <div className="item_perfil2">
@@ -259,7 +290,7 @@ habilitaInput = () => {
                                                 placeholder="Numero"
                                                 type="text"
                                                 name="numero"
-                                            // value={this.state.usuarioLogado.numero} 
+                                            // value={this.state.perfilUsuario.numero} 
                                             />
                                         </div>
                                     </div>
@@ -280,7 +311,7 @@ habilitaInput = () => {
                                                 placeholder="Bairro"
                                                 type="text"
                                                 name="bairro"
-                                            // value={this.state.usuarioLogado.bairro} 
+                                            // value={this.state.perfilUsuario.bairro} 
                                             />
                                         </div>
                                         <div className="item_perfil2">
@@ -289,7 +320,7 @@ habilitaInput = () => {
                                                 placeholder="Estado"
                                                 type="text"
                                                 name="estado"
-                                            // value={this.state.usuarioLogado.estado} 
+                                            // value={this.state.perfilUsuario.estado} 
                                             />
                                         </div>
                                     </div>
