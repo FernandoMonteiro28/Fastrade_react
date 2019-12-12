@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-//importar a imagens
 import usuario from '../../assets/img/usuario.png';
-import api from './../../services/api';
-import { parseJwt, usuarioAutenticado } from '../../services/auth';
+import api from '../../services/api.js';
+import apiFormData from '../../services/apiFormData.js';
+import { parseJwt } from '../../services';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Header from '../../components/cabecalho/cabecalho';
+import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
 
 //impotar link 
@@ -18,35 +18,31 @@ import perfil from '../../assets/css/perfil.css';
 
 export default class PerfilConsumidor extends Component {
 
-    //props é usado para passar dados para elementos JSX
-    constructor(props) {
-        super(props);
-
-        //cada elemento de input que você terá em seu component formulário assumirá o valor de state como seu valor.
+    constructor() {
+        super();
         this.state = {
 
             listaUsuario: [],
             listaEndereco: [],
 
-            usuarioLogado: {
-                idUsuario: "",
-                idEndereco: "",
+            perfilUsuario: {
+                idUsuario: parseJwt().idUsuario,
                 nomeRazaoSocial: "",
                 cpfCnpj: "",
                 email: "",
                 senha: "",
                 celularTelefone: "",
-                fotoUrlUsuario: "",
+                fotoUrlUsuario: React.createRef(),
                 idEnderecoNavigation: {
-                    idEndereco: "",
-                    ruaAv: "",
+                    idEndereco: parseJwt().idEndereco ,
+                    nomeEndereco: "",
                     numero: "",
                     complemento: "",
                     cep: "",
                     bairro: "",
                     estado: "",
-                    usuario: []
                 },
+                isEdit: true,
                 erroMsg: "",
                 sucessMsg: "",
                 modal: false
@@ -55,100 +51,103 @@ export default class PerfilConsumidor extends Component {
 
     }
 
+//#region GET
+componentDidMount() {
+    this.getUsuario();
+    this.getEndereco();
+}
 
-    // componentDidMount() {
-    //     this.getUsuario();
-    //     console.log('Did');
-    // }
+getUsuario = () => {
+    //pegando id do usuario
+    api.get('/usuario/' + parseJwt().id)
 
-    getUsuario = () => {
-        api.get('/usuario/' + parseJwt().id)
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ usuarioLogado: response.data })
-                }
-            })
-    }
+    .then(response => {
+        if (response.status === 200) {
+            this.setState({ listaUsuario: response.data })
+        }
+    })
+}
 
-    alterarStateUsuario = event => {
-        this.setState({
-            postUsuario: {
-                ...this.state.usuario, [event.target.name]: event.target.value
-            }
-        });
-    }
+getEndereco = () => {
+    //pegando id do usuario
+    api.get('/endereco/' + parseJwt().id)
 
-    maisInformacoes = (getUsuario) => {
-        this.toggle()
+    .then(response => {
+        if (response.status === 200) {
+            this.setState({ listaEndereco: response.data })
+        }
+    })
+}
 
-        this.setState({
-            listaUsuario: {
-                nomeRazaoSocial: getUsuario.nomeRazaoSocial,
-                email: getUsuario.email,
-                cpfCnpj: getUsuario.cpfCnpj,
-                celularTelefone: getUsuario.celularTelefone,
+//#endregion
 
-                listaEndereco: {
-                    ruaAv: getUsuario.ruaAv,
-                    numero: getUsuario.numero,
-                    complemento: getUsuario.complemento,
-                    cep: getUsuario.cep,
-                    bairro: getUsuario.bairro,
-                    estado: getUsuario.estado,
-                }
-            }
+
+
+//#region POST
+
+// Cadastrar produto
+
+//#endregion
+
+alterarStateUsuario = event => {
+    this.setState({
+        listaUsuario: {
+            ...this.state.listaUsuario, [event.target.name]: event.target.value
+        }
+    });
+}
+
+ alterarSetStateFile = (input) =>{
+    this.setState({
+        perfilUsuario : {
+            ...this.state. perfilUsuario, [input.target.name] : input.target.files[0]
+        }   
+    })
+}
+
+perfilUsuario = (event) =>{
+
+    event.preventDefault();
+
+    // let usuario_alterado = this.state.usuario;
+
+    let usuarioFormData = new FormData();
+    usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
+    usuarioFormData.set("nomeRazaoSocial", this.state.usuario.nomeRazaoSocial);
+    usuarioFormData.set("cpfCnpj", this.state.usuario.cpfCnpj);
+    usuarioFormData.set("email", this.state.usuario.email);
+    usuarioFormData.set("celularTelefone", this.state.usuario.celularTelefone);
+    usuarioFormData.set("senha", this.state.usuario.senha);
+    usuarioFormData.set("idEndereco", this.state.usuario.idEndereco);
+    usuarioFormData.set("nomeEndereco", this.state.usuario.nomeEndereco);
+    usuarioFormData.set("numero", this.state.usuario.numero);
+    usuarioFormData.set("complemento", this.state.usuario.complemento);
+    usuarioFormData.set("bairro", this.state.usuario.bairro);
+    usuarioFormData.set("cep", this.state.usuario.senha);
+    usuarioFormData.set("estado", this.state.usuario.estado);
+    
+    usuarioFormData.set('fotoUrlUsuario', this.state.perfilUsuario.fotoUrlUsuario.current.files[0] , this.state.perfilUsuario.fotoUrlUsuario.value);
+
+        apiFormData.put('/usuario/'+ parseJwt().id, usuarioFormData)
+        
+        .then(() => {
+            
+            this.setState({successMsg : "Perfil alterado com sucesso!"});
         })
-    }
-
-    usuarioLogado = (event) => {
-
-        event.preventDefault();
-
-        let usuario_alterado = this.state.usuario;
-
-        let usuarioFormData = new FormData();
-        usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
-        usuarioFormData.set("nomeRazaoSocial", this.state.usuario.nomeRazaoSocial);
-        usuarioFormData.set("cpfCnpj", this.state.usuario.cpfCnpj);
-        usuarioFormData.set("email", this.state.usuario.email);
-        usuarioFormData.set("senha", this.state.usuario.senha);
-        usuarioFormData.set("celularTelefone", this.state.usuario.celularTelefone);
-
-        let enderecoFormData = new FormData();
-
-        enderecoFormData.set("idEndereco", this.state.usuario.idEndereco);
-        enderecoFormData.set("idEndereco", this.state.usuario.idEndereco);
-        enderecoFormData.set("ruaAv", this.state.usuario.ruaAv);
-        enderecoFormData.set("numero", this.state.usuario.numero);
-        enderecoFormData.set("complemento", this.state.usuario.complemento);
-        enderecoFormData.set("cep", this.state.usuario.cep);
-        enderecoFormData.set("bairro", this.state.usuario.bairro);
-        enderecoFormData.set("estado", this.state.usuario.estado);
-
-        usuarioFormData.set('imgusuario', this.state.updateUsuario.imgusuario.current.files[0], this.state.updateUsuario.imgusuario.value);
-
-        api.put('/usuario/' + parseJwt().id, usuarioFormData)
-        api.put('/endereco/' + parseJwt().id, enderecoFormData)
-
-            .then(() => {
-
-                this.setState({ successMsg: "Perfil alterado com sucesso!" });
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        .catch(error => {
+            console.log(error);
+        })
 
         setTimeout(() => {
             this.getUsuario();
         }, 1500);
     }
 
-    habilitaInput = () => {
-        this.setState({
-            isEdit: false,
-        })
-    }
-
+habilitaInput = () => {
+    this.setState({
+        isEdit: false,
+    })
+}
 
 
     render() {
@@ -199,6 +198,7 @@ export default class PerfilConsumidor extends Component {
                                                 // value={this.state.usuarioLogado.nomeRazaoSocial}
                                                 />
                                             </div>
+
                                             <div className="item_perfil">
                                                 <input
                                                     className="estilo_input_perfil"
@@ -239,8 +239,8 @@ export default class PerfilConsumidor extends Component {
                                                 className="estilo_dados_perfil"
                                                 placeholder="Endereço:"
                                                 type="text"
-                                                name="ruaAv"
-                                            //value={this.state.usuarioLogado.ruaAv} 
+                                                name="nomeEndereco"
+                                            //value={this.state.usuarioLogado.nomeEndereco} 
                                             />
                                         </div>
 

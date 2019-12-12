@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 //importar a imagens
 import usuario from '../../assets/img/usuario.png';
 //importamos pagina de perfil do usuario 
-import PerfilConsumidor from '../PerfilUsuario/PerfilConsumidor';
-import PerfilProduto from '../PerfilUsuario/PerfilProduto';
+import PerfilConsumidor from '../PerfilUsuario/PerfilConsumidor.js';
+import PerfilProduto from '../PerfilUsuario/PerfilProduto.js';
 
 //impotar link 
 import {Link} from 'react-router-dom';

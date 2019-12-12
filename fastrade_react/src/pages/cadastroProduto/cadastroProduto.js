@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../../assets/css/CadastroProduto.css';
-import Header from '../../components/cabecalho/cabecalho';
+import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
-import api from './../../services/api';
+import api from './../../services/api.js';
 
 
 import {
@@ -12,9 +12,8 @@ import {
 } from 'mdbreact';
 
 class cadastroProduto extends Component {
-    //Alteramos o estado de um elemento através do construtor 
+    
     constructor() {
-        //Passamos o props para o componente com o super
         super();
         this.state = {
 
@@ -302,12 +301,10 @@ class cadastroProduto extends Component {
                                 }
                             </MDBTableBody>
                         </MDBTable>
-
                     </div>
                 </main>
                 <Rodape></Rodape>
             </div>
-
         );
     }
 }
