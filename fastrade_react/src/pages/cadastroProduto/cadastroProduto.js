@@ -5,7 +5,8 @@ import Rodape from '../../components/rodape/Rodape.js';
 import api from '../../services/api.js';
 import apiFormData from '../../services/apiFormData.js';
 import { parseJwt } from '../../services/auth';
-
+//impotar link 
+import { Link } from 'react-router-dom';
 
 import {
     MDBTable,
@@ -31,7 +32,7 @@ class cadastroProduto extends Component {
                 descricaoDoProduto: "",
                 idCatProduto: "",
                 catProduto: "",
-            isEdit: true,
+
             erroMsg: "",
             sucessMsg: "",
         }
@@ -119,6 +120,7 @@ postOferta = (p) => {
 
     p.preventDefault();
     console.log("Cadastrando");
+    
 
     api.post('/Oferta', this.state.postOferta)
         .then(response => {
@@ -143,17 +145,18 @@ postOferta = (event) => {
 
     event.preventDefault();
 
-    console.log(this.state.postOferta)
+        console.log(this.state.postOferta)
 
-    // let infoproduto = this.state.oferta;
+     let infoproduto = this.state.postOferta.idOferta;
 
     let ofertaFormData = new FormData();
-    ofertaFormData.set("preco", this.state.oferta.preco);
-    ofertaFormData.set("quantidade", this.state.oferta.quantidade);
-    ofertaFormData.set("nomeProduto", this.state.oferta.nomeProduto);
-    ofertaFormData.set("descricaoDoProduto", this.state.oferta.descricaoDoProduto);
-    ofertaFormData.set("validade", this.state.oferta.validade);
-    ofertaFormData.set("idCatProduto", this.state.oferta.idCatProduto);
+    ofertaFormData.set("preco", this.state.postOferta.preco);
+    ofertaFormData.set("quantidade", this.state.postOferta.quantidade);
+    ofertaFormData.set("nomeProduto", this.state.postOferta.nomeProduto);
+    ofertaFormData.set("descricaoDoProduto", this.state.postOferta.descricaoDoProduto);
+    ofertaFormData.set("validade", this.state.postOferta.validade);
+    ofertaFormData.set("idCatProduto", this.state.postOferta.idCatProduto);
+    ofertaFormData.set("idOferta", this.state.postOferta.idOferta);
 
 
 }
@@ -263,7 +266,10 @@ render() {
                             </div>
 
                             <div className="botao_ficha_perfil">
-                                <button type="submit" className="botao_perfil">CADASTRAR</button>
+                                <Link to="/#"><button 
+                                type="button" 
+                                onClick={this.postOferta}
+                                className="botao_perfil">CADASTRAR</button></Link>
                             </div>
                         </form>
                     </div>
