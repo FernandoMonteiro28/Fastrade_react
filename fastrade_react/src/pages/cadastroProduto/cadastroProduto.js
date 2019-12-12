@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import '../../assets/css/CadastroProduto.css';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
-import api from './../../services/api.js';
+import api from '../../services/api.js';
+import apiFormData from '../../services/apiFormData.js';
+import { parseJwt } from '../../services/auth';
 
 
 import {
