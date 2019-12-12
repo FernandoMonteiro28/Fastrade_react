@@ -13,9 +13,9 @@ import {
 
 class cadastroProduto extends Component {
     //Alteramos o estado de um elemento através do construtor 
-    constructor(props) {
+    constructor() {
         //Passamos o props para o componente com o super
-        super(props);
+        super();
         this.state = {
 
             listaOfertas: [],
@@ -26,25 +26,26 @@ class cadastroProduto extends Component {
                 quantidade: "",
                 preco: "",
                 validade: "",
-                nomeProduto:"",
-                descricaoDoProduto:"",
+                nomeProduto: "",
+                descricaoDoProduto: "",
                 idCatProduto: "",
                 catProduto: "",
             },
-
+            // inputSelect:{
+            //     idCatProduto: "",
+            //     catProduto: "",
+            // },
+            isEdit: true,
             erroMsg: "",
             sucessMsg: "",
-            modal: false
         }
         this.postOferta = this.postOferta.bind(this);
+        this.onChange = (evento) => {
+            this.setState({ idCatProduto: evento.target.value });
+        };
     }
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
-    //Ciclo de vida 
 
+//Ciclo de vida 
     componentDidMount() {
         this.getOfertas();
         this.getCategorias();
@@ -55,7 +56,8 @@ class cadastroProduto extends Component {
         console.log("Atualizado")
     }
 
-    //#region GET
+
+//#region GET
     getOfertas = () => {
         api.get('/oferta')
             .then(response => {
@@ -73,18 +75,45 @@ class cadastroProduto extends Component {
                 }
             })
     }
-
-    
-
+//#endregion
 
 
-    //#endregion
+//#region atualizar 
+    alterarStateOferta = event => {
+        this.setState({
+            listaOfertas: {
+                ...this.state.listaOfertas, [event.target.name]: event.target.value
+            }
+        });
+    }
 
-    //#region POST
+    alterarStatecadastro = event => {
+        this.setState({
+            listaCategorias: {
+                ...this.state.listaCategorias, [event.target.name]: event.target.value
+            }
+        });
+    }
+//#endregion
+
+//#region alterar 
+  // Adicionamos um setState específico
+  alterarSetStateFile = (input) =>{
+    this.setState({
+        postOferta : {
+            ...this.state.postOferta, [input.target.name] : input.target.files[0]
+        }   
+    })
+}
+//#endregion
+
+
+
+//#region POST
     postSetState = (input) => {
         this.setState({
             postOferta: {
-                ...this.state.postOferta, 
+                ...this.state.postOferta,
                 [input.target.name]: input.target.value
             }
             //adicinamos um metodo callback para mostramos o objeto da oferta, apos o set state
@@ -99,37 +128,41 @@ class cadastroProduto extends Component {
         api.post('/Oferta', this.state.postOferta)
             .then(response => {
                 console.log(response);
-                this.setState({ sucessMsg: "Produto cadastrado com sucesso!" });
+                this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
             })
             .catch(error => {
                 console.log(error);
-                this.setState({ erroMsg: "Não foi possível cadastrar produto!" });
+                this.setState({erroMsg: "Favor preencher todos os campos necessarios para cadastrar!"});
             })
 
         setTimeout(() => {
             this.getOfertas();
         }, 1500);
+
     }
-    //#endregion
+//#endregion
+
+
 
     postOferta = (event) => {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    console.log(this.state.postOferta)
+        console.log(this.state.postOferta)
 
-    let infoproduto = this.state.oferta;
+        // let infoproduto = this.state.oferta;
 
-    let ofertaFormData = new FormData();
-    ofertaFormData.set("idCatProduto", this.state.oferta.idCatProduto);
-    ofertaFormData.set("preco", this.state.oferta.preco);
-    ofertaFormData.set("quantidade", this.state.oferta.quantidade);
-    ofertaFormData.set("nomeProduto", this.state.oferta.nomeProduto);
-    ofertaFormData.set("descricaoDoProduto", this.state.oferta.descricaoDoProduto);
-    ofertaFormData.set("validade", this.state.oferta.validade);
-    ofertaFormData.set("idCatProduto", this.state.oferta.idCatProduto);
+        let ofertaFormData = new FormData();
+        ofertaFormData.set("preco", this.state.oferta.preco);
+        ofertaFormData.set("quantidade", this.state.oferta.quantidade);
+        ofertaFormData.set("nomeProduto", this.state.oferta.nomeProduto);
+        ofertaFormData.set("descricaoDoProduto", this.state.oferta.descricaoDoProduto);
+        ofertaFormData.set("validade", this.state.oferta.validade);
+        ofertaFormData.set("idCatProduto", this.state.oferta.idCatProduto);
+
+
     }
-
+    
     render() {
 
         return (
@@ -159,7 +192,7 @@ class cadastroProduto extends Component {
                                     </div>
                                 </div>
 
-                                
+
                                 <div className="form-group">
                                     <label htmlFor="quant">Quantidade</label>
                                     <div className="input-button">
@@ -188,20 +221,22 @@ class cadastroProduto extends Component {
                                 <div className="form-group">
                                     <label htmlFor="catProd">Categoria do Produto</label>
                                     <div className="input-button">
-                                        <select id="descProd"
+                                        <select id="categorias"
                                             name="idCatProduto"
-                                            value={this.state.postOferta.catProduto}
+                                            type="file"
                                             onChange={this.postSetState}
                                         >
                                             <option value="">Selecione</option>
                                             {
                                                 this.state.listaCategorias.map(function (c) {
                                                     return (
-                                                        <option key={c.idCatProduto} value={c.idCatProduto}>
+                                                        <option key={c.idCatProduto} value={c.catProduto}>
                                                             {c.tipo}
                                                         </option>
+
                                                     )
                                                 }.bind(this))
+
                                             }
                                         </select>
                                     </div>
