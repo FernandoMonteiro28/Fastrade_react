@@ -5,10 +5,27 @@ import Cabecalho from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/Rodape';
 
 class Produtos extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+
+            listaGetProduto: []
+        }
+    }
+
+
+        listaAtualizada = () => {
+            fetch("https://localhost:5001/api/oferta/")
+                .then(response => response.json())
+                .then(data => this.setState({ listaGetProduto : data }));
+        }
+    
+
     render() {
         return (
             <div>
-                <Cabecalho />
+                <Cabecalho {...this.props} />
                 <div class="container_lista">
                     <div class="busca">
                         <h3 class="ordenar">Ordenar por:</h3>
@@ -22,7 +39,6 @@ class Produtos extends Component {
                         </select>
                     </div>
                 </div>
-                <a href="#abrirModal">Open Modal</a>
 
                 <div id="abrirModal" class="modal">
                     <a href="#fechar" title="Fechar" class="fechar">x</a>
@@ -30,73 +46,22 @@ class Produtos extends Component {
                     <p>Esta é uma simples janela de modal.</p>
                     <p>Você pode fazer qualquer coisa aqui, página de Login, pop-ups, ou formulários</p>
                 </div>
+
                 <div class="container_cards">
-                    <div class="card">
-                        <div class="sub_card">
-                            <img src={Laranja} alt="" />
-                            <p class="produtor">Qualyban</p>
-                            <p>Laranja Lima Orgânica Qualyban
-                        600g</p>
-                            <p class="dinheiro">R$ 45,00</p>
-                        </div>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
-                    <div class="card">
-                        <img src={Laranja} alt="" />
-                        <p class="produtor">Qualyban</p>
-                        <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                        <p class="dinheiro">R$ 45,00</p>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
-                    <div class="card">
-                        <img src={Laranja} alt="" />
-                        <p class="produtor">Qualyban</p>
-                        <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                        <p class="dinheiro">R$ 45,00</p>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
-                    <div class="card">
-                        <img src={Laranja} alt="" />
-                        <p class="produtor">Qualyban</p>
-                        <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                        <p class="dinheiro">R$ 45,00</p>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
-                    <div class="card">
-                        <img src={Laranja} alt="" />
-                        <p class="produtor">Qualyban</p>
-                        <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                        <p class="dinheiro">R$ 45,00</p>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
-                    <div class="card">
-                        <img src={Laranja} alt="" />
-                        <p class="produtor">Qualyban</p>
-                        <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                        <p class="dinheiro">R$ 45,00</p>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
-                    <div class="card">
-                        <img src={Laranja} alt="" />
-                        <p class="produtor">Qualyban</p>
-                        <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                        <p class="dinheiro">R$ 45,00</p>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
-                    <div class="card">
-                        <img src={Laranja} alt="" />
-                        <p class="produtor">Qualyban</p>
-                        <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                        <p class="dinheiro">R$ 45,00</p>
-                        <a href="#" class="btn_1">ADICIONAR</a>
-                    </div>
+                    {
+                        this.state.listaGetProduto.map(produto => {
+                            
+                            <div class="card">
+                                <div class="sub_card">
+                                    <img src={"https://localhost:5001/api/oferta/" + produto.fotoUrlOferta} alt="" />
+                                    <p class="produtor">{produto.nomeProduto}</p>
+                                    <p>{produto.descricaoDoProduto}</p>
+                                    <p class="dinheiro">R$ {produto.preco}</p>
+                                </div>
+                                <a href="#" class="btn_1">ADICIONAR</a>
+                            </div>
+                        })
+                    }
                 </div>
                 <p class="vermais"><a href="" class="btn_1">Ver Mais</a></p>
 

@@ -80,9 +80,9 @@ class Login extends Component {
                         this.props.history.push('/PerfilComerciante');
                     }
                 }
+
+            })
             
-            }
-            )
 
             .catch(error => console.log(error))
 
