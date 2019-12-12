@@ -20,7 +20,7 @@ export default class PerfilProduto extends Component{
         constructor(){
             super();
             this.state ={
-                lis
+            
             }
         }
 
