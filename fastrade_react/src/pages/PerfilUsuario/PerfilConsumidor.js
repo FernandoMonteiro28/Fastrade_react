@@ -26,7 +26,7 @@ export default class PerfilConsumidor extends Component {
             listaEndereco: [],
 
             perfilUsuario: {    
-                idUsuario: parseJwt().idUsuario,
+                idUsuario: parseJwt().IdUsuario,
                 nomeRazaoSocial: "",
                 cpfCnpj: "",
                 email: "",
@@ -34,7 +34,7 @@ export default class PerfilConsumidor extends Component {
                 celularTelefone: "",
                 fotoUrlUsuario: React.createRef(),
                 idEnderecoNavigation: {
-                    idEndereco: parseJwt().idEndereco ,
+                    idEndereco: parseJwt().IdEndereco ,
                     nomeEndereco: "",
                     numero: "",
                     complemento: "",
@@ -59,7 +59,7 @@ componentDidMount() {
 
 getUsuario = () => {
     //pegando id do usuario
-    api.get('/usuario/' + parseJwt().id)
+    api.get('/usuario/' + parseJwt().IdUsuario)
 
     .then(response => {
         if (response.status === 200) {
@@ -70,7 +70,7 @@ getUsuario = () => {
 
 getEndereco = () => {
     //pegando id do usuario
-    api.get('/endereco/' + parseJwt().id)
+    api.get('/endereco/' + parseJwt().IdEndereco)
 
     .then(response => {
         if (response.status === 200) {
@@ -223,10 +223,11 @@ habilitaInput = () => {
                                             <div className="item_perfil">
                                                 <input
                                                     className="estilo_input_perfil"
-                                                    placeholder="Nome Completo"
                                                     type="text"
                                                     name="nomeRazaoSocial"
-                                                // value={this.state.perfilUsuario.nomeRazaoSocial}
+                                                    value={this.state.perfilUsuario.nomeRazaoSocial}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
                                                 />
                                             </div>
 
@@ -326,8 +327,14 @@ habilitaInput = () => {
                                     </div>
                                     <div className="botao_ficha_perfil">
                                         <button
-                                            type="submit"
+                                            type="button"
+                                            onClick={this.habilitaInput}
                                             className="botao_perfil">ALTERAR</button>
+                                    </div>
+                                    <div className="botao_ficha_perfil">
+                                        <button
+                                            type="submit"
+                                            className="botao_perfil">SAlVAR</button>
                                     </div>
                                 </form>
                             </div>
