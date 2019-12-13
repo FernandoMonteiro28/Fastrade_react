@@ -15,13 +15,25 @@ import { Link } from 'react-router-dom';
 import perfil from '../../assets/css/perfil.css';
 
 
+
 export default class PerfilConsumidor extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            top: [],
 
-            listaUsuario: [],
+            listaUsuario: {
+
+                idUsuario: parseJwt().IdUsuario,
+                nomeRazaoSocial: "",
+                cpfCnpj: "",
+                email: "",
+                senha: "",
+                celularTelefone: "",
+                fotoUrlUsuario: React.createRef(),
+
+            },
             listaEndereco: [],
 
             perfilUsuario: {
@@ -46,6 +58,8 @@ export default class PerfilConsumidor extends Component {
                 sucessMsg: "",
             }
         }
+
+        // this.postUsuario = this.postUsuario.bind(this);
     }
 
     //#region GET
@@ -54,15 +68,22 @@ export default class PerfilConsumidor extends Component {
         this.getEndereco();
     }
 
-    getUsuario = () => {
-        //pegando id do usuario
-        api.get('/usuario/' + parseJwt().IdUsuario)
+    getUsuario = async () => {
+        // //pegando id do usuario
+        // api.get('/usuario/' + parseJwt().IdUsuario)
 
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaUsuario: response.data })
-                }
-            })
+        //     .then(response => {
+        //         if (response.status === 200) {
+        //             this.setState({ listaUsuario: response.data })
+        //         }
+        //     })
+
+        await fetch("https://localhost:5001/api/usuario/" + parseJwt().IdUsuario)
+            .then(response => response.json())
+            .then(data => this.setState({ top: data }))
+            .then(data => console.log(this.state.top))
+
+
     }
 
     getEndereco = () => {
@@ -83,42 +104,42 @@ export default class PerfilConsumidor extends Component {
     //#region POST
 
     // Cadastrar informação do usuario
-    postSetState = (input) => {
-        this.setState({
-            postUsuario: {
-                ...this.state.postUsuario,
-                [input.target.name]: input.target.value
-            }
+    // postSetState = (input) => {
+    //     this.setState({
+    //         postUsuario: {
+    //             ...this.state.postUsuario,
+    //             [input.target.name]: input.target.value
+    //         }
+    //adicinamos um metodo callback para mostramos o objeto da oferta, apos o set state
+    //     }, () => console.log("Objeto da oferta: ", this.state.postUsuario))
+    // }
 
-        }, () => console.log(this.state.postUsuario))
-    }
+    // postUsuario = (p) => {
 
-    postUsuario = (p) => {
+    //     p.preventDefault();
+    //     console.log("Cadastrando");
 
-        p.preventDefault();
-        console.log("Cadastrando");
+    //     api.post('/usuario', this.state.postUsuario)
+    //         .then(response => {
+    //             console.log(response);
+    //             this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //             this.setState({erroMsg: "O campo precisa ser preenchido corretamente"});
+    //         })
 
-        api.post('/usuario', this.state.postUsuario)
-            .then(response => {
-                console.log(response);
-                this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
-            })
-            .catch(error => {
-                console.log(error);
-                this.setState({ erroMsg: "O campo precisa ser preenchido corretamente" });
-            })
+    //     setTimeout(() => {
+    //         this.postUsuario();
+    //     }, 1500);
 
-        setTimeout(() => {
-            this.postUsuario();
-        }, 1500);
-
-    }
+    // }
     //#endregion
 
     alterarStateUsuario = event => {
         this.setState({
-            listaUsuario: {
-                ...this.state.listaUsuario, [event.target.name]: event.target.value
+            top: {
+                ...this.state.top, [event.target.name]: event.target.value
             }
         });
     }
@@ -134,6 +155,8 @@ export default class PerfilConsumidor extends Component {
     perfilUsuario = (event) => {
 
         event.preventDefault();
+
+        // let usuario_alterado = this.state.usuario;
 
         let usuarioFormData = new FormData();
         usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
@@ -202,7 +225,7 @@ export default class PerfilConsumidor extends Component {
                                     <form onSubmit={this.perfilUsuario}>
                                         <div className="conj_img">
 
-                                            <img src={"http://localhost:5001/ResourceImagefoto" + this.state.listaUsuario.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
+                                            <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
 
                                             <input
                                                 accept="image/*"
@@ -210,8 +233,7 @@ export default class PerfilConsumidor extends Component {
                                                 src={usuario}
                                                 alt="Insire uma imagem"
                                                 name="fotoUrlUsuario"
-                                                // onChange={this.alterarSetStateFile}
-                                                ref={this.state.perfilUsuario.fotoUrlUsuario}
+                                                onChange={this.alterarSetStateFile}
                                             />
                                         </div>
                                     </form>
@@ -222,13 +244,12 @@ export default class PerfilConsumidor extends Component {
 
                                             <div className="item_perfil">
                                                 <input
-                                                    placeholder="Nome "
                                                     className="estilo_input_perfil"
                                                     type="text"
                                                     name="nomeRazaoSocial"
-                                                    // value={this.state.listalUsuario.nomeRazaoSocial}
+                                                    value={this.state.top.nomeRazaoSocial}
                                                     onChange={this.alterarStateUsuario}
-                                                    disabled={this.state.isEdit}
+                                                    disabled='true'
                                                 />
                                             </div>
 
@@ -238,7 +259,7 @@ export default class PerfilConsumidor extends Component {
                                                     placeholder="Email"
                                                     type="text"
                                                     name="email"
-                                                    // value={this.state.listalUsuario.email}
+                                                    value={this.state.top.email}
                                                     onChange={this.alterarStateUsuario}
                                                     disabled={this.state.isEdit}
                                                 />
@@ -255,7 +276,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="CPF"
                                                 type="text"
                                                 name="cpfCNPJ"
-                                                // value={this.state.listalUsuario.cpfCNPJ}
+                                                value={this.state.top.cpfCnpj}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -267,7 +288,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Telefone para contato"
                                                 type="text"
                                                 name="celular_telefone"
-                                                // value={this.state.listalUsuario.celular_telefone}
+                                                value={this.state.top.celularTelefone}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -281,7 +302,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Endereço:"
                                                 type="text"
                                                 name="nomeEndereco"
-                                                // value={this.state.listalUsuario.nomeEndereco}
+                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.nomeEndereco : ''}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -293,7 +314,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Complemento"
                                                 type="text"
                                                 name="complemento"
-                                                // value={this.state.listalUsuario.complemento}
+                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.complemento : ''}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -305,7 +326,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Numero"
                                                 type="text"
                                                 name="numero"
-                                                // value={this.state.listalUsuario.numero}
+                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.numero : ''}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -320,7 +341,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="CEP"
                                                 type="text"
                                                 name="cep"
-                                                // value={this.state.listalUsuario.cep}
+                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.cep : ''}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -332,7 +353,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Bairro"
                                                 type="text"
                                                 name="bairro"
-                                                // value={this.state.listalUsuario.bairro}
+                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.bairro : ''}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -344,22 +365,24 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Estado"
                                                 type="text"
                                                 name="estado"
-                                                // value={this.state.listalUsuario.estado}
+                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.estado : ''}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
                                         </div>
                                     </div>
-                                    <div className="conj_botao">
-                                        <div className="botao_ficha_perfil">
-                                            <button
-                                                type="button"
-                                                onClick={this.habilitaInput}
-                                                className="botao_perfil">Editar</button>
-                                                <button
-                                                type="submit"
-                                                className="botao_perfil">Salvar</button>
-                                        </div>
+
+                                    <div className="botao_ficha_perfil">
+                                        <button
+                                            type="button"
+                                            onClick={this.habilitaInput}
+                                            className="botao_perfil">ALTERAR</button>
+                                    </div>
+
+                                    <div className="botao_ficha_perfil">
+                                        <button
+                                            type="submit"
+                                            className="botao_perfil">SAlVAR</button>
                                     </div>
                                 </form>
                             </div>

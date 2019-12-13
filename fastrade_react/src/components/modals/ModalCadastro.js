@@ -80,12 +80,20 @@ class ModalCadastro extends Component {
                     aria-describedby="alert-dialog-slide-description"
                     class="modal_caixa"
                 >
-                    <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{"Cadastro realizado com sucesso!"}</DialogTitle>
+                    <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{"Editar categoria"}</DialogTitle>
                     <DialogContent>
 
                         <DialogContentText class="modal-dialog" role="document">
-                            <h6 class="modal-title" id="ModalLabel">Aperte no botão continuar para concluir</h6>
+                            <h6 class="modal-title" id="ModalLabel">Cadastro realizado com sucesso!</h6>
                         </DialogContentText>
+
+                        <DialogContentText>
+                            -------------------------------------------
+                        </DialogContentText>
+
+                        <p>
+                            <Button onClick={this.props.fechar_modal} color="#BC3908">Fechar</Button>
+                        </p>
                     </DialogContent>
                     <DialogActions>
                     </DialogActions>

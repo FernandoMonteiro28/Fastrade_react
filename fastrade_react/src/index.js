@@ -36,8 +36,8 @@ import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
 import ModalCadastro from './components/modals/ModalCadastro.js';
+import CardReserva from './';
 
-// import ofertas from './pages/Ofertas/ofertas'
 import './assets/css/login.css';
 
 //Criamos uma variavel que Realiza a criação das rotas:
