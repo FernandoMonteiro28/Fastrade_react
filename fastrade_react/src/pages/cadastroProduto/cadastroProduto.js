@@ -102,8 +102,8 @@ class cadastroProduto extends Component {
     };
 
     //#region GET
-    getOfertas = () => {
-        api.get('/oferta')
+    getOfertas = async () => {
+        api.get('https://localhost:5001/api/oferta')
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaOfertas: response.data })
@@ -111,13 +111,12 @@ class cadastroProduto extends Component {
             })
     }
 
-    getCategorias = () => {
-        api.get('/catproduto')
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaCategorias: response.data })
-                }
+    getCategorias = async () => {
+        api.get('https://localhost:5001/api/catproduto')
+            .then(data => {
+                    this.setState({ listaCategorias: data.data })
             })
+            .catch(error => console.log(error))
     }
     //#endregion
 
@@ -164,28 +163,30 @@ class cadastroProduto extends Component {
         }, () => console.log("Objeto da oferta: ", this.state.postOferta))
     }
 
-    // postOferta = (p) => {
+    // this.state.postOferta
 
-    //     p.preventDefault();
-    //     console.log("Cadastrando");
+    postOferta = (p) => {
+
+        p.preventDefault();
+        console.log("Cadastrando");
 
 
-    //     api.post('/Oferta', this.state.postOferta)
-    //         .then(response => {
-    //             console.log(response);
-    //             this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //             this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
-    //         })
+        api.post('https://localhost:5001/api/oferta', this.state.postOferta) 
+            .then(response => {
+                console.log(response);
+                this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
+            })
 
-    //     setTimeout(() => {
-    //         this.getOfertas();
-    //     }, 1500);
+        setTimeout(() => {
+            this.getOfertas();
+        }, 1500);
 
-    // }
-    //#endregion
+    }
+    #endregion
 
 
 
@@ -296,6 +297,7 @@ class cadastroProduto extends Component {
                                                             return (
                                                                 <option key={o.idCatProduto} value={o.idCatProduto}>
                                                                     {o.tipo}
+                                                                    
                                                                 </option>
 
                                                             )
