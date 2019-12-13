@@ -393,3 +393,4 @@ export default class PerfilConsumidor extends Component {
             </div>
         );
     }
+}
