@@ -13,8 +13,11 @@
     margin: 40px 0px;
     border-radius: 4px;
     
-    }
+}
 
+.caixa_cadastrop{
+    margin:auto;
+}
 .styled-container input{
     height: 40px;
     border-style: 1px outset #707070;
@@ -25,29 +28,45 @@
     margin-bottom: 40px;
     font-size: 45px;
     color:#BC3908;
-
 }
-
 .container_cadastro{
-    width: 1200px;
+    width: 980px;
     margin: auto;
     text-align: center;
 }
-button.botao{
-    border: 0;	
-	background: none;
+.btn_botao{
+    color:#BC3908;
+    /* border-radius: 10px; */
+    width: 120px; 
+    margin: auto;
+}
+button.btn_botao:hover{
+    cursor: pointer; 
+    color: white;
+    background-color: #BC3908;
+ }
+button.botao_modal{
 	color:#BC3908;
 	font-family:'Dosis', sans-serif;
 	font-size: 20px;
-    font-weight: bold;
+    font-weight: bold;  
+   
+    background-color:white;
+    border: white;
     border: 1px solid #BC3908;
-    border-radius: 7px;
-    width: 100px;
+    border-radius: 10px;
+    width: 120px; 
 }
-button.botao:hover{
-   cursor: pointer; 
-   color: white;
-   background-color: #BC3908;
+button.botao_cadastrar{
+    color:#BC3908;
+	font-family:'Dosis', sans-serif;
+	font-size: 20px;
+    font-weight: bold;  
+    background-color:white;
+    border: white;
+    border: 1px solid #BC3908;
+    border-radius: 10px;
+    width: 120px; 
 }
 .buttons-area{
     display: grid;
@@ -55,18 +74,18 @@ button.botao:hover{
     margin: auto;
     width: 132px;
 }
-.botao2{
-    background-color: #BC3908;
-    color: #F6F0F0;
-    border-radius: 5px;
-    border:none;
-    width: 27.11;
-    height: 22px;
+.modal-title{
+    font-family:'Dosis', sans-serif;
+    font-size: 20px;
+    color: #1D1E18;
+    font-weight: bold;
 }
 .conjunto_cadastro{
     display: grid;
-    grid-template-columns: 400px 300px 400px;
+    grid-template-columns: 400px 300px 200px;
 }
+
+
 .card_produto {
     background-color: white;
     padding: 80px 40px;
@@ -78,11 +97,34 @@ button.botao:hover{
     
 }
 
-.card_produto input {
-    margin-bottom: 30px;
+
+.descproduto1 input {
+    margin-bottom: 50px;
     border: 0;
-    width: 250px;
-    height: 30px;
+    width: 390px;
+    height: 50px;
+	border-bottom: 2px solid #BC3908;
+	border-left: 2px solid #BC3908;
+	border-right: 2px solid #BC3908;
+	border-radius: 10px;
+	background: transparent;
+    color: black; 
+}
+.descproduto2 input {
+    margin-bottom: 50px;
+    border: 0;
+    width: 890px;
+    height: 150px;
+	border: 2px solid #BC3908;
+	border-radius: 10px;
+	background: transparent;
+    color: black; 
+}
+
+.vproduto input {
+    border: 0;
+    width: 170px;
+    height: 40px;
 	border-bottom: 2px solid #BC3908;
 	border-left: 2px solid #BC3908;
 	border-right: 2px solid #BC3908;
@@ -93,13 +135,12 @@ button.botao:hover{
 }
 .card_produto select{
     border: 0; 
-    width: 250px;
-    height: 33px;
+    width: 170px;
+    height: 43px;
 	border-bottom: 2px solid #BC3908;
 	border-left: 2px solid #BC3908;
 	border-right: 2px solid #BC3908;
 	border-radius: 10px;
     background: transparent;
-	color: black;
-    
+    color: black;  
  }

@@ -41,7 +41,7 @@ class cabecalho extends Component {
 
                                 {usuarioAutenticado() ? (
                                     <>
-                                        <a href="index_comprador.html"><img src={parseJwt().FotoUsuario} alt="Entra em sua conta" /></a>
+                                        <a href="index_comprador.html"><img src={"http://localhost:5000/" + parseJwt().FotoUsuario} alt="Entra em sua conta" /></a>
                                         <a onClick={this.logout}>Sair</a>
 
                                     </>

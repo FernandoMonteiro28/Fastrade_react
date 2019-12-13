@@ -4,8 +4,7 @@ import * as serviceWorker from './serviceWorker';
 //Importamos as dependencias necessarias:
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-//importamos ccs
-// import './assets/css/cadastroProduto.css';
+// importamos ccs
 import './assets/css/dicas.css';
 import './assets/css/receita.css';
 import './assets/css/produtos.css';
@@ -31,11 +30,14 @@ import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
-import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
+//import CadastroCliente from './pages/CadastroCliente/CadastroCliente' 
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
-import './assets/css/login.css';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
+import ModalCadastro from './components/modals/ModalCadastro.js'
+import Reserva from './pages/Reserva/Reserva';
+
+import './assets/css/login.css';
 
 //Criamos uma variavel que Realiza a criação das rotas:
 const Rotas = (
@@ -59,13 +61,16 @@ const Rotas = (
 				<Route path="/quemSomos" component={quemSomos} />
 				<Route path="/receitas" component={Receitas} />
 				<Route path="/cadastroProduto" component={cadastroProduto} />
-				<Route path="/CadastroCliente" component={CadastroCliente} />
+				{/* <Route path="/CadastroCliente" component={CadastroCliente} /> */}
 				<Route path="/PerfilComerciante" component={PerfilComerciante} />
             	<Route path="/PerfilConsumidor" component={PerfilConsumidor} />
             	<Route path="/PerfilProduto" component={PerfilProduto} />
 				<Route path="/cadastroProdutos" component={cadastroProduto} />
 				<Route path="/Login" component={Login}/>
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
+				<Route path="/ModalCadastro" component={ModalCadastro}/>
+				<Route path="/Reserva" component={Reserva}/>
+			
 
 				<Route component={Erro} />
 			</Switch>
