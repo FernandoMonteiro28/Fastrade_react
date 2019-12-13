@@ -8,13 +8,13 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 // import './assets/css/cadastroProduto.css';
 import './assets/css/dicas.css';
 import './assets/css/receita.css';
-import './assets/css/produtos.css';
+//import './assets/css/produtos.css';
 import './assets/css/login.css';
 import 'mdbreact/dist/css/mdb.css'; 	
 
 
 //importamos as paginas
-import Produtos from'./pages/produtos/produtos';
+//import Produtos from'./pages/produtos/produtos';
 import App from './pages/Home/App';
 import Dicas from './pages/Dicas/Dicas';
 import quemSomos from './pages/quemSomos/quemSomos';
@@ -35,9 +35,9 @@ import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
-import ModalCadastro from './components/modals.js/ModalCadastro.js';
+import ModalCadastro from './components/modals/ModalCadastro.js';
 
-import ofertas from './pages/Ofertas/ofertas'
+// import ofertas from './pages/Ofertas/ofertas'
 import './assets/css/login.css';
 
 //Criamos uma variavel que Realiza a criação das rotas:
@@ -58,7 +58,7 @@ const Rotas = (
 				<Route path="/Home" component={App} />
 				<Route path="/Dicas" component={Dicas} />
 				<Route path="/Dica" component={Dicas} />
-				<Route path="/produtos" component={Produtos} />
+				{/* <Route path="/produtos" component={Produtos} /> */}
 				<Route path="/quemSomos" component={quemSomos} />
 				<Route path="/receitas" component={Receitas} />
 				<Route path="/cadastroProduto" component={cadastroProduto} />
@@ -70,7 +70,7 @@ const Rotas = (
 				<Route path="/Login" component={Login}/>
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
 				<Route path="/ModalCadastro" component={ModalCadastro}/>
-				<Route path="/ofertas" component={ofertas}/>
+				{/* <Route path="/ofertas" component={ofertas}/> */}
 
 				<Route component={Erro} />
 			</Switch>
