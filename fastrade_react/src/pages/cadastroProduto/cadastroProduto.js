@@ -131,7 +131,7 @@ class cadastroProduto extends Component {
         });
     }
 
-    alterarStatecadastro = event => {
+    alterarStateOferta = event => {
         this.setState({
             listaCategorias: {
                 ...this.state.listaCategorias, [event.target.name]: event.target.value
@@ -164,31 +164,7 @@ class cadastroProduto extends Component {
         }, () => console.log("Objeto da oferta: ", this.state.postOferta))
     }
 
-    // postOferta = (p) => {
-
-    //     p.preventDefault();
-    //     console.log("Cadastrando");
-
-
-    //     api.post('/Oferta', this.state.postOferta)
-    //         .then(response => {
-    //             console.log(response);
-    //             this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //             this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
-    //         })
-
-    //     setTimeout(() => {
-    //         this.getOfertas();
-    //     }, 1500);
-
-    // }
-    //#endregion
-
-
-
+   
     postOferta = (event) => {
 
         event.preventDefault();
