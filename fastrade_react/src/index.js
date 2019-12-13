@@ -70,7 +70,10 @@ const Rotas = (
 				<Route path="/Login" component={Login}/>
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
 				<Route path="/ModalCadastro" component={ModalCadastro}/>
+<<<<<<< HEAD
 				{/* <Route path="/ofertas" component={ofertas}/> */}
+=======
+>>>>>>> 4e1a8f18da0a83fbd37d46093d897da6d907d1b9
 
 				<Route component={Erro} />
 			</Switch>

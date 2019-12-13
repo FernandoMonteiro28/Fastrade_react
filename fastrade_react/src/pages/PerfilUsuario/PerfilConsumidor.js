@@ -21,9 +21,15 @@ export default class PerfilConsumidor extends Component {
     constructor(props) {
         super(props);
         this.state = {
+<<<<<<< HEAD
             top: [],
 
             listaUsuario: {
+=======
+            top : [],
+
+            listaUsuario:  {
+>>>>>>> 4e1a8f18da0a83fbd37d46093d897da6d907d1b9
 
                 idUsuario: parseJwt().IdUsuario,
                 nomeRazaoSocial: "",
@@ -32,7 +38,11 @@ export default class PerfilConsumidor extends Component {
                 senha: "",
                 celularTelefone: "",
                 fotoUrlUsuario: React.createRef(),
+<<<<<<< HEAD
 
+=======
+               
+>>>>>>> 4e1a8f18da0a83fbd37d46093d897da6d907d1b9
             },
             listaEndereco: [],
 
@@ -78,13 +88,20 @@ export default class PerfilConsumidor extends Component {
         //         }
         //     })
 
+<<<<<<< HEAD
         await fetch("https://localhost:5001/api/usuario/" + parseJwt().IdUsuario)
             .then(response => response.json())
             .then(data => this.setState({ top: data }))
+=======
+        await fetch("https://localhost:5001/api/usuario/"+ parseJwt().IdUsuario)
+            .then(response => response.json())
+            .then(data => this.setState({top: data}))
+>>>>>>> 4e1a8f18da0a83fbd37d46093d897da6d907d1b9
             .then(data => console.log(this.state.top))
 
 
     }
+<<<<<<< HEAD
 
     getEndereco = () => {
         //pegando id do usuario
@@ -133,6 +150,56 @@ export default class PerfilConsumidor extends Component {
     //         this.postUsuario();
     //     }, 1500);
 
+=======
+
+    getEndereco = () => {
+        //pegando id do usuario
+        api.get('/endereco/' + parseJwt().IdEndereco)
+
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaEndereco: response.data })
+                }
+            })
+    }
+
+    //#endregion
+
+
+
+    //#region POST
+
+    // Cadastrar informação do usuario
+    // postSetState = (input) => {
+    //     this.setState({
+    //         postUsuario: {
+    //             ...this.state.postUsuario,
+    //             [input.target.name]: input.target.value
+    //         }
+    //adicinamos um metodo callback para mostramos o objeto da oferta, apos o set state
+    //     }, () => console.log("Objeto da oferta: ", this.state.postUsuario))
+    // }
+
+    // postUsuario = (p) => {
+
+    //     p.preventDefault();
+    //     console.log("Cadastrando");
+
+    //     api.post('/usuario', this.state.postUsuario)
+    //         .then(response => {
+    //             console.log(response);
+    //             this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //             this.setState({erroMsg: "O campo precisa ser preenchido corretamente"});
+    //         })
+
+    //     setTimeout(() => {
+    //         this.postUsuario();
+    //     }, 1500);
+
+>>>>>>> 4e1a8f18da0a83fbd37d46093d897da6d907d1b9
     // }
     //#endregion
 
