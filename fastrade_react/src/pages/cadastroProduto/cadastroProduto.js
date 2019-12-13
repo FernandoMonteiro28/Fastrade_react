@@ -1,396 +1,412 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import usuario from '../../assets/img/usuario.png';
+import '../../assets/css/CadastroProduto.css';
+import Header from '../../components/cabecalho/cabecalho.js';
+import Rodape from '../../components/rodape/Rodape.js';
 import api from '../../services/api.js';
 import apiFormData from '../../services/apiFormData.js';
 import { parseJwt } from '../../services/auth';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Header from '../../components/cabecalho/cabecalho.js';
-import Rodape from '../../components/rodape/Rodape.js';
+import ModalCadastro from '../../components/modals.js/ModalCadastro.js';
+
 
 //impotar link 
 import { Link } from 'react-router-dom';
 
-//importar o css
-import perfil from '../../assets/css/perfil.css';
+import {
+    MDBTable,
+    MDBTableBody,
+    MDBTableHead
+} from 'mdbreact';
+
+//MODAL
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
 
 
 
-export default class PerfilConsumidor extends Component {
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
+
+class cadastroProduto extends Component {
+
 
     constructor(props) {
         super(props);
         this.state = {
-            top : [],
 
-            listaUsuario:  {
+            listaOfertas: [],
+            listaCategorias: [],
 
-                idUsuario: parseJwt().IdUsuario,
-                nomeRazaoSocial: "",
-                cpfCnpj: "",
-                email: "",
-                senha: "",
-                celularTelefone: "",
-                fotoUrlUsuario: React.createRef(),
-               
-            },
-            listaEndereco: [],
 
-            perfilUsuario: {
-                idUsuario: parseJwt().IdUsuario,
-                nomeRazaoSocial: "",
-                cpfCnpj: "",
-                email: "",
-                senha: "",
-                celularTelefone: "",
-                fotoUrlUsuario: React.createRef(),
-                idEnderecoNavigation: {
-                    idEndereco: parseJwt().IdEndereco,
-                    nomeEndereco: "",
-                    numero: "",
-                    complemento: "",
-                    cep: "",
-                    bairro: "",
-                    estado: "",
-                },
-                isEdit: true,
+            postOferta: {
+                quantidade: "",
+                preco: "",
+                validade: "",
+                nomeProduto: "",
+                descricaoDoProduto: "",
+                idCatProduto: "",
+
                 erroMsg: "",
                 sucessMsg: "",
+
+                //modal
+                open: false,
+                openOferta: false
             }
         }
-
-        // this.postUsuario = this.postUsuario.bind(this);
     }
+
+    //Ciclo de vida 
+    componentDidMount() {
+        this.getOfertas();
+        this.getCategorias();
+
+    }
+
+    componentDidUpdate() {
+        console.log("Atualizado")
+    }
+
+
+    //MODAL POST
+    handleClickOpen = (o) => {
+        this.setState({ open: true });
+
+        console.log("POST", this.state.postSetState)
+
+    };
+
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
+    //Cadastrar 
+    //MODAL CADASTRO
+    handleClickOpenOferta = () => {
+        this.setState({ openOferta: true });
+    }
+
+    handleCloseOferta = (fechar_modal) => {
+        this.setState({ openOferta: false });
+        this.setState({ fechar_modal: fechar_modal });
+    };
 
     //#region GET
-    componentDidMount() {
-        this.getUsuario();
-        this.getEndereco();
-    }
-
-    getUsuario = async () => {
-        // //pegando id do usuario
-        // api.get('/usuario/' + parseJwt().IdUsuario)
-
-        //     .then(response => {
-        //         if (response.status === 200) {
-        //             this.setState({ listaUsuario: response.data })
-        //         }
-        //     })
-
-        await fetch("https://localhost:5001/api/usuario/"+ parseJwt().IdUsuario)
-            .then(response => response.json())
-            .then(data => this.setState({top: data}))
-            .then(data => console.log(this.state.top))
-
-
-    }
-
-    getEndereco = () => {
-        //pegando id do usuario
-        api.get('/endereco/' + parseJwt().IdEndereco)
-
+    getOfertas = () => {
+        api.get('/oferta')
             .then(response => {
                 if (response.status === 200) {
-                    this.setState({ listaEndereco: response.data })
+                    this.setState({ listaOfertas: response.data })
                 }
             })
     }
 
+    getCategorias = () => {
+        api.get('/catproduto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaCategorias: response.data })
+                }
+            })
+    }
+    //#endregion
+
+
+    //#region atualizar 
+    alterarStateOferta = event => {
+        this.setState({
+            listaOfertas: {
+                ...this.state.listaOfertas, [event.target.name]: event.target.value
+            }
+        });
+    }
+
+    alterarStatecadastro = event => {
+        this.setState({
+            listaCategorias: {
+                ...this.state.listaCategorias, [event.target.name]: event.target.value
+            }
+        });
+    }
+    //#endregion
+
+    //#region alterar 
+    // Adicionamos um setState específico
+    alterarSetStateFile = (input) => {
+        this.setState({
+            postOferta: {
+                ...this.state.postOferta, [input.target.name]: input.target.files[0]
+            }
+        })
+    }
     //#endregion
 
 
 
     //#region POST
+    postSetState = (input) => {
+        this.setState({
+            postOferta: {
+                ...this.state.postOferta,
+                [input.target.name]: input.target.value
+            }
+            //adicinamos um metodo callback para mostramos o objeto da oferta, apos o set state
+        }, () => console.log("Objeto da oferta: ", this.state.postOferta))
+    }
 
-    // Cadastrar informação do usuario
-    // postSetState = (input) => {
-    //     this.setState({
-    //         postUsuario: {
-    //             ...this.state.postUsuario,
-    //             [input.target.name]: input.target.value
-    //         }
-    //adicinamos um metodo callback para mostramos o objeto da oferta, apos o set state
-    //     }, () => console.log("Objeto da oferta: ", this.state.postUsuario))
-    // }
-
-    // postUsuario = (p) => {
+    // postOferta = (p) => {
 
     //     p.preventDefault();
     //     console.log("Cadastrando");
 
-    //     api.post('/usuario', this.state.postUsuario)
+
+    //     api.post('/Oferta', this.state.postOferta)
     //         .then(response => {
     //             console.log(response);
     //             this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
     //         })
     //         .catch(error => {
     //             console.log(error);
-    //             this.setState({erroMsg: "O campo precisa ser preenchido corretamente"});
+    //             this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
     //         })
 
     //     setTimeout(() => {
-    //         this.postUsuario();
+    //         this.getOfertas();
     //     }, 1500);
 
     // }
     //#endregion
 
-    alterarStateUsuario = event => {
-        this.setState({
-            top: {
-                ...this.state.top, [event.target.name]: event.target.value
-            }
-        });
-    }
 
-    alterarSetStateFile = (input) => {
-        this.setState({
-            perfilUsuario: {
-                ...this.state.perfilUsuario, [input.target.name]: input.target.files[0]
-            }
-        })
-    }
 
-    perfilUsuario = (event) => {
+    postOferta = (event) => {
 
         event.preventDefault();
 
-        // let usuario_alterado = this.state.usuario;
+        console.log(this.state.postOferta)
 
-        let usuarioFormData = new FormData();
-        usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
-        usuarioFormData.set("nomeRazaoSocial", this.state.usuario.nomeRazaoSocial);
-        usuarioFormData.set("cpfCnpj", this.state.usuario.cpfCnpj);
-        usuarioFormData.set("email", this.state.usuario.email);
-        usuarioFormData.set("celularTelefone", this.state.usuario.celularTelefone);
-        usuarioFormData.set("senha", this.state.usuario.senha);
-        usuarioFormData.set("idEndereco", this.state.usuario.idEndereco);
-        usuarioFormData.set("nomeEndereco", this.state.usuario.nomeEndereco);
-        usuarioFormData.set("numero", this.state.usuario.numero);
-        usuarioFormData.set("complemento", this.state.usuario.complemento);
-        usuarioFormData.set("bairro", this.state.usuario.bairro);
-        usuarioFormData.set("cep", this.state.usuario.senha);
-        usuarioFormData.set("estado", this.state.usuario.estado);
+        let infoproduto = this.state.postOferta.idOferta;
 
-        usuarioFormData.set('fotoUrlUsuario', this.state.perfilUsuario.fotoUrlUsuario.current.files[0], this.state.perfilUsuario.fotoUrlUsuario.value);
+        let ofertaFormData = new FormData();
+        ofertaFormData.set("preco", this.state.postOferta.preco);
+        ofertaFormData.set("quantidade", this.state.postOferta.quantidade);
+        ofertaFormData.set("nomeProduto", this.state.postOferta.nomeProduto);
+        ofertaFormData.set("descricaoDoProduto", this.state.postOferta.descricaoDoProduto);
+        ofertaFormData.set("validade", this.state.postOferta.validade);
+        ofertaFormData.set("idCatProduto", this.state.postOferta.idCatProduto);
+        ofertaFormData.set("idOferta", this.state.postOferta.idOferta);
 
-        apiFormData.put('/usuario/' + parseJwt().id, usuarioFormData)
 
-            .then(() => {
-
-                this.setState({ successMsg: "Perfil alterado com sucesso!" });
-            })
-            .catch(error => {
-                console.log(error);
-            })
-
-        setTimeout(() => {
-            this.getUsuario();
-        }, 1500);
     }
-
-    habilitaInput = () => {
-        this.setState({
-            isEdit: false,
-        })
-    }
-
 
     render() {
+
         return (
+
             <div>
                 <Header></Header>
-
                 <main>
-                    <div className="cabeca_perfil">
-                        <div className="barra_lateral_perfil">
-                            <Link to="/PerfilConsumidor" className="opcoes_perfil">
-                                Perfil
-                        </Link>
 
-                        </div>
-                        <div className="conj_barra">
-                            <div className="pri_barra_perfil">
-                                <div className="titulo_usuario">
-                                    <p>PERFIL DO USUÁRIO</p>
-                                </div>
+                    <div className="container_cadastro">
+                        <div className="card_produto">
+                            <h1 className="titulo_cadastro">Cadastro de Produto</h1>
 
-                                <div id="PerfilUsuario-lista">
+                            <form onSubmit={this.postOferta}>
 
-                                </div>
-
-                                <div className="dados_perf">
-
-                                    <form onSubmit={this.perfilUsuario}>
-                                        <div className="conj_img">
-
-                                            <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
-
+                                <div className="conjunto_cadastro">
+                                    <div className="form-group">
+                                        <label htmlFor="nomeProd">Nome do Produto</label>
+                                        <div className="input-button">
                                             <input
-                                                accept="image/*"
-                                                type="file"
-                                                src={usuario}
-                                                alt="Insire uma imagem"
-                                                name="fotoUrlUsuario"
-                                                onChange={this.alterarSetStateFile}
+                                                id="nomeProduto"
+                                                type="text"
+                                                name="nomeProduto"
+                                                value={this.state.postOferta.nomeProduto}
+                                                onChange={this.postSetState}
                                             />
                                         </div>
-                                    </form>
+                                    </div>
+                                </div>
 
-                                    <div className="usuario_perfil">
 
-                                        <form onSubmit={this.perfilUsuario}>
+                                <div className="form-group">
+                                    <label htmlFor="quant">Quantidade</label>
+                                    <div className="input-button">
+                                        <input id="quantidade"
+                                            type="number"
+                                            name="quantidade"
+                                            value={this.state.postOferta.quantidade}
+                                            onChange={this.postSetState}
+                                        />
+                                    </div>
+                                </div>
 
-                                            <div className="item_perfil">
-                                                <input
-                                                    className="estilo_input_perfil"
-                                                    type="text"
-                                                    name="nomeRazaoSocial"
-                                                    value={this.state.top.nomeRazaoSocial}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled='true'
-                                                />
+                                <div className="form-group">
+                                    <label htmlFor="PrecoProd">Preço do Produto</label>
+                                    <div className="input-button">
+                                        <input id="preco"
+                                            type="valor"
+                                            name="preco"
+                                            value={this.state.postOferta.preco}
+                                            onChange={this.postSetState}
+                                        />
+                                    </div>
+                                </div>
+
+
+                                <div className="form-group">
+                                    <label htmlFor="catProd">Categoria do Produto</label>
+                                    <div className="input-button">
+                                        <select id="categorias"
+                                            name="idCatProduto"
+                                            type="file"
+                                            onChange={this.postSetState}
+                                        >
+                                            <option value="">Selecione</option>
+                                            {
+                                                this.state.listaCategorias.map(function (o) {
+                                                    return (
+                                                        <option key={o.idCatProduto} value={o.idCatProduto}>
+                                                            {o.tipo}
+                                                        </option>
+
+                                                    )
+                                                }.bind(this))
+
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="descProd">Descrição do Produto</label>
+                                    <div className="input-button">
+                                        <input id="descricaoDoProduto"
+                                            type="text"
+                                            name="descricaoDoProduto"
+                                            value={this.state.postOferta.descricaoDoProduto}
+                                            onChange={this.postSetState}
+                                        />
+                                    </div>
+
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="valProd">Validade do Produto</label>
+                                    <div className="input-button">
+                                        <input id="validade"
+                                            type="date"
+                                            name="validade"
+                                            value={this.state.postOferta.validade}
+                                            onChange={this.postSetState}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* botão */}
+                                <div className="btn_botao">
+                                    <button 
+                                    className="botao_modal"
+                                    type="button"
+                                    onClick={() => this.handleClickOpen(o)} >Cadastrar</button>
+                                    {this.state.openOferta && <ModalCadastro open_modal={this.state.openOferta} fechar_modal={this.handleCloseOferta} />}
+                                </div>
+                            </form>
+                            <>
+                                <Dialog
+                                    open={this.state.open}
+                                    TransitionComponent={Transition}
+                                    keepMounted
+                                    onClose={this.handleClose}
+                                    aria-labelledby="alert-dialog-slide-title"
+                                    aria-describedby="alert-dialog-slide-description"
+                                    class="modal_caixa"
+                                >
+                                    <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{"Editar categoria"}</DialogTitle>
+                                    <DialogContent>
+
+                                        <DialogContentText class="modal-dialog" role="document">
+                                            <h6 class="modal-title" id="ModalLabel">Cadastro realizado com sucesso!</h6>
+                                        </DialogContentText>
+
+                                        <DialogContentText>
+                                            -------------------------------------------
+                                        </DialogContentText>
+
+                                        <DialogContentText >
+                                            <Link to="/#" onClick={this.handleClose} color="primary" type="submit">
+                                                Continuar cadastrando
+                                        </Link>
+
+                                        </DialogContentText>
+
+                                    </DialogContent>
+                                    <DialogActions>
+                                    </DialogActions>
+                                </Dialog>
+                            </>
+                            {/* Modal */}
+                            {/* <div>
+                                <div class="modal_caixa" id="modalProduto" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="ModalLabel">Cadastro realizado com sucesso!</h6>
                                             </div>
 
-                                            <div className="item_perfil">
-                                                <input
-                                                    className="estilo_input_perfil"
-                                                    placeholder="Email"
-                                                    type="text"
-                                                    name="email"
-                                                    value={this.state.top.email}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled={this.state.isEdit}
-                                                />
+                                            <div class="modal-footer">
+                                                <Link to="/#" type="" class="botao_cadastrar">Continuar Cadastrando</Link>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <form onSubmit={this.getUsuario} >
-                                    <div className="dados_principais">
-
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_input_perfil"
-                                                placeholder="CPF"
-                                                type="text"
-                                                name="cpfCNPJ"
-                                                value={this.state.top.cpfCnpj}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-
-                                        </div>
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_input_perfil"
-                                                placeholder="Telefone para contato"
-                                                type="text"
-                                                name="celular_telefone"
-                                                value={this.state.top.celularTelefone}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
                                         </div>
                                     </div>
+                                </div> */}
 
-                                    <div className="dados_principais">
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_dados_perfil"
-                                                placeholder="Endereço:"
-                                                type="text"
-                                                name="nomeEndereco"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.nomeEndereco : ''}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_dados_perfil"
-                                                placeholder="Complemento"
-                                                type="text"
-                                                name="complemento"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.complemento : ''}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_dados_perfil"
-                                                placeholder="Numero"
-                                                type="text"
-                                                name="numero"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.numero : ''}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="dados_principais">
-
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_dados_perfil"
-                                                placeholder="CEP"
-                                                type="text"
-                                                name="cep"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.cep : ''}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_dados_perfil"
-                                                placeholder="Bairro"
-                                                type="text"
-                                                name="bairro"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.bairro : ''}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-
-                                        <div className="item_perfil2">
-                                            <input
-                                                className="estilo_dados_perfil"
-                                                placeholder="Estado"
-                                                type="text"
-                                                name="estado"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.estado : ''}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="botao_ficha_perfil">
-                                        <button
-                                            type="button"
-                                            onClick={this.habilitaInput}
-                                            className="botao_perfil">ALTERAR</button>
-                                    </div>
-
-                                    <div className="botao_ficha_perfil">
-                                        <button
-                                            type="submit"
-                                            className="botao_perfil">SAlVAR</button>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
+                        <MDBTable>
+                            <MDBTableHead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nome Produto</th>
+                                    <th>Descrição</th>
+                                    <th>Preço</th>
+                                    <th>Quantidade</th>
+                                    <th>Validade</th>
+                                    <th>Imagem do Produto</th>
+                                </tr>
+                            </MDBTableHead>
+                            <MDBTableBody>
+                                {
+                                    this.state.listaOfertas.map(function (o) {
+                                        return (
+                                            <tr key={o.idOferta}>
+                                                <td>{o.idOferta}</td>
+                                                <td>{o.idProdutoNavigation.nomeProduto}</td>
+                                                <td>{o.idProdutoNavigation.descricaoDoProduto}</td>
+                                                <td>{o.preco}</td>
+                                                <td>{o.quantidade}</td>
+                                                <td>{o.validade}</td>
+                                                <td>{o.fotoUrlOferta}</td>
+                                            </tr>
+                                        )
+                                    }.bind(this))
+                                }
+                            </MDBTableBody>
+                        </MDBTable>
                     </div>
                 </main>
                 <Rodape></Rodape>
+
+
             </div>
+
         );
     }
 }
+export default cadastroProduto;
