@@ -36,6 +36,8 @@ import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import './assets/css/login.css';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
+import ModalCadastro from './components/modals.js/ModalCadastro.js';
+
 
 //Criamos uma variavel que Realiza a criação das rotas:
 const Rotas = (
@@ -66,6 +68,7 @@ const Rotas = (
 				<Route path="/cadastroProdutos" component={cadastroProduto} />
 				<Route path="/Login" component={Login}/>
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
+				<Route path="/ModalCadastro" component={ModalCadastro}/>
 
 				<Route component={Erro} />
 			</Switch>
