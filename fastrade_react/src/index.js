@@ -34,10 +34,11 @@ import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
 //import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
-import './assets/css/login.css';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
 import ModalCadastro from './components/modals.js/ModalCadastro.js';
 
+import ofertas from './pages/Ofertas/ofertas'
+import './assets/css/login.css';
 
 //Criamos uma variavel que Realiza a criação das rotas:
 const Rotas = (
@@ -69,6 +70,7 @@ const Rotas = (
 				<Route path="/Login" component={Login}/>
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
 				<Route path="/ModalCadastro" component={ModalCadastro}/>
+				<Route path="/ofertas" component={ofertas}/>
 
 				<Route component={Erro} />
 			</Switch>
