@@ -14,7 +14,7 @@ import 'mdbreact/dist/css/mdb.css';
 
 
 //importamos as paginas
-import Produtos from'./pages/produtos/produtos';
+import Produtos from'./pages/produtos/produtos'; 
 import App from './pages/Home/App';
 import Dicas from './pages/Dicas/Dicas';
 import quemSomos from './pages/quemSomos/quemSomos';
