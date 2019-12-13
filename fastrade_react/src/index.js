@@ -27,7 +27,7 @@ import Bolo from './pages/Receitas/Bolo';
 import Farofa from './pages/Receitas/Farofa';
 import Creme from './pages/Receitas/Creme';
 import Pate from './pages/Receitas/Pate';
-import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
+import cadastroProduto from './pages/cadastroProduto/cadastroProduto.js';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
@@ -35,8 +35,8 @@ import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
-import ModalCadastro from './components/modals/ModalCadastro.js';
-import CardReserva from './';
+import ModalCadastro from './components/modals/ModalCadastro.js'
+import Reserva from './pages/Reserva/Reserva';
 
 import './assets/css/login.css';
 
@@ -70,10 +70,8 @@ const Rotas = (
 				<Route path="/Login" component={Login}/>
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
 				<Route path="/ModalCadastro" component={ModalCadastro}/>
-<<<<<<< HEAD
-				{/* <Route path="/ofertas" component={ofertas}/> */}
-=======
->>>>>>> 4e1a8f18da0a83fbd37d46093d897da6d907d1b9
+				<Route path="/Reserva" component={Reserva}/>
+			
 
 				<Route component={Erro} />
 			</Switch>

@@ -5,7 +5,7 @@ import Rodape from '../../components/rodape/Rodape.js';
 import api from '../../services/api.js';
 import apiFormData from '../../services/apiFormData.js';
 import { parseJwt } from '../../services/auth';
-import ModalCadastro from '../../components/modals.js/ModalCadastro.js';
+import ModalCadastro from '../../components/modals/ModalCadastro.js';
 
 
 //impotar link 
@@ -108,7 +108,7 @@ class cadastroProduto extends Component {
     }
 
     getCategorias = () => {
-        api.get('/catproduto')
+        api.get('/endereco/' + parseJwt().IdEndereco)
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaCategorias: response.data })
@@ -311,64 +311,48 @@ class cadastroProduto extends Component {
 
                                 {/* botão */}
                                 <div className="btn_botao">
-                                    <button 
-                                    className="botao_modal"
-                                    type="button"
-                                    onClick={() => this.handleClickOpen(o)} >Cadastrar</button>
+                                    <button
+                                        className="botao_modal"
+                                        type="button"
+                                        onClick={() => this.handleClickOpen()} >Cadastrar</button>
                                     {this.state.openOferta && <ModalCadastro open_modal={this.state.openOferta} fechar_modal={this.handleCloseOferta} />}
                                 </div>
                             </form>
-                            <>
-                                <Dialog
-                                    open={this.state.open}
-                                    TransitionComponent={Transition}
-                                    keepMounted
-                                    onClose={this.handleClose}
-                                    aria-labelledby="alert-dialog-slide-title"
-                                    aria-describedby="alert-dialog-slide-description"
-                                    class="modal_caixa"
-                                >
-                                    <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{"Editar categoria"}</DialogTitle>
-                                    <DialogContent>
-
-                                        <DialogContentText class="modal-dialog" role="document">
-                                            <h6 class="modal-title" id="ModalLabel">Cadastro realizado com sucesso!</h6>
-                                        </DialogContentText>
-
-                                        <DialogContentText>
-                                            -------------------------------------------
-                                        </DialogContentText>
-
-                                        <DialogContentText >
-                                            <Link to="/#" onClick={this.handleClose} color="primary" type="submit">
-                                                Continuar cadastrando
-                                        </Link>
-
-                                        </DialogContentText>
-
-                                    </DialogContent>
-                                    <DialogActions>
-                                    </DialogActions>
-                                </Dialog>
-                            </>
-                            {/* Modal */}
-                            {/* <div>
-                                <div class="modal_caixa" id="modalProduto" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-
-                                            <div class="modal-header">
-                                                <h6 class="modal-title" id="ModalLabel">Cadastro realizado com sucesso!</h6>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <Link to="/#" type="" class="botao_cadastrar">Continuar Cadastrando</Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
-
                         </div>
+                        <>
+
+                            <Dialog
+                                open={this.state.open}
+                                TransitionComponent={Transition}
+                                keepMounted
+                                onClose={this.handleClose}
+                                aria-labelledby="alert-dialog-slide-title"
+                                aria-describedby="alert-dialog-slide-description"
+                                class="modal_caixa"
+                            >
+                                <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{""}</DialogTitle>
+                                <DialogContent>
+
+                                    <DialogContentText class="modal-dialog" role="document">
+                                        <h6 class="modal-title" id="ModalLabel">Click no botão para continuar</h6>
+                                    </DialogContentText>
+
+                                    <DialogContentText class="modal-dialog" role="document">
+
+                                        <Link>
+                                        <button
+                                            className="botao_modal"
+                                            type="button"
+                                        >Cotinuar</button>
+                                        </Link>
+                                    </DialogContentText>
+
+                                </DialogContent>
+                                <DialogActions>
+                                </DialogActions>
+                            </Dialog>
+                        </>
+
                         <MDBTable>
                             <MDBTableHead>
                                 <tr>

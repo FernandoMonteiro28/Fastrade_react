@@ -86,12 +86,12 @@ class Login extends Component {
 
             .catch(error => console.log(error))
 
-        // if (parseJwt().Role === 'Administrador') {
-        //     this.props.history.push('/Home');
-        // }
-        // else {
-        //     this.props.history.push('/cadastrarProduto');
-        // }
+        if (parseJwt().Role === 'Administrador') {
+            this.props.history.push('/Home');
+        }
+        else {
+            this.props.history.push('/cadastrarProduto');
+        }
     }
 
     atualizaEmail(input) {
