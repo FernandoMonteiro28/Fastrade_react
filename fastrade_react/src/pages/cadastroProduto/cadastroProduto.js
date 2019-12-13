@@ -5,12 +5,8 @@ import Rodape from '../../components/rodape/Rodape.js';
 import api from '../../services/api.js';
 import apiFormData from '../../services/apiFormData.js';
 import { parseJwt } from '../../services/auth';
-import ModalCadastro from '../../components/modals/ModalCadastro.js';
+import ModalCadastro from '../../components/modals.js/ModalCadastro.js';
 
-
-//importar css
-import '../../assets/css/CadastroProduto.css';
-import '../../assets/css/botao.css';
 
 //impotar link 
 import { Link } from 'react-router-dom';
@@ -102,8 +98,8 @@ class cadastroProduto extends Component {
     };
 
     //#region GET
-    getOfertas = async () => {
-        api.get('https://localhost:5001/api/oferta')
+    getOfertas = () => {
+        api.get('/oferta')
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaOfertas: response.data })
@@ -111,12 +107,13 @@ class cadastroProduto extends Component {
             })
     }
 
-    getCategorias = async () => {
-        api.get('https://localhost:5001/api/catproduto')
-            .then(data => {
-                    this.setState({ listaCategorias: data.data })
+    getCategorias = () => {
+        api.get('/catproduto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaCategorias: response.data })
+                }
             })
-            .catch(error => console.log(error))
     }
     //#endregion
 
@@ -163,30 +160,28 @@ class cadastroProduto extends Component {
         }, () => console.log("Objeto da oferta: ", this.state.postOferta))
     }
 
-    // this.state.postOferta
+    // postOferta = (p) => {
 
-    postOferta = (p) => {
-
-        p.preventDefault();
-        console.log("Cadastrando");
+    //     p.preventDefault();
+    //     console.log("Cadastrando");
 
 
-        api.post('https://localhost:5001/api/oferta', this.state.postOferta) 
-            .then(response => {
-                console.log(response);
-                this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
-            })
-            .catch(error => {
-                console.log(error);
-                this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
-            })
+    //     api.post('/Oferta', this.state.postOferta)
+    //         .then(response => {
+    //             console.log(response);
+    //             this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //             this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
+    //         })
 
-        setTimeout(() => {
-            this.getOfertas();
-        }, 1500);
+    //     setTimeout(() => {
+    //         this.getOfertas();
+    //     }, 1500);
 
-    }
-    #endregion
+    // }
+    //#endregion
 
 
 
@@ -222,118 +217,107 @@ class cadastroProduto extends Component {
                         <div className="card_produto">
                             <h1 className="titulo_cadastro">Cadastro de Produto</h1>
 
-                            <form  className="caixa_cadastrop" onSubmit={this.postOferta}>
+                            <form onSubmit={this.postOferta}>
 
                                 <div className="conjunto_cadastro">
-
-                                    <div className="descproduto1">
-                                        <div className="form-group">
-                                            <label htmlFor="nomeProd">Nome do Produto</label>
-                                            <div className="input-button">
-                                                <input
-                                                    id="nomeProduto"
-                                                    type="text"
-                                                    name="nomeProduto"
-                                                    value={this.state.postOferta.nomeProduto}
-                                                    onChange={this.postSetState}
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="descproduto2">
-                                        <div className="form-group">
-                                            <label htmlFor="descProd">Descrição do Produto</label>
-                                            <div className="input-button">
-                                                <input
-                                                    type="text"
-                                                    name="descricaoDoProduto"
-                                                    value={this.state.postOferta.descricaoDoProduto}
-                                                    onChange={this.postSetState}
-                                                />
-                                            </div>
+                                    <div className="form-group">
+                                        <label htmlFor="nomeProd">Nome do Produto</label>
+                                        <div className="input-button">
+                                            <input
+                                                id="nomeProduto"
+                                                type="text"
+                                                name="nomeProduto"
+                                                value={this.state.postOferta.nomeProduto}
+                                                onChange={this.postSetState}
+                                            />
                                         </div>
                                     </div>
+                                </div>
+
+
+                                <div className="form-group">
+                                    <label htmlFor="quant">Quantidade</label>
+                                    <div className="input-button">
+                                        <input id="quantidade"
+                                            type="number"
+                                            name="quantidade"
+                                            value={this.state.postOferta.quantidade}
+                                            onChange={this.postSetState}
+                                        />
                                     </div>
+                                </div>
 
-                                    <div className="vproduto">
-                                        <div className="form-group">
-                                            <label htmlFor="quant">Quantidade</label>
-                                            <div className="input-button">
-                                                <input id="quantidade"
-                                                    type="number"
-                                                    name="quantidade"
-                                                    value={this.state.postOferta.quantidade}
-                                                    onChange={this.postSetState}
-                                                />
-                                            </div>
-                                        </div>
-
-
-                                        <div className="form-group">
-                                            <label htmlFor="PrecoProd">Preço do Produto</label>
-                                            <div className="input-button">
-                                                <input id="preco"
-                                                    type="valor"
-                                                    name="preco"
-                                                    value={this.state.postOferta.preco}
-                                                    onChange={this.postSetState}
-                                                />
-                                            </div>
-                                        </div>
+                                <div className="form-group">
+                                    <label htmlFor="PrecoProd">Preço do Produto</label>
+                                    <div className="input-button">
+                                        <input id="preco"
+                                            type="valor"
+                                            name="preco"
+                                            value={this.state.postOferta.preco}
+                                            onChange={this.postSetState}
+                                        />
                                     </div>
+                                </div>
 
 
-                                    <div className="vproduto">
-                                        <div className="form-group">
-                                            <label htmlFor="catProd">Categoria do Produto</label>
-                                            <div className="input-button">
-                                                <select id="categorias"
-                                                    name="idCatProduto"
-                                                    type="file"
-                                                    onChange={this.postSetState}
-                                                >
-                                                    <option value="">Selecione</option>
-                                                    {
-                                                        this.state.listaCategorias.map(function (o) {
-                                                            return (
-                                                                <option key={o.idCatProduto} value={o.idCatProduto}>
-                                                                    {o.tipo}
-                                                                    
-                                                                </option>
+                                <div className="form-group">
+                                    <label htmlFor="catProd">Categoria do Produto</label>
+                                    <div className="input-button">
+                                        <select id="categorias"
+                                            name="idCatProduto"
+                                            type="file"
+                                            onChange={this.postSetState}
+                                        >
+                                            <option value="">Selecione</option>
+                                            {
+                                                this.state.listaCategorias.map(function (o) {
+                                                    return (
+                                                        <option key={o.idCatProduto} value={o.idCatProduto}>
+                                                            {o.tipo}
+                                                        </option>
 
-                                                            )
-                                                        }.bind(this))
+                                                    )
+                                                }.bind(this))
 
-                                                    }
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div className="descproduto"></div>
-                                            <div className="form-group">
-                                                <label htmlFor="valProd">Validade do Produto</label>
-                                                <div className="input-button">
-                                                    <input id="validade"
-                                                        type="date"
-                                                        name="validade"
-                                                        value={this.state.postOferta.validade}
-                                                        onChange={this.postSetState}
-                                                    />
-                                                </div>
-                                            </div>
+                                            }
+                                        </select>
                                     </div>
+                                </div>
 
+                                <div className="form-group">
+                                    <label htmlFor="descProd">Descrição do Produto</label>
+                                    <div className="input-button">
+                                        <input id="descricaoDoProduto"
+                                            type="text"
+                                            name="descricaoDoProduto"
+                                            value={this.state.postOferta.descricaoDoProduto}
+                                            onChange={this.postSetState}
+                                        />
+                                    </div>
 
                                 </div>
-                                {/* botão para o modal*/}
+
+                                <div className="form-group">
+                                    <label htmlFor="valProd">Validade do Produto</label>
+                                    <div className="input-button">
+                                        <input id="validade"
+                                            type="date"
+                                            name="validade"
+                                            value={this.state.postOferta.validade}
+                                            onChange={this.postSetState}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* botão */}
                                 <div className="btn_botao">
-                                    <button
-                                        className="botao_modal"
-                                        type="button"
-                                        onClick={() => this.handleClickOpen()} >Cadastrar</button>
+                                    <button 
+                                    className="botao_modal"
+                                    type="button"
+                                    onClick={() => this.handleClickOpen(o)} >Cadastrar</button>
                                     {this.state.openOferta && <ModalCadastro open_modal={this.state.openOferta} fechar_modal={this.handleCloseOferta} />}
                                 </div>
                             </form>
-
-                            {/* Modal */}
                             <>
                                 <Dialog
                                     open={this.state.open}
@@ -344,15 +328,21 @@ class cadastroProduto extends Component {
                                     aria-describedby="alert-dialog-slide-description"
                                     class="modal_caixa"
                                 >
-                                    <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{""}</DialogTitle>
+                                    <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{"Editar categoria"}</DialogTitle>
                                     <DialogContent>
 
                                         <DialogContentText class="modal-dialog" role="document">
-                                            <h6 class="modal-title" id="ModalLabel">Aperte no botão para continuar o cadastro</h6>
+                                            <h6 class="modal-title" id="ModalLabel">Cadastro realizado com sucesso!</h6>
+                                        </DialogContentText>
+
+                                        <DialogContentText>
+                                            -------------------------------------------
                                         </DialogContentText>
 
                                         <DialogContentText >
-                                            <Link to="/#" ><button className="botao_cadastrar" type="submit">Continuar</button>                                           </Link>
+                                            <Link to="/#" onClick={this.handleClose} color="primary" type="submit">
+                                                Continuar cadastrando
+                                        </Link>
 
                                         </DialogContentText>
 
@@ -361,6 +351,22 @@ class cadastroProduto extends Component {
                                     </DialogActions>
                                 </Dialog>
                             </>
+                            {/* Modal */}
+                            {/* <div>
+                                <div class="modal_caixa" id="modalProduto" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="ModalLabel">Cadastro realizado com sucesso!</h6>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <Link to="/#" type="" class="botao_cadastrar">Continuar Cadastrando</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> */}
 
                         </div>
                         <MDBTable>
