@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import logoface from '../../assets/img/facebook.png';
 import logogoogle from '../../assets/img/google.png';
 import { parseJwt } from '../../services/auth';
-import Cabecalho from '../../components/cabecalho/cabecalho';
+import Header from '../../components/cabecalho/cabecalho.js';
+import Rodape from '../../components/rodape/Rodape.js';
+import '../../assets/css/inputs.css';
 import '../../assets/css/botao.css';
-import '../../assets/css/login.css'
+import '../../assets/css/login.css';
 
 
 class Login extends Component {
@@ -108,49 +110,54 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="container_login">
-                    <Cabecalho {...this.props} />
-                    <div className="card">
+                <Header></Header>
+                    <main>
+                    <div className="logintudo">
+                <div className="card_login">
+                    
 
                         <h1 className="conta">Criar sua conta/Logar</h1>
                         <form onSubmit={this.realizarLogin.bind(this)}>
+                            <div className="login">
                             <div className="conteudotodo">
-                                <label className="e-mail">
-                                    <p className="login">Email</p>
-                                    <input className="login" name="email"
-                                        type="text" required className="caixa_cadastro"
-                                        placeholder="exemplo@hotmail.com"
-                                        arial-label="exemplo@hotmail.com"
-                                        onChange={this.atualizaEmail.bind(this)} />
+                                <label className="item_input">
+                                    
+                                    <input 
+                                    className="estilo_input"
+                                    name="email"
+                                    type="text" 
+                                    required 
+                                    placeholder="exemplo@hotmail.com"
+                                    arial-label="exemplo@hotmail.com"
+                                     onChange={this.atualizaEmail.bind(this)} />
                                 </label>
                             </div>
                             <div className="conteudotodo">
-                                <label>
-                                    <p className="login">Senha</p>
-                                    <input className="login" name="Senha" type="password" required className="caixa_cadastro"
-                                        placeholder="Digite sua senha..."
-                                        arial-label="Digite sua senha"
-                                        onChange={this.atualizaSenha.bind(this)} />
+                                <label className="item_input">
+                                    
+                                    <input 
+                                    className="estilo_input"
+                                    name="Senha" type="password" 
+                                    required 
+                                    placeholder="Digite sua senha..."
+                                    arial-label="Digite sua senha"
+                                    onChange={this.atualizaSenha.bind(this)} />
                                 </label>
+                                </div>
                                 <div className="caixabotao">
-                                    <button className="botao_cadastrar"type="submit">Continuar</button>
-                                    <button className="botao_cadastrar"type="submit">Registrar</button>
+                                    <button className="botao_cadastrar"type="submit">Entrar</button>
+                                    <button className="botao_cadastrar"type="submit">Cadastrar</button>
                                 </div>
 
                             </div>
 
-                            <div className="botaologar">
-                                <a href="https://pt-br.facebook.com/"><img className="botaoface" src={logoface} alt="Logar com facebook" /></a>
-                                <a
-                                    href="https://accounts.google.com/signin/v2/identifier?hl=pt-BR&passive=true&continue=https%3A%2F%2Fwww.google.com.br%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img
-                                        src={logogoogle} className="botaogoogle" alt="Logar com google" /></a>
-                            </div>
                         </form>
                     </div>
 
                 </div>
+            </main>
+            <Rodape></Rodape>
             </div>
-
         );
     }
 }
