@@ -4,17 +4,16 @@ import * as serviceWorker from './serviceWorker';
 //Importamos as dependencias necessarias:
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-//importamos ccs
-// import './assets/css/cadastroProduto.css';
+// importamos ccs
 import './assets/css/dicas.css';
 import './assets/css/receita.css';
-//import './assets/css/produtos.css';
+import './assets/css/produtos.css';
 import './assets/css/login.css';
 import 'mdbreact/dist/css/mdb.css'; 	
 
 
 //importamos as paginas
-//import Produtos from'./pages/produtos/produtos';
+import Produtos from'./pages/produtos/produtos'; 
 import App from './pages/Home/App';
 import Dicas from './pages/Dicas/Dicas';
 import quemSomos from './pages/quemSomos/quemSomos';
@@ -27,11 +26,11 @@ import Bolo from './pages/Receitas/Bolo';
 import Farofa from './pages/Receitas/Farofa';
 import Creme from './pages/Receitas/Creme';
 import Pate from './pages/Receitas/Pate';
-import cadastroProduto from './pages/cadastroProduto/cadastroProduto.js';
+import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
-//import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
+//import CadastroCliente from './pages/CadastroCliente/CadastroCliente' 
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
@@ -59,7 +58,7 @@ const Rotas = (
 				<Route path="/Home" component={App} />
 				<Route path="/Dicas" component={Dicas} />
 				<Route path="/Dica" component={Dicas} />
-				{/* <Route path="/produtos" component={Produtos} /> */}
+				<Route path="/produtos" component={Produtos} />
 				<Route path="/quemSomos" component={quemSomos} />
 				<Route path="/receitas" component={Receitas} />
 				<Route path="/cadastroProduto" component={cadastroProduto} />
