@@ -22,7 +22,7 @@
 	align-content: center;     
 }
 .conj_barra{
-	display: block;
+	/* display: block; */
 	margin-left: 10px;
 	/* align-content: center;
 	align-items: center; */
@@ -97,22 +97,7 @@ a.opcoes_perfil:hover{
 	align-items: center;
 	width: 600px;	
 } */
-.item_perfil{
-	margin:35px;
-}
-.estilo_input_perfil{
-	border: 0;
-	width: 350px;
-	height: 20px;
-	border-bottom: 2px solid #BC3908;
-	border-left: 2px solid #BC3908;
-	border-right: 2px solid #BC3908;
-	border-radius: 3px;
-	padding: 1px;
-	background: transparent;
-	color: #808080;
-	text-align: left; 	
-}
+
 .item_perfil2{
 	margin:15px;
 	margin-left: 20px;	

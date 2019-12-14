@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cabecalho from '../../components/cabecalho/cabecalho';
+import Cabecalho from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape';
 import img_Bolo from '../../assets/img/bolo.png';
 import MACARRAOA from '../../assets/img/MACARRAOA.png';

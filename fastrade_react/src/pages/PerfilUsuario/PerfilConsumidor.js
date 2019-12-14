@@ -21,9 +21,9 @@ export default class PerfilConsumidor extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            top : [],
+            top: [],
 
-            listaUsuario:  {
+            listaUsuario: {
 
                 idUsuario: parseJwt().IdUsuario,
                 nomeRazaoSocial: "",
@@ -32,7 +32,7 @@ export default class PerfilConsumidor extends Component {
                 senha: "",
                 celularTelefone: "",
                 fotoUrlUsuario: React.createRef(),
-               
+
             },
             listaEndereco: [],
 
@@ -62,42 +62,48 @@ export default class PerfilConsumidor extends Component {
         // this.postUsuario = this.postUsuario.bind(this);
     }
 
-    //#region GET
+//#region GET  Fetch
     componentDidMount() {
         this.getUsuario();
         this.getEndereco();
     }
 
+    //GET com Fetch
     getUsuario = async () => {
-        // //pegando id do usuario
-        // api.get('/usuario/' + parseJwt().IdUsuario)
 
-        //     .then(response => {
-        //         if (response.status === 200) {
-        //             this.setState({ listaUsuario: response.data })
-        //         }
-        //     })
-
-        await fetch("https://localhost:5001/api/usuario/"+ parseJwt().IdUsuario)
+        await fetch("https://localhost:5001/api/usuario/" + parseJwt().IdUsuario)
             .then(response => response.json())
-            .then(data => this.setState({top: data}))
+            .then(data => this.setState({ top: data }))
             .then(data => console.log(this.state.top))
 
 
     }
 
-    getEndereco = () => {
-        //pegando id do usuario
-        api.get('/endereco/' + parseJwt().IdEndereco)
+    getEndereco = async () => {
 
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaEndereco: response.data })
-                }
-            })
+        await fetch("https://localhost:5001/api/endereco/" + parseJwt().IdEndereco)
+            .then(response => response.json())
+            .then(data => this.setState({ top: data }))
+            .then(data => console.log(this.state.top))
+
+
     }
+//#region GET DE Axios
 
-    //#endregion
+
+    // getEndereco = () => {
+    //     //pegando id do usuario
+    //     api.get('/endereco/' + parseJwt().IdEndereco)
+
+    //         .then(response => {
+    //             if (response.status === 200) {
+    //                 this.setState({ listaEndereco: response.data })
+    //             }
+    //         })
+    // }
+//#endregion
+    
+//#endregion
 
 
 
@@ -225,7 +231,7 @@ export default class PerfilConsumidor extends Component {
                                     <form onSubmit={this.perfilUsuario}>
                                         <div className="conj_img">
 
-                                            <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
+                                            {/* <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
 
                                             <input
                                                 accept="image/*"
@@ -234,7 +240,7 @@ export default class PerfilConsumidor extends Component {
                                                 alt="Insire uma imagem"
                                                 name="fotoUrlUsuario"
                                                 onChange={this.alterarSetStateFile}
-                                            />
+                                            /> */}
                                         </div>
                                     </form>
 
@@ -297,12 +303,12 @@ export default class PerfilConsumidor extends Component {
 
                                     <div className="dados_principais">
                                         <div className="item_perfil2">
-                                            <input
+                                        <input
                                                 className="estilo_dados_perfil"
                                                 placeholder="Endereço:"
                                                 type="text"
-                                                name="nomeEndereco"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.nomeEndereco : ''}
+                                                name="Rua_Av"
+                                                value={this.state.top.Rua_Av} 
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -314,8 +320,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Complemento"
                                                 type="text"
                                                 name="complemento"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.complemento : ''}
-                                                onChange={this.alterarStateUsuario}
+                                                value={this.state.top.complemento}                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
                                         </div>
@@ -326,7 +331,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Numero"
                                                 type="text"
                                                 name="numero"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.numero : ''}
+                                                value={this.state.top.numero}                                                 onChange={this.alterarStateUsuario}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -341,7 +346,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="CEP"
                                                 type="text"
                                                 name="cep"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.cep : ''}
+                                                value={this.state.top.cep}                                                 onChange={this.alterarStateUsuario}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -353,7 +358,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Bairro"
                                                 type="text"
                                                 name="bairro"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.bairro : ''}
+                                                value={this.state.top.bairro}                                                 onChange={this.alterarStateUsuario}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />
@@ -365,7 +370,7 @@ export default class PerfilConsumidor extends Component {
                                                 placeholder="Estado"
                                                 type="text"
                                                 name="estado"
-                                                value={this.state.top.idEnderecoNavigation !== undefined ? this.state.top.idEnderecoNavigation.estado : ''}
+                                                value={this.state.top.estado}                                                 onChange={this.alterarStateUsuario}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
                                             />

@@ -1,0 +1,16 @@
+.item_input{
+	margin:35px;
+}
+.estilo_input{
+	border: 0;
+	width: 350px;
+	height: 20px;
+	border-bottom: 2px solid #BC3908;
+	border-left: 2px solid #BC3908;
+	border-right: 2px solid #BC3908;
+	border-radius: 3px;
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left; 	
+}
