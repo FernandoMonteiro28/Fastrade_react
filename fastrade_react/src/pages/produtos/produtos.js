@@ -23,7 +23,7 @@ class Produtos extends Component {
                     <div className="container_lista">
                         <div className="busca">
                             <h3 className="ordenar">Ordenar por:</h3>
-                            <select name="" id="">
+                            <select className="filtroproduto" name="" id="">
                                 <option value="">Selecione</option>
                                 <option value="">Menor Preço</option>
                                 <option value="">Maior preço</option>
@@ -65,7 +65,7 @@ class Produtos extends Component {
                     <div className="container_cards">
                         <div
                             onClick={event => this.setState({ ativo: true })}
-                            className="card"
+                            className="card_produto"
                         >
                             <div className="sub_card">
                                 <img src={Laranja} alt="" />

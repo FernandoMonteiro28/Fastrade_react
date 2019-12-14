@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import logoface from '../../assets/img/face.png';
-import logogoogle from '../../assets/img/Agrupar 20.png';
+import logoface from '../../assets/img/facebook.png';
+import logogoogle from '../../assets/img/google.png';
 import { parseJwt } from '../../services/auth';
 import Cabecalho from '../../components/cabecalho/cabecalho';
+import '../../assets/css/botao.css';
+import '../../assets/css/login.css'
 
 
 class Login extends Component {
@@ -106,9 +108,10 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className="container_login">
                     <Cabecalho {...this.props} />
                     <div className="card">
+
                         <h1 className="conta">Criar sua conta/Logar</h1>
                         <form onSubmit={this.realizarLogin.bind(this)}>
                             <div className="conteudotodo">
@@ -130,17 +133,17 @@ class Login extends Component {
                                         onChange={this.atualizaSenha.bind(this)} />
                                 </label>
                                 <div className="caixabotao">
-                                    <button className="acesso"type="submit">Continuar</button>
-                                    <button className="acesso"type="submit">Registrar</button>
+                                    <button className="botao_cadastrar"type="submit">Continuar</button>
+                                    <button className="botao_cadastrar"type="submit">Registrar</button>
                                 </div>
 
                             </div>
 
                             <div className="botaologar">
-                                <a href="https://pt-br.facebook.com/"><img className="botaolink" src={logoface} alt="Logar com facebook" /></a>
+                                <a href="https://pt-br.facebook.com/"><img className="botaoface" src={logoface} alt="Logar com facebook" /></a>
                                 <a
                                     href="https://accounts.google.com/signin/v2/identifier?hl=pt-BR&passive=true&continue=https%3A%2F%2Fwww.google.com.br%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img
-                                        src={logogoogle} className="botaolink" alt="Logar com google" /></a>
+                                        src={logogoogle} className="botaogoogle" alt="Logar com google" /></a>
                             </div>
                         </form>
                     </div>
