@@ -4,17 +4,18 @@ import * as serviceWorker from './serviceWorker';
 //Importamos as dependencias necessarias:
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-//importamos ccs
-// import './assets/css/cadastroProduto.css';
+// importamos ccs
 import './assets/css/dicas.css';
 import './assets/css/receita.css';
 import './assets/css/produtos.css';
 import './assets/css/login.css';
 import 'mdbreact/dist/css/mdb.css'; 	
+import './assets/css/botao.css';
+import './assets/css/inputs.css'; 	
 
 
 //importamos as paginas
-import Produtos from'./pages/produtos/produtos';
+import Produtos from'./pages/produtos/produtos'; 
 import App from './pages/Home/App';
 import Dicas from './pages/Dicas/Dicas';
 import quemSomos from './pages/quemSomos/quemSomos';
@@ -31,11 +32,17 @@ import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
+<<<<<<< HEAD
 import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
+=======
+//import CadastroCliente from './pages/CadastroCliente/CadastroCliente' 
+>>>>>>> 3b9f625c377f2ef51c2382de30f9210238106b7b
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
-import ModalCadastro from './components/modals.js/ModalCadastro.js';
+import ModalCadastro from './components/modals/ModalCadastro.js'
+import PerfilAdministrador from './pages/PerfilUsuario/PerfilAdministrador.js'
+
 
 import './assets/css/login.css';
 
@@ -69,6 +76,9 @@ const Rotas = (
 				<Route path="/Login" component={Login}/>
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
 				<Route path="/ModalCadastro" component={ModalCadastro}/>
+				<Route path="/PerfilAdministrador" component={PerfilAdministrador}/>
+			
+			
 
 				<Route component={Erro} />
 			</Switch>

@@ -1,277 +1,347 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-//importar a imagens
 import usuario from '../../assets/img/usuario.png';
-//importamos pagina de perfil do usuario 
-import PerfilConsumidor from '../PerfilUsuario/PerfilConsumidor.js';
-import PerfilProduto from '../PerfilUsuario/PerfilProduto.js';
+import api from '../../services/api.js';
+import apiFormData from '../../services/apiFormData.js';
+import { parseJwt } from '../../services/auth';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import Header from '../../components/cabecalho/cabecalho.js';
+import Rodape from '../../components/rodape/Rodape.js';
 
 //impotar link 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //importar o css
 import perfil from '../../assets/css/perfil.css';
 
-// importamos as dependencias de Route
-import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 
-export default class PerfilComerciante extends Component {
+export default class PerfilConsumidor extends Component {
 
-    
-    UNSAFE_componentWillMount() {
-        console.log('Will');
-    }
-
-    componentDidMount() {
-        console.log('Did');
-    }
-
-    componentDidUpdate() {
-        console.log("Update");
-    }
-
-    componentWillUnmount() {
-        console.log("Unmount")
-    }
-
-    //props é usado para passar dados para elementos JSX
     constructor(props) {
         super(props);
-
-        //cada elemento de input que você terá em seu component formulário assumirá o valor de state como seu valor.
         this.state = {
+            top: [],
 
-            listaPerfilConsumidor: [],
-            listaUsuario: [],
-            listaEndereco: [],
+            listaUsuario: {
 
-            nome_razao_social: "",
-            email: "",
-            cpf_cnpj: "",
-            celular_telefone: "",
-            rua_av: "",
-            numero: "",
-            complemento: "",
-            bairro: "",
-            estado: "",
-            cep: "",
-            id_Usuario: "",
-            id_Endereco: "",
-            erroDeDados: ""
-        };
-    }
+                idUsuario: parseJwt().IdUsuario,
+                nomeRazaoSocial: "",
+                cpfCnpj: "",
+                email: "",
+                senha: "",
+                celularTelefone: "",
+                fotoUrlUsuario: React.createRef(),
 
-    //Em seguida, podemos adicionar um método handleChange que aceita o argumento do event 
-    //. Este objeto de evento conterá nosso nome e valor de entrada.
 
-    handleNome_Razao_SocialChange = (event) => {
-        this.setState({ nome_razao_social: event.target.value });
-    }
-    handleEmailChange = (event) => {
-        this.setState({ email: event.target.value });
-    }
-    handleCPF_CNPJChange = (event) => {
-        this.setState({ cpf_cnpj: event.target.value });
-    }
-    handleCelular_TelefoneChange = (event) => {
-        this.setState({ celular_telefone: event.target.value });
-    }
-    handleRua_AVChange = (event) => {
-        this.setState({ rua_av: event.target.value });
-    }
-    handleNumeroChange = (event) => {
-        this.setState({ numero: event.target.value });
-    }
-    handleComplementoChange = (event) => {
-        this.setState({ complemento: event.target.value });
-    }
-    handleBairroChange = (event) => {
-        this.setState({ bairro: event.target.value });
-    }
-    handleEstadoChange = (event) => {
-        this.setState({ estado: event.target.value });
-    }
-    handleCEPChange = (event) => {
-        this.setState({ cep: event.target.value });
+
+                perfilUsuario: {
+                    idUsuario: parseJwt().IdUsuario,
+                    nomeRazaoSocial: "",
+                    cpfCnpj: "",
+                    email: "",
+                    senha: "",
+                    celularTelefone: "",
+                    fotoUrlUsuario: React.createRef(),
+                    Rua_Av: "",
+                    numero: "",
+                    complemento: "",
+                    cep: "",
+                    bairro: "",
+                    estado: "",
+                },
+                isEdit: true,
+                erroMsg: "",
+                sucessMsg: "",
+            }
+        }
+
+        // this.postUsuario = this.postUsuario.bind(this);
     }
 
-    //usamos um método handleSubmit que chama uma caixa de 
-    //alerta que imprime os valores de estado.
-    // Separei por id = {id_Usuario}
-    handleSubmit = (event) => {
+    //#region GET  Fetch
+    componentDidMount() {
+        this.getUsuario();
+        this.getEndereco();
+    }
+
+    //GET com Fetch
+    getUsuario = async () => {
+
+        await fetch("https://localhost:5001/api/usuario/" + parseJwt().IdUsuario)
+            .then(response => response.json())
+            .then(data => this.setState({ top: data }))
+            .then(data => console.log(this.state.top))
+
+
+    }
+
+    getEndereco = async () => {
+
+        await fetch("https://localhost:5001/api/endereco/" + parseJwt().IdEndereco)
+            .then(response => response.json())
+            .then(data => this.setState({ top: data }))
+            .then(data => console.log(this.state.top))
+
+
+    }
+
+
+    alterarStateUsuario = event => {
+        this.setState({
+            top: {
+                ...this.state.top, [event.target.name]: event.target.value
+            }
+        });
+    }
+
+    alterarSetStateFile = (input) => {
+        this.setState({
+            perfilUsuario: {
+                ...this.state.perfilUsuario, [input.target.name]: input.target.files[0]
+            }
+        })
+    }
+
+    perfilUsuario = (event) => {
+
         event.preventDefault();
-        const { nome_razao_social, email, cpf_cnpj, celular_telefone } = this.state
-        alert(`Seus valores de estado:  n
-        nome_razao_social: $ {nome_razao_social}  n
-        email: $ {email} n 
-        cpf_cnpj: $ {cpf_cnpj} n
-        celular_telefone: $ {celular_telefone} `)
+
+        // let usuario_alterado = this.state.usuario;
+
+        let usuarioFormData = new FormData();
+        usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
+        usuarioFormData.set("nomeRazaoSocial", this.state.usuario.nomeRazaoSocial);
+        usuarioFormData.set("cpfCnpj", this.state.usuario.cpfCnpj);
+        usuarioFormData.set("email", this.state.usuario.email);
+        usuarioFormData.set("celularTelefone", this.state.usuario.celularTelefone);
+        usuarioFormData.set("senha", this.state.usuario.senha);
+        usuarioFormData.set("Rua_Av", this.state.usuario.Rua_Av);
+        usuarioFormData.set("numero", this.state.usuario.numero);
+        usuarioFormData.set("complemento", this.state.usuario.complemento);
+        usuarioFormData.set("bairro", this.state.usuario.bairro);
+        usuarioFormData.set("cep", this.state.usuario.senha);
+        usuarioFormData.set("estado", this.state.usuario.estado);
+
+        usuarioFormData.set('fotoUrlUsuario', this.state.perfilUsuario.fotoUrlUsuario.current.files[0], this.state.perfilUsuario.fotoUrlUsuario.value);
+
+        apiFormData.put('/usuario/' + parseJwt().id, usuarioFormData)
+
+            .then(() => {
+
+                this.setState({ successMsg: "Perfil alterado com sucesso!" });
+                this.setState({ isEdit: true });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+        setTimeout(() => {
+            this.getUsuario();
+        }, 1500);
     }
 
-    //usamos um método handleSubmit que chama uma caixa de 
-    //alerta que imprime os valores de estado.
-    // Separei por id = {id_Endereco}
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { rua_av, numero, complemento, bairro, estado, cep } = this.state
-        alert(`Seus valores de estado:  n
-        rua_av: $ {rua_av}  n
-        numero: $ { numero} n 
-        complemento: $ {complemento} n
-        bairro: $ {bairro} n
-        estado: $ {estado} n
-        cep: $ {cep}`)
+    habilitaInput = () => {
+        this.setState({
+            isEdit: false,
+        })
     }
+
+
     render() {
         return (
-            <div className="cabeca_perfil">
-            <div className="barra_lateral_perfil">
-                <Link to="/PerfilComerciante" className="opcoes_perfil">Perfil</Link>
-                <Link to="/PerfilProduto" className="opcoes_perfil">Meu Produtos</Link>
-                <Link to="/" className="opcoes_perfil">Cadastrar Produtos</Link>
-            </div>
-            <div className="conj_barra">
-                <div className="pri_barra_perfil">
-                    <div className="titulo_usuario">
-                        <p>PERFIL DO USUÁRIO</p>
-                    </div>
+            <div>
+                <Header></Header>
 
-                    <div className="dados_perf">
-                        <form>
-                            <div className="conj_img">
-                                <input
-                                    className="img_usuario"
-                                    type="image"
-                                    src={usuario}
-                                    alt="Insire uma imagem"
-                                    name="foto_Url_Usuario"
-                                    onChange={this.handleFoto_Url_UsuarioChange}
-                                    value={this.state.foto_Url_Usuario} />
-                            </div>
-                        </form>
+                <main>
+                    <div className="cabeca_perfil">
+                        <div className="barra_lateral_perfil">
+                            <Link to="/PerfilConsumidor" className="opcoes_perfil">Perfil</Link>
+                            <Link to="/PerfilProduto" className="opcoes_perfil">Minha lista de oferta</Link>
+                            <Link to="/cadastroProduto" className="opcoes_perfil">Cadastrar nova oferta</Link>
 
-                        <div className="usuario_perfil">
-
-                            <form onSubmit="">
-                                <div className="item_perfil">
-                                    <input
-                                        className="estilo_input_perfil"
-                                        placeholder="Razão Social"
-                                        type="text"
-                                        name="nome_razao_social"
-                                        onChange={this.handleNome_Razao_SocialChange}
-                                        value={this.state.nome_razao_social} />
+                        </div>
+                        <div className="conj_barra">
+                            <div className="pri_barra_perfil">
+                                <div className="titulo_usuario">
+                                    <p>PERFIL DO USUÁRIO</p>
                                 </div>
 
-                                <div className="item_perfil">
-                                    <input
-                                        className="estilo_input_perfil"
-                                        placeholder="Email"
-                                        type="text"
-                                        name="email"
-                                        onChange={this.handleEmailChange}
-                                        value={this.state.email} />
+                                <div id="PerfilUsuario-lista">
+
                                 </div>
-                            </form>
+
+                                <div className="dados_perf">
+
+                                    <form onSubmit={this.perfilUsuario}>
+                                        <div className="conj_img">
+
+                                            {/* <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
+
+                                            <input
+                                                accept="image/*"
+                                                type="file"
+                                                src={usuario}
+                                                alt="Insire uma imagem"
+                                                name="fotoUrlUsuario"
+                                                onChange={this.alterarSetStateFile}
+                                            /> */}
+                                        </div>
+                                    </form>
+
+                                    <div className="usuario_perfil">
+
+                                        <form onSubmit={this.perfilUsuario}>
+
+                                            <div className="item_input">
+                                                <input
+                                                    className="estilo_input"
+                                                    type="text"
+                                                    placeholder="RazaoSocial"
+                                                    name="nomeRazaoSocial"
+                                                    value={this.state.top.nomeRazaoSocial}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled='true'
+                                                />
+                                            </div>
+
+                                            <div className="item_input">
+                                                <input
+                                                    className="estilo_input"
+                                                    placeholder="Email"
+                                                    type="text"
+                                                    name="email"
+                                                    value={this.state.top.email}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <form onSubmit={this.getUsuario} >
+                                    <div className="dados_principais">
+
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input"
+                                                placeholder="CNPJ"
+                                                type="text"
+                                                name="cpfCnpj"
+                                                value={this.state.top.cpfCnpj}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+
+                                        </div>
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input"
+                                                placeholder="Telefone para contato"
+                                                type="text"
+                                                name="celular_telefone"
+                                                value={this.state.top.celularTelefone}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="dados_principais">
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input2"
+                                                placeholder="Endereço:"
+                                                type="text"
+                                                name="Rua_Av"
+                                                value={this.state.top.Rua_Av} 
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+                                        </div>
+
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input2"
+                                                placeholder="Complemento"
+                                                type="text"
+                                                name="complemento"
+                                                value={this.state.top.complemento}                                                 onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+                                        </div>
+
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input2"
+                                                placeholder="Numero"
+                                                type="text"
+                                                name="numero"
+                                                value={this.state.top.numero}                                                 onChange={this.alterarStateUsuario}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="dados_principais">
+
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input2"
+                                                placeholder="CEP"
+                                                type="text"
+                                                name="cep"
+                                                value={this.state.top.cep}                                                 onChange={this.alterarStateUsuario}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+                                        </div>
+
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input2"
+                                                placeholder="Bairro"
+                                                type="text"
+                                                name="bairro"
+                                                value={this.state.top.bairro}                                                 onChange={this.alterarStateUsuario}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+                                        </div>
+
+                                        <div className="item_input2">
+                                            <input
+                                                className="estilo_input2"
+                                                placeholder="Estado"
+                                                type="text"
+                                                name="estado"
+                                                value={this.state.top.estado}                                                 onChange={this.alterarStateUsuario}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="">
+                                        <button
+                                            type="button"
+                                            onClick={this.habilitaInput}
+                                            className="botao_cadastrar">Alterar</button>
+                                    </div>
+
+                                    <div className="">
+                                        <button
+                                            type="submit"
+                                            className="botao_cadastrar">Salvar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-
-                    <form id="conj_perfil">
-                        <div className="dados_principais">
-
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_input_perfil"
-                                    placeholder="CNPJ"
-                                    type="text"
-                                    name="cpf_cnpj"
-                                    onChange={this.handleCPF_CNPJChange}
-                                    value={this.state.cpf_cnpj} />
-                            </div>
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_input_perfil"
-                                    placeholder="Telefone para contato"
-                                    type="text"
-                                    name="celular_telefone"
-                                    onChange={this.handleCelular_TelefoneChange}
-                                    value={this.state.celular_telefone} />
-                            </div>
-                        </div>
-                        <div className="dados_principais">
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_dados_perfil"
-                                    placeholder="Endereço:"
-                                    type="text"
-                                    name="rua_av"
-                                    onChange={this.handleRua_AVChange}
-                                    value={this.state.rua_av} />
-                            </div>
-
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_dados_perfil"
-                                    placeholder="Complemento"
-                                    type="text"
-                                    name="complemento"
-                                    onChange={this.handleComplementoChange}
-                                    value={this.state.complemento} />
-                            </div>
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_dados_perfil"
-                                    placeholder="Numero"
-                                    type="text"
-                                    name="numero"
-                                    onChange={this.handleNumeroChange}
-                                    value={this.state.numero} />
-                            </div>
-                        </div>
-                        <div className="dados_principais">
-
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_dados_perfil"
-                                    placeholder="CEP"
-                                    type="text"
-                                    name="cep"
-                                    onChange={this.handleCEPChange}
-                                    value={this.state.cep} />
-                            </div>
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_dados_perfil"
-                                    placeholder="Bairro"
-                                    type="text"
-                                    name="bairro"
-                                    onChange={this.handleBairroChange}
-                                    value={this.state.bairro} />
-                            </div>
-                            <div className="item_perfil2">
-                                <input
-                                    className="estilo_dados_perfil"
-                                    placeholder="Estado"
-                                    type="text"
-                                    name="estado"
-                                    onChange={this.handleEstadoChange}
-                                    value={this.state.estado} />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-
-                <div className="botao_ficha_perfil">
-                    <div >
-                        <button
-                            type="submit"
-                            className="botao_perfil">ALTERAR</button>
-                    </div>
-                </div>
+                </main>
+                <Rodape></Rodape>
             </div>
-        </div >
-    );
-}
+        );
+    }
 }

@@ -4,8 +4,6 @@ import Header from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/Rodape.js';
 import api from './../../services/api';
 import { parseJwt, usuarioAutenticado } from '../../services/auth';
-
-
 import {
     MDBTable,
     MDBTableBody,
@@ -13,69 +11,82 @@ import {
 } from 'mdbreact';
 
 class CadastroImagens extends Component {
-    //Alteramos o estado de um elemento através do construtor 
-    constructor() {
-        //Passamos o props para o componente com o super
-        super();
+
+    constructor(props) {
+        super(props);
         this.state = {
 
             listaOfertas: [],
-            listaCategorias: [],
-           
-          
+
             buscaImagem: {
+                idOferta: "",
                 fotoUrlOferta: React.createRef()
             },
 
             erroMsg: "",
             sucessMsg: "",
-        
+
         }
-        //this.postOferta = this.postOferta.bind(this);
     }
-    
+
     //#region GET
-  
-    // componentDidMount() {
-    //     this.getOfertas();
-    //     this.getCategorias();
-        
-    // }
+    componentDidMount() {
+        this.getOferta();
+    }
 
-    // getOferta = () => {
-    //     api.get('/oferta/' + parseJwt().id)
+    getOferta = () => {
 
-    //     .then(response => {
-    //         if (response.status === 200) {
-    //             this.setState({ listaOfertas: response.data })
+        fetch('https://localhost:5001/api/oferta')
+            .then(response => response.json())
+            .then(response => this.setState({ listaOfertas: response }))
+
+    }
+
+    // putSetState = (input) => {
+    //     this.setState({
+    //         listaUsuarios: {
+    //             ...this.state.listaUsuarios, [input.target.name]: input.target.value
     //         }
     //     })
     // }
 
-  
+    // putSetStateFile = (input) => {
+    //     this.setState({
+    //         putOferta: {
+    //             ...this.state.putOferta, [input.target.name]: input.target.files[0]
+    //         }
+    //     })
+    // }
+
+    // putOferta = (event) => {
+
+    //     event.preventDefault();
+
+    //     console.log(this.state.postOferta)
+
+    //     // let infoproduto = this.state.postOferta.idOferta;
+
+    //     let oferta = new FormData();
+
+    //     listaOfertas.set('fotoUrlOferta', this.state.putOferta.fotoUrlOferta.current.files[0], this.state.putOferta.fotoUrlOferta.value);
+
+    //     // 05 - Não esqueçam de passar o formData
+    //     apiFormData.put('/oferta/')
+
+    //         .then(() => {
+
+    //             this.setState({ successMsg: "Perfil alterado com sucesso!" });
+    //             this.setState({ isEdit: true });
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+
+    //     setTimeout(() => {
+    //         this.getUsuarios();
+    //     }, 1500);
+    // }
     //#endregion
-
-
-
-//     //#region buscar imagens
-// postOferta = (event) => {
-
-//     event.preventDefault();
-
-//     let informacao_produto = this.state.oferta;
-
-//     let ofertaFormData = new FormData();
-//     ofertaFormData.set("id_Produto", this.state.oferta.id_Produto);
-//     ofertaFormData.set("id_Usuario", this.state.oferta.id_Usuario);
-//     ofertaFormData.set("id_Cat_Produto", this.state.oferta.id_Cat_Produto);
-//     ofertaFormData.set("preco", this.state.oferta.preco);
-//     ofertaFormData.set("validade", this.state.oferta.validade);
-
-//     ofertaFormData.set('fotoUrlOferta', this.state.postOferta.fotoUrlOferta.current.files[0] , this.state.postOferta.fotoUrlOferta.value);
-
-
-// //#endregion
-// }              
 
     render() {
 
@@ -89,23 +100,42 @@ class CadastroImagens extends Component {
                         <div className="card_produto">
                             <h1 className="titulo_cadastro">Cadastro de Produto</h1>
 
-                            
-                            {/* <img src={this.state.postOferta.fotoUrlOferta} alt="Imagem do produto" />
-                            {console.log("SUA FOTO É" + this.state.postOferta.fotoUrlOferta)}
-
-                            <input
-                                accept="image/*"
-                                type="file"
-                                name="fotoUrlOferta"
-                                // onChange={this.postSetState}
-                                ref={this.state.postOferta.fotoUrlOferta} /> */}
-
-                               
 
 
+                            <form onSubmit={this.getOferta}>
+                                <div className="conjj_img">
+                                  
+                                        {
+                                            this.state.listaOferta.map(
+                                                function (oferta) {
+                                                    return (
+                                                        <div key={oferta.idOferta} className="alimentoss">
+                                                            <img src={"http://localhost:5000/"  + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
+                                                            <p>{oferta.idProdutoNavigation.fotoUrlOferta}</p>
+                                                            {/* <p className="vermelho">30% Desconto</p> */}
+                                                        </div>
+                                                    );
+                                                }
+                                            )
+                                        }
+
+{/*                                     
+                                    <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
+
+                                    <input
+                                        accept="image/*"
+                                        type="file"
+                                        // src={usuario}
+                                        alt="Insire uma imagem"
+                                        name="fotoUrlUsuario"
+                                        onChange={this.putSetState}
+                                    // onChange={this.alterarSetStateFile}
+                                    /> */}
+                                </div>
+                            </form>
                             <form>
                                 <div className="botao_ficha_perfil">
-                                    <button type="submit" className="botao_perfil">CADASTRAR</button>
+                                    <button type="submit" className="botao_perfil">Finalizar</button>
                                 </div>
                             </form>
                         </div>
@@ -113,7 +143,7 @@ class CadastroImagens extends Component {
                             <MDBTableHead>
                                 <tr>
                                     <th>#</th>
-                                     <th>Imagem do Produto</th>
+                                    <th>Imagem do Produto</th>
                                 </tr>
                             </MDBTableHead>
                             <MDBTableBody>
