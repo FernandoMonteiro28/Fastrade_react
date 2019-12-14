@@ -116,7 +116,6 @@ export default class PerfilConsumidor extends Component {
         usuarioFormData.set("email", this.state.usuario.email);
         usuarioFormData.set("celularTelefone", this.state.usuario.celularTelefone);
         usuarioFormData.set("senha", this.state.usuario.senha);
-        usuarioFormData.set("idEndereco", this.state.usuario.idEndereco);
         usuarioFormData.set("Rua_Av", this.state.usuario.Rua_Av);
         usuarioFormData.set("numero", this.state.usuario.numero);
         usuarioFormData.set("complemento", this.state.usuario.complemento);
@@ -194,9 +193,9 @@ export default class PerfilConsumidor extends Component {
 
                                         <form onSubmit={this.perfilUsuario}>
 
-                                            <div className="item_perfil">
+                                            <div className="item_input">
                                                 <input
-                                                    className="estilo_input_perfil"
+                                                    className="estilo_input"
                                                     type="text"
                                                     placeholder="RazaoSocial"
                                                     name="nomeRazaoSocial"
@@ -206,9 +205,9 @@ export default class PerfilConsumidor extends Component {
                                                 />
                                             </div>
 
-                                            <div className="item_perfil">
+                                            <div className="item_input">
                                                 <input
-                                                    className="estilo_input_perfil"
+                                                    className="estilo_input"
                                                     placeholder="Email"
                                                     type="text"
                                                     name="email"
@@ -223,9 +222,9 @@ export default class PerfilConsumidor extends Component {
                                 <form onSubmit={this.getUsuario} >
                                     <div className="dados_principais">
 
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_input_perfil"
+                                                className="estilo_input"
                                                 placeholder="CNPJ"
                                                 type="text"
                                                 name="cpfCnpj"
@@ -235,9 +234,9 @@ export default class PerfilConsumidor extends Component {
                                             />
 
                                         </div>
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_input_perfil"
+                                                className="estilo_input"
                                                 placeholder="Telefone para contato"
                                                 type="text"
                                                 name="celular_telefone"
@@ -249,9 +248,9 @@ export default class PerfilConsumidor extends Component {
                                     </div>
 
                                     <div className="dados_principais">
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_dados_perfil"
+                                                className="estilo_input2"
                                                 placeholder="Endereço:"
                                                 type="text"
                                                 name="Rua_Av"
@@ -261,9 +260,9 @@ export default class PerfilConsumidor extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_dados_perfil"
+                                                className="estilo_input2"
                                                 placeholder="Complemento"
                                                 type="text"
                                                 name="complemento"
@@ -272,9 +271,9 @@ export default class PerfilConsumidor extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_dados_perfil"
+                                                className="estilo_input2"
                                                 placeholder="Numero"
                                                 type="text"
                                                 name="numero"
@@ -287,9 +286,9 @@ export default class PerfilConsumidor extends Component {
 
                                     <div className="dados_principais">
 
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_dados_perfil"
+                                                className="estilo_input2"
                                                 placeholder="CEP"
                                                 type="text"
                                                 name="cep"
@@ -299,9 +298,9 @@ export default class PerfilConsumidor extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_dados_perfil"
+                                                className="estilo_input2"
                                                 placeholder="Bairro"
                                                 type="text"
                                                 name="bairro"
@@ -311,9 +310,9 @@ export default class PerfilConsumidor extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_perfil2">
+                                        <div className="item_input2">
                                             <input
-                                                className="estilo_dados_perfil"
+                                                className="estilo_input2"
                                                 placeholder="Estado"
                                                 type="text"
                                                 name="estado"

@@ -10,6 +10,8 @@ import './assets/css/receita.css';
 import './assets/css/produtos.css';
 import './assets/css/login.css';
 import 'mdbreact/dist/css/mdb.css'; 	
+import './assets/css/botao.css';
+import './assets/css/inputs.css'; 	
 
 
 //importamos as paginas

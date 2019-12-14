@@ -98,29 +98,11 @@ a.opcoes_perfil:hover{
 	width: 600px;	
 } */
 
-.item_perfil2{
-	margin:15px;
-	margin-left: 20px;	
-}
-.estilo_dados_perfil{	
-	border: 0;
-	width: 220px;
-	height: 25px;
-	border-bottom: 2px solid #BC3908;
-	border-left: 2px solid #BC3908;
-	border-right: 2px solid #BC3908;
-	border-radius: 3px;	
-	padding: 1px;
-	background: transparent;
-	color: #808080;
-	text-align: left;
-}
-
 .dados_principais{
 	display: flex;
 	align-content: space-between;
 }
-.botao_ficha_perfil{
+/* .botao_ficha_perfil{
 	border: solid 2px ;
 	border-radius: 20px;
 	color: #BC3908;
@@ -149,7 +131,7 @@ a.opcoes_perfil:hover{
 	background-color:#BC3908;
 	cursor: pointer; 
 	
-}
+} */
 
 
 @media(max-width:1169px){
