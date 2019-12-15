@@ -95,8 +95,8 @@ footer {
     -webkit-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
     -moz-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
     box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 

@@ -32,7 +32,11 @@ import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
+<<<<<<< HEAD
+import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
+=======
 //import CadastroCliente from './pages/CadastroCliente/CadastroCliente' 
+>>>>>>> 3b9f625c377f2ef51c2382de30f9210238106b7b
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
@@ -64,7 +68,7 @@ const Rotas = (
 				<Route path="/quemSomos" component={quemSomos} />
 				<Route path="/receitas" component={Receitas} />
 				<Route path="/cadastroProduto" component={cadastroProduto} />
-				{/* <Route path="/CadastroCliente" component={CadastroCliente} /> */}
+				<Route path="/CadastroCliente" component={CadastroCliente} />
 				<Route path="/PerfilComerciante" component={PerfilComerciante} />
             	<Route path="/PerfilConsumidor" component={PerfilConsumidor} />
             	<Route path="/PerfilProduto" component={PerfilProduto} />

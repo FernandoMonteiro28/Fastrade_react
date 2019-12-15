@@ -30,35 +30,7 @@ button.botao_cadastrar{
     border: 1px solid #BC3908;
     border-radius: 10px;
     width: 120px; 
-}
+    height: 31px;
 
-.botao_ficha_perfil{
-	border: solid 2px ;
-	border-radius: 20px;
-	color: #BC3908;
-	width: 150px;
-	padding-bottom: 5px;
-	text-align: center;
-	margin: auto;
-	margin-top: 60px;
+  
 }
-/* .botao_ficha_perfil:hover{
-	color: white;
-	background-color:#BC3908;
-	cursor: pointer; 
-}
-.botao_perfil{
-	border: 0;	
-	background: none;
-	color:#BC3908;
-	font-family:'Dosis', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	cursor: pointer; 
-}
-.botao_perfil:hover{
-	color: white;
-	background-color:#BC3908;
-	cursor: pointer; 
-	
-} */
