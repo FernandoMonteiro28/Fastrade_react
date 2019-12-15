@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Cabecalho from '../../components/cabecalho/cabecalho';
+import Header from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/Rodape';
 import img_pudim from '../../assets/img/pudim.png';
-import MACARRAOA from '../../assets/img/MACARRAOA.png';
-import ARROZC from '../../assets/img/ARROZC.png';
-import FEIJAO from '../../assets/img/FEIJAO.png';
-import TOMATE from '../../assets/img/TOMATE.png';
+// import MACARRAOA from '../../assets/img/MACARRAOA.png';
+// import ARROZC from '../../assets/img/ARROZC.png';
+// import FEIJAO from '../../assets/img/FEIJAO.png';
+// import TOMATE from '../../assets/img/TOMATE.png';
 
 import '../../components/rodape/Rodape';
 
@@ -13,7 +13,7 @@ class Pudim extends Component {
     render() {
         return (
             <div>
-                <Cabecalho />
+               <Header></Header>
                 <div className="banner_dicas">
                     <p className="titulo_do_prato">RECEITAS</p>
                 </div>
@@ -59,13 +59,13 @@ class Pudim extends Component {
                 <div className="embarque">
                     <div className="carrossel">
 
-                        <img className="carrossel_img" src={MACARRAOA} />
-                        <img className="carrossel_img" src={ARROZC} />
+                        {/* <img className="carrossel_img" src={MACARRAOA} />
+                       <img className="carrossel_img" src={ARROZC} />
                         <img className="carrossel_img" src={FEIJAO} />
                         <img className="carrossel_img" src={TOMATE} />
-
+  */}
                     </div>
-                    <Rodape/>
+                    <Rodape></Rodape>
                 </div>
                 </div>
                 );

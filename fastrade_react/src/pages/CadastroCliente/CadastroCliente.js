@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../assets/css/cadastroCliente.css';
+import '../../assets/css/CadastroCliente.css'
 
 
 

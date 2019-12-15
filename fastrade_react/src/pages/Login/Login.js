@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logoface from '../../assets/img/facebook.png';
-import logogoogle from '../../assets/img/google.png';
 import { parseJwt } from '../../services/auth';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';

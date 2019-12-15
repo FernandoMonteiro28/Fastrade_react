@@ -32,11 +32,7 @@ import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
-<<<<<<< HEAD
-import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
-=======
-//import CadastroCliente from './pages/CadastroCliente/CadastroCliente' 
->>>>>>> 3b9f625c377f2ef51c2382de30f9210238106b7b
+import CadastroCliente from './pages/CadastroCliente/CadastroCliente' 
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';

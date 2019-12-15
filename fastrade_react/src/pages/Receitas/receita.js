@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Cabecalho from '../../components/cabecalho/cabecalho';
+import Header from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/Rodape';
 import img_macarrao from '../../assets/img/macarrao.png';
-import MACARRAOA from '../../assets/img/MACARRAOA.png';
-import ARROZC from '../../assets/img/ARROZC.png';
-import FEIJAO from '../../assets/img/FEIJAO.png';
-import TOMATE from '../../assets/img/TOMATE.png';
+// import MACARRAOA from '../../assets/img/MACARRAOA.png';
+// import ARROZC from '../../assets/img/ARROZC.png';
+// import FEIJAO from '../../assets/img/FEIJAO.png';
+// import TOMATE from '../../assets/img/TOMATE.png';
 
 import '../../components/rodape/Rodape';
 
@@ -13,7 +13,7 @@ class Macarrao extends Component {
     render() {
         return (
             <div>
-                <Cabecalho/>
+                <Header></Header>
             <div class="banner_dicas">
                 <p class="titulo_do_prato">RECEITAS</p>
             </div>
@@ -53,13 +53,13 @@ class Macarrao extends Component {
                 <div class="embarque">
                     <div class="carrossel">
 
-                        <img class="carrossel_img" src={MACARRAOA} />
+                        {/* <img class="carrossel_img" src={MACARRAOA} />
                         <img class="carrossel_img" src={ARROZC}/>
                         <img class="carrossel_img" src={FEIJAO} />
-                        <img class="carrossel_img" src={TOMATE} />
+                        <img class="carrossel_img" src={TOMATE} /> */}
 
                     </div>
-                    <Rodape/>
+                    <Rodape></Rodape>
                 </div>
                 </div>
                 );
