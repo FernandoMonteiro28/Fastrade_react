@@ -44,13 +44,13 @@ class cadastroProduto extends Component {
             listaCategorias: [],
 
             postOferta: {
+                idOferta:"",
                 quantidade: "",
                 preco: "",
                 validade: "",
                 nomeProduto: "",
                 descricaoDoProduto: "",
                 idCatProduto: "",
-                // idCatProduto: "",
 
                 erroMsg: "",
                 sucessMsg: "",
@@ -195,6 +195,7 @@ class cadastroProduto extends Component {
 
         let oferta = new FormData();
 
+        oferta.set("idOferta", this.state.postOferta.idOferta);
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("quantidade", this.state.postOferta.quantidade);
         oferta.set("nomeProduto", this.state.postOferta.nomeProduto);
