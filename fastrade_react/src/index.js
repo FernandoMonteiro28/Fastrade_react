@@ -11,7 +11,8 @@ import './assets/css/produtos.css';
 import './assets/css/login.css';
 import 'mdbreact/dist/css/mdb.css'; 	
 import './assets/css/botao.css';
-import './assets/css/inputs.css'; 	
+import './assets/css/inputs.css'; 
+import './assets/css/text.css';	
 
 
 //importamos as paginas
@@ -38,7 +39,7 @@ import Login from'./pages/Login/Login';
 import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
 import ModalCadastro from './components/modals/ModalCadastro.js'
 import PerfilAdministrador from './pages/PerfilUsuario/PerfilAdministrador.js'
-
+import text from './pages/text/text.js';
 
 import './assets/css/login.css';
 
@@ -73,6 +74,7 @@ const Rotas = (
 				<Route path="/CadastroImagens" component={CadastroImagens}/>
 				<Route path="/ModalCadastro" component={ModalCadastro}/>
 				<Route path="/PerfilAdministrador" component={PerfilAdministrador}/>
+				<Route path="/text" component={text}/>
 			
 			
 

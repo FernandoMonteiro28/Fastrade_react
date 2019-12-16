@@ -76,9 +76,9 @@ h1 {
 /*Quem Somos*/
 
 @media(max-width:1169px) {
-    nav {
+    /* nav {
         width: 768px;
-    }
+    } */
     .container {
         width: 768px;
     }
@@ -114,9 +114,9 @@ h1 {
     .pesquisa {
         display: none;
     }
-    nav {
+    /* nav {
         display: none;
-    }
+    } */
     .prot {
         display: block
     }

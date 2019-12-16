@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 //Aqui importamos imagens
-import logo_banner from '../../assets/img/logo_banner.png';
 import usuarioPng from '../../assets/img/usu_ario.png';
 import shopPng from '../../assets/img/shop.png';
 import negociarPng from '../../assets/img/nego_ciar.png';
 import documentoPng from '../../assets/img/document_home.png';
 import ClientePng from '../../assets/img/cliente_home.png';
 import bannerFinal from '../../assets/img/img_2.png';
+import Rodape from '../../components/rodape/Rodape.js'
+import Venda from '../../assets/img/marke.png'
 
 //importa Link  
 import { Link } from 'react-router-dom';
@@ -18,10 +19,10 @@ import Home from '../../assets/css/Home.css'
 import { parseJwt } from '../../services/auth';
 
 
-//Aqui importamos paginas
+// Aqui importamos paginas
 
 
-//Aqui temos o ciclo de vida!
+// Aqui temos o ciclo de vida!
 class App extends Component {
   UNSAFE_componentWillMount() {
     console.log('Carregando');
@@ -61,7 +62,7 @@ class App extends Component {
     return (
 
       <div className="App" >
-        <Cabecalho {...this.props} />
+        <Cabecalho></Cabecalho>
         <div className="tod_home">
           <div className="estrut_frase">
             <p className="frase_dicas">
@@ -70,11 +71,11 @@ class App extends Component {
             <Link to="/#" className="botao_dicas">Conheça nossa loja</Link>
           </div>
         </div>
-        <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css"/>
 
-        <i class="fa fa-angle-double-down icone"></i>
-        <main>
-          {/* <div className="container_oferta">
+  
+      <main>
+
+        {/* <div className="container_oferta">
             <p className="oferte">Produtos em ofertas</p>
             <div className="conteudo">
               {
@@ -94,70 +95,72 @@ class App extends Component {
             </div>
           </div> */}
 
-          <div className="tod_informativo">
-            <div className="dica_informativa">
-              <p className="informativo">Quero comprar alimentos</p>
+        <div className="tod_informativo">
+          <div className="dica_informativa">
+            <p className="informativo">Quero comprar alimentos</p>
 
-              <div className="global_informativa">
-                <div className="caixa_informativa">
-                  <div><img src={usuarioPng} alt="usuario" className="img_informativa" /></div>
-                  <div className="frase_informativa"><p> Cadastrar</p></div>
-                </div>
-              </div>
-
-
-              <div className="global_informativa">
-                <div className="caixa_informativa">
-                  <div><img src={shopPng} alt="Imagem de shopping" className="img_informativa" /></div>
-                  <div className="frase_informativa"><p> Visite nossa página produtos de produtos. E aproveite para comprar!</p></div>
-                </div>
-              </div>
-
-              <div className="global_informativa">
-                <div className="caixa_informativa">
-                  <div><img src={negociarPng} alt="Imagem de mão negociando" className="img_informativa" /></div>
-                  <div className="frase_informativa"><p>Negocie da melhor forma suas compras.</p></div>
-                </div>
+            <div className="global_informativa">
+              <div className="caixa_informativa">
+                <div><img src={usuarioPng} alt="usuario" className="img_informativa" /></div>
+                <div className="frase_informativa"><p> Cadastrar</p></div>
               </div>
             </div>
 
 
-            <div className="dica_informativa">
-              <p className="informativo2">Quero vender meus produtos</p>
-
-              <div className="global_informativa">
-                <div className="caixa_informativa">
-                  <div><img src={usuarioPng} alt="usuario" className="img_informativa" /></div>
-                  <div className="frase_informativa"><p> Cadastrar</p></div>
-                </div>
+            <div className="global_informativa">
+              <div className="caixa_informativa">
+                <div><img src={shopPng} alt="Imagem de shopping" className="img_informativa" /></div>
+                <div className="frase_informativa"><p> Visite nossa página produtos de produtos.</p></div>
               </div>
+            </div>
 
-              <div className="global_informativa">
-                <div className="caixa_informativa">
-                  <div><img src={documentoPng} alt="Imagem de shopping" className="img_informativa" /></div>
-                  <div className="frase_informativa"><p> Ofereça seus produtos em nossa plataforma.</p></div>
-                </div>
-              </div>
-
-              <div className="global_informativa">
-                <div className="caixa_informativa">
-                  <div><img src={ClientePng} alt="Imagem de mão negociando" className="img_informativa" /></div>
-                  <div className="frase_informativa"><p>Aguarde um novo comprador.</p></div>
-                </div>
+            <div className="global_informativa">
+              <div className="caixa_informativa">
+                <div><img src={negociarPng} alt="Imagem de mão negociando" className="img_informativa" /></div>
+                <div className="frase_informativa"><p>Negocie da melhor forma suas compras.</p></div>
               </div>
             </div>
           </div>
 
-          <div className="destaque">
-            <img src={bannerFinal} alt="imagem da fruta flaboesa no pote" className="img_destaque" /> </div>
 
-          <div>
-            <div><p className="frase_destaque">Sua melhor plataforma de venda</p></div>
-            <div><p className="frase_destaque">Produtos com menores valores</p></div>
+          <div className="dica_informativa">
+            <p className="informativo2">Quero vender meus produtos</p>
+
+            <div className="global_informativa">
+              <div className="caixa_informativa">
+                <div><img src={usuarioPng} alt="usuario" className="img_informativa" /></div>
+                <div className="frase_informativa"><p> Cadastrar</p></div>
+              </div>
+            </div>
+
+            <div className="global_informativa">
+              <div className="caixa_informativa">
+                <div><img src={documentoPng} alt="Imagem de shopping" className="img_informativa" /></div>
+                <div className="frase_informativa"><p> Ofereça seus produtos em nossa plataforma.</p></div>
+              </div>
+            </div>
+
+            <div className="global_informativa">
+              <div className="caixa_informativa">
+                <div><img src={ClientePng} alt="Imagem de mão negociando" className="img_informativa" /></div>
+                <div className="frase_informativa"><p>Aguarde um novo comprador.</p></div>
+              </div>
+            </div>
           </div>
-        </main>
+        </div>
+
+        <div className="destaque">
+          <img src={bannerFinal} alt="imagem da fruta flaboesa no pote" className="img_destaque" /> </div>
+
+        <div >
+          <div><p className="frase_destaque">Sua melhor plataforma de venda, com com menores valores</p></div>
+        <div  className="img_vendas" ><img src={Venda} alt="Imagem de produtos a venda" className="venda" /> </div>
       </div>
-    );
+
+      </main>
+      <Rodape></Rodape>
+      </div >
+   );
   }
 }
 
