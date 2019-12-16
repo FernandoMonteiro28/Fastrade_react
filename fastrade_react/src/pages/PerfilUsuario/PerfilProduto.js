@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-//importar a imagens
+import Header from '../../components/cabecalho/cabecalho.js';
+import Rodape from '../../components/rodape/Rodape.js';
 import ProdutoVenda from '../../assets/img/comida.png';
-
-//importamos pagina de perfil do usuario 
-
-//impotar link 
 import { Link } from 'react-router-dom';
-
-//importar o css
 import pproduto from '../../assets/css/pproduto.css';
 
-//importamos as dependencias de Route
 
 
 export default class PerfilProduto extends Component {
@@ -25,6 +19,8 @@ export default class PerfilProduto extends Component {
 
     render() {
         return (
+            <div>
+                <Header></Header>
             <div className="conjunto_perfilp">
                 <main class="main">
 
@@ -104,7 +100,8 @@ export default class PerfilProduto extends Component {
                     </article>
                 </main>
             </div>
-
+            <Rodape></Rodape>
+            </div>
 
         );
     }
