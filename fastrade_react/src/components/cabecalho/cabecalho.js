@@ -48,26 +48,35 @@ class text extends Component {
                             <div className="pesquisa">
                                 <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
                                     className="txt_busca" />
-                                <img src={Lupa} alt="Buscar" className="btn_busca" /></div>
-
+                                <img src={Lupa} alt="Buscar" className="btn_busca" />
+                            </div>
 
                             <div><Link to="/login"><img src={User} alt="login" className="btn_login" /></Link>
                                 {usuarioAutenticado() ? (
-                                    <>
-                                        <a href="index_comprador.html"><img src={"http://localhost:5000/" + parseJwt().FotoUsuario} alt="" /></a>
-                                    </>
+                                <>
+                                    <a href="index_comprador.html"><img src={"http://localhost:5000/" + parseJwt().FotoUsuario} alt="" /></a>
+                                </>
                                 ) : (
-                                        this.props.headerprops
-                                    )}
+                                    this.props.headerprops
+                                )}
 
                             </div>
                         </div>
-                        </div>
-                        {/* menu */}
-                        <nav class="menu">
-                                                           <label for="id-show-menu" class="show-menu">
+                        <nav>
+                            <ul>
+                                <li><a to="index.html">HOME</a></li>
+                                <li><a to="produtos.html">PRODUTOS</a></li>
+                                <li><a to="Dicas.html">DICAS</a></li>
+                                <li><a to="Quem Somos .html">QUEM SOMOS</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                        {/* menu amburguer */}
+                        <nav className="menuHamburguer">
+                                <label el for="id-show-menu" class="show-menu">
                                     <div class="nav-icon">
-                                        <img src={Menu} alt="Menu" className="menu_iconi" aria-hidden="true" /><span></span>
+                                        <img src={Menu} alt="Menu" className="menu_icone" aria-hidden="true" /><span></span>
                                     </div>
                                 </label>
                         
@@ -82,8 +91,7 @@ class text extends Component {
                                     <li><Link to="/Home" className="frase_menu">Home</Link></li>
                                     <li><Link to="/produtos" className="frase_menu">Produtos</Link></li>
                                     <li><Link to="/Dicas" className="frase_menu">Dicas</Link></li>
-                                    <li><Link to="/quemSomos" className="frase_menu">Quem Somos</Link></li>
-                                
+                                    <li><Link to="/quemSomos" className="frase_menu">Quem Somos</Link></li>     
                                 </ul>
                             </div>
                         </nav>
