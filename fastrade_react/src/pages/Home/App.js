@@ -70,7 +70,7 @@ class App extends Component {
             <Link to="/#" className="botao_dicas">Conheça nossa loja</Link>
           </div>
         </div>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css"/>
 
         <i class="fa fa-angle-double-down icone"></i>
         <main>
