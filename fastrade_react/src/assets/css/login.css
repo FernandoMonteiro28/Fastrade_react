@@ -232,17 +232,17 @@ footer {
 
 
 @media(max-width:1169px){
-    .container{
+    .card_login{
         width: 720px;
     }
 }
 
 @media(max-width:768px){
-    .container{
+    .card_login{
         width: 350px;
-    }
+    }*/
 
-    .card{
+    .logintudo{
         width: 280px;
     }
 
@@ -250,25 +250,22 @@ footer {
         font-size: 25px;
     }
 
-    .caixa_cadastro{
-        width: 200px;
-    }
+    /*.caixa_cadastro{
+        width: 100px;
+    }*/
     
-    .linkemailsenha{
-        margin-left: 10px;
-    }
-    
-    .acesso button{
-        width: 220px;
-        margin: 0px;
-        padding: 0px;
+    .botao_cadastrar{
+        width: 110px;
+        margin: auto;
+        
     }
 
-    .botaologar {
+    .caixabotao {
         padding-right: 140px;
-        width: 120px;
+        margin: auto;
+        width: 400px;
         height: 40px;
-
+        
     }
 
     /*.botaolink{
