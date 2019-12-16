@@ -70,10 +70,10 @@
     justify-content: center;
     border-radius: 20px;
  }
-label{
+/* label{
      width: 50%;
      margin-bottom: 10px;
- }
+ } */
 .card_cliente input {
     background-color: white;
     border-radius: 8px;

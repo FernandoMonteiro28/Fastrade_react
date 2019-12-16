@@ -33,60 +33,60 @@ class Dicas extends Component {
 
                 <div Classname="container_pai">
                     <div>
-                        <Link to="/Receitas"><img src={Macarrao} Classname="img" /></Link>
+                        <Link to="/Receitas"><img src={Macarrao} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita"> Macarrão de Talos</p>
                         </div>
                     </div>
                     <div>
-                        <Link to="/Pudim"><img src={Pudim} Classname="img" /></Link>
+                        <Link to="/Pudim"><img src={Pudim} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Pudim de Pão Amanhecido </p>
                         </div>
                     </div>
                     <div>
-                        <Link to="/Arroz"><img src={Arroz} Classname="img" /></Link>
+                        <Link to="/Arroz"><img src={Arroz} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Arroz Brasileirinho</p>
                         </div>
                     </div>
                     <div>
-                        <Link to="/Doce de Casca de Maracujá"><img src={Doce} Classname="img" /></Link>
+                        <Link to="/Doce de Casca de Maracujá"><img src={Doce} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Doce de Casca de
                         Maracujá</p>
                         </div>
                     </div>
                     <div>
-                        <Link to="/Bolo de casca de abóbora"><img src={Bolo} Classname="img" /></Link>
+                        <Link to="/Bolo de casca de abóbora"><img src={Bolo} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Bolo de Casca de
                         Abóbora</p>
                         </div>
                     </div>
                     <div>
-                        <Link to="/farofa de casca de melão"><img src={Farofa} Classname="img" /></Link>
+                        <Link to="/farofa de casca de melão"><img src={Farofa} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Farofa de Casca de
                         Melão</p>
                         </div>
                     </div>
                     <div>
-                        <Link to="/brigadeiro de casca de banana"> <img src={Brigadeiro} Classname="img" /></Link>
+                        <Link to="/brigadeiro de casca de banana"> <img src={Brigadeiro} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Brigadeiro de Casca
                         de Banana</p>
                         </div>
                     </div>
                     <div>
-                        <Link to="/creme de couve-flor"><img src={Creme} Classname="img" /></Link>
+                        <Link to="/creme de couve-flor"><img src={Creme} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Creme de Couve - Flor</p>
 
                         </div>
                     </div>
                     <div>
-                        <Link to="/patê de alho poró"><img src={Pate} Classname="img" /></Link>
+                        <Link to="/patê de alho poró"><img src={Pate} Classname="img_dicas" /></Link>
                         <div Classname="nome">
                             <p Classname="titulo receita">Patê de Alho Poró</p>
 

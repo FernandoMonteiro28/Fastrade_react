@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { parseJwt } from '../../services/auth';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
+import email from '../../assets/img/usuario.png';
+import cadeado from '../../assets/img/cadeado.png';
 import '../../assets/css/inputs.css';
 import '../../assets/css/botao.css';
 import '../../assets/css/login.css';
+
 
 
 class Login extends Component {
@@ -119,7 +122,8 @@ class Login extends Component {
                             <div className="login">
                             <div className="conteudotodo">
                                 <label className="item_input">
-                                    
+
+                                <img src={email} alt="email" className="acessar_email" />
                                     <input 
                                     className="estilo_input"
                                     name="email"
@@ -132,7 +136,8 @@ class Login extends Component {
                             </div>
                             <div className="conteudotodo">
                                 <label className="item_input">
-                                    
+
+                                <img src={cadeado} alt="senha" className="acessar_email" />
                                     <input 
                                     className="estilo_input"
                                     name="Senha" type="password" 

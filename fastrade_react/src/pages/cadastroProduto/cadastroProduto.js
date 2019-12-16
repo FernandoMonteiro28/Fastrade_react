@@ -55,9 +55,7 @@ class cadastroProduto extends Component {
                 erroMsg: "",
                 sucessMsg: "",
 
-                //modal
-                open: false,
-                openOferta: false
+    
             }
         }
     }

@@ -9,7 +9,8 @@ import fotoFernando from '../../assets/img/fernando.png';
 import fotoEricki from '../../assets/img/ericki.png';
 import fotoJennifer from '../../assets/img/jennifer.png';
 import fotoGrupo from '../../assets/img/Pessoasgrupo.jpg';
-import Rodape from '../../components/rodape/Rodape';
+import Rodape from '../../components/rodape/Rodape.js'
+import Cabecalho from '../../components/cabecalho/cabecalho';
 
 // import '../../assets/css/quemSomos.css';
 
@@ -17,6 +18,7 @@ class quemSomos extends Component {
     render() {
         return (
             <div className="QuemSomos">
+                <Cabecalho></Cabecalho>
                 <section className="deitadas">
                     <img src={Missao} className="esquerdo" alt="Imagem que representa missão" />
                     <div className="direito">
@@ -82,7 +84,7 @@ class quemSomos extends Component {
                 <div className="foto_grupo">
                     <img src={fotoGrupo} alt="Fotos do integrantes do projetos" />
                 </div>
-                <Rodape/>
+                <Rodape></Rodape>
             </div>
         );
     }

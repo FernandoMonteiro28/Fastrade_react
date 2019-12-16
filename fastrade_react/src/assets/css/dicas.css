@@ -54,7 +54,7 @@
     font-weight: bold;
 
 }
-.img {
+.img_dicas {
     width:275px;
     height:285px ;
 
@@ -62,9 +62,7 @@
 
 
 @media (max-width: 768px) {
-    .container {
-        width: 320px;
-    }
+
     .container_pai {
         width: 320px;
     }

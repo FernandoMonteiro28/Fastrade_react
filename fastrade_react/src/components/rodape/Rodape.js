@@ -6,13 +6,13 @@ import Logotipo from '../../assets/img/FONTE-1.png';
 function Rodape() {   
     return (
         <div>
-            <footer className="rodapePrincipal">
+            <footer className="container">
                 <div className="container_rodape">
                     <div className="todo_rodape">
                         <div className="contato_rodape">
-                            <p>telefone: (11) 0000-0000</p>
-                            <p>Site: exemplo@fastrade.com</p>
-                            <p>Email: frastrade@frastrade.com</p>
+                            <p className="frase_rodape">telefone: (11) 0000-0000</p>
+                            <p className="frase_rodape">Site: exemplo@fastrade.com</p>
+                            <p className="frase_rodape">Email: frastrade@frastrade.com</p>
                         </div>
                         <div className="localizacao">
                             <a

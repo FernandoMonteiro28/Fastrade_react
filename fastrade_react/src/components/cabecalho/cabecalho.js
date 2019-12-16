@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import Logotipo from '../../assets/img/FONTE-1.png';
-import User from '../../assets/img/user.png';
-import Lupa from '../../assets/img/search.png';
+import Menu from '../../assets/img/menu.png';
 import '../../assets/css/cabecalho.css';
+import Logotipo from '../../assets/img/FONTE-1.png';
+import User from '../../assets/img/usuario.png';
+import Lupa from '../../assets/img/search.png';
 import { Link } from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from '../../services/auth';
 
 
 
-class cabecalho extends Component {
+class text extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+
+        }
     }
     logout = () => {
         // Remove o token do localStorage
@@ -27,9 +31,16 @@ class cabecalho extends Component {
             .then(data => this.setState({ listaNomeOferta: data }));
     }
 
+
     render() {
+
+        const { classes } = this.props;
+        const { auth, anchorEl } = this.state;
+        const open = Boolean(anchorEl);
+
         return (
             <div>
+               
                 <header>
                     <div className="container">
                         <div className="sub_menu">
@@ -37,13 +48,13 @@ class cabecalho extends Component {
                             <div className="pesquisa">
                                 <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
                                     className="txt_busca" />
-                                <img src={Lupa} alt="Buscar" className="btn_busca" />
+                                <img src={Lupa} alt="Buscar" className="btn_busca" /></div>
 
+
+                            <div><Link to="/login"><img src={User} alt="login" className="btn_login" /></Link>
                                 {usuarioAutenticado() ? (
                                     <>
-                                        <a href="index_comprador.html"><img src={"http://localhost:5000/" + parseJwt().FotoUsuario} alt="Entra em sua conta" /></a>
-                                        <a onClick={this.logout}>Sair</a>
-
+                                        <a href="index_comprador.html"><img src={"http://localhost:5000/" + parseJwt().FotoUsuario} alt="" /></a>
                                     </>
                                 ) : (
                                         this.props.headerprops
@@ -51,21 +62,43 @@ class cabecalho extends Component {
 
                             </div>
                         </div>
-                        {
-                            <nav>
-                                <ul>
-                                    <Link to="/Home">Home</Link>
-                                    <li><a href="produtos.html">PRODUTOS</a></li>
-                                    <Link to="/Dicas">Dicas</Link>
-                                    <li><a href="Quem Somos .html">QUEM SOMOS</a></li>
+                        </div>
+                        {/* menu */}
+                        <nav class="menu">
+                                                           <label for="id-show-menu" class="show-menu">
+                                    <div class="nav-icon">
+                                        <img src={Menu} alt="Menu" className="menu_iconi" aria-hidden="true" /><span></span>
+                                    </div>
+                                </label>
+                        
+                            <input
+                                type="checkbox"
+                                id="id-show-menu"
+                                class="checkbox-menu"
+                                role="button" />
+
+                            <div class="menu-block">
+                                <ul class="navUL">
+                                    <li><Link to="/Home" className="frase_menu">Home</Link></li>
+                                    <li><Link to="/produtos" className="frase_menu">Produtos</Link></li>
+                                    <li><Link to="/Dicas" className="frase_menu">Dicas</Link></li>
+                                    <li><Link to="/quemSomos" className="frase_menu">Quem Somos</Link></li>
+                                
                                 </ul>
-                            </nav>
-                        }
-                    </div>
+                            </div>
+                        </nav>
+                        
+                    
                 </header>
             </div>
+
+
+
+
+
+
         );
     }
 }
 
-export default cabecalho;
+export default text;
