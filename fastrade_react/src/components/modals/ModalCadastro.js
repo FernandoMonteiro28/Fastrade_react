@@ -1,98 +1,91 @@
-import React, { Component } from 'react';
-import '../../assets/css/CadastroProduto.css';
-import api from '../../services/api.js';
-
-
-//MODAL
-// import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
+// import React, { Component } from 'react';
+// import '../../assets/css/CadastroProduto.css';
+// import api from '../../services/api.js';
 
 
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//     return <Slide direction="up" ref={ref} {...props} />;
+// });
 
 
-class ModalCadastro extends Component {
+// class ModalCadastro extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
 
-            listaOfertas: [],
-            listaCategorias: [],
+//             listaOfertas: [],
 
-            postOferta: {
-                quantidade: "",
-                preco: "",
-                validade: "",
-                nomeProduto: "",
-                descricaoDoProduto: "",
-                idCatProduto: "",
-            },
+//             getOferta: {
+//                 quantidade: "",
+//                 preco: "",
+//                 validade: "",
+//                 nomeProduto: "",
+//                 descricaoDoProduto: "",
+//                 idCatProduto: "",
+//             },
 
-            erroMsg: "",
-            successMsg: "",
-            openCadastro: this.props.open_modal
-        }
-    }
+//             erroMsg: "",
+//             successMsg: "",
+//             openCadastro: this.props.open_modal
+//         }
+//     }
 
-    postSetState = (input) => {
-        this.setState({
-            postOferta: {
-                ...this.state.postOferta, [input.target.name]: input.target.value
-            }
-        })
-    }
-    postOferta = (c) => {
+//     postSetState = (input) => {
+//         this.setState({
+//             getOferta: {
+//                 ...this.state.getOferta, [input.target.name]: input.target.value
+//             }
+//         })
+//     }
+//     getOferta = (c) => {
 
-        c.preventDefault();
+//         c.preventDefault();
 
-        api.post('/Oferta', this.state.postOferta)
-            .then(response => {
-                this.setState({ response })
-                console.log("Cadastrado concluido: ", response.data);
-            }
-            )
-        setTimeout(() => {
-            this.props.fechar_modal();
-            { this.setState({ erroMsg: "" }) }
-        }, 2000);
-    }
+//         api.get('/Oferta', this.state.getOferta)
+//             .then(response => {
+//                 this.setState({ response })
+//                 console.log("Cadastrado concluido: ", response.data);
+//             }
+//             )
+//         setTimeout(() => {
+//             this.props.fechar_modal();
+//             { this.setState({ erroMsg: "" }) }
+//         }, 2000);
+//     }
 
 
-    render() {
-        return (
-            <>
+//     render() {
+//         return (
+//             <div>
+//                 <div>
+//                     <section id="modal-container" class="container">
 
-                <Dialog
-                    open={this.state.open}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={this.handleClose}
-                    aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
-                    class="modal_caixa"
-                >
-                    <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{""}</DialogTitle>
-                    <DialogContent>
+//                         <div class="modal">
+//                             <header class="modal-header">
+//                                 <h3 class="modal-header__title">Detalhes do Produto</h3>
+//                                 <button id="btnClose" class="button">Fechar</button>
+//                             </header>
+//                             <div class="modal__body">
 
-                        <DialogContentText class="modal-dialog" role="document">
-                            <h6 class="modal-title" id="ModalLabel">Aperte o botão para continuar </h6>
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                    </DialogActions>
-                </Dialog>
-            </>
+//                                 <div class="modal__img">
+//                                     <img src={ProdutoVenda} alt="Imagem do Produto" className="venda_produto" />
+//                                 </div>
 
-        );
-    }
-}
-export default ModalCadastro;
+//                                 <div class="modal-info">
+//                                     <h4 class="modal-info__name">Nome do Produto</h4>
+//                                     <p class="modal-info__description">Descrição do Produto</p>
+//                                     <strong class="modal-info__price">R$ 500,00</strong>
+//                                 </div>
+//                             </div>
+
+//                         </div>
+//                     </section>
+//                 </div>
+//             </div>
+//         );
+//     }
+// }
+// export default ModalCadastro;

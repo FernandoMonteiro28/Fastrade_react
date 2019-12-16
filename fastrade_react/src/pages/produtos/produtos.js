@@ -153,7 +153,6 @@ class Produtos extends Component {
                         </div>
 
                     </div>
-                    <Rodape />
 
                     <MDBContainer>
                         <MDBModal isOpen={this.state.ModalGetoferta} toggle={this.toggleGetoferta}>
