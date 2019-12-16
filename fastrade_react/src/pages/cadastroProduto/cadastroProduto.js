@@ -1,3 +1,4 @@
+// Se o documento for = a 14 o usuario é vendedor
 import React, { Component } from 'react';
 import '../../assets/css/CadastroProduto.css';
 import Header from '../../components/cabecalho/cabecalho.js';
@@ -44,18 +45,20 @@ class cadastroProduto extends Component {
             listaCategorias: [],
 
             postOferta: {
-                idOferta:"",
                 quantidade: "",
                 preco: "",
                 validade: "",
                 nomeProduto: "",
                 descricaoDoProduto: "",
                 idCatProduto: "",
+                fotoUrlOferta: React.createRef(),
 
                 erroMsg: "",
                 sucessMsg: "",
 
-    
+                //modal
+                // open: false,
+                // openOferta: false
             }
         }
     }
@@ -96,27 +99,27 @@ class cadastroProduto extends Component {
 
 
     //MODAL POST
-    handleClickOpen = (o) => {
-        this.setState({ open: true });
+    // handleClickOpen = (o) => {
+    //     this.setState({ open: true });
 
-        console.log("POST", this.state.postSetState)
-    };
+    //     console.log("POST", this.state.postSetState)
+    // };
 
-    handleClose = () => {
-        this.setState({ open: false });
-    };
+    // handleClose = () => {
+    //     this.setState({ open: false });
+    // };
 
     //Cadastrar 
     //MODAL CADASTRO
     //(Se retirar os dois post la de baixo da erro  aqui! )
-    handleClickOpenOferta = () => {
-        this.setState({ openOferta: true });
-    }
+    // handleClickOpenOferta = () => {
+    //     this.setState({ openOferta: true });
+    // }
 
-    handleCloseOferta = (fechar_modal) => {
-        this.setState({ openOferta: false });
-        this.setState({ fechar_modal: fechar_modal });
-    };
+    // handleCloseOferta = (fechar_modal) => {
+    //     this.setState({ openOferta: false });
+    //     this.setState({ fechar_modal: fechar_modal });
+    // };
 
     //#region atualizar 
     alterarStateOferta = event => {
@@ -138,7 +141,7 @@ class cadastroProduto extends Component {
 
     //#region alterar 
     // Adicionamos um setState específico
-    alterarSetStateFile = (input) => {
+    ImagemSetStateFile = (input) => {
         this.setState({
             postOferta: {
                 ...this.state.postOferta, [input.target.name]: input.target.files[0]
@@ -159,29 +162,6 @@ class cadastroProduto extends Component {
             //adicinamos um metodo callback para mostramos o objeto da oferta, apos o set state
         }, () => console.log("Objeto da oferta: ", this.state.postOferta))
     }
-    // postOfertaCadatrar = (p) => {
-
-    //     p.preventDefault();
-    //     console.log("Cadastrando");
-
-
-    //     api.post('/oferta', this.state.postOferta)
-    //         .then(response => {
-    //             console.log(response);
-    //             this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //             this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
-    //         })
-
-    //     setTimeout(() => {
-    //         this.getOfertas();
-    //     }, 1500);
-
-    // }
-    //#endregion
-
 
     postOferta = (event) => {
 
@@ -189,35 +169,21 @@ class cadastroProduto extends Component {
 
         console.log(this.state.postOferta)
 
-        // let infoproduto = this.state.postOferta.idOferta;
-
         let oferta = new FormData();
 
-        oferta.set("idOferta", this.state.postOferta.idOferta);
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("quantidade", this.state.postOferta.quantidade);
         oferta.set("nomeProduto", this.state.postOferta.nomeProduto);
         oferta.set("descricaoDoProduto", this.state.postOferta.descricaoDoProduto);
         oferta.set("validade", this.state.postOferta.validade);
         oferta.set("idCatProduto", this.state.postOferta.idCatProduto);
-        // ofertaFormData.set("idOferta", this.state.postOferta.idOferta);
+        oferta.set('fotoUrlOferta', this.state.postOferta.fotoUrlOferta.current.files[0]);
 
         console.log("Cadastrando");
 
-//( esta dendo erro bem da parte do botão cadastrar que encaminha para  notificar o erro aqui!)
-        // api.post('/oferta', this.state.postOferta)
-        //     .then(response => {
-        //         console.log(response);
-        //         this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //         this.setState({ erroMsg: "Favor preencher todos os campos necessarios para cadastrar!" });
-        //     })
-
         fetch('https://localhost:5001/api/oferta', {
             method: "POST",
-         body: oferta,
+            body: oferta,
         })
             .then(x => x.json())
             .then(x => {
@@ -332,16 +298,34 @@ class cadastroProduto extends Component {
                                 </div>
 
                                 {/* botão */}
-                                <div className="btn_botao">
+                                {/* <div className="btn_botao">
                                     <button
                                         className="botao_modal"
                                         type="submit"
                                         value={this.postSetState}
-                                        onClick={() => this.handleClickOpen()}>Cadastrar</button>
-                                    {this.state.openOferta && <ModalCadastro open_modal={this.state.openOferta} fechar_modal={this.handleCloseOferta} />}
+                                    //     onClick={() => this.handleClickOpen()}>Cadastrar</button>
+                                    // {this.state.openOferta && <ModalCadastro open_modal={this.state.openOferta} fechar_modal={this.handleCloseOferta} />}
+                                    />
+                                </div> */}
+
+                                <div>
+                                    <input
+                                        type="file"
+                                        accept="image/png, image/jpeg"
+                                        placeholder="Coloque uma foto sua"
+                                        aria-label="Coloque uma foto sua"
+                                        name="fotoUrlOferta"
+                                        ref={this.state.postOferta.fotoUrlOferta}
+                                    />
+                                </div>
+                                <div>
+                                    <button
+                                        type="submit"
+                                        className="">Salvar</button>
                                 </div>
                             </form>
-                        </div>
+
+                            {/* </div>
                         <>
 
                             <Dialog
@@ -400,8 +384,10 @@ class cadastroProduto extends Component {
                                     }.bind(this))
                                 }
                             </MDBTableBody>
-                        </MDBTable>
+                        </MDBTable> */}
+                        </div>
                     </div>
+
                 </main>
                 <Rodape></Rodape>
 

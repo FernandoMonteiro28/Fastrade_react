@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/css/CadastroCliente.css'
+import Header from '../../components/cabecalho/cabecalho'
 
 
 
@@ -8,95 +9,138 @@ class CadastroCliente extends Component {
     constructor() {
         super()
         this.state = {
-            email: "",
-            senha: "",
-            nomecompleto: "",
-            celular: "",
-            cpf: "",
-            datanasc: "",
-            endereco: "",
-            numero: "",
-            bairro: "",
-            cep: "",
-            estado: "",
-            complemento: "",
-            fotoCliente: React.createRef()
+            CadastrarCliente: {
+                idTipoUsuario: "",
+                nomeRazaoSocial: "",
+                cpfCnpj: "",
+                email: "",
+                senha: "",
+                celularTelefone: "",
+                ruaAv: "",
+                numero: "",
+                cep: "",
+                bairro: "",
+                estado: ""
+                // fotoUrlUsuario: React.createRef(),
+            },
 
         }
     }
+    postSetState = (input) => {
+        this.setState({
+            CadastrarCliente: {
+                ...this.state.CadastrarCliente,
+                [input.target.name]: input.target.value
+            }
+        })
+    }
+
+
+    CadastrarCliente = (e) => {
+        e.preventDefault();
+
+        // Declara um objeto do tipo FormData, já que o Backend recebe este tipo.
+        let usuario = new FormData();
+
+
+
+        usuario.set("idTipoUsuario", this.state.CadastrarCliente.idTipoUsuario);
+        usuario.set("nomeRazaoSocial", this.state.CadastrarCliente.nomeRazaoSocial);
+        usuario.set('cpfCnpj', this.state.CadastrarCliente.cpfCnpj);
+        usuario.set('email', this.state.CadastrarCliente.email);
+        usuario.set('senha', this.state.CadastrarCliente.senha);
+        usuario.set('celularTelefone', this.state.CadastrarCliente.celularTelefone);
+        usuario.set('ruaAv', this.state.CadastrarCliente.ruaAv);
+        usuario.set('numero', this.state.CadastrarCliente.numero);
+        usuario.set('cep', this.state.CadastrarCliente.cep);
+        usuario.set('bairro', this.state.CadastrarCliente.bairro);
+        usuario.set('estado', this.state.CadastrarCliente.estado);
+        // usuario.set('fotoUrlUsuario', this.state.CadastrarCliente.fotoUrlUsuario.current.files[0]);
+        usuario.set('complemento', this.state.CadastrarCliente.complemento);
+
+        // Se o documento for = a 14 o usuario é vendedor
+        if (this.state.CadastrarCliente.cpfCnpj.length === 14) {
+            usuario.set("idTipoUsuario", 2)
+            // Se o documento for = a 11 ele é cliente
+        } else if (this.state.CadastrarCliente.cpfCnpj.length === 11) {
+            usuario.set("idTipoUsuario", 1)
+        }
+        console.log(this.state.CadastrarCliente);
+
+        fetch('http://localhost:5000/api/usuario', {
+            method: "POST",
+            body: usuario,
+        })
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => console.log('Não foi possível cadastrar:' + error))
+    }
+
     render() {
         return (
             <div className="container_cadastro" >
+                <Header {...this.props} />
                 <div className="card">
-
-                    <form method="POST" id="form_cadastro">
+                    <form method="POST" id="form_cadastro" onSubmit={this.CadastrarCliente}>
                         <div className="formulario_cadastro">
 
                             <div className="direito">
                                 <h1 className="criarconta">Criar uma conta</h1>
                                 <label for="" />
 
-                                <span>Tipo de usuario </span>
 
-                                <div className="tipodeusuario">
-                                    <div>
-                                        <input
-                                            type="radio"
-                                            name="usuario"
-                                            value="Cliente"
-                                            className="radio_casdastro" />
-                                    </div>
-                                    <div>
-                                        <input
-                                            type="radio"
-                                            name="usuario"
-                                            value="Fornecedor"
-                                            className="radio_casdastro" />
-                                    </div>
-                                </div>
 
                                 <div>
                                     <div>
                                         <input
                                             placeholder="Digite o seu email "
                                             type="text"
-                                            name="Email"
+                                            name="email"
+                                            value={this.state.CadastrarCliente.email}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
                                     <div>
                                         <input
                                             placeholder="Digite sua senha "
                                             type="text"
-                                            name="Senha"
+                                            name="senha"
                                             value=""
+                                            value={this.state.CadastrarCliente.senha}
+                                            onChange={this.postSetState}
                                             className="" />
+
                                     </div>
                                     <div>
                                         <input
                                             placeholder="Digite o nome completo "
                                             type="text"
-                                            name="Nome" aria-label="Digitar o nome copleto"
+                                            name="nomeRazaoSocial" aria-label="Digitar o nome copleto"
+                                            value={this.state.CadastrarCliente.nomeRazaoSocial}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
                                     <div>
                                         <input
                                             type="text"
                                             placeholder="Digite seu telefone..."
-                                            name="telefone" aria-label="Digitar seu telefone"
+                                            name="celularTelefone" aria-label="Digitar seu telefone"
+                                            value={this.state.CadastrarCliente.celularTelefone}
+                                            onChange={this.postSetState}
                                             className="" />
+                                        required
                                     </div>
                                     <div>
                                         <input
                                             type="text"
                                             placeholder="Digite o CNPJ..."
-                                            name="CNPJ" aria-label="Digitar o CNPJ"
+                                            name="cpfCnpj" aria-label="Digitar o CNPJ"
+                                            value={this.state.CadastrarCliente.cpfCnpj}
+                                            onChange={this.postSetState}
                                             className="" />
-                                    </div>
-                                    <div>
-                                        <input
-                                            type="date"
-                                            name="data" aria-label="Digitar a data do Nascimento"
-                                            className="" />
+
                                     </div>
                                 </div>
 
@@ -105,49 +149,68 @@ class CadastroCliente extends Component {
                                         <input
                                             type="text"
                                             placeholder="Digite o Endereço"
-                                            name="Endereço" aria-label="Digitar o endereço"
+                                            name="ruaAv" aria-label="Digitar o endereço"
+                                            value={this.state.CadastrarCliente.ruaAv}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
                                     <div>
                                         <input
                                             type="text"
                                             placeholder="000..."
-                                            name="Numero" aria-label="numero"
+                                            name="numero" aria-label="numero"
+                                            value={this.state.CadastrarCliente.numero}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
                                     <div>
                                         <input
                                             type="text"
                                             placeholder="Bairro"
-                                            name="Bairro" aria-label="Digitar o Bairro"
+                                            name="bairro" aria-label="Digitar o Bairro"
+                                            value={this.state.CadastrarCliente.bairro}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
                                     <div>
                                         <input
                                             type="text"
                                             placeholder="00000-000"
-                                            name="Cadastro" aria-label="Digitar o CEP"
+                                            name="cep" aria-label="Digitar o CEP"
+                                            value={this.state.CadastrarCliente.cep}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
                                     <div>
                                         <input
                                             type="text"
                                             placeholder="Estado"
-                                            name="Cadastro" aria-label="Digitar o Estado"
+                                            name="estado" aria-label="Digitar o Estado"
+                                            value={this.state.CadastrarCliente.estado}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
                                     <div>
                                         <input
                                             type="text"
-                                            placeholder="Complemento"
+                                            placeholder="complemento"
                                             name="Cadastro" aria-label="Digitar o complemento"
+                                            value={this.state.CadastrarCliente.complemento}
+                                            onChange={this.postSetState}
                                             className="" />
                                     </div>
+                                    {/* <div>
+                                        <input
+                                            type="file"
+                                            placeholder="Coloque uma foto sua"
+                                            aria-label="Coloque uma foto sua"
+                                            name="fotoUrlUsuario"
+                                            ref={this.state.CadastrarCliente.fotoUrlUsuario}
+                                        />
+                                    </div> */}
                                     <div>
                                         <button
                                             type="submit"
-                                            onClick=""
-                                            value=""
                                             className="">Salvar</button>
                                     </div>
                                 </div>
