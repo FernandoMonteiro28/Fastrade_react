@@ -64,12 +64,12 @@ button.botao_modal{
     margin: auto;
     width: 132px;
 }
-.modal-title{
+/* .modal-title{
     font-family:'Dosis', sans-serif;
     font-size: 20px;
     color: #1D1E18;
     font-weight: bold;
-}
+} */
 .conjunto_cadastro{
     display: grid;
     grid-template-columns: 400px 300px 200px;

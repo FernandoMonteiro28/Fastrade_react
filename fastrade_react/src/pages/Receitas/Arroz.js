@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/Rodape';
 import img_Arroz from '../../assets/img/arrozBR.png';
+import receita from '../../assets/css/receita.css';
 // import MACARRAOA from '../../assets/img/MACARRAOA.png';
 // import ARROZC from '../../assets/img/ARROZC.png';
 // import FEIJAO from '../../assets/img/FEIJAO.png';

@@ -30,15 +30,17 @@ class cadastroProduto extends Component {
         this.state = {
             top: [],
             listaOfertas: [],
-            listaCategorias: [],
+            ListaProduto: [],
 
             postOferta: {
+                IdUsuario: parseJwt().IdUsuario,
                 quantidade: "",
                 preco: "",
                 validade: "",
                 nomeProduto: "",
                 descricaoDoProduto: "",
                 idCatProduto: "",
+                idProduto: "",
                 fotoUrlOferta: React.createRef(),
 
                 erroMsg: "",
@@ -53,29 +55,20 @@ class cadastroProduto extends Component {
 
     //#region GET
     componentDidMount() {
-        this.getCategorias();
+        this.getProduto();
         this.getOferta();
     }
 
-    getCategorias = () => {
-        //pegando id do usuario
-        // api.get('catProduto')
-        // .then(response => response.json())
-        //     .then(response => {
-        //         console.log(response.status)
-        //         if (response.status === 200) {
-        //             // this.setState({ listaCategorias: response.data })
-        //             console.log(response.data)
-        //         }
-        //     })
-        fetch('https://localhost:5001/api/catProduto')
+    getProduto = () => {
+
+        fetch('http://localhost:5000/api/produto')
             .then(x => x.json())
-            .then(x => this.setState({ listaCategorias: x }))
+            .then(x => this.setState({ ListaProduto: x }))
     }
 
     getOferta = () => {
 
-        fetch('https://localhost:5001/api/oferta')
+        fetch('http://localhost:5001/api/oferta')
             .then(x => x.json())
             .then(x => this.setState({ listaOfertas: x }))
     }
@@ -85,8 +78,6 @@ class cadastroProduto extends Component {
         console.log("Atualizado")
     }
 
-
-    
 
     //#region atualizar 
     alterarStateOferta = event => {
@@ -138,17 +129,20 @@ class cadastroProduto extends Component {
 
         let oferta = new FormData();
 
+        oferta.set("idProduto", this.state.postOferta.idProduto);
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("quantidade", this.state.postOferta.quantidade);
         oferta.set("nomeProduto", this.state.postOferta.nomeProduto);
         oferta.set("descricaoDoProduto", this.state.postOferta.descricaoDoProduto);
         oferta.set("validade", this.state.postOferta.validade);
         oferta.set("idCatProduto", this.state.postOferta.idCatProduto);
-        oferta.set('fotoUrlOferta', this.state.postOferta.fotoUrlOferta.current.files[0]);
+        oferta.set('fotoUrlOfertaghfghfgh', this.state.postOferta.fotoUrlOferta.current.files[0]);
+        oferta.set('fotoUrlOferta', this.state.postOferta.fotoUrlOferta.current.Value);
+
 
         console.log("Cadastrando");
 
-        fetch('https://localhost:5001/api/oferta', {
+        fetch('http://localhost:5000/api/oferta', {
             method: "POST",
             body: oferta,
         })
@@ -182,7 +176,7 @@ class cadastroProduto extends Component {
                                                 id="nomeProduto"
                                                 type="text"
                                                 name="nomeProduto"
-                                                value={this.state.top.nomeProduto}
+                                                value={this.state.postOferta.nomeProduto}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -196,7 +190,7 @@ class cadastroProduto extends Component {
                                         <input id="quantidade"
                                             type="number"
                                             name="quantidade"
-                                            value={this.state.top.quantidade}
+                                            value={this.state.postOferta.quantidade}
                                             onChange={this.postSetState}
                                         />
                                     </div>
@@ -208,7 +202,7 @@ class cadastroProduto extends Component {
                                         <input id="preco"
                                             type="valor"
                                             name="preco"
-                                            value={this.state.top.preco}
+                                            value={this.state.postOferta.preco}
                                             onChange={this.postSetState}
                                         />
                                     </div>
@@ -219,16 +213,16 @@ class cadastroProduto extends Component {
                                     <label htmlFor="catProd">Categoria do Produto</label>
                                     <div className="input-button">
                                         <select id="categorias"
-                                            name="idCatProduto"
+                                            name="idProduto"
                                             type="file"
                                             onChange={this.postSetState}
                                         >
                                             <option value="" >Selecione</option>
                                             {
-                                                this.state.listaCategorias.map(function (o) {
+                                                this.state.ListaProduto.map(function (o) {
                                                     return (
-                                                        <option key={o.idCatProduto} value={o.idCatProduto}>
-                                                            {o.tipo}
+                                                        <option key={o.idProduto} value={o.idProduto}>
+                                                            {o.idCatProdutoNavigation.tipo}
                                                         </option>
 
                                                     )
@@ -245,7 +239,7 @@ class cadastroProduto extends Component {
                                         <input id="descricaoDoProduto"
                                             type="text"
                                             name="descricaoDoProduto"
-                                            value={this.state.top.descricaoDoProduto}
+                                            value={this.state.postOferta.descricaoDoProduto}
                                             onChange={this.postSetState}
                                         />
                                     </div>
@@ -258,13 +252,11 @@ class cadastroProduto extends Component {
                                         <input id="validade"
                                             type="date"
                                             name="validade"
-                                            value={this.state.top.validade}
+                                            value={this.state.postOferta.validade}
                                             onChange={this.postSetState}
                                         />
                                     </div>
                                 </div>
-
-                             
 
                                 <div>
                                     <input
