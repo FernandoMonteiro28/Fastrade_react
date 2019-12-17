@@ -3,6 +3,10 @@ import Menu from '../../assets/img/menu.png';
 import '../../assets/css/cabecalho.css';
 import Logotipo from '../../assets/img/FONTE-1.png';
 import User from '../../assets/img/usuario.png';
+// import Home from '../../assets/img/home.png';
+// import Apple from '../../assets/img/apple.png';
+// import Dicas from '../../assets/img/dicas.png';
+// import Somos from '../../assets/img/somos.png';
 import Lupa from '../../assets/img/search.png';
 import { Link } from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from '../../services/auth';
@@ -40,7 +44,7 @@ class text extends Component {
 
         return (
             <div>
-               
+
                 <header>
                     <div className="container">
                         <div className="sub_menu">
@@ -48,8 +52,8 @@ class text extends Component {
                             <div className="pesquisa">
                                 <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
                                     className="txt_busca" />
-                                <img src={Lupa} alt="Buscar" className="btn_busca" /></div>
-
+                                <img src={Lupa} alt="Buscar" className="btn_busca" />
+                            </div>
 
                             <div><Link to="/login"><img src={User} alt="login" className="btn_login" /></Link>
                                 {usuarioAutenticado() ? (
@@ -62,41 +66,61 @@ class text extends Component {
 
                             </div>
                         </div>
-                        </div>
-                        {/* menu */}
-                        <nav class="menu">
-                                                           <label for="id-show-menu" class="show-menu">
-                                    <div class="nav-icon">
-                                        <img src={Menu} alt="Menu" className="menu_iconi" aria-hidden="true" /><span></span>
-                                    </div>
-                                </label>
-                        
-                            <input
-                                type="checkbox"
-                                id="id-show-menu"
-                                class="checkbox-menu"
-                                role="button" />
-
-                            <div class="menu-block">
-                                <ul class="navUL">
-                                    <li><Link to="/Home" className="frase_menu">Home</Link></li>
-                                    <li><Link to="/produtos" className="frase_menu">Produtos</Link></li>
-                                    <li><Link to="/Dicas" className="frase_menu">Dicas</Link></li>
-                                    <li><Link to="/quemSomos" className="frase_menu">Quem Somos</Link></li>
-                                
-                                </ul>
-                            </div>
+                        <nav className="menuHeader">
+                            <ul>
+                                <li><Link to="index.html">HOME</Link></li>
+                                <li><Link to="produtos.html">PRODUTOS</Link></li>
+                                <li><Link to="Dicas.html">DICAS</Link></li>
+                                <li><Link to="Quem Somos .html">QUEM SOMOS</Link></li>
+                            </ul>
                         </nav>
-                        
-                    
+                    </div>
+
+                    {/* menu amburguer */}
+                    <input id="menu-hamburguer" type="checkbox" className="hamburguinho" />
+
+                    <label for="menu-hamburguer">
+                        <div class="menuHamburguer">
+                            <span class="hamburguer"></span>
+                        </div>
+                    </label>
+
+                    <ul className="ulHamburguer">
+                        <div className="englobaHamburguer">
+                            <div className="pesquisaHamburguer">
+                                <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
+                                    className="txt_buscaHamburguer" />
+                                <img src={Lupa} alt="Buscar" className="btn_buscaHamburguer"/>
+                            </div>
+                            <div className="parteHamburguer">
+                                <div className="subParteHamburguer">
+                                    {/* <img src={Home} alt="" className="iconeHome" /> */}
+                                    <li><Link to="/Home" className="frase_menuHamburguer">Home</Link></li>
+                                </div>
+                            </div>
+                            <div className="parteHamburguer">
+                                <div className="subParteHamburguer">
+                                    {/* <img src={Apple} alt="" className="iconeProdutos" /> */}
+                                    <li><Link to="/produtos" className="frase_menuHamburguer">Produtos</Link></li>
+                                </div>
+                            </div>
+                            <div className="parteHamburguer">
+                                <div className="subParteHamburguer">
+                                    {/* <img src={Dicas} alt="" className="iconeDicas" /> */}
+                                    <li><Link to="/Dicas" className="frase_menuHamburguer">Dicas</Link></li>
+                                </div>
+                            </div>
+                            <div className="parteHamburguer">
+                                <div className="subParteHamburguer">
+                                    {/* <img src={Somos} alt="" className="iconeSomos" /> */}
+                                    <li><Link to="/quemSomos" className="frase_menuHamburguer">Quem Somos</Link></li>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+
                 </header>
             </div>
-
-
-
-
-
-
         );
     }
 }

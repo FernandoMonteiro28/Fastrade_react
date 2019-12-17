@@ -22,6 +22,8 @@ class CadastroCliente extends Component {
                 bairro: "",
                 estado: ""
                 // fotoUrlUsuario: React.createRef(),
+
+                
             },
 
         }

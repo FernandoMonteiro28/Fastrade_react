@@ -8,11 +8,13 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './assets/css/dicas.css';
 import './assets/css/receita.css';
 import './assets/css/produtos.css';
+import './assets/css/pproduto.css';
 import './assets/css/login.css';
 import 'mdbreact/dist/css/mdb.css'; 	
 import './assets/css/botao.css';
 import './assets/css/inputs.css'; 
 import './assets/css/text.css';	
+import perfilusuario from './assets/css/perfilusuario.css';
 
 
 //importamos as paginas

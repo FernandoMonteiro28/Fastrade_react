@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Laranja from '../../assets/img/laranja.jpg';
+// import Laranja from '../../assets/img/laranja.jpg';
 import Maca from '../../assets/img/maca.jpg';
 import Card from '../../assets/img/Agrupar 14.png';
 import Header from '../../components/cabecalho/cabecalho';
@@ -27,14 +27,12 @@ class Produtos extends Component {
     render() {
         return (
             <div>
-                <main>
-                    <Header></Header>
                     <div>
 
                         <div className="container_lista">
                             <div className="busca">
                                 <h3 className="ordenar">Ordenar por:</h3>
-                                <select className="filtroproduto" name="" id="">
+                                <select className="filtroproduto" name="" className="select">
                                     <option value="">Selecione</option>
                                     <option value="">Menor Preço</option>
                                     <option value="">Maior preço</option>
@@ -74,86 +72,86 @@ class Produtos extends Component {
                             </div>
                         </div>
                         <div className="container_cards">
-                            <div
-                                onClick={event => this.setState({ ativo: true })}
-                                className="card_produto"
-                            >
-                                <div className="sub_card">
-                                    <img src={Laranja} alt="" />
-                                    <p className="produtor">Qualyban</p>
-                                    <p>Laranja Lima Orgânica Qualyban
-                        600g</p>
-                                    <p className="dinheiro">R$ 45,00</p>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
                                 </div>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                            <div className="card">
-                                <img src={Laranja} alt="" />
-                                <p className="produtor">Qualyban</p>
-                                <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                                <p className="dinheiro">R$ 45,00</p>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
+                                </div>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                            <div className="card">
-                                <img src={Laranja} alt="" />
-                                <p className="produtor">Qualyban</p>
-                                <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                                <p className="dinheiro">R$ 45,00</p>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
+                                </div>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                            <div className="card">
-                                <img src={Laranja} alt="" />
-                                <p className="produtor">Qualyban</p>
-                                <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                                <p className="dinheiro">R$ 45,00</p>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
+                                </div>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                            <div className="card">
-                                <img src={Laranja} alt="" />
-                                <p className="produtor">Qualyban</p>
-                                <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                                <p className="dinheiro">R$ 45,00</p>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
+                                </div>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                            <div className="card">
-                                <img src={Laranja} alt="" />
-                                <p className="produtor">Qualyban</p>
-                                <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                                <p className="dinheiro">R$ 45,00</p>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
+                                </div>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                            <div className="card">
-                                <img src={Laranja} alt="" />
-                                <p className="produtor">Qualyban</p>
-                                <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                                <p className="dinheiro">R$ 45,00</p>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
+                                </div>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                            <div className="card">
-                                <img src={Laranja} alt="" />
-                                <p className="produtor">Qualyban</p>
-                                <p>Batata Baroa cozida
-                    Orgânica Nativa 1kg</p>
-                                <p className="dinheiro">R$ 45,00</p>
-                                <a href="#" className="btn_1">ADICIONAR</a>
+                            <div onClick={event => this.setState({ ativo: true })} class="card">
+                                <div class="card_conteudo">
+                                    <img src={Maca} alt=""/>
+                                    <p class="produtor">Direto do produtor</p>
+                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="preco">R$ 45,00</p>
+                                </div>
+                                <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
-                        </div>
+
                         <p className="vermais"><a href="" className="btn_1">Ver Mais</a></p>
 
-
-                        <div align="center">
-
+                        <div className="englobaCard">
                             <img src={Card} alt="" className="card2" />
                         </div>
 
                     </div>
-                    <Rodape />
 
                     <MDBContainer>
                         <MDBModal isOpen={this.state.ModalGetoferta} toggle={this.toggleGetoferta}>
@@ -168,9 +166,7 @@ class Produtos extends Component {
                             </MDBModalFooter>
                         </MDBModal>
                     </MDBContainer>
-
-                    <Rodape></Rodape>
-                </main>
+            </div>
             </div>
         );
     }

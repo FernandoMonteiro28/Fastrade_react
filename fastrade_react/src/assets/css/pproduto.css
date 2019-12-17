@@ -11,26 +11,14 @@
     --laranja:#BC3908;
     --branco:#FFFFFF;
 }
-.cabeca_produto{
-    width: 1200px;
-    background-color: white;
-    margin: auto;
-	display: flex;
-	align-content: center;	       
+.conjunto_perfilp{
+	width: 950px;
+	margin: auto;
 }
-.pproduto{
-	padding-bottom: 45px;
-	padding-top: 30px;
-	text-align: center;
-	color: #BC3908;
-	font-weight: bold;
-	font-family:'Dosis', sans-serif;
-}
-.barra_produto{
-	margin:auto;
-	width:300px;
-	height:500px;
-	border: 1px solid;
+.barra{
+	width:200px;
+	height:416px;
+	border: 1.5px solid #BC3908;
 	border-radius: 6px;
 	display: flex;
 	flex-direction: column;
@@ -41,74 +29,127 @@
 }
 .opcoes{
 	font-family:'Dosis', sans-serif;
-	font-size: 30px;
-	padding: 15px;
+	font-size: 20px;
+	padding: 5px;
 }
-.pri_produto{	
-	width:872px;
-	height:500px;
-	border: 1px solid;
-	border-radius: 6px;	
-	box-sizing: border-box;
-	margin-top: 70px; 
-	margin-bottom: 70px; 
-}
-.retangular{
-	position: absolute;
-}
-.img_inserir{
-	margin-left: 10px;
-	cursor: pointer; 
-}
-.conjunto_perfil{
-	border: 1px outset;
-	padding: 10px;
-	height: 55px;
+a.opcoes{
+	text-decoration: none;
 	color: #BC3908;
-	width: 830px;
-	margin: auto;
-	margin-top: 20px;
-	margin-bottom: 50px;	
 }
-.usuario_produto input{
-	border: none;
-}
-.pdescricao{
-	font-family: 'Roboto', sans-serif;
-	position: relative;
-	left: 80px;
-	bottom: 60px;
-	font-weight: bold;
-}
-.descricao{
-	font-family: 'Roboto', sans-serif;
-	position: relative;
-	left: 80px;
-	bottom: 60px;
-}
-.detalhes{
-	position: relative;
-	left: 800px;
-	bottom: 90px;
-	font-size: 40px;
-}
-.lixeira{
-	margin-left: 800px;
-	position: relative;
-	bottom: 150px;
-	cursor: pointer; 
-}
-.botao_produto{
-	display: flex;
-	align-content:space-between;
-	padding: 15px;
-	width: 800px;
+a.opcoes:hover{
+	background-color:#BC3908;
+	color: white;
 }
 
+/* tabela */
+
+
+
+.venda_produto{
+	width: 50px;
+  }
+  
+  .main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px 0;
+  }
+  
+  .content__title {
+	text-align: center;
+	font-size:20px;
+	font-family: 'Dosis', sans-serif;
+	font-weight: bold;
+	color: #BC3908;
+	padding-bottom: 10px;
+	margin: 0 5%;
+	border-top-right-radius: 6px;
+	border-bottom-width: 1px;
+	border-color: #BC3908;
+  }
+  .produt{
+	width: 800px;
+	position: relative;
+	left: 180px;
+	bottom: 522px;
+  }
+  
+  .product__item {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 0 5%;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-style: solid;
+	border-radius: 6px;
+	border-color: #BC3908;
+  }
+  
+  .product__img {
+	width: 80px;
+	height: 60px;
+  }
+  
+  .product-info {
+	display: flex;
+	font-family: 'Dosis', sans-serif;
+	flex-direction: column;
+	justify-content: center;
+  }
+  
+  .product-info__name {
+	font-size: 1rem;
+	color: #BC3908;
+	font-weight: bold;
+  }
+  
+  .product-info__description {
+	font-size: 0.8rem;
+	color: #BC3908;
+  }
+  
+  .product-info__price {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color:#BC3908;
+  }
+  
+  .button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 120px;
+	height: 40px;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	color: #FFF;
+	background-color: #FE642E;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+ 
 @media(max-width:1169px){
 
+	.conjunto_perfilp{
+		width: 500px;
+		margin: auto;
+	}
 }
 
 @media(max-width:768px){
-	
+	.conjunto_perfilp{
+		width: 300px;
+		margin: auto;	
+}
+
+
 }
