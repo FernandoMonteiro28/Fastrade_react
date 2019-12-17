@@ -12,7 +12,7 @@ import Rodape from '../../components/rodape/Rodape.js';
 import { Link } from 'react-router-dom';
 
 //importar o css
-import perfil from '../../assets/css/perfil.css';
+import perfilusuario from '../../assets/css/perfilusuario.css';
 
 
 
@@ -209,49 +209,41 @@ export default class PerfilConsumidor extends Component {
                 <Header></Header>
 
                 <main>
-                    <div className="cabeca_perfil">
-                        <div className="barra_lateral_perfil">
-                            <Link to="/PerfilConsumidor" className="opcoes_perfil">
-                                Perfil
-                        </Link>
+                <div className="top_user2">
+                        <div >
+                            <section>
+                                <div className="titulo_user2">
+                                    <p className="titulo_usuario2">PERFIL DO USUÁRIO</p>
+                                </div>
+                            </section>
 
-                        </div>
-                        <div className="conj_barra">
-                            <div className="pri_barra_perfil">
-                                <div className="titulo_usuario">
-                                    <p>PERFIL DO USUÁRIO</p>
+                            <div className="cabeca_adm2">
+
+                                <div className="barra_user2">
+                                    <div><Link to="/PerfilConsumidor" className="opcoes_perfil2">Perfil</Link></div>
+                                    <div><Link to="/PerfilConsumidor" className="opcoes_perfil2">Minha Oferta</Link></div>
+                                    <div><Link to="/PerfilConsumidor" className="opcoes_perfil2">Cadastrar oferta</Link></div>
+                                </div>
+                            </div>
+                            <div className="conj_barra2">
+
+<div className="ajuste_img">
+                                <div className="img_user2">
+                                    <img src={usuario} alt="Imagem do usuario" className="usuario" />
+                                </div>
                                 </div>
 
-                                <div id="PerfilUsuario-lista">
 
-                                </div>
+                                <form onSubmit={this.getUsuario} >
 
-                                <div className="dados_perf">
+                                    <div className="conjunto_input">
 
-                                    <form onSubmit={this.perfilUsuario}>
-                                        <div className="conj_img">
-
-                                            {/* <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
-
-                                            <input
-                                                accept="image/*"
-                                                type="file"
-                                                src={usuario}
-                                                alt="Insire uma imagem"
-                                                name="fotoUrlUsuario"
-                                                onChange={this.alterarSetStateFile}
-                                            /> */}
-                                        </div>
-                                    </form>
-
-                                    <div className="usuario_perfil">
-
-                                        <form onSubmit={this.perfilUsuario}>
-
-                                            <div className="item_input">
+                                        <div className="dados_principais">
+                                            <div className="item_input2">
                                                 <input
                                                     className="estilo_input"
                                                     type="text"
+                                                    placeholder="Nome Completo"
                                                     name="nomeRazaoSocial"
                                                     value={this.state.top.nomeRazaoSocial}
                                                     onChange={this.alterarStateUsuario}
@@ -259,7 +251,7 @@ export default class PerfilConsumidor extends Component {
                                                 />
                                             </div>
 
-                                            <div className="item_input">
+                                            <div className="item_input2">
                                                 <input
                                                     className="estilo_input"
                                                     placeholder="Email"
@@ -270,124 +262,125 @@ export default class PerfilConsumidor extends Component {
                                                     disabled={this.state.isEdit}
                                                 />
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <form onSubmit={this.getUsuario} >
-                                    <div className="dados_principais">
-
-                                        <div className="item_input2">
-                                            <input
-                                                className="estilo_input"
-                                                placeholder="CPF"
-                                                type="text"
-                                                name="cpfCNPJ"
-                                                value={this.state.top.cpfCnpj}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-
-                                        </div>
-                                        <div className="item_input2">
-                                            <input
-                                                className="estilo_input"
-                                                placeholder="Telefone para contato"
-                                                type="text"
-                                                name="celular_telefone"
-                                                value={this.state.top.celularTelefone}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="dados_principais">
-                                        <div className="item_input2">
-                                        <input
-                                                className="estilo_input2"
-                                                placeholder="Endereço:"
-                                                type="text"
-                                                name="Rua_Av"
-                                                value={this.state.top.Rua_Av} 
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
                                         </div>
 
-                                        <div className="item_input2">
-                                            <input
-                                                className="estilo_input2"
-                                                placeholder="Complemento"
-                                                type="text"
-                                                name="complemento"
-                                                value={this.state.top.complemento}                                                 onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
+                                        <div className="dados_principais">
+
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input"
+                                                    placeholder="CPF"
+                                                    type="text"
+                                                    name="cpfCnpj"
+                                                    value={this.state.top.cpfCnpj}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+
+                                            </div>
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input"
+                                                    placeholder="Telefone para contato"
+                                                    type="text"
+                                                    name="celular_telefone"
+                                                    value={this.state.top.celularTelefone}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
                                         </div>
 
-                                        <div className="item_input2">
-                                            <input
-                                                className="estilo_input2"
-                                                placeholder="Numero"
-                                                type="text"
-                                                name="numero"
-                                                value={this.state.top.numero}                                                 onChange={this.alterarStateUsuario}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
+                                        <div className="dados_principais">
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input2"
+                                                    placeholder="Endereço:"
+                                                    type="text"
+                                                    name="Rua_Av"
+                                                    value={this.state.top.Rua_Av}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
+
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input2"
+                                                    placeholder="Complemento"
+                                                    type="text"
+                                                    name="complemento"
+                                                    value={this.state.top.complemento}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
+
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input2"
+                                                    placeholder="Numero"
+                                                    type="text"
+                                                    name="numero"
+                                                    value={this.state.top.numero}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="dados_principais">
+                                        <div className="dados_principais">
 
-                                        <div className="item_input2">
-                                            <input
-                                                className="estilo_input2"
-                                                placeholder="CEP"
-                                                type="text"
-                                                name="cep"
-                                                value={this.state.top.cep}                                                 onChange={this.alterarStateUsuario}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input2"
+                                                    placeholder="CEP"
+                                                    type="text"
+                                                    name="cep"
+                                                    value={this.state.top.cep}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
+
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input2"
+                                                    placeholder="Bairro"
+                                                    type="text"
+                                                    name="bairro"
+                                                    value={this.state.top.bairro}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
+
+                                            <div className="item_input2">
+                                                <input
+                                                    className="estilo_input2"
+                                                    placeholder="Estado"
+                                                    type="text"
+                                                    name="estado"
+                                                    value={this.state.top.estado}
+                                                    onChange={this.alterarStateUsuario}
+                                                    disabled={this.state.isEdit}
+                                                />
+                                            </div>
                                         </div>
+                                        <div className="btn_user">
+                                            <div className="">
+                                                <button
+                                                    type="button"
+                                                    onClick={this.habilitaInput}
+                                                    className="botao_cadastrar2">Alterar</button>
+                                            </div>
 
-                                        <div className="item_input2">
-                                            <input
-                                                className="estilo_input2"
-                                                placeholder="Bairro"
-                                                type="text"
-                                                name="bairro"
-                                                value={this.state.top.bairro}                                                 onChange={this.alterarStateUsuario}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
+                                            <div className="">
+                                                <button
+                                                    type="submit"
+                                                    className="botao_cadastrar2">Salvar</button>
+                                            </div>
                                         </div>
-
-                                        <div className="item_input2">
-                                            <input
-                                                className="estilo_input2"
-                                                placeholder="Estado"
-                                                type="text"
-                                                name="estado"
-                                                value={this.state.top.estado}                                                 onChange={this.alterarStateUsuario}
-                                                onChange={this.alterarStateUsuario}
-                                                disabled={this.state.isEdit}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="">
-                                        <button
-                                            type="button"
-                                            onClick={this.habilitaInput}
-                                            className="botao_cadastrar">ALTERAR</button>
-                                    </div>
-
-                                    <div className="">
-                                        <button
-                                            type="submit"
-                                            className="botao_cadastrar">SAlVAR</button>
                                     </div>
                                 </form>
                             </div>

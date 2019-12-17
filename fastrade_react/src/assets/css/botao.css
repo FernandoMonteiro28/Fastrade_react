@@ -30,7 +30,20 @@ button.botao_cadastrar{
     border: 1px solid #BC3908;
     border-radius: 10px;
     width: 120px; 
-    height: 31px;
+
+  
+}
+button.botao_cadastrar2{
+    color:#BC3908;
+	font-family:'Dosis', sans-serif;
+	font-size: 20px;
+    font-weight: bold;  
+    background-color:white;
+    border: white;
+    border: 1px solid #BC3908;
+    border-radius: 10px;
+    width: 100px; 
+    
 
   
 }

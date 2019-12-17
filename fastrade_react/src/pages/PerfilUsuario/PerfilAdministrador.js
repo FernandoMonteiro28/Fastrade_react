@@ -12,7 +12,7 @@ import Rodape from '../../components/rodape/Rodape.js';
 import { Link } from 'react-router-dom';
 
 //importar o css
-import perfil from '../../assets/css/perfil.css';
+import perfiladm from '../../assets/css/perfiladm.css';
 
 
 
@@ -88,7 +88,7 @@ export default class PerfilAdministrador extends Component {
 
 
     }
-  
+
     alterarStateUsuario = event => {
         this.setState({
             top: {
@@ -115,7 +115,7 @@ export default class PerfilAdministrador extends Component {
         usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
         usuarioFormData.set("nomeRazaoSocial", this.state.usuario.nomeRazaoSocial);
         usuarioFormData.set("email", this.state.usuario.email);
-        
+
 
         usuarioFormData.set('fotoUrlUsuario', this.state.perfilUsuario.fotoUrlUsuario.current.files[0], this.state.perfilUsuario.fotoUrlUsuario.value);
 
@@ -147,73 +147,51 @@ export default class PerfilAdministrador extends Component {
                 <Header></Header>
 
                 <main>
-                    <div className="cabeca_perfil">
+                    <div className="top_user">
+                        <section>
+                            <div className="titulo_user">
+                                <p className="titulo_usuario">PERFIL DO ADMINISTRADOR</p>
+                            </div>
+                        </section>
+                        <div className="cabeca_adm">
 
-                        <div className="barra_lateral_perfil">
-                            <Link to="/PerfilAdministrador" className="opcoes_perfil"> Perfil</Link>
-                            <Link to="/Produto" className="opcoes_perfil">Produto</Link>
-                               
-                        
+                            <div className="barra_user">
+                                <Link to="/PerfilAdministrador" className="opcoes_perfil"> Perfil</Link>
+                                <Link to="/Produto" className="opcoes_perfil">Produto</Link>
+                            </div>
 
-                        </div>
-                        <div className="conj_barra">
+                            <div className="conj_barra">
 
-                            <div className="pri_barra_perfil">
-                                <div className="titulo_usuario">
-                                    <p>PERFIL DO USUÁRIO</p>
+                                <div className="img_user">
+                                    <img src={usuario} alt="Imagem do usuario" className="usuario" />
                                 </div>
 
-                                <div id="PerfilUsuario-lista">
+                                <div className="form_perfil">
+                                    <form onSubmit={this.perfilUsuario} className="">
 
-                                </div>
-
-                                <div className="dados_perf">
-
-                                    <form onSubmit={this.perfilUsuario}>
-                                        <div className="conj_img">
-
-                                            <img src={"http://localhost:5001/ReseourceImage" + this.state.top.fotoUrlUsuario} alt="Imagem de perfil do usuário" />
-
+                                        <div className="item_input">
                                             <input
-                                                accept="image/*"
-                                                type="file"
-                                                src={usuario}
-                                                alt="Insire uma imagem"
-                                                name="fotoUrlUsuario"
-                                                onChange={this.alterarSetStateFile}
+                                                className="estilo_input"
+                                                type="text"
+                                                name="nomeRazaoSocial"
+                                                value={this.state.top.nomeRazaoSocial}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled='true'
+                                            />
+                                        </div>
+
+                                        <div className="item_input">
+                                            <input
+                                                className="estilo_input"
+                                                placeholder="Email"
+                                                type="text"
+                                                name="email"
+                                                value={this.state.top.email}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
                                             />
                                         </div>
                                     </form>
-
-                                    <div className="usuario_perfil">
-
-
-                                        <form onSubmit={this.perfilUsuario}>
-
-                                            <div className="item_input">
-                                                <input
-                                                    className="estilo_input"
-                                                    type="text"
-                                                    name="nomeRazaoSocial"
-                                                    value={this.state.top.nomeRazaoSocial}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled='true'
-                                                />
-                                            </div>
-
-                                            <div className="item_perfil">
-                                                <input
-                                                    className="estilo_input"
-                                                    placeholder="Email"
-                                                    type="text"
-                                                    name="email"
-                                                    value={this.state.top.email}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled={this.state.isEdit}
-                                                />
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>

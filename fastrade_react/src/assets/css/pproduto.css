@@ -12,10 +12,10 @@
     --branco:#FFFFFF;
 }
 .conjunto_perfilp{
-	width: 900px;
+	width: 950px;
 	margin: auto;
 }
-.barra_produto{
+.barra{
 	width:200px;
 	height:416px;
 	border: 1.5px solid #BC3908;
@@ -36,6 +36,11 @@ a.opcoes{
 	text-decoration: none;
 	color: #BC3908;
 }
+a.opcoes:hover{
+	background-color:#BC3908;
+	color: white;
+}
+
 /* tabela */
 
 

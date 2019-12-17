@@ -26,7 +26,7 @@ export default class PerfilProduto extends Component {
 
                     <article class="content">
 
-                        <div className="barra_produto">
+                        <div className="barra">
                             <Link to="/PerfilComerciante" className="opcoes">Perfil</Link>
                             <Link to="/PerfilProduto" className="opcoes">Meu Produtos</Link>
                             <Link to="/" className="opcoes">Cadastrar Produtos</Link>

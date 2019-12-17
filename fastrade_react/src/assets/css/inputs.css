@@ -29,3 +29,15 @@
 	color: #808080;
 	text-align: left;
 }
+@media(max-width:768px){
+   .estilo_input{
+	   width: 130px;
+	   position: relative;
+	   right: 210px;
+   }
+   .estilo_input2{
+	width: 130px;
+	position: relative;
+	right: 210px;
+}
+}
