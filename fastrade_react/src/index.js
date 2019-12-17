@@ -35,12 +35,10 @@ import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
-import CadastroCliente from './pages/CadastroCliente/CadastroCliente' 
+import CadastroCliente from './pages/CadastroCliente/CadastroCliente'; 
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
-import CadastroImagens from './pages/cadastroProduto/CadastroImagens';
-import ModalCadastro from './components/modals/ModalCadastro.js'
-import PerfilAdministrador from './pages/PerfilUsuario/PerfilAdministrador.js'
+import PerfilAdministrador from './pages/PerfilUsuario/PerfilAdministrador.js';
 import text from './pages/text/text.js';
 
 import './assets/css/login.css';
@@ -73,8 +71,6 @@ const Rotas = (
             	<Route path="/PerfilProduto" component={PerfilProduto} />
 				<Route path="/cadastroProdutos" component={cadastroProduto} />
 				<Route path="/Login" component={Login}/>
-				<Route path="/CadastroImagens" component={CadastroImagens}/>
-				<Route path="/ModalCadastro" component={ModalCadastro}/>
 				<Route path="/PerfilAdministrador" component={PerfilAdministrador}/>
 				<Route path="/text" component={text}/>
 			

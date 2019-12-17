@@ -6,7 +6,7 @@ import Rodape from '../../components/rodape/Rodape.js';
 import api from '../../services/api.js';
 import apiFormData from '../../services/apiFormData.js';
 import { parseJwt } from '../../services/auth';
-import ModalCadastro from '../cadastroProduto/CadastroImagens';
+
 
 
 //impotar link 
@@ -18,20 +18,8 @@ import {
     MDBTableHead
 } from 'mdbreact';
 
-//MODAL
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
 
 
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
 
 
 class cadastroProduto extends Component {
@@ -98,28 +86,7 @@ class cadastroProduto extends Component {
     }
 
 
-    //MODAL POST
-    // handleClickOpen = (o) => {
-    //     this.setState({ open: true });
-
-    //     console.log("POST", this.state.postSetState)
-    // };
-
-    // handleClose = () => {
-    //     this.setState({ open: false });
-    // };
-
-    //Cadastrar 
-    //MODAL CADASTRO
-    //(Se retirar os dois post la de baixo da erro  aqui! )
-    // handleClickOpenOferta = () => {
-    //     this.setState({ openOferta: true });
-    // }
-
-    // handleCloseOferta = (fechar_modal) => {
-    //     this.setState({ openOferta: false });
-    //     this.setState({ fechar_modal: fechar_modal });
-    // };
+    
 
     //#region atualizar 
     alterarStateOferta = event => {
@@ -297,16 +264,7 @@ class cadastroProduto extends Component {
                                     </div>
                                 </div>
 
-                                {/* botão */}
-                                {/* <div className="btn_botao">
-                                    <button
-                                        className="botao_modal"
-                                        type="submit"
-                                        value={this.postSetState}
-                                    //     onClick={() => this.handleClickOpen()}>Cadastrar</button>
-                                    // {this.state.openOferta && <ModalCadastro open_modal={this.state.openOferta} fechar_modal={this.handleCloseOferta} />}
-                                    />
-                                </div> */}
+                             
 
                                 <div>
                                     <input
@@ -324,67 +282,6 @@ class cadastroProduto extends Component {
                                         className="">Salvar</button>
                                 </div>
                             </form>
-
-                            {/* </div>
-                        <>
-
-                            <Dialog
-                                open={this.state.open}
-                                TransitionComponent={Transition}
-                                keepMounted
-                                onClose={this.handleClose}
-                                aria-labelledby="alert-dialog-slide-title"
-                                aria-describedby="alert-dialog-slide-description"
-                                class="modal_caixa"
-                            >
-                                <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{""}</DialogTitle>
-                                <DialogContent>
-
-                                    <DialogContentText class="modal-dialog" role="document">
-                                        <h6 class="modal-title" id="ModalLabel">Click no botão para continuar</h6>
-                                    </DialogContentText>
-
-                                    <Link to="/CadastroImagens">
-                                            <button className="botao_modal" type="submit"> Cotinuar </button></Link>
-                                       
-                                  
-
-                                </DialogContent>
-                                <DialogActions>
-                                </DialogActions>
-                            </Dialog>
-                        </>
-
-                        <MDBTable>
-                            <MDBTableHead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nome Produto</th>
-                                    <th>Descrição</th>
-                                    <th>Preço</th>
-                                    <th>Quantidade</th>
-                                    <th>Validade</th>
-                                    <th>Imagem do Produto</th>
-                                </tr>
-                            </MDBTableHead>
-                            <MDBTableBody>
-                                {
-                                    this.state.listaOfertas.map(function (o) {
-                                        return (
-                                            <tr key={o.idOferta}>
-                                                <td>{o.idOferta}</td>
-                                                <td>{o.idProdutoNavigation.nomeProduto}</td>
-                                                <td>{o.idProdutoNavigation.descricaoDoProduto}</td>
-                                                <td>{o.preco}</td>
-                                                <td>{o.quantidade}</td>
-                                                <td>{o.validade}</td>
-                                                <td>{o.fotoUrlOferta}</td>
-                                            </tr>
-                                        )
-                                    }.bind(this))
-                                }
-                            </MDBTableBody>
-                        </MDBTable> */}
                         </div>
                     </div>
 
