@@ -61,10 +61,6 @@
     width: 200px;
 }
 
-.select {
-    padding: px;
-}
-
 .filtroproduto select {
     height: 40px;
 }
@@ -248,7 +244,7 @@
 }
 
 .card2 {
-    padding-top:250px;
+    padding-top: 250px;
     margin-left: 50px;
 }
 
