@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/Rodape';
-import img_brigadeiro from '../../assets/img/brigadeiro.png';
+import img_Brigadeiro from '../../assets/img/Brigadeiro.jpg';
 // import MACARRAOA from '../../assets/img/MACARRAOA.png';
 // import ARROZC from '../../assets/img/ARROZC.png';
 // import FEIJAO from '../../assets/img/FEIJAO.png';
@@ -19,7 +19,7 @@ class Brigadeiro extends Component {
                 </div>
                 <div className="card_receitas">
                     <div className="foto_receita">
-                  <img src={img_brigadeiro} alt="imagem pudim" className="img_receita" />
+                  <img src={img_Brigadeiro} alt="imagem Brigadeiro" className="img_receita" />
                         <div className="nome_prato">
                             <p className="textop">Brigadeiro de Casca de Banana</p><br />
                         </div>
