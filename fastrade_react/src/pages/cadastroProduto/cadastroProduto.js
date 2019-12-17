@@ -42,15 +42,17 @@ class cadastroProduto extends Component {
         this.state = {
             top: [],
             listaOfertas: [],
-            listaCategorias: [],
+            ListaProduto: [],
 
             postOferta: {
+                IdUsuario: parseJwt().IdUsuario,
                 quantidade: "",
                 preco: "",
                 validade: "",
                 nomeProduto: "",
                 descricaoDoProduto: "",
                 idCatProduto: "",
+                idProduto: "",
                 fotoUrlOferta: React.createRef(),
 
                 erroMsg: "",
@@ -65,29 +67,20 @@ class cadastroProduto extends Component {
 
     //#region GET
     componentDidMount() {
-        this.getCategorias();
+        this.getProduto();
         this.getOferta();
     }
 
-    getCategorias = () => {
-        //pegando id do usuario
-        // api.get('catProduto')
-        // .then(response => response.json())
-        //     .then(response => {
-        //         console.log(response.status)
-        //         if (response.status === 200) {
-        //             // this.setState({ listaCategorias: response.data })
-        //             console.log(response.data)
-        //         }
-        //     })
-        fetch('https://localhost:5001/api/catProduto')
+    getProduto = () => {
+
+        fetch('http://localhost:5000/api/produto')
             .then(x => x.json())
-            .then(x => this.setState({ listaCategorias: x }))
+            .then(x => this.setState({ ListaProduto: x }))
     }
 
     getOferta = () => {
 
-        fetch('https://localhost:5001/api/oferta')
+        fetch('http://localhost:5001/api/oferta')
             .then(x => x.json())
             .then(x => this.setState({ listaOfertas: x }))
     }
@@ -97,29 +90,6 @@ class cadastroProduto extends Component {
         console.log("Atualizado")
     }
 
-
-    //MODAL POST
-    // handleClickOpen = (o) => {
-    //     this.setState({ open: true });
-
-    //     console.log("POST", this.state.postSetState)
-    // };
-
-    // handleClose = () => {
-    //     this.setState({ open: false });
-    // };
-
-    //Cadastrar 
-    //MODAL CADASTRO
-    //(Se retirar os dois post la de baixo da erro  aqui! )
-    // handleClickOpenOferta = () => {
-    //     this.setState({ openOferta: true });
-    // }
-
-    // handleCloseOferta = (fechar_modal) => {
-    //     this.setState({ openOferta: false });
-    //     this.setState({ fechar_modal: fechar_modal });
-    // };
 
     //#region atualizar 
     alterarStateOferta = event => {
@@ -171,17 +141,20 @@ class cadastroProduto extends Component {
 
         let oferta = new FormData();
 
+        oferta.set("idProduto", this.state.postOferta.idProduto);
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("quantidade", this.state.postOferta.quantidade);
         oferta.set("nomeProduto", this.state.postOferta.nomeProduto);
         oferta.set("descricaoDoProduto", this.state.postOferta.descricaoDoProduto);
         oferta.set("validade", this.state.postOferta.validade);
         oferta.set("idCatProduto", this.state.postOferta.idCatProduto);
-        oferta.set('fotoUrlOferta', this.state.postOferta.fotoUrlOferta.current.files[0]);
+        oferta.set('fotoUrlOfertaghfghfgh', this.state.postOferta.fotoUrlOferta.current.files[0]);
+        oferta.set('fotoUrlOferta', this.state.postOferta.fotoUrlOferta.current.Value);
+
 
         console.log("Cadastrando");
 
-        fetch('https://localhost:5001/api/oferta', {
+        fetch('http://localhost:5000/api/oferta', {
             method: "POST",
             body: oferta,
         })
@@ -215,7 +188,7 @@ class cadastroProduto extends Component {
                                                 id="nomeProduto"
                                                 type="text"
                                                 name="nomeProduto"
-                                                value={this.state.top.nomeProduto}
+                                                value={this.state.postOferta.nomeProduto}
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -229,7 +202,7 @@ class cadastroProduto extends Component {
                                         <input id="quantidade"
                                             type="number"
                                             name="quantidade"
-                                            value={this.state.top.quantidade}
+                                            value={this.state.postOferta.quantidade}
                                             onChange={this.postSetState}
                                         />
                                     </div>
@@ -241,7 +214,7 @@ class cadastroProduto extends Component {
                                         <input id="preco"
                                             type="valor"
                                             name="preco"
-                                            value={this.state.top.preco}
+                                            value={this.state.postOferta.preco}
                                             onChange={this.postSetState}
                                         />
                                     </div>
@@ -252,16 +225,16 @@ class cadastroProduto extends Component {
                                     <label htmlFor="catProd">Categoria do Produto</label>
                                     <div className="input-button">
                                         <select id="categorias"
-                                            name="idCatProduto"
+                                            name="idProduto"
                                             type="file"
                                             onChange={this.postSetState}
                                         >
                                             <option value="" >Selecione</option>
                                             {
-                                                this.state.listaCategorias.map(function (o) {
+                                                this.state.ListaProduto.map(function (o) {
                                                     return (
-                                                        <option key={o.idCatProduto} value={o.idCatProduto}>
-                                                            {o.tipo}
+                                                        <option key={o.idProduto} value={o.idProduto}>
+                                                            {o.idCatProdutoNavigation.tipo}
                                                         </option>
 
                                                     )
@@ -278,7 +251,7 @@ class cadastroProduto extends Component {
                                         <input id="descricaoDoProduto"
                                             type="text"
                                             name="descricaoDoProduto"
-                                            value={this.state.top.descricaoDoProduto}
+                                            value={this.state.postOferta.descricaoDoProduto}
                                             onChange={this.postSetState}
                                         />
                                     </div>
@@ -291,22 +264,11 @@ class cadastroProduto extends Component {
                                         <input id="validade"
                                             type="date"
                                             name="validade"
-                                            value={this.state.top.validade}
+                                            value={this.state.postOferta.validade}
                                             onChange={this.postSetState}
                                         />
                                     </div>
                                 </div>
-
-                                {/* botão */}
-                                {/* <div className="btn_botao">
-                                    <button
-                                        className="botao_modal"
-                                        type="submit"
-                                        value={this.postSetState}
-                                    //     onClick={() => this.handleClickOpen()}>Cadastrar</button>
-                                    // {this.state.openOferta && <ModalCadastro open_modal={this.state.openOferta} fechar_modal={this.handleCloseOferta} />}
-                                    />
-                                </div> */}
 
                                 <div>
                                     <input
@@ -325,66 +287,6 @@ class cadastroProduto extends Component {
                                 </div>
                             </form>
 
-                            {/* </div>
-                        <>
-
-                            <Dialog
-                                open={this.state.open}
-                                TransitionComponent={Transition}
-                                keepMounted
-                                onClose={this.handleClose}
-                                aria-labelledby="alert-dialog-slide-title"
-                                aria-describedby="alert-dialog-slide-description"
-                                class="modal_caixa"
-                            >
-                                <DialogTitle id="modalProduto" tabindex="-1" role="dialog">{""}</DialogTitle>
-                                <DialogContent>
-
-                                    <DialogContentText class="modal-dialog" role="document">
-                                        <h6 class="modal-title" id="ModalLabel">Click no botão para continuar</h6>
-                                    </DialogContentText>
-
-                                    <Link to="/CadastroImagens">
-                                            <button className="botao_modal" type="submit"> Cotinuar </button></Link>
-                                       
-                                  
-
-                                </DialogContent>
-                                <DialogActions>
-                                </DialogActions>
-                            </Dialog>
-                        </>
-
-                        <MDBTable>
-                            <MDBTableHead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nome Produto</th>
-                                    <th>Descrição</th>
-                                    <th>Preço</th>
-                                    <th>Quantidade</th>
-                                    <th>Validade</th>
-                                    <th>Imagem do Produto</th>
-                                </tr>
-                            </MDBTableHead>
-                            <MDBTableBody>
-                                {
-                                    this.state.listaOfertas.map(function (o) {
-                                        return (
-                                            <tr key={o.idOferta}>
-                                                <td>{o.idOferta}</td>
-                                                <td>{o.idProdutoNavigation.nomeProduto}</td>
-                                                <td>{o.idProdutoNavigation.descricaoDoProduto}</td>
-                                                <td>{o.preco}</td>
-                                                <td>{o.quantidade}</td>
-                                                <td>{o.validade}</td>
-                                                <td>{o.fotoUrlOferta}</td>
-                                            </tr>
-                                        )
-                                    }.bind(this))
-                                }
-                            </MDBTableBody>
-                        </MDBTable> */}
                         </div>
                     </div>
 
