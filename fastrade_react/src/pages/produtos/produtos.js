@@ -27,22 +27,22 @@ class Produtos extends Component {
     render() {
         return (
             <div>
-                    <div>
-
-                        <div className="container_lista">
-                            <div className="busca">
-                                <h3 className="ordenar">Ordenar por:</h3>
-                                <select className="filtroproduto" name="" className="select">
-                                    <option value="">Selecione</option>
-                                    <option value="">Menor Preço</option>
-                                    <option value="">Maior preço</option>
-                                    <option value="">Mais Vendidos</option>
-                                    <option value="">Data de Vencimento</option>
-                                    <option value="">Melhor Desconto</option>
-                                </select>
-                            </div>
+                <div>
+                    <Header/>
+                    <div className="container_lista">
+                        <div className="busca">
+                            <h3 className="ordenar">Ordenar por:</h3>
+                            <select className="filtroproduto" name="" className="select">
+                                <option value="">Selecione</option>
+                                <option value="">Menor Preço</option>
+                                <option value="">Maior preço</option>
+                                <option value="">Mais Vendidos</option>
+                                <option value="">Data de Vencimento</option>
+                                <option value="">Melhor Desconto</option>
+                            </select>
                         </div>
-                        <div className={this.state.ativo ? 'modal_container' : ''} id="modal-produto">
+                    </div>
+                    <div className={this.state.ativo ? 'modal_container' : ''} id="modal-produto">
                             <div className={this.state.ativo ? 'modal ativo' : 'modal'}>
                                 <div className="modal_content">
                                     <div>
