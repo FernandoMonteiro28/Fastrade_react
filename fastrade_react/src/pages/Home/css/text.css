@@ -1,0 +1,174 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.venda_produto{
+  width: 50px;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.content__title {
+  text-align: center;
+  font-size:20px;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  color: #BC3908;
+  padding-bottom: 10px;
+  margin: 0 5%;
+  border-top-right-radius: 6px;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: #BC3908;
+}
+.produt{
+  width: 800px;
+  position: relative;
+  left: 180px;
+  bottom: 544px;
+}
+
+.product__item {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 5%;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  border-color: #BC3908;
+}
+
+.product__img {
+  width: 80px;
+  height: 60px;
+}
+
+.product-info {
+  display: flex;
+  font-family: 'Dosis', sans-serif;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-info__name {
+  font-size: 1rem;
+  color: #BC3908;
+  font-weight: bold;
+}
+
+.product-info__description {
+  font-size: 0.8rem;
+  color: #BC3908;
+}
+
+.product-info__price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color:#BC3908;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #FFF;
+  background-color: #FE642E;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*Modal Secao*/
+/* 
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.container.show {
+  display: flex;
+}
+
+.modal {
+  background-color: #FFF;
+  width: 60%;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.modal-header {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;    
+  padding-bottom: 10px;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: #7e7e7e;
+}
+.modal-header__title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #FE642E;
+}
+
+.modal__body {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0;
+  padding: 20px 10px;
+}
+
+.modal__img {
+  width: 240px;
+  height: 220px;
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px; 
+}
+
+.modal-info__name {
+  font-size: 1.4rem;
+  color: #3d3d3d;
+  padding-bottom: 10px;
+}
+
+.modal-info__description {
+  font-size: 1rem;
+  color: #635e5e;
+  padding-bottom: 10px;
+}
+
+.modal-info__price {
+  font-size: 1.4rem;
+  color: #FE642E;
+} */ 
