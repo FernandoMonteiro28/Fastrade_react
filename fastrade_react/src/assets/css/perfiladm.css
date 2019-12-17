@@ -13,17 +13,18 @@
     --laranja:#BC3908;
     --branco:#FFFFFF;
 }
+.top_user{
+	margin: auto;
+	width: 400px;
+
+}
 .cabeca_adm{
-	width: 550px;
-    background-color: white;
-    margin: auto;
-	display: flex;
-	align-items: center; 
-	align-content: center;     
+	width: 200px;
+	padding: 10px;    
 }
 #PerfilUsuario-lista{
 	margin: auto;
-	width: 600px;
+	width: 500px;
 }
 .perfil h1{
 	padding-bottom: 15px;
@@ -33,29 +34,32 @@
 	font-family:'Dosis', sans-serif;
 }
 .barra_user{
-	width:100px;
-	height:416px;
 	display: flex;
-	flex-direction: column;
-	padding: 10px;
-	box-sizing: border-box;	    
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px;
+    
 }
-
 .conj_barra{
-	margin-bottom: 120px;
+	margin-left: 120px;
+	margin: auto;	 
+
 }
 
 .opcoes_perfil{
 	font-family:'Dosis', sans-serif;
-	font-size: 30px;
-	padding-top: 15px;
+	font-size: 20px;
+	padding-top: 10px;
+	margin: auto;	 
+
 }
 a.opcoes_perfil{
 	text-decoration: none;	
-	color:#BC3908	
+	font-weight: bold;
+	color:black	;
 }
 a.opcoes_perfil:hover{
-	border: 1px solid #BC3908 ;
+	border: 2px solid #BC3908 ;
 	border-radius: 3px;
 	border-top: none;
 	border-left: none;
@@ -79,21 +83,22 @@ a.opcoes_perfil:hover{
 	display: flex;
 	align-content: space-between;
 	padding: 20px;
+	margin: auto;
 }
 
 .img_usuario{
-	width: 150px;	
+	margin: auto;
+	width: 100px;
 }
 .img_user{
 	margin: auto;
 	position: relative;
 	left: 150px;
 }
-
 .form_perfil{
 	margin: auto;
 }
-.form_perfil2{
+.form_perfil{
 	margin: auto;
 	width: 400px;
 

@@ -171,7 +171,8 @@ export default class PerfilAdministrador extends Component {
 
                                         <div className="item_input">
                                             <input
-                                                className="estilo_input"
+                                                className="estilo_inputadm"
+                                                placeholder="Razão Social"
                                                 type="text"
                                                 name="nomeRazaoSocial"
                                                 value={this.state.top.nomeRazaoSocial}
@@ -182,7 +183,7 @@ export default class PerfilAdministrador extends Component {
 
                                         <div className="item_input">
                                             <input
-                                                className="estilo_input"
+                                                className="estilo_inputadm"
                                                 placeholder="Email"
                                                 type="text"
                                                 name="email"

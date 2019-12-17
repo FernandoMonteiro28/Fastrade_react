@@ -62,7 +62,7 @@ export default class PerfilConsumidor extends Component {
         // this.postUsuario = this.postUsuario.bind(this);
     }
 
-//#region GET  Fetch
+    //#region GET  Fetch
     componentDidMount() {
         this.getUsuario();
         this.getEndereco();
@@ -88,7 +88,7 @@ export default class PerfilConsumidor extends Component {
 
 
     }
-//#region GET DE Axios
+    //#region GET DE Axios
 
 
     // getEndereco = () => {
@@ -101,9 +101,9 @@ export default class PerfilConsumidor extends Component {
     //             }
     //         })
     // }
-//#endregion
-    
-//#endregion
+    //#endregion
+
+    //#endregion
 
 
 
@@ -209,7 +209,7 @@ export default class PerfilConsumidor extends Component {
                 <Header></Header>
 
                 <main>
-                <div className="top_user2">
+                    <div className="top_user2">
                         <div >
                             <section>
                                 <div className="titulo_user2">
@@ -227,10 +227,10 @@ export default class PerfilConsumidor extends Component {
                             </div>
                             <div className="conj_barra2">
 
-<div className="ajuste_img">
-                                <div className="img_user2">
-                                    <img src={usuario} alt="Imagem do usuario" className="usuario" />
-                                </div>
+                                <div className="ajuste_img">
+                                    <div className="img_user2">
+                                        <img src={usuario} alt="Imagem do usuario" className="usuario" />
+                                    </div>
                                 </div>
 
 
@@ -368,14 +368,14 @@ export default class PerfilConsumidor extends Component {
                                             </div>
                                         </div>
                                         <div className="btn_user">
-                                            <div className="">
+                                            <div className="btn_perfil">
                                                 <button
                                                     type="button"
                                                     onClick={this.habilitaInput}
                                                     className="botao_cadastrar2">Alterar</button>
                                             </div>
 
-                                            <div className="">
+                                            <div className="btn_perfil">
                                                 <button
                                                     type="submit"
                                                     className="botao_cadastrar2">Salvar</button>
