@@ -3,10 +3,10 @@ import Menu from '../../assets/img/menu.png';
 import '../../assets/css/cabecalho.css';
 import Logotipo from '../../assets/img/FONTE-1.png';
 import User from '../../assets/img/usuario.png';
-// import Home from '../../assets/img/home.png';
-// import Apple from '../../assets/img/apple.png';
-// import Dicas from '../../assets/img/dicas.png';
-// import Somos from '../../assets/img/somos.png';
+import Home from '../../assets/img/home.png';
+import Apple from '../../assets/img/apple.png';
+import Dicas from '../../assets/img/dicas.png';
+import Somos from '../../assets/img/somos.png';
 import Lupa from '../../assets/img/search.png';
 import { Link } from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from '../../services/auth';
@@ -77,6 +77,7 @@ class text extends Component {
                     </div>
 
                     {/* menu amburguer */}
+
                     <input id="menu-hamburguer" type="checkbox" className="hamburguinho" />
 
                     <label for="menu-hamburguer">
@@ -90,31 +91,31 @@ class text extends Component {
                             <div className="pesquisaHamburguer">
                                 <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
                                     className="txt_buscaHamburguer" />
-                                <img src={Lupa} alt="Buscar" className="btn_buscaHamburguer"/>
+                                <img src={Lupa} alt="Buscar" className="btn_buscaHamburguer" />
                             </div>
                             <div className="parteHamburguer">
-                                <div className="subParteHamburguer">
-                                    {/* <img src={Home} alt="" className="iconeHome" /> */}
-                                    <li><Link to="/Home" className="frase_menuHamburguer">Home</Link></li>
-                                </div>
+
+                                <img src={Home} alt="" className="iconeHome" />
+                                <li><Link to="/Home" className="frase_menuHamburguer">Home</Link></li>
+
                             </div>
                             <div className="parteHamburguer">
-                                <div className="subParteHamburguer">
-                                    {/* <img src={Apple} alt="" className="iconeProdutos" /> */}
-                                    <li><Link to="/produtos" className="frase_menuHamburguer">Produtos</Link></li>
-                                </div>
+
+                                <img src={Apple} alt="" className="iconeProdutos" />
+                                <li><Link to="/produtos" className="frase_menuHamburguer">Produtos</Link></li>
+
                             </div>
                             <div className="parteHamburguer">
-                                <div className="subParteHamburguer">
-                                    {/* <img src={Dicas} alt="" className="iconeDicas" /> */}
-                                    <li><Link to="/Dicas" className="frase_menuHamburguer">Dicas</Link></li>
-                                </div>
+
+                                <img src={Dicas} alt="" className="iconeDicas" />
+                                <li><Link to="/Dicas" className="frase_menuHamburguer">Dicas</Link></li>
+
                             </div>
                             <div className="parteHamburguer">
-                                <div className="subParteHamburguer">
-                                    {/* <img src={Somos} alt="" className="iconeSomos" /> */}
-                                    <li><Link to="/quemSomos" className="frase_menuHamburguer">Quem Somos</Link></li>
-                                </div>
+
+                                <img src={Somos} alt="" className="iconeSomos" />
+                                <li><Link to="/quemSomos" className="frase_menuHamburguer">Quem Somos</Link></li>
+
                             </div>
                         </div>
                     </ul>
