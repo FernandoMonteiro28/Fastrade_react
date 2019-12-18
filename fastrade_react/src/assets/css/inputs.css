@@ -40,6 +40,45 @@
 	color: #808080;
 	text-align: left;
 }
+
+/* input de cadastro */
+
+.estilo_input3{	
+	border: 0;
+	width: 150px;
+	height: 25px;
+	border-bottom: 2px solid #BC3908;
+	border-radius: 10px;	
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left;
+}
+.estilo_input3 select{	
+	border: 0;
+	width: 150px;
+	height: 25px;
+	border-bottom: 2px solid #BC3908;
+	border-radius: 10px;	
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left;
+ }
+
+/* INPUT IMAGENS */
+
+ .input_imagens {
+	border: 0;
+	width: 135px;
+	height: 33px;
+	border: 2px solid #BC3908;
+	border-radius: 10px;
+	margin-bottom: 20px;	
+	
+	background-color: none;
+
+ }
 @media(max-width:768px){
    .estilo_inputadm{
 	   width: 130px;

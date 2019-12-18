@@ -68,10 +68,10 @@ class text extends Component {
                         </div>
                         <nav className="menuHeader">
                             <ul>
-                                <li><Link to="index.html">HOME</Link></li>
-                                <li><Link to="produtos.html">PRODUTOS</Link></li>
-                                <li><Link to="Dicas.html">DICAS</Link></li>
-                                <li><Link to="Quem Somos .html">QUEM SOMOS</Link></li>
+                                <li><Link to="/Home">HOME</Link></li>
+                                <li><Link to="/produtos">PRODUTOS</Link></li>
+                                <li><Link to="/Dicas">DICAS</Link></li>
+                                <li><Link to="/quemSomos">QUEM SOMOS</Link></li>
                             </ul>
                         </nav>
                     </div>
