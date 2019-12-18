@@ -13,7 +13,7 @@ import { usuarioAutenticado, parseJwt } from '../../services/auth';
 
 
 
-class text extends Component {
+class Header extends Component {
 
     constructor(props) {
         super(props);
@@ -86,7 +86,7 @@ class text extends Component {
                         </div>
                     </label>
 
-                    <ul className="ulHamburguer">
+                   <ul className="ulHamburguer">
                         <div className="englobaHamburguer">
                             <div className="pesquisaHamburguer">
                                 <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
@@ -94,31 +94,31 @@ class text extends Component {
                                 <img src={Lupa} alt="Buscar" className="btn_buscaHamburguer" />
                             </div>
                             <div className="parteHamburguer">
-
-                                <img src={Home} alt="" className="iconeHome" />
-                                <li><Link to="/Home" className="frase_menuHamburguer">Home</Link></li>
-
+                
+                                     <img src={Home} alt="" className="iconeHome" />
+                                    <li><Link to="/Home" className="frase_menuHamburguer">Home</Link></li>
+                               
                             </div>
                             <div className="parteHamburguer">
-
-                                <img src={Apple} alt="" className="iconeProdutos" />
-                                <li><Link to="/produtos" className="frase_menuHamburguer">Produtos</Link></li>
-
+                               
+                                     <img src={Apple} alt="" className="iconeProdutos" /> 
+                                    <li><Link to="/produtos" className="frase_menuHamburguer">Produtos</Link></li>
+                                
                             </div>
                             <div className="parteHamburguer">
-
-                                <img src={Dicas} alt="" className="iconeDicas" />
-                                <li><Link to="/Dicas" className="frase_menuHamburguer">Dicas</Link></li>
-
+                                
+                                     <img src={Dicas} alt="" className="iconeDicas" /> 
+                                    <li><Link to="/Dicas" className="frase_menuHamburguer">Dicas</Link></li>
+                                
                             </div>
                             <div className="parteHamburguer">
-
-                                <img src={Somos} alt="" className="iconeSomos" />
-                                <li><Link to="/quemSomos" className="frase_menuHamburguer">Quem Somos</Link></li>
-
-                            </div>
+                                
+                                 <img src={Somos} alt="" className="iconeSomos" /> 
+                                    <li><Link to="/quemSomos" className="frase_menuHamburguer">Quem Somos</Link></li>
+                               
+                            </div> 
                         </div>
-                    </ul>
+                    </ul> 
 
                 </header>
             </div>
@@ -126,4 +126,4 @@ class text extends Component {
     }
 }
 
-export default text;
+export default Header;
