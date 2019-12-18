@@ -32,7 +32,7 @@ class Produtos extends Component {
                     <div className="container_lista">
                         <div className="busca">
                             <h3 className="ordenar">Ordenar por:</h3>
-                            <select className="filtroproduto" name="" className="select">
+                            <select className="filtroProduto" name="">
                                 <option value="">Selecione</option>
                                 <option value="">Menor Preço</option>
                                 <option value="">Maior preço</option>
