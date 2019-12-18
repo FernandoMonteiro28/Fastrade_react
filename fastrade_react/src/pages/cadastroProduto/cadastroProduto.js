@@ -44,6 +44,8 @@ class cadastroProduto extends Component {
                 erroMsg: "",
                 sucessMsg: "",
 
+                
+
                 //modal
                 // open: false,
                 // openOferta: false
@@ -66,7 +68,7 @@ class cadastroProduto extends Component {
 
     getOferta = () => {
 
-        fetch('http://localhost:5001/api/oferta')
+        fetch('http://localhost:5000/api/oferta')
             .then(x => x.json())
             .then(x => this.setState({ listaOfertas: x }))
     }
@@ -127,6 +129,7 @@ class cadastroProduto extends Component {
 
         let oferta = new FormData();
 
+        oferta.set ("IdUsuario", this.state.postOferta.IdUsuario);
         oferta.set("idProduto", this.state.postOferta.idProduto);
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("quantidade", this.state.postOferta.quantidade);
