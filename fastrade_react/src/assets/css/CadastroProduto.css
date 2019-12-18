@@ -6,17 +6,37 @@
     padding: 0;
 }
 
-.styled-container {
-    width:1200px;
+/* .styled-container {
+    width:600px;
     background-color: white;
-    padding: 80px 40px;
-    margin: 40px 0px;
+    margin: auto;
     border-radius: 4px;
-    
-}
+     */
 
+.container_cadastro{
+    width: 700px;
+    margin: auto;
+    padding-top: 60px;
+   
+}
 .caixa_cadastrop{
     margin:auto;
+}
+.cadastro_p{
+    display: flex;
+    /* width: 400px; */
+    margin: auto;
+}
+.cadastro_pp{
+    display: flex;
+    /* width: 580px; */
+    margin: auto;  
+    padding: 30px;
+}
+.input_cadastro{
+    margin: 10px;
+    margin: auto;  
+
 }
 .styled-container input{
     height: 40px;
@@ -26,111 +46,22 @@
 .titulo_cadastro{
     font-family: 'Dosis', sans-serif;
     margin-bottom: 40px;
-    font-size: 45px;
+    font-size: 30px;
     color:#BC3908;
-}
-.container_cadastro{
-    width: 980px;
-    margin: auto;
-    text-align: center;
-}
-.btn_botao{
-    color:#BC3908;
-    /* border-radius: 10px; */
-    width: 120px; 
-    margin: auto;
-}
-button.btn_botao:hover{
-    cursor: pointer; 
-    color: white;
-    background-color: #BC3908;
- }
-button.botao_modal{
-	color:#BC3908;
-	font-family:'Dosis', sans-serif;
-	font-size: 20px;
-    font-weight: bold;  
-   
-    background-color:white;
-    border: white;
-    border: 1px solid #BC3908;
-    border-radius: 10px;
-    width: 120px; 
 }
 
-.buttons-area{
-    display: grid;
-    grid-template-columns: 110px 120px;
-    margin: auto;
-    width: 132px;
-}
-.modal-title{
-    font-family:'Dosis', sans-serif;
-    font-size: 20px;
-    color: #1D1E18;
-    font-weight: bold;
-}
 .conjunto_cadastro{
-    display: grid;
-    grid-template-columns: 400px 300px 200px;
+   display: flex;
 }
 
-
-.card_produto {
+.card_cproduto {
     background-color: white;
-    padding: 80px 40px;
-    margin: 40px 0px;
+    padding: 40px 40px;
     border-radius: 4px;
     -webkit-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
     -moz-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
     box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
+    margin: auto;
+    text-align: center;
     
 }
-
-
-.descproduto1 input {
-    margin-bottom: 50px;
-    border: 0;
-    width: 390px;
-    height: 50px;
-	border-bottom: 2px solid #BC3908;
-	border-left: 2px solid #BC3908;
-	border-right: 2px solid #BC3908;
-	border-radius: 10px;
-	background: transparent;
-    color: black; 
-}
-.descproduto2 input {
-    margin-bottom: 50px;
-    border: 0;
-    width: 890px;
-    height: 150px;
-	border: 2px solid #BC3908;
-	border-radius: 10px;
-	background: transparent;
-    color: black; 
-}
-
-.vproduto input {
-    border: 0;
-    width: 170px;
-    height: 40px;
-	border-bottom: 2px solid #BC3908;
-	border-left: 2px solid #BC3908;
-	border-right: 2px solid #BC3908;
-	border-radius: 10px;
-	background: transparent;
-    color: black;
-   
-}
-.card_produto select{
-    border: 0; 
-    width: 170px;
-    height: 43px;
-	border-bottom: 2px solid #BC3908;
-	border-left: 2px solid #BC3908;
-	border-right: 2px solid #BC3908;
-	border-radius: 10px;
-    background: transparent;
-    color: black;  
- }
