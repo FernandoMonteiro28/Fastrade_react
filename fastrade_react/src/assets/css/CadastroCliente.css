@@ -1,22 +1,25 @@
- @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
+/* .titulo_cadastro{
+    font-family: 'Dosis', sans-serif;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color:#BC3908;
+} */
 
-
-.card_cliente {
-    width: 1200px;
+.container_cadastro {
+    width: 900px;
     background-color: white;
-    padding: 80px 40px;
-    margin: 40px 0px;
+    padding: 40px 40px;
+    margin: 40px;
     border-radius: 4px;
     -webkit-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
     -moz-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
     box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
-    display: flex;
-    justify-content: center;
+    margin: auto;
 }
 
 .tipodeusuario  {
@@ -45,10 +48,6 @@
     justify-content: right;
 }
 
-#form_cadastro div span{
-    width: 120px;
-    display: block;
-}
 
 /* #form_cadastro div{
     margin: 10px;
@@ -119,11 +118,10 @@
     .container_cadastro {
         width: 720px;
     }
-    .card{
-        width: 720px;
- 
-}
-}
+    /* .card{
+        width: 720px; */
+
+        
 /*Smart*/
 
 @media(max-width:768px) {   
@@ -133,8 +131,8 @@
         
 
     }
-    .card_cliente{
-        width: 350px;
+    /* .card_cliente{
+        width: 350px; */
 
     }
         .formulario_cadastro{

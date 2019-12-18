@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../assets/css/CadastroCliente.css'
+import '../../assets/css/CadastroCliente.css';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
 
@@ -86,12 +86,12 @@ class CadastroCliente extends Component {
                 <Header></Header>
                 <div className="container_cadastro" >
 
-                    <div className="card">
+                    <div className="card_cliente">
                         <form method="POST" id="form_cadastro" onSubmit={this.CadastrarCliente}>
                             <div className="formulario_cadastro">
 
                                 <div className="direito">
-                                    <h1 className="criarconta">Criar uma conta</h1>
+                                    <h1 className="titulo_cadastro">Criar uma conta</h1>
                                     <label for="" />
                                     <span>Tipo de usuario </span>
 
