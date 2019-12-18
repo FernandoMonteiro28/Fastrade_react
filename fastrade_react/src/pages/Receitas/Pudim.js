@@ -41,10 +41,9 @@ class Pudim extends Component {
                         <br />
                         <h3> MODO DE PREPARO: </h3><br />
                         <br />
-                        <p>
-                            Pique os pães em pedaços e coloque no liquidificador<br />
-                            Acrescente os ovos, o leite condensado, o leite e o coco ralado;<br />
-                            bata por 5 minutos e reserve
+                        <p>Pique os pães em pedaços e coloque no liquidificador</p>
+                           <p> Acrescente os ovos, o leite condensado, o leite e o coco ralado;</p >
+                            <p>bata por 5 minutos e reserve
                             Coloque a xícara de açúcar em uma forma de pudim com 50 ml de água;
                             deixe ferver no fogo baixo até virar caramelo
                             Adicione a mistura do pudim na forma do caramelo
