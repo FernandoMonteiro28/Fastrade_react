@@ -12,9 +12,57 @@ class Produtos extends Component {
     constructor() {
         super();
         this.state = {
+            listaCategoria: [],
+            listaOferta: [],
+
             ativo: false,
+
+            setStateFiltro: "",
+            filtro: ""
+
         }
     }
+    componentDidMount() {
+        this.getCategoria();
+        this.getOferta();
+    }
+
+    getCategoria = () => {
+
+        fetch('http://localhost:5000/api/catproduto')
+          .then(response => {
+            if (response.status === 200) {
+              this.setState({ listaCategoria: response.data });
+            }
+          })
+      }
+      getFiltro = () => {
+
+        fetch('http://localhost:5000/api/oferta/filtrarcategoria/' + this.state.setStateFiltro)
+          .then(response => {
+            if (response.status === 200) {
+              this.setState({ listaOferta: response.data });
+            }
+          })
+      }
+
+      getOferta = () => {
+
+        fetch('http://localhost:5000/api/oferta')
+          .then(response => {
+            if (response.status === 200) {
+              this.setState({ listaOferta: response.data });
+            }
+          })
+      }
+
+      atualizaSelect = (value) => {
+        this.setState({ setStateFiltro: value })
+        setTimeout(() => {
+          this.getOferta(this.state.filtro)
+        }, 500);
+      }
+
     toggleGetoferta = (oferta) => {
         this.setState({
             ModalGetoferta: !this.state.ModalGetoferta,
