@@ -8,7 +8,8 @@ import documentoPng from '../../assets/img/document_home.png';
 import ClientePng from '../../assets/img/cliente_home.png';
 import bannerFinal from '../../assets/img/img_2.png';
 import Rodape from '../../components/rodape/Rodape.js'
-import Maca from '../../assets/img/maca.jpg';
+import uva from '../../assets/img/uva.png'
+import morango from '../../assets/img/morango.jpg'
 
 //importa Link  
 import { Link } from 'react-router-dom';
@@ -18,8 +19,12 @@ import Cabecalho from '../../components/cabecalho/cabecalho';
 import Home from '../../assets/css/Home.css'
 import { parseJwt } from '../../services/auth';
 
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
+
+
+import Carousel from '../../components/carousel/carousel';
+
+// Aqui importamos paginas
+
 
 
 // Aqui importamos paginas
@@ -66,21 +71,71 @@ class App extends Component {
 
       <div className="App" >
         <Cabecalho></Cabecalho>
-
-        <div className="tod_home">
-
-        </div>
+        {/* <div className="tod_home">
+          <div className="estrut_frase">
+            <p className="frase_dicas">
+              Sem tempo para fazer Compras?<br />
+              seja rápido, seja  FASTRADE</p>
+            <Link to="/#" className="botao_dicas">Conheça nossa loja</Link>
+          </div>
+        </div> */}
 
 
         <main>
 
-          <div className="container_cadastro3">
-            <h4 className="destaque_home">Seja rápido, seja fastrade!!!</h4>
-            <h6 className="destaque_home2">Sua melhor plataforma de vendas online.</h6>
+          {/* <div className="container_oferta">
+            <p className="oferte">Produtos em ofertas</p>
+            <div className="conteudo">
+              {
+                this.state.listaNomeOferta.map(
+                  function (oferta) {
+                    return (
+                      <div key={oferta.idOferta} className="alimentos">
+                        <img src={"http://localhost:5000/" + oferta.fotoUrlOferta} className="img_home" alt="Imagem de Arroz" />
+                        <p>{oferta.idProdutoNavigation.nome}</p>
+                        <p className="vermelho">30% Desconto</p>
+                      </div>
+                    );
+                  }
+                )
+              }
+
+            </div>
+          </div> */}
+
+          <div className=" card_home">
+            <figure class="snip1401">
+              <img src={uva} alt="sample67" />
+              <figcaption>
+                <h3>Valores a baixo do mercado </h3>
+                <p>Produtos de qualidade e com o preço que cabe no bolso.</p>
+              </figcaption>
+              <a href="#"></a>
+            </figure>
+
+            <figure class="snip1401">
+              <img src={morango} alt="sample67" />
+              <figcaption>
+                <h3>Facilidade na compra e venda</h3>
+                <p>Ofertas mas faceis e práticas. </p>
+              </figcaption>
+              <a href="#"></a>
+            </figure>
+
+            <figure class="snip1401">
+              <img src={uva} alt="sample67"/>
+              <figcaption>
+                <h3>Cadastre-se!</h3>
+                <p>Encontre ofertas mas proxímas de vocês. </p>
+              </figcaption>
+              <a href="#"></a>
+            </figure>
           </div>
 
 
 
+          <div className="destaque">
+            <img src={bannerFinal} alt="imagem da fruta flaboesa no pote" className="img_destaque" /> </div>
 
           <div className="tod_informativo">
             <div className="dica_informativa">
@@ -136,69 +191,9 @@ class App extends Component {
             </div>
           </div>
 
-
-                                                          {/* Carrosel */}
-
-                                                          
-
-
-
-
-
-          <div className="card_demostrativo">
-            <div className="card_conjunta">
-              <div onClick={event => this.setState({ ativo: true })} class="card">
-                <div class="card_conteudo">
-                  <img src={Maca} alt="" />
-                  <p class="produtor">Direto do produtor</p>
-                  <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                  <p class="preco">R$ 45,00</p>
-                </div>
-                <a href="#" class="btn_1Produto">Visite nossa Loja</a>
-              </div>
-            </div>
+          <div >
+            <div><p className="frase_destaque">Sua melhor plataforma de venda!!!</p></div>
           </div>
-
-
-
-
-          {/* <div className=" card_home">
-            <figure class="snip1401">
-              <img src={uva} alt="sample67" />
-              <figcaption>
-                <h3>Valores a baixo do mercado </h3>
-                <p>Produtos de qualidade e com o preço que cabe no bolso.</p>
-              </figcaption>
-              <a href="#"></a>
-            </figure>
-
-            <figure class="snip1401">
-              <img src={morango} alt="sample67" />
-              <figcaption>
-                <h3>Facilidade na compra e venda</h3>
-                <p>Ofertas mas faceis e práticas. </p>
-              </figcaption>
-              <a href="#"></a>
-            </figure>
-
-            <figure class="snip1401">
-              <img src={uva} alt="sample67"/>
-              <figcaption>
-                <h3>Cadastre-se!</h3>
-                <p>Encontre ofertas mas proxímas de vocês. </p>
-              </figcaption>
-              <a href="#"></a>
-            </figure>
-          </div> */}
-
-
-
-          {/* <div className="destaque">
-            <img src={bannerFinal} alt="imagem da fruta flaboesa no pote" className="img_destaque" /> </div> */}
-
-          
-
-
 
         </main>
         <Rodape></Rodape>

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* .styled-container {
+    width:600px;
+    background-color: white;
+    margin: auto;
+    border-radius: 4px;
+     */
+
+.container_cadastro{
+    width: 800px;
+    margin: auto;
+    padding-top: 60px;
+   
+}
+.caixa_cadastrop{
+    margin:auto;
+}
+.cadastro_p{
+    display: flex;
+    /* width: 400px; */
+    margin: auto;
+}
+.cadastro_pp{
+    display: flex;
+    /* width: 580px; */
+    margin: auto;  
+    padding: 30px;
+}
+.input_cadastro{
+    margin: 10px;
+    margin: auto;  
+
+}
+.styled-container input{
+    height: 40px;
+    border-style: 1px outset #707070;
+
+}
+.titulo_cadastro{
+    font-family: 'Dosis', sans-serif;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color:#BC3908;
+}
+
+.conjunto_cadastro{
+   display: flex;
+}
+
+.card_cproduto {
+    background-color: white;
+    padding: 40px 40px;
+    border-radius: 4px;
+    -webkit-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
+    box-shadow: 5px 5px 30px -15px rgba(204, 204, 204, 1);
+    margin: auto;
+    text-align: center;
+    
+}

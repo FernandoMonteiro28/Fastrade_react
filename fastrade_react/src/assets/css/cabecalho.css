@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: rgba(218, 165, 32, 0.78);
+  padding: 25px 0px;
+  height: 180px;
+}
+
+.entrar:hover {
+  background-color: #BC3908;
+  cursor: pointer;
+  width: 100px;
+}
+
+.container {
+  width: 80%;
+  height: 130px;
+  margin: auto;
+}
+
+.sub_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub_menu a {
+  height: 30px;
+}
+
+.logo {
+  width: 250px;
+  height: 50px;
+}
+
+.menuHeader {
+  height: 80px;
+  padding-top: 10px;
+}
+
+.menuHeader ul {
+  display: flex;
+  padding: 10px;
+  height: 70px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.menuHeader a {
+  text-decoration: none;
+  font-family: 'Dosis', sans-serif;
+  color:black;
+  font-weight: bold;
+}
+
+.menuHeader a:hover {
+  background-color: #BC3908;
+  opacity: 0.5;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.menuHeader li {
+  list-style: none;
+  font-size: 18px;
+}
+
+.pesquisa {
+  background-color: white;
+  border-radius: 10px;
+  width: 40%;
+  display: flex;
+  padding-right: 10px;
+  justify-content: space-between;
+}
+
+.txt_busca {
+  float: left;
+  background-color: transparent;
+  padding-left: 5px;
+  font-size: 18px;
+  border: none;
+  height: 32px;
+  width: 400px;
+  font-family: 'Dosis', sans-serif;
+}
+
+.btn_busca {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.btn_login {
+  width: 30px;
+}
+
+.frase_menu {
+  list-style: none;
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Dosis', sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* menu Hamburgue*/
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hamburguer {
+  position: relative;
+  display: block;
+  background: rgb(255, 255, 255);
+  width: 30px;
+  height: 2px;
+  margin-top: 25px;
+  margin-left: -180px;
+  transition: .5s ease-in-out;
+  display: none;
+}
+
+.hamburguer:before, .hamburguer:after {
+  background: rgb(255, 255, 255);
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: .5s ease-in-out;
+}
+
+.hamburguer:before {
+  top: -10px;
+}
+
+.hamburguer:after {
+  bottom: -10px;
+}
+
+.hamburguinho {
+  display: none;
+}
+
+.hamburguinho:checked~label .hamburguer {
+  transform: rotate(45deg);
+}
+
+.hamburguinho:checked~label .hamburguer:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+.hamburguinho:checked~label .hamburguer:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+.hamburguer {
+  cursor: pointer;
+  box-shadow: 0 0 0 0 #BC3908, 0 0 0 0 #BC3908;
+  transition: box-shadow 1s cubic-bezier(.19, 1, .22, 1);
+}
+
+.hamburguer:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 8px #BC3908, 0 0 0 8px #BC3908;
+}
+
+/* animação do menu */
+
+.hamburguinho:checked~label .hamburguer {
+  cursor: pointer;
+  box-shadow: 0 0 0 300vw #BC3908, 0 0 0 300vh #BC3908;
+  z-index: 2;
+}
+
+/* só aparecer o menu ao clicar */
+
+.hamburguinho:checked~.ulHamburguer {
+  opacity: 1;
+}
+
+/* animação e estilo do menu */
+
+.ulHamburguer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  font-size: 45px;
+  opacity: 0;
+  transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
+  display: none;
+  z-index: 5;
+}
+
+.englobaHamburguer {
+  width: 360px;
+  height: 300px;
+  display: none;
+  margin-left: -80px;
+}
+
+.parteHamburguer {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  margin-top: 10px;
+  display: none;
+}
+
+.iconeHome{
+  width: 30px;
+  height: 30px;
+  margin-top: 15px;
+  display: none;
+}
+
+.iconeProdutos{
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+  display: none;
+}
+
+.iconeDicas{
+  width: 30px;
+  height: 30px;
+  margin-top: 13px;
+  display: none;
+}
+
+.iconeSomos{
+  width: 30px;
+  height: 30px;
+  margin-top: 13px;
+  display: none;
+}
+
+.frase_menuHamburguer {
+  font-size: 20px;
+  color: #000000;
+  font-weight: bold;
+  padding-left: 50px;
+  display: none;
+}
+
+/* Pesquisa do hamburguer */
+
+.pesquisaHamburguer {
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 300px;
+  height: 32px;
+  display: flex;
+  padding-right: 10px;
+  margin-left: -1px;
+  justify-content: space-between;
+  display: none;
+}
+
+.txt_buscaHamburguer {
+  float: left;
+  background-color: transparent;
+  padding-left: 5px;
+  font-size: 18px;
+  border: none;
+  height: 32px;
+  width: 270px;
+  font-family: 'Dosis', sans-serif;
+  z-index: 12;
+  display: none;
+}
+
+.btn_buscaHamburguer {
+  width: 20px;
+  padding-top: 5px;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  header {
+    height: 100px;
+  }
+  .pesquisa {
+    display: none;
+  }
+  .btn_login {
+    margin-left: 115px;
+    padding-top: 10px;
+  }
+  .logo {
+    margin-left: 150px;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    z-index: 3;
+  }
+  .menuHeader {
+    display: none;
+  }
+  .englobaHamburguer {
+    display: block;
+  }
+  .parteHamburguer{
+    display: block;
+  }
+  .iconeHome{
+    display: block;
+  }
+  .iconeProdutos{
+    display: block;
+  }
+  .iconeDicas{
+    display: block;
+  }
+  .iconeSomos{
+    display: block;
+  }
+  .frase_menuHamburguer{
+    display: block;
+  }
+  .hamburguer {
+    display: block;
+  }
+  .ulHamburguer {
+    display: block;
+  }
+  .pesquisaHamburguer {
+    display: block;
+  }
+  .txt_buscaHamburguer {
+    display: block;
+  }
+  .btn_buscaHamburguer {
+    display: block;
+  }
+}
