@@ -7,7 +7,6 @@ import cadeado from '../../assets/img/cadeado.png';
 import '../../assets/css/inputs.css';
 import '../../assets/css/botao.css';
 import '../../assets/css/login.css';
-import { Link } from 'react-router-dom';
 
 
 
@@ -69,15 +68,16 @@ class Login extends Component {
 
                     // Exibe no console o valor do payload convertido para JSON
                     console.log(JSON.parse(window.atob(base64)))
-
+                    
                     // Exibe no console o tipo de usuário logado
-
+                    
                     console.log(parseJwt().Role)
-
+                    
                     console.log("O seu tipo de id é ", parseJwt().Role)
-
-                    //Caso o usuario seja um administrador ele vai para home
+                        
+                        //Caso o usuario seja um administrador ele vai para home
                     if (parseJwt().Role === '3') {
+
                         //console.log(this.props)
                         this.props.history.push('/PerfilComerciante');
                     }
@@ -87,9 +87,16 @@ class Login extends Component {
                 }
 
             })
-
+            
 
             .catch(error => console.log(error))
+
+        if (parseJwt().Role === 'Administrador') {
+            this.props.history.push('/Home');
+        }
+        else {
+            this.props.history.push('/cadastrarProduto');
+        }
     }
 
     atualizaEmail(input) {
@@ -105,7 +112,7 @@ class Login extends Component {
         return (
             <div>
                 <Header></Header>
-                <main>
+                    <main>
                     <div className="logintudo">
                 <div className="card_login">
                     
@@ -141,17 +148,18 @@ class Login extends Component {
                                 </label>
                                 </div>
                                 <div className="caixabotao">
-                                    <button className="botao_cadastrar" type="submit">Entrar</button>
-                                  <Link to="/CadastroCliente"><button className="botao_cadastrar" type="submit">Cadastrar</button></Link>
-                                </div>
+                                    <button className="botao_cadastrar"type="submit">Entrar</button>
+                                    <button className="botao_cadastrar"type="submit">Cadastrar</button>
                                 </div>
 
-                            </form>
-                        </div>
+                            </div>
 
+                        </form>
                     </div>
-                </main>
-                <Rodape></Rodape>
+
+                </div>
+            </main>
+            <Rodape></Rodape>
             </div>
         );
     }
