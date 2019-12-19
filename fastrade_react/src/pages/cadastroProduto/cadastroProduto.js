@@ -175,7 +175,7 @@ class cadastroProduto extends Component {
                                     <div className="input_cadastro">
                                         <div className="input-button">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputproduto2"
                                                 placeholder="Nome do Produto"
                                                 id="nomeProduto"
                                                 type="text"
@@ -223,7 +223,7 @@ class cadastroProduto extends Component {
                                     <div className="input_cadastro">                              
                                         <div className="input-button">
                                             <input
-                                                className="estilo_input3"
+                                                className="estilo_inputproduto2"
                                                 placeholder="Preço do Produto"
                                                 id="preco"
                                                 type="valor"
@@ -238,7 +238,7 @@ class cadastroProduto extends Component {
                                     <div className="input_cadastro">                                      
                                         <div className="input-button">
                                             <select
-                                                className="estilo_input3"                                               
+                                                className="estilo_inputproduto2"                                               
                                                 id="categorias"
                                                 name="idProduto"
                                                 type="file"
