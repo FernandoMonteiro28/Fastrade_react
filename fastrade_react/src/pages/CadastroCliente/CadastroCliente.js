@@ -129,9 +129,9 @@ class CadastroCliente extends Component {
 
                                         <div className="dados_principais">
 
-                                            <div className="item_input2">
+                                            <div className="item_inputcliente2">
                                                 <input
-                                                    className="estilo_input"
+                                                    className="estilo_inputcadastro"
                                                     placeholder="Digite o seu email "
                                                     type="text"
                                                     name="email"
@@ -140,9 +140,9 @@ class CadastroCliente extends Component {
                                                 />
                                             </div>
 
-                                            <div className="item_input2">
+                                            <div className="item_inputcliente2">
                                                 <input
-                                                    className="estilo_input"
+                                                    className="estilo_inputcadastro"
                                                     placeholder="Digite o nome completo "
                                                     type="text"
                                                     name="nomeRazaoSocial" aria-label="Digitar o nome copleto"
@@ -154,9 +154,9 @@ class CadastroCliente extends Component {
                                     </div>
 
                                     <div className="dados_principais">
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="Digite seu telefone..."
                                                 name="celularTelefone" aria-label="Digitar seu telefone"
@@ -165,9 +165,9 @@ class CadastroCliente extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 placeholder="Digite sua senha "
                                                 type="text"
                                                 name="senha"
@@ -177,9 +177,9 @@ class CadastroCliente extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="Digite o CNPJ..."
                                                 name="cpfCnpj" aria-label="Digitar o CNPJ"
@@ -190,9 +190,9 @@ class CadastroCliente extends Component {
                                     </div>
 
                                     <div className="dados_principais">
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="Digite o Endereço"
                                                 name="ruaAv" aria-label="Digitar o endereço"
@@ -201,9 +201,9 @@ class CadastroCliente extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="000..."
                                                 name="numero" aria-label="numero"
@@ -211,9 +211,9 @@ class CadastroCliente extends Component {
                                                 onChange={this.postSetState}
                                             />
                                         </div>
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="Bairro"
                                                 name="bairro" aria-label="Digitar o Bairro"
@@ -224,9 +224,9 @@ class CadastroCliente extends Component {
                                     </div>
 
                                     <div className="dados_principais">
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="00000-000"
                                                 name="cep" aria-label="Digitar o CEP"
@@ -235,9 +235,9 @@ class CadastroCliente extends Component {
                                             />
                                         </div>
 
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="Estado"
                                                 name="estado" aria-label="Digitar o Estado"
@@ -245,9 +245,9 @@ class CadastroCliente extends Component {
                                                 onChange={this.postSetState}
                                             />
                                         </div>
-                                        <div className="item_input2">
+                                        <div className="item_inputcliente2">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputcadastro2"
                                                 type="text"
                                                 placeholder="complemento"
                                                 name="complemento" aria-label="Digitar o complemento"

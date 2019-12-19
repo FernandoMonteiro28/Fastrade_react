@@ -7,6 +7,7 @@ import cadeado from '../../assets/img/cadeado.png';
 import '../../assets/css/inputs.css';
 import '../../assets/css/botao.css';
 import '../../assets/css/login.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -140,8 +141,8 @@ class Login extends Component {
                                 </label>
                                 </div>
                                 <div className="caixabotao">
-                                    <button className="botao_cadastrar"type="submit">Entrar</button>
-                                    <button className="botao_cadastrar"type="submit">Cadastrar</button>
+                                    <button className="botao_cadastrar" type="submit">Entrar</button>
+                                  <Link to="/CadastroCliente"><button className="botao_cadastrar" type="submit">Cadastrar</button></Link>
                                 </div>
                                 </div>
 

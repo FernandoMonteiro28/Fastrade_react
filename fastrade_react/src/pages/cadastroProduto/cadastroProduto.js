@@ -173,10 +173,10 @@ class cadastroProduto extends Component {
 
 
                                     <div className="input_cadastro">
-                                        <label htmlFor="nomeProd">Nome do Produto</label>
                                         <div className="input-button">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputproduto2"
+                                                placeholder="Nome do Produto"
                                                 id="nomeProduto"
                                                 type="text"
                                                 name="nomeProduto"
@@ -188,11 +188,11 @@ class cadastroProduto extends Component {
 
 
 
-                                    <div className="input_cadastro">
-                                        <label htmlFor="descProd">Descrição do Produto</label>
+                                    <div className="input_cadastro">                                    
                                         <div className="input-button">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputproduto2"
+                                                placeholder="Descrição do Produto"
                                                 id="descricaoDoProduto"
                                                 type="text"
                                                 name="descricaoDoProduto"
@@ -202,11 +202,11 @@ class cadastroProduto extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="input_cadastro">
-                                        <label htmlFor="quant">Quantidade</label>
+                                    <div className="input_cadastro">                                     
                                         <div className="input-button">
                                             <input
                                                 className="estilo_input3"
+                                                placeholder="Quantidade"
                                                 id="quantidade"
                                                 type="number"
                                                 name="quantidade"
@@ -220,11 +220,11 @@ class cadastroProduto extends Component {
 
                                 <div className="cadastro_pp">
 
-                                    <div className="input_cadastro">
-                                        <label htmlFor="PrecoProd">Preço do Produto</label>
+                                    <div className="input_cadastro">                              
                                         <div className="input-button">
                                             <input
-                                                className="estilo_input3"
+                                                className="estilo_inputproduto2"
+                                                placeholder="Preço do Produto"
                                                 id="preco"
                                                 type="valor"
                                                 name="preco"
@@ -235,17 +235,16 @@ class cadastroProduto extends Component {
                                     </div>
 
 
-                                    <div className="input_cadastro">
-                                        <label htmlFor="catProd">Categoria do Produto</label>
+                                    <div className="input_cadastro">                                      
                                         <div className="input-button">
                                             <select
-                                                className="estilo_input3"
+                                                className="estilo_inputproduto2"                                               
                                                 id="categorias"
                                                 name="idProduto"
                                                 type="file"
                                                 onChange={this.postSetState}
                                             >
-                                                <option value="" >Selecione</option>
+                                                <option value="" >Categoria do Produto</option>
                                                 {
                                                     this.state.ListaProduto.map(function (o) {
                                                         return (
@@ -263,11 +262,10 @@ class cadastroProduto extends Component {
 
 
                                 </div>
-                                <div className="input_cadastro">
-                                    <label htmlFor="valProd">Validade do Produto</label>
+                                <div className="input_cadastro">                                   
                                     <div className="input-button">
                                         <input
-                                            className="estilo_input3"
+                                            className="estilo_input3"                                        
                                             id="validade"
                                             type="date"
                                             name="validade"

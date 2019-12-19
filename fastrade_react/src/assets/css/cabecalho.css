@@ -54,6 +54,8 @@ header {
 .menuHeader a {
   text-decoration: none;
   font-family: 'Dosis', sans-serif;
+  color:black;
+  font-weight: bold;
 }
 
 .menuHeader a:hover {

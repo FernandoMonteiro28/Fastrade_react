@@ -19,6 +19,13 @@ import Cabecalho from '../../components/cabecalho/cabecalho';
 import Home from '../../assets/css/Home.css'
 import { parseJwt } from '../../services/auth';
 
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+
+import Carousel from '../../components/carousel/carousel';
+
+
+
 
 // Aqui importamos paginas
 
