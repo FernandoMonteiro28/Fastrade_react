@@ -9,7 +9,8 @@ import ClientePng from '../../assets/img/cliente_home.png';
 import bannerFinal from '../../assets/img/img_2.png';
 import Rodape from '../../components/rodape/Rodape.js'
 import uva from '../../assets/img/uva.png'
-import morango from '../../assets/img/morango.jpg'
+
+
 
 //importa Link  
 import { Link } from 'react-router-dom';
@@ -19,9 +20,6 @@ import Cabecalho from '../../components/cabecalho/cabecalho';
 import Home from '../../assets/css/Home.css'
 import { parseJwt } from '../../services/auth';
 
-
-
-import Carousel from '../../components/carousel/carousel';
 
 // Aqui importamos paginas
 
@@ -103,7 +101,7 @@ class App extends Component {
             </div>
           </div> */}
 
-          <div className=" card_home">
+          {/* <div className=" card_home">
             <figure class="snip1401">
               <img src={uva} alt="sample67" />
               <figcaption>
@@ -130,7 +128,7 @@ class App extends Component {
               </figcaption>
               <a href="#"></a>
             </figure>
-          </div>
+          </div> */}
 
 
 
