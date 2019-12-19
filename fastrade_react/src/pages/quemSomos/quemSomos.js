@@ -8,11 +8,11 @@ import fotoJoao from '../../assets/img/João vitor.png';
 import fotoFernando from '../../assets/img/fernando.png';
 import fotoEricki from '../../assets/img/ericki.png';
 import fotoJennifer from '../../assets/img/jennifer.png';
-import fotoGrupo from '../../assets/img/Pessoasgrupo.jpg';
 import Rodape from '../../components/rodape/Rodape.js'
+import fotoGrupo from '../../assets/img/grupoSomos.jpeg'
 import Cabecalho from '../../components/cabecalho/cabecalho';
 
-// import '../../assets/css/quemSomos.css';
+import '../../assets/css/quemSomos.css';
 
 class quemSomos extends Component {
     render() {
@@ -22,7 +22,7 @@ class quemSomos extends Component {
                 <section className="deitadas">
                     <img src={Missao} className="esquerdo" alt="Imagem que representa missão" />
                     <div className="direito">
-                        <h1>Missão</h1>
+                        <h1 className="qualidadeSomos">Missão</h1>
                         <div>
                             <p>dfdafsdafdsfsdfdsfdfddsfdfdfdfdfdfdfdfdf<br />
                                 fdfsdfdffdfdfdfdfdfdfdfdfdfdffawefwerfaw<br />
@@ -34,7 +34,7 @@ class quemSomos extends Component {
                 </section>
                 <section className="deitadas">
                     <div className="esquerdo">
-                        <h1>Visão</h1>
+                        <h1 className="qualidadeSomos">Visão</h1>
                         <p>dfdafsdafdsfsdfdsfdfddsfdfdfdfdfdfdfdfdfd<br />
                             fdfsdfdffdfdfdfdfdfdfdfdfdfdffawefwerfawef<br />
                         </p>
@@ -44,7 +44,7 @@ class quemSomos extends Component {
                 <section className="deitadas">
                     <img src={Valores} className="esquerdo" alt="Imagem que representa valores" />
                     <div className="direito">
-                        <h1>Valores</h1>
+                        <h1 className="qualidadeSomos">Valores</h1>
                         <p>dfdafsdafdsfsdfdsfdfddsfdfdfdfdfdfdfdfdfdd<br />
                             fdfsdfdffdfdfdfdfdfdfdfdfdfdffawefwerffsgaf<br />
                             fsalklhfsafshjfasfafsfsafafasfsafsafsdsadasda<br />
@@ -57,27 +57,27 @@ class quemSomos extends Component {
                     <div className="persona">
                         <div className="rosto">
                             <img src={fotoJosi} alt="Foto de" />
-                            <p>Josilaine<br /> 23 anos</p>
+                            <p className="nomeSomos">Josilaine<br /> 23 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoLuana} alt="Foto de" />
-                            <p>Luana<br /> 23 anos</p>
+                            <p className="nomeSomos">Luana<br /> 23 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoJoao} alt="Foto de" />
-                            <p>João<br />17 anos</p>
+                            <p className="nomeSomos">João<br />17 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoFernando} alt="Foto de" />
-                            <p>Fernando<br /> 16 anos</p>
+                            <p className="nomeSomos">Fernando<br /> 16 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoEricki} alt="Foto de" />
-                            <p>Ericki<br /> 20 anos</p>
+                            <p className="nomeSomos">Ericki<br /> 20 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoJennifer} alt="Foto de" />
-                            <p>Jennifer<br /> 23 anos</p>
+                            <p className="nomeSomos">Jennifer<br /> 23 anos</p>
                         </div>
                     </div>
                 </section>

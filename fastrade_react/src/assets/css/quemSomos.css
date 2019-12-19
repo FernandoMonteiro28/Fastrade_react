@@ -33,6 +33,7 @@
     text-align: center;
     width: 160px;
     font-size: 12px;
+    margin-top: 40px;
 }
 
 .rosto img {
@@ -46,19 +47,21 @@
 
 .larg {
     margin: auto;
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 130px;
+    padding-bottom: 130px;
     background-color: #f5f5f5;
 }
 
 h2 {
+    font-weight: bold;
     text-align: center;
-    margin-top: 40px;
+    ;
     margin-bottom: 40px;
     font-size: 30px;
 }
 
-h1 {
+.qualidadeSomos {
+    font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -71,55 +74,16 @@ h1 {
     background-color: #f5f5f5;
 }
 
-/*Media queres Quem somos tablet*/
-
-/*Quem Somos*/
-
-@media(max-width:1169px) {
-    /* nav {
-        width: 768px;
-    } */
-    .container {
-        width: 768px;
-    }
-    .sub_menu {
-        width: 768px;
-    }
-    .persona {
-        width: 600px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .foto_grupo img {
-        width: 100%;
-    }
+.nomeSomos {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 /*Smart*/
 
-@media(max-width:768px) {
-    .container {
-        width: 100%;
-        display: flex;
-        margin: auto;
-    }
-    .sub_menu {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-    }
-    .iuser {
-        display: none;
-    }
-    .pesquisa {
-        display: none;
-    }
-    /* nav {
-        display: none;
-    } */
-    .prot {
-        display: block
-    }
+@media(max-width: 767px) {
+  
     .foto_grupo, .foto_grupo img {
         width: 100%;
     }
@@ -128,27 +92,16 @@ h1 {
     }
     .persona {
         width: 320px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between  ;
+        height: 1000px;
     }
     .deitadas img {
         display: none;
     }
-    .Logo_footer {
-        width: 120px;
+    .rosto{
+        height: 250px;
     }
-    .Mapa_footer {
-        width: 80px;
-    }
-    .direito, .esquerdo {
-        width: 320px;
-        margin: auto;
-    }
-    footer p {
-        font-size: 10px;
-    }
-    .footer {
-        width: 100%;
-    }
-    h1 {
-        width: 300px;
-    }
+
 }

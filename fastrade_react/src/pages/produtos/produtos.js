@@ -166,11 +166,11 @@ class Produtos extends Component {
                                 }
         
         
-                        {/* <div onClick={event => this.setState({ ativo: true })} class="card">
+                        <div onClick={event => this.setState({ ativo: true })} class="card">
                                 <div class="card_conteudo">
                                     <img src={Maca} alt=""/>
                                     <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
+                                    <p class="descricao">Maça Fuji Nacional -1 Unidade 220g</p>
                                     <p class="preco">R$ 45,00</p>
                                 </div>
                                 <a href="#" class="btn_1Produto">ADICIONAR</a>
@@ -230,7 +230,7 @@ class Produtos extends Component {
                                 <a href="#" class="btn_1Produto">ADICIONAR</a>
                             </div>
 
-                        <p className="vermais"><a href="" className="btn_1">Ver Mais</a></p> */}
+                        <p className="vermais"><a href="" className="btn_1">Ver Mais</a></p>
 
                                             <div className="englobaCard">
                                                 <img src={Card} alt="" className="card2" />

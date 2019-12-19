@@ -213,43 +213,47 @@ header {
 }
 
 .parteHamburguer {
-  width: 180px;
+  width: 200px;
   height: 50px;
   display: flex;
   margin-top: 10px;
-  align-items: center;
-
+  display: none;
 }
 
 .iconeHome{
   width: 30px;
   height: 30px;
   margin-top: 15px;
+  display: none;
 }
 
 .iconeProdutos{
   width: 30px;
   height: 30px;
-  margin-top: 13px;
+  margin-top: 20px;
+  display: none;
 }
 
 .iconeDicas{
   width: 30px;
   height: 30px;
   margin-top: 13px;
+  display: none;
 }
 
 .iconeSomos{
   width: 30px;
   height: 30px;
   margin-top: 13px;
+  display: none;
 }
 
 .frase_menuHamburguer {
   font-size: 20px;
   color: #000000;
   font-weight: bold;
-  margin-left: 15px;
+  padding-left: 50px;
+  display: none;
 }
 
 /* Pesquisa do hamburguer */
@@ -308,6 +312,24 @@ header {
     display: none;
   }
   .englobaHamburguer {
+    display: block;
+  }
+  .parteHamburguer{
+    display: block;
+  }
+  .iconeHome{
+    display: block;
+  }
+  .iconeProdutos{
+    display: block;
+  }
+  .iconeDicas{
+    display: block;
+  }
+  .iconeSomos{
+    display: block;
+  }
+  .frase_menuHamburguer{
     display: block;
   }
   .hamburguer {
