@@ -249,17 +249,13 @@ class cadastroProduto extends Component {
                                                             <option key={o.idProduto} value={o.idProduto}>
                                                                 {o.idCatProdutoNavigation.tipo}
                                                             </option>
-
                                                         )
                                                     }.bind(this))
-
                                                 }
                                             </select>
                                         </div>
-                                   
-
-
                                 </div>
+
                                 <div className="input_cadastro">
                                     <label htmlFor="valProd">Validade do Produto</label>
                                     <div className="input-button">
