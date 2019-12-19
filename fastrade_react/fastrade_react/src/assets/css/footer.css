@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+.container_rodape{
+    margin-top: 50px;
+}
+.frase_rodape{
+    color: #000000;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    width: 200px;
+}
+.contato_rodape{
+    font-size: 13px;
+}
+.localicate {
+    width: 100px;
+    margin-right: 50px;
+}
+
+.localizacao {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.todo_rodape{
+    padding: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px){
+
+    .container{
+        width: 200px;
+        float: left;
+      
+    }
+
+    
+.frase_rodape{
+   font-size: 10px;
+   padding-right: 30px;
+}
+
+.localicate {
+    width: 50px;
+   
+    
+}
+
+.localizacao {
+    width: 50px;
+    padding-right: 30px;
+}
+
+
+}
