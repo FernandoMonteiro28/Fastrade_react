@@ -7,9 +7,9 @@ import negociarPng from '../../assets/img/nego_ciar.png';
 import documentoPng from '../../assets/img/document_home.png';
 import ClientePng from '../../assets/img/cliente_home.png';
 import bannerFinal from '../../assets/img/img_2.png';
-import Rodape from '../../components/rodape/Rodape.js';
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
-  "mdbreact";
+import Rodape from '../../components/rodape/Rodape.js'
+import uva from '../../assets/img/uva.png'
+import morango from '../../assets/img/morango.jpg'
 
 //importa Link  
 import { Link } from 'react-router-dom';
@@ -71,13 +71,17 @@ class App extends Component {
 
       <div className="App" >
         <Cabecalho></Cabecalho>
-     
-            <section>
-          <Carousel/>
-          </section>
-      
-        <main className="main__home">
-     
+        {/* <div className="tod_home">
+          <div className="estrut_frase">
+            <p className="frase_dicas">
+              Sem tempo para fazer Compras?<br />
+              seja rápido, seja  FASTRADE</p>
+            <Link to="/#" className="botao_dicas">Conheça nossa loja</Link>
+          </div>
+        </div> */}
+
+
+        <main>
 
           {/* <div className="container_oferta">
             <p className="oferte">Produtos em ofertas</p>
@@ -101,7 +105,7 @@ class App extends Component {
 
           <div className=" card_home">
             <figure class="snip1401">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample67.jpg" alt="sample67" />
+              <img src={uva} alt="sample67" />
               <figcaption>
                 <h3>Valores a baixo do mercado </h3>
                 <p>Produtos de qualidade e com o preço que cabe no bolso.</p>
@@ -109,7 +113,8 @@ class App extends Component {
               <a href="#"></a>
             </figure>
 
-            <figure class="snip1401"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+            <figure class="snip1401">
+              <img src={morango} alt="sample67" />
               <figcaption>
                 <h3>Facilidade na compra e venda</h3>
                 <p>Ofertas mas faceis e práticas. </p>
@@ -117,7 +122,8 @@ class App extends Component {
               <a href="#"></a>
             </figure>
 
-            <figure class="snip1401"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+            <figure class="snip1401">
+              <img src={uva} alt="sample67"/>
               <figcaption>
                 <h3>Cadastre-se!</h3>
                 <p>Encontre ofertas mas proxímas de vocês. </p>

@@ -38,12 +38,12 @@ header {
   height: 50px;
 }
 
-nav {
+.menuHeader {
   height: 80px;
   padding-top: 10px;
 }
 
-nav ul {
+.menuHeader ul {
   display: flex;
   padding: 10px;
   height: 70px;
@@ -51,14 +51,14 @@ nav ul {
   justify-content: space-around;
 }
 
-nav a {
+.menuHeader a {
   text-decoration: none;
   font-family: 'Dosis', sans-serif;
   color:black;
   font-weight: bold;
 }
 
-nav a:hover {
+.menuHeader a:hover {
   background-color: #BC3908;
   opacity: 0.5;
   color: white;
@@ -66,7 +66,7 @@ nav a:hover {
   border-radius: 4px;
 }
 
-nav li {
+.menuHeader li {
   list-style: none;
   font-size: 18px;
 }
@@ -119,30 +119,20 @@ nav li {
   box-sizing: border-box;
 }
 
-
-.menu {
-  background: #fff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-}
-
 .hamburguer {
   position: relative;
   display: block;
-  background: #000;
+  background: rgb(255, 255, 255);
   width: 30px;
   height: 2px;
-  top: 29px;
-  left: 15px;
+  margin-top: 25px;
+  margin-left: -180px;
   transition: .5s ease-in-out;
+  display: none;
 }
 
 .hamburguer:before, .hamburguer:after {
-  background: #000;
+  background: rgb(255, 255, 255);
   content: '';
   display: block;
   width: 100%;
@@ -177,25 +167,28 @@ nav li {
   bottom: 0;
 }
 
-.menuHamburguer {
+.hamburguer {
   cursor: pointer;
-  box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
-  transition: box-shadow 1.1s cubic-bezier(.19, 1, .22, 1);
+  box-shadow: 0 0 0 0 #BC3908, 0 0 0 0 #BC3908;
+  transition: box-shadow 1s cubic-bezier(.19, 1, .22, 1);
 }
 
-.menuHamburguer:hover {
-  box-shadow: 0 0 0 8px #FFF, 0 0 0 8px #FFF;
+.hamburguer:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 8px #BC3908, 0 0 0 8px #BC3908;
 }
 
 /* animação do menu */
 
-.hamburguinho:checked~label .menuHamburguer {
-  box-shadow: 0 0 0 130vw #FFF, 0 0 0 130vh #FFF;
+.hamburguinho:checked~label .hamburguer {
+  cursor: pointer;
+  box-shadow: 0 0 0 300vw #BC3908, 0 0 0 300vh #BC3908;
+  z-index: 2;
 }
 
 /* só aparecer o menu ao clicar */
 
-.hamburguinho:checked~ul {
+.hamburguinho:checked~.ulHamburguer {
   opacity: 1;
 }
 
@@ -210,105 +203,128 @@ nav li {
   font-size: 45px;
   opacity: 0;
   transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
-  z-index: 2;
+  display: none;
+  z-index: 5;
+}
+
+.englobaHamburguer {
+  width: 360px;
+  height: 300px;
+  display: none;
+  margin-left: -80px;
+}
+
+.parteHamburguer {
+  width: 180px;
+  height: 50px;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+
+}
+
+.iconeHome{
+  width: 30px;
+  height: 30px;
+  margin-top: 15px;
+}
+
+.iconeProdutos{
+  width: 30px;
+  height: 30px;
+  margin-top: 13px;
+}
+
+.iconeDicas{
+  width: 30px;
+  height: 30px;
+  margin-top: 13px;
+}
+
+.iconeSomos{
+  width: 30px;
+  height: 30px;
+  margin-top: 13px;
 }
 
 .frase_menuHamburguer {
-  color: #00cec9;
-  display: block;
-  margin-bottom: 1em;
-  text-decoration: none;
+  font-size: 20px;
+  color: #000000;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+/* Pesquisa do hamburguer */
+
+.pesquisaHamburguer {
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 300px;
+  height: 32px;
+  display: flex;
+  padding-right: 10px;
+  margin-left: -1px;
+  justify-content: space-between;
+  display: none;
+}
+
+.txt_buscaHamburguer {
+  float: left;
+  background-color: transparent;
+  padding-left: 5px;
+  font-size: 18px;
+  border: none;
+  height: 32px;
+  width: 270px;
+  font-family: 'Dosis', sans-serif;
+  z-index: 12;
+  display: none;
+}
+
+.btn_buscaHamburguer {
+  width: 20px;
+  padding-top: 5px;
+  display: none;
 }
 
 @media (max-width: 767px) {
-  *, *:before, *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  header {
+    height: 100px;
   }
-  body {
-    background: #81ecec;
-  }
-  .menu {
-    background: #fff;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-  }
-  .hamburguer {
-    position: relative;
-    display: block;
-    background: #000;
-    width: 30px;
-    height: 2px;
-    top: 29px;
-    left: 15px;
-    transition: .5s ease-in-out;
-  }
-  .hamburguer:before, .hamburguer:after {
-    background: #000;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: .5s ease-in-out;
-  }
-  .hamburguer:before {
-    top: -10px;
-  }
-  .hamburguer:after {
-    bottom: -10px;
-  }
-  .hamburguinho {
+  .pesquisa {
     display: none;
   }
-  .hamburguinho:checked~label .hamburguer {
-    transform: rotate(45deg);
+  .btn_login {
+    margin-left: 115px;
+    padding-top: 10px;
   }
-  .hamburguinho:checked~label .hamburguer:before {
-    transform: rotate(90deg);
-    top: 0;
+  .logo {
+    margin-left: 150px;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    z-index: 3;
   }
-  .hamburguinho:checked~label .hamburguer:after {
-    transform: rotate(90deg);
-    bottom: 0;
+  .menuHeader {
+    display: none;
   }
-  .menuHamburguer {
-    cursor: pointer;
-    box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
-    transition: box-shadow 1.1s cubic-bezier(.19, 1, .22, 1);
-  }
-  .menuHamburguer:hover {
-    box-shadow: 0 0 0 8px #FFF, 0 0 0 8px #FFF;
-  }
-  /* animação do menu */
-  .hamburguinho:checked~label .menuHamburguer {
-    box-shadow: 0 0 0 130vw #FFF, 0 0 0 130vh #FFF;
-  }
-  /* só aparecer o menu ao clicar */
-  .hamburguinho:checked~ul {
-    opacity: 1;
-  }
-  /* animação e estilo do menu */
-  .ulHamburguer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    list-style: none;
-    font-size: 45px;
-    opacity: 0;
-    transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
-    z-index: 2;
-  }
-  .frase_menuHamburguer {
-    color: #00cec9;
+  .englobaHamburguer {
     display: block;
-    margin-bottom: 1em;
-    text-decoration: none;
+  }
+  .hamburguer {
+    display: block;
+  }
+  .ulHamburguer {
+    display: block;
+  }
+  .pesquisaHamburguer {
+    display: block;
+  }
+  .txt_buscaHamburguer {
+    display: block;
+  }
+  .btn_buscaHamburguer {
+    display: block;
   }
 }

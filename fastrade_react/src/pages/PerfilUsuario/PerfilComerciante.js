@@ -66,26 +66,6 @@ export default class PerfilConsumidor extends Component {
     }
 
 
-    //GET com Fetch
-    // getUsuario = () => {
-
-    //     fetch("http://localhost:5000/api/usuario/" + parseJwt().IdUsuario)
-    //         .then(response => response.json())
-    //         .then(response => {
-    //             this.setState({ perfilUsuario: response.data })
-    //             console.log("User Get: ", this.state.perfilUsuario)
-    //         })
-
-    // }
-
-    // getEndereco = async () => {
-
-    //     await fetch("https://localhost:5001/api/endereco/" + parseJwt().IdEndereco)
-    //         .then(response => response.json())
-    //         .then(data => this.setState({ top: data }))
-    //         .then(data => console.log(this.state.top))
-    // }
-
     getUsuario = () => {
         api.get("usuario/" + parseJwt().IdUsuario)
             .then(response => {
@@ -133,7 +113,7 @@ export default class PerfilConsumidor extends Component {
 
         usuarioFormData.set('fotoUrlUsuario', this.state.perfilUsuario.fotoUrlUsuario.current.files[0], this.state.perfilUsuario.fotoUrlUsuario.value);
 
-        apiFormData.put('/usuario/' + parseJwt().id, usuarioFormData)
+        apiFormData.put('/usuario/' + parseJwt().IdUsuario, usuarioFormData)
 
             .then(() => {
 
@@ -187,7 +167,7 @@ export default class PerfilConsumidor extends Component {
 
 
 
-                                <form onSubmit={this.perfilUsuarioPut} >
+                                <form onSubmit={this.perfilUsuario} >
 
                                     <div className="conjunto_input">
 
@@ -225,7 +205,7 @@ export default class PerfilConsumidor extends Component {
                                                     placeholder="CNPJ"
                                                     type="text"
                                                     name="cpfCnpj"
-                                                    value={this.state.top.cpfCnpj}
+                                                    value={this.state.perfilUsuario.cpfCnpj}
                                                     onChange={this.alterarStateUsuario}
                                                     disabled={this.state.isEdit}
                                                 />
@@ -237,7 +217,7 @@ export default class PerfilConsumidor extends Component {
                                                     placeholder="Telefone para contato"
                                                     type="text"
                                                     name="celular_telefone"
-                                                    value={this.state.top.celularTelefone}
+                                                    value={this.state.perfilUsuario.celularTelefone}
                                                     onChange={this.alterarStateUsuario}
                                                     disabled={this.state.isEdit}
                                                 />
@@ -251,7 +231,7 @@ export default class PerfilConsumidor extends Component {
                                                     placeholder="Endereço:"
                                                     type="text"
                                                     name="Rua_Av"
-                                                    value={this.state.top.Rua_Av}
+                                                    value={this.state.perfilUsuario.Rua_Av}
                                                     onChange={this.alterarStateUsuario}
                                                     disabled={this.state.isEdit}
                                                 />
@@ -263,7 +243,7 @@ export default class PerfilConsumidor extends Component {
                                                     placeholder="Complemento"
                                                     type="text"
                                                     name="complemento"
-                                                    value={this.state.top.complemento}
+                                                    value={this.state.perfilUsuario.complemento}
                                                     onChange={this.alterarStateUsuario}
                                                     disabled={this.state.isEdit}
                                                 />

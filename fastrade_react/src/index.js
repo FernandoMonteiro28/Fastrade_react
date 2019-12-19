@@ -39,6 +39,8 @@ import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
 import Erro from './pages/paginaErro/Erro';
 import Login from'./pages/Login/Login';
 import PerfilAdministrador from './pages/PerfilUsuario/PerfilAdministrador.js';
+
+
 import text from './pages/text/text.js';
 
 import './assets/css/login.css';

@@ -158,6 +158,7 @@ p.frase_destaque{
     max-width: 100%;
     backface-visibility: hidden;
   }
+  /* movimentação */
   .snip1401 figcaption {
     position: absolute;
     top: 0;
@@ -236,7 +237,7 @@ p.frase_destaque{
 .snip1401:hover img,
 .snip1401.hover img {
   zoom: 1;
-  filter: alpha(opacity=50);
+  filter: alpha(opacity=70);
   -webkit-opacity: 0.5;
   opacity: 0.5;
 }
