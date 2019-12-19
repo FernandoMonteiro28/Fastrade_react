@@ -6,7 +6,7 @@ import Logotipo from '../../assets/img/FONTE-1.png';
 function Rodape() {   
     return (
         <div>
-            <footer className="container">
+            <footer className="container_footer">
                 <div className="container_rodape">
                     <div className="todo_rodape">
                         <div className="contato_rodape">

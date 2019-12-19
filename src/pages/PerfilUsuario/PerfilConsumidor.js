@@ -213,7 +213,7 @@ export default class PerfilConsumidor extends Component {
                         <div >
                             <section>
                                 <div className="titulo_user2">
-                                    <p className="titulo_usuario2">PERFIL FORNECEDOR</p>
+                                    <p className="titulo_usuario2">PERFIL USUÁRIO</p>
 
                                 </div>
                             </section>

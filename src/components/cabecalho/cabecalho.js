@@ -9,12 +9,12 @@ import { usuarioAutenticado, parseJwt } from '../../services/auth';
 
 
 
-class text extends Component {
+class Header extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-
+            isOpen: false
         }
     }
     logout = () => {
@@ -31,6 +31,9 @@ class text extends Component {
             .then(data => this.setState({ listaNomeOferta: data }));
     }
 
+    toggleIsOpen = () => {
+        this.setState({isOpen : !this.state.isOpen}, () => console.log(this.state.isOpen));
+    }
 
     render() {
 
@@ -40,7 +43,7 @@ class text extends Component {
 
         return (
             <div>
-               
+
                 <header>
                     <div className="container">
                         <div className="sub_menu">
@@ -48,8 +51,8 @@ class text extends Component {
                             <div className="pesquisa">
                                 <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
                                     className="txt_busca" />
-                                <img src={Lupa} alt="Buscar" className="btn_busca" /></div>
-
+                                <img src={Lupa} alt="Buscar" className="btn_busca" />
+                            </div>
 
                             <div><Link to="/login"><img src={User} alt="login" className="btn_login" /></Link>
                                 {usuarioAutenticado() ? (
@@ -62,43 +65,20 @@ class text extends Component {
 
                             </div>
                         </div>
-                        </div>
-                        {/* menu */}
-                        <nav class="menu">
-                                                           <label for="id-show-menu" class="show-menu">
-                                    <div class="nav-icon">
-                                        <img src={Menu} alt="Menu" className="menu_iconi" aria-hidden="true" /><span></span>
-                                    </div>
-                                </label>
-                        
-                            <input
-                                type="checkbox"
-                                id="id-show-menu"
-                                class="checkbox-menu"
-                                role="button" />
-
-                            <div class="menu-block">
-                                <ul class="navUL">
-                                    <li><Link to="/Home" className="frase_menu">Home</Link></li>
-                                    <li><Link to="/produtos" className="frase_menu">Produtos</Link></li>
-                                    <li><Link to="/Dicas" className="frase_menu">Dicas</Link></li>
-                                    <li><Link to="/quemSomos" className="frase_menu">Quem Somos</Link></li>
-                                
-                                </ul>
-                            </div>
+                        <nav className="menuHeader">
+                            <ul>
+                                <li><Link to="/Home">HOME</Link></li>
+                                <li><Link to="/produtos">PRODUTOS</Link></li>
+                                <li><Link to="/Dicas">DICAS</Link></li>
+                                <li><Link to="/quemSomos">QUEM SOMOS</Link></li>
+                            </ul>
                         </nav>
-                        
-                    
+                    </div>
+
                 </header>
             </div>
-
-
-
-
-
-
         );
     }
 }
 
-export default text;
+export default Header;

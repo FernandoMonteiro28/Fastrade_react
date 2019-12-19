@@ -157,9 +157,11 @@ a.opcoes_perfil2:hover{
 	.dados_perf{
 		display: flex;
 		flex-direction: column;
+		margin: auto;
 	}
 	.btn_user{
-		width: 00px;
+		position: relative;
+		right: 150px;
 	}
 
 	.dados_principais{
@@ -168,6 +170,7 @@ a.opcoes_perfil2:hover{
 		margin: auto;
 	}
 	.titulo_usuario2{
-margin-right: 320px;
-	}
+		position: relative;
+		right: 250px;
+}
 }

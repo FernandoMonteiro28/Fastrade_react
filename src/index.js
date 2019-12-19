@@ -75,9 +75,7 @@ const Rotas = (
 				<Route path="/Login" component={Login}/>
 				<Route path="/PerfilAdministrador" component={PerfilAdministrador}/>
 				<Route path="/text" component={text}/>
-			
-			
-
+				
 				<Route component={Erro} />
 			</Switch>
 		</div>

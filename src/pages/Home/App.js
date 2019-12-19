@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import Cabecalho from '../../components/cabecalho/cabecalho';
 import Home from '../../assets/css/Home.css'
 import { parseJwt } from '../../services/auth';
+import MenuMobile from '../../components/menuMobile/menuMoile';
 
 
 // Aqui importamos paginas
@@ -63,6 +64,8 @@ class App extends Component {
 
       <div className="App" >
         <Cabecalho></Cabecalho>
+
+        {/* <MenuMobile/> */}
         <div className="tod_home">
           <div className="estrut_frase">
             <p className="frase_dicas">
