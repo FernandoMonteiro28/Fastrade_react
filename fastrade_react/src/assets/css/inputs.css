@@ -41,7 +41,76 @@
 	text-align: left;
 }
 
-/* input de cadastro */
+/* cadastro de cliente*/
+.item_inputcliente2{
+	margin:15px;
+	margin-left: 20px;
+}
+.estilo_inputcadastro{
+	border: 0;
+	width: 350px;
+	height: 20px;
+	border-bottom: 2px solid #BC3908;
+	border-radius: 10px;
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left; 
+}
+.estilo_inputcadastro2{
+	border: 0;
+	width: 220px;
+	height: 25px;
+	border-bottom: 2px solid #BC3908;
+	border-radius: 10px;	
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left;
+}
+
+/* perfil fornecedor e admnistrador*/
+.item_inputperfil2{
+	margin:15px;
+	margin-left: 20px;	
+}
+
+.estilo_inputperfil{
+	border: 0;
+	width: 350px;
+	height: 20px;
+	border-bottom: 2px solid #BC3908;
+	border-radius: 10px;
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left; 	
+}
+
+.estilo_inputperfil2{
+	border: 0;
+	width: 220px;
+	height: 25px;
+	border-bottom: 2px solid #BC3908;
+	border-radius: 10px;	
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left;
+}
+
+/* cadastro de produto*/
+.estilo_inputproduto2{
+	border: 0;
+	width: 220px;
+	height: 25px;
+	border-bottom: 2px solid #BC3908;
+	border-radius: 10px;	
+	padding: 1px;
+	background: transparent;
+	color: #808080;
+	text-align: left;
+}
 
 .estilo_input3{	
 	border: 0;

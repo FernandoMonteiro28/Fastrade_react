@@ -189,7 +189,7 @@ class cadastroProduto extends Component {
                                         <label htmlFor="descProd">Descrição do Produto</label>
                                         <div className="input-button">
                                             <input
-                                                className="estilo_input2"
+                                                className="estilo_inputproduto2"
                                                 id="descricaoDoProduto"
                                                 type="text"
                                                 name="descricaoDoProduto"

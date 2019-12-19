@@ -7,8 +7,9 @@ import negociarPng from '../../assets/img/nego_ciar.png';
 import documentoPng from '../../assets/img/document_home.png';
 import ClientePng from '../../assets/img/cliente_home.png';
 import bannerFinal from '../../assets/img/img_2.png';
-import Rodape from '../../components/rodape/Rodape.js'
-import Venda from '../../assets/img/marke.png'
+import Rodape from '../../components/rodape/Rodape.js';
+import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
+  "mdbreact";
 
 //importa Link  
 import { Link } from 'react-router-dom';
@@ -17,6 +18,13 @@ import { Link } from 'react-router-dom';
 import Cabecalho from '../../components/cabecalho/cabecalho';
 import Home from '../../assets/css/Home.css'
 import { parseJwt } from '../../services/auth';
+
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+
+import Carousel from '../../components/carousel/carousel';
+
+
 
 
 // Aqui importamos paginas
@@ -63,17 +71,13 @@ class App extends Component {
 
       <div className="App" >
         <Cabecalho></Cabecalho>
-        <div className="tod_home">
-          <div className="estrut_frase">
-            <p className="frase_dicas">
-              Sem tempo para fazer Compras?<br />
-              seja rápido, seja  FASTRADE</p>
-            <Link to="/#" className="botao_dicas">Conheça nossa loja</Link>
-          </div>
-        </div>
-
-
-        <main>
+     
+            <section>
+          <Carousel/>
+          </section>
+      
+        <main className="main__home">
+     
 
           {/* <div className="container_oferta">
             <p className="oferte">Produtos em ofertas</p>

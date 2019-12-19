@@ -54,6 +54,8 @@ nav ul {
 nav a {
   text-decoration: none;
   font-family: 'Dosis', sans-serif;
+  color:black;
+  font-weight: bold;
 }
 
 nav a:hover {
@@ -117,9 +119,6 @@ nav li {
   box-sizing: border-box;
 }
 
-body {
-  background: #81ecec;
-}
 
 .menu {
   background: #fff;
