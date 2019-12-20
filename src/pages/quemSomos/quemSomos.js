@@ -24,10 +24,9 @@ class quemSomos extends Component {
                     <div className="direito">
                         <h1 className="qualidadeSomos">Missão</h1>
                         <div>
-                            <p>dfdafsdafdsfsdfdsfdfddsfdfdfdfdfdfdfdfdf<br />
-                                fdfsdfdffdfdfdfdfdfdfdfdfdfdffawefwerfaw<br />
-                                fsasafasfsafasfasfafasfafasffasfgagagasga<br />
-                                asdasdasfasfafasfafasfsafafsfasfasfasfsafs<br />
+                            <p className="tex_somos">Somos uma plataforma de venda de alimentos. <br/>
+                              Que busca intermediar a venda e a comprar de <br/>
+                              produtos de qualidade. Ofertando com menores valores<br />
                             </p>
                         </div>
                     </div>
@@ -35,8 +34,9 @@ class quemSomos extends Component {
                 <section className="deitadas">
                     <div className="esquerdo">
                         <h1 className="qualidadeSomos">Visão</h1>
-                        <p>dfdafsdafdsfsdfdsfdfddsfdfdfdfdfdfdfdfdfd<br />
-                            fdfsdfdffdfdfdfdfdfdfdfdfdfdffawefwerfawef<br />
+                        <p className="tex_somos">Atender cada vez mas e melhora nossos usuarios.<br/>
+                        Temos objetivo de conectar pessoas com comum objetivo,<br/>
+                        que é oferta produtos e facilitar a comprar. <br/>
                         </p>
                     </div>
                     <img src={Visao} className="direito" alt="Imagem que representa Visão" />
@@ -45,39 +45,39 @@ class quemSomos extends Component {
                     <img src={Valores} className="esquerdo" alt="Imagem que representa valores" />
                     <div className="direito">
                         <h1 className="qualidadeSomos">Valores</h1>
-                        <p>dfdafsdafdsfsdfdsfdfddsfdfdfdfdfdfdfdfdfdd<br />
-                            fdfsdfdffdfdfdfdfdfdfdfdfdfdffawefwerffsgaf<br />
-                            fsalklhfsafshjfasfafsfsafafasfsafsafsdsadasda<br />
+                        <p className="tex_somos">Procuramos disponibilizar uma plataforma de facil acesso <br />
+                        e trazer uma navegção segura para os usuarios. <br/>
+                        Para que consiga buscar o resultado que deseja com tranquilidade.<br />
                         </p>
                     </div>
                 </section>
 
                 <section className="larg">
-                    <h2>Quem somos</h2>
+                    <h2 className="til_somos">Quem somos</h2>
                     <div className="persona">
                         <div className="rosto">
                             <img src={fotoJosi} alt="Foto de" />
-                            <p className="nomeSomos">Josilaine<br /> 23 anos</p>
+                            <p className="nomeSomos">Joselaine Soares<br /> 23 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoLuana} alt="Foto de" />
-                            <p className="nomeSomos">Luana<br /> 23 anos</p>
+                            <p className="nomeSomos">Luana Carolina<br /> 23 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoJoao} alt="Foto de" />
-                            <p className="nomeSomos">João<br />17 anos</p>
+                            <p className="nomeSomos">João Vitor<br />17 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoFernando} alt="Foto de" />
-                            <p className="nomeSomos">Fernando<br /> 16 anos</p>
+                            <p className="nomeSomos">Fernando Calixto<br /> 16 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoEricki} alt="Foto de" />
-                            <p className="nomeSomos">Ericki<br /> 20 anos</p>
+                            <p className="nomeSomos">Eriki Hayashi<br /> 20 anos</p>
                         </div>
                         <div className="rosto">
                             <img src={fotoJennifer} alt="Foto de" />
-                            <p className="nomeSomos">Jennifer<br /> 23 anos</p>
+                            <p className="nomeSomos">Jennifer Santos<br /> 23 anos</p>
                         </div>
                     </div>
                 </section>

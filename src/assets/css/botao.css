@@ -45,3 +45,24 @@ button.botao_cadastrar2 {
     border-radius: 10px;
     width: 100px;
 }
+
+/* Botão de login   */
+
+.botao_cadastrarlogin{
+    color: #BC3908;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    border: white;
+    border: 1px solid #BC3908;
+    border-radius: 10px;
+    width: 120px;
+}
+@media(max-width:768px){
+	.botao_cadastrarlogin{
+		width: 100px;
+		margin: auto;
+	}
+	
+ }

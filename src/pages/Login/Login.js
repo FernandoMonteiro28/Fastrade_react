@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { parseJwt } from '../../services/auth';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
-import email from '../../assets/img/usuario.png';
-import cadeado from '../../assets/img/cadeado.png';
 import '../../assets/css/inputs.css';
 import '../../assets/css/botao.css';
 import '../../assets/css/login.css';
-
 
 
 class Login extends Component {
@@ -68,16 +65,15 @@ class Login extends Component {
 
                     // Exibe no console o valor do payload convertido para JSON
                     console.log(JSON.parse(window.atob(base64)))
-                    
-                    // Exibe no console o tipo de usuário logado
-                    
-                    console.log(parseJwt().Role)
-                    
-                    console.log("O seu tipo de id é ", parseJwt().Role)
-                        
-                        //Caso o usuario seja um administrador ele vai para home
-                    if (parseJwt().Role === '3') {
 
+                    // Exibe no console o tipo de usuário logado
+
+                    console.log(parseJwt().Role)
+
+                    console.log("O seu tipo de id é ", parseJwt().Role)
+
+                    //Caso o usuario seja um administrador ele vai para home
+                    if (parseJwt().Role === '3') {
                         //console.log(this.props)
                         this.props.history.push('/PerfilComerciante');
                     }
@@ -87,16 +83,9 @@ class Login extends Component {
                 }
 
             })
-            
+
 
             .catch(error => console.log(error))
-
-        if (parseJwt().Role === 'Administrador') {
-            this.props.history.push('/Home');
-        }
-        else {
-            this.props.history.push('/cadastrarProduto');
-        }
     }
 
     atualizaEmail(input) {
@@ -112,54 +101,52 @@ class Login extends Component {
         return (
             <div>
                 <Header></Header>
-                    <main>
+                <main>
                     <div className="logintudo">
-                <div className="card_login">
-                    
+                        <div className="card_login">
 
-                        <h1 className="conta">Criar sua conta/Logar</h1>
-                        <form onSubmit={this.realizarLogin.bind(this)}>
-                            <div className="login">
-                            <div className="conteudotodo">
-                                <label className="item_input">
 
-                                <img src={email} alt="email" className="acessar_email" />
-                                    <input 
-                                    className="estilo_input"
-                                    name="email"
-                                    type="text" 
-                                    required 
-                                    placeholder="exemplo@hotmail.com"
-                                    arial-label="exemplo@hotmail.com"
-                                     onChange={this.atualizaEmail.bind(this)} />
-                                </label>
-                            </div>
-                            <div className="conteudotodo">
-                                <label className="item_input">
+                            <h1 className="conta">Criar sua conta/Logar</h1>
+                            <form onSubmit={this.realizarLogin.bind(this)}>
+                                <div className="login">
+                                    <div className="conteudotodo">
+                                        <label className="item_inputlogin">
 
-                                <img src={cadeado} alt="senha" className="acessar_email" />
-                                    <input 
-                                    className="estilo_input"
-                                    name="Senha" type="password" 
-                                    required 
-                                    placeholder="Digite sua senha..."
-                                    arial-label="Digite sua senha"
-                                    onChange={this.atualizaSenha.bind(this)} />
-                                </label>
+                                            <input
+                                                className="estilo_inputlogin"
+                                                name="email"
+                                                type="text"
+                                                required
+                                                placeholder="exemplo@hotmail.com"
+                                                arial-label="exemplo@hotmail.com"
+                                                onChange={this.atualizaEmail.bind(this)} />
+                                        </label>
+                                    </div>
+                                    <div className="conteudotodo">
+                                        <label className="item_inputlogin">
+
+                                            <input
+                                                className="estilo_inputlogin"
+                                                name="Senha" type="password"
+                                                required
+                                                placeholder="Digite sua senha..."
+                                                arial-label="Digite sua senha"
+                                                onChange={this.atualizaSenha.bind(this)} />
+                                        </label>
+                                    </div>
+                                    <div className="caixabotao">
+                                       <button className="botao_cadastrarlogin" type="submit">Entrar</button>
+                                       <button className="botao_cadastrarlogin" type="submit">Cadastrar</button>
+                                    </div>
+
                                 </div>
-                                <div className="caixabotao">
-                                    <button className="botao_cadastrar"type="submit">Entrar</button>
-                                    <button className="botao_cadastrar"type="submit">Cadastrar</button>
-                                </div>
 
-                            </div>
+                            </form>
+                        </div>
 
-                        </form>
                     </div>
-
-                </div>
-            </main>
-            <Rodape></Rodape>
+                </main>
+                <Rodape></Rodape>
             </div>
         );
     }
