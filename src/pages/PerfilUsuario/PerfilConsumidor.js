@@ -65,13 +65,13 @@ export default class PerfilConsumidor extends Component {
     //#region GET  Fetch
     componentDidMount() {
         this.getUsuario();
-        this.getEndereco();
+        // this.getEndereco();
     }
 
     //GET com Fetch
     getUsuario = async () => {
 
-        await fetch("https://localhost:5001/api/usuario/" + parseJwt().IdUsuario)
+        await fetch("http://localhost:5000/api/usuario/" + parseJwt().IdUsuario)
             .then(response => response.json())
             .then(data => this.setState({ top: data }))
             .then(data => console.log(this.state.top))
@@ -79,15 +79,15 @@ export default class PerfilConsumidor extends Component {
 
     }
 
-    getEndereco = async () => {
+    // getEndereco = async () => {
 
-        await fetch("https://localhost:5001/api/endereco/" + parseJwt().IdEndereco)
-            .then(response => response.json())
-            .then(data => this.setState({ top: data }))
-            .then(data => console.log(this.state.top))
+    //     await fetch("https://localhost:5001/api/endereco/" + parseJwt().IdEndereco)
+    //         .then(response => response.json())
+    //         .then(data => this.setState({ top: data }))
+    //         .then(data => console.log(this.state.top))
 
 
-    }
+    // }
     //#region GET DE Axios
 
 

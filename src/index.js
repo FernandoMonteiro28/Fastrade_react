@@ -121,9 +121,9 @@ const Rotas = (
 				<PermissaoAdminVendedor Route path="/PerfilComerciante" component={PerfilComerciante} />
 				<PermissaoAdminConsumidor Route path="/PerfilConsumidor" component={PerfilConsumidor} />
 				<PermissaoAdmin Route path="/PerfilAdministrador" component={PerfilAdministrador} />
-				< Route path="/PerfilProduto" component={PerfilProduto} />
+				<PermissaoAdminVendedor Route path="/PerfilProduto" component={PerfilProduto} />
 				<Sempermissao Route path="/Login" component={Login} />
-				<Route  path="/text" component={text} />
+				<Route path="/text" component={text} />
 
 
 

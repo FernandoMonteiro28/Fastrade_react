@@ -80,7 +80,8 @@ class Header extends Component {
                                 <img src={Lupa} alt="Buscar" className="btn_busca" />
                             </div>
 
-                            <div><Link to="/login"><img src={User} alt="login" className="btn_login" /></Link>
+                            <div>
+                                {/* <Link to="/login"><img src={User} alt="login" className="btn_login" /></Link> */}
 
                                 {usuarioAutenticado() && parseJwt().Role === "3" ? (
                                     // Se o usuário for admnistrador

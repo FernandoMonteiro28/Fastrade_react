@@ -42,7 +42,7 @@ class cadastroProduto extends Component {
                 fotoUrlOferta: React.createRef(),
 
                 erroMsg: "",
-                sucessMsg: "",
+                MsgSuccess: "",
 
                 //modal
                 // open: false,
@@ -66,7 +66,7 @@ class cadastroProduto extends Component {
 
     getOferta = () => {
 
-        fetch('http://localhost:5001/api/oferta')
+        fetch('http://localhost:5000/api/oferta')
             .then(x => x.json())
             .then(x => this.setState({ listaOfertas: x }))
     }
@@ -119,6 +119,17 @@ class cadastroProduto extends Component {
         }, () => console.log("Objeto da oferta: ", this.state.postOferta))
     }
 
+
+    // LimpaForm = () => {
+    //     this.setState.preco: "",
+    //     this.setState.quantidade ""
+    //     this.setState.nomeProduto= ""
+    //     this.setState.descricaoDoProduto= ""
+    //     this.setState.validade= ""
+    //     this.setState.fotoUrlOferta=""
+    //     this.setState.idCatProduto=""
+
+    // }
     postOferta = (event) => {
 
         event.preventDefault();
@@ -127,6 +138,7 @@ class cadastroProduto extends Component {
 
         let oferta = new FormData();
 
+        oferta.set("IdUsuario", this.state.postOferta.IdUsuario);
         oferta.set("idProduto", this.state.postOferta.idProduto);
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("quantidade", this.state.postOferta.quantidade);
@@ -147,9 +159,42 @@ class cadastroProduto extends Component {
             .then(x => x.json())
             .then(x => {
                 console.log(x);
-                this.getOferta();
+                console.log("erro: ", x.erro);
+
+                if(x.erro) {
+                    this.setState({
+                        erroMsg: x.mensagem
+                    })
+
+                    this.setState({
+                        MsgSuccess: ""
+                    })
+
+                } else {
+                    this.setState({
+                        erroMsg: ""
+                    })
+                    this.getOferta();
+                    this.setState({
+                        MsgSuccess: "Cadastro efetuado com sucesso!"
+                    })
+                    // this.LimpaForm()
+                }
+
             })
-            .catch(error => console.log("Falha no cadastro" + error));
+            .catch(error => {
+                this.setState({
+                    erroMsg: "Não é possível cadastrar. Verifique se não há campos vazios ou com dados incorretos."
+                })
+                
+                this.setState({
+                    MsgSuccess: ""
+                })
+
+                }               
+
+            )
+
     }
 
     render() {
@@ -178,6 +223,7 @@ class cadastroProduto extends Component {
                                                 type="text"
                                                 name="nomeProduto"
                                                 value={this.state.postOferta.nomeProduto}
+                                                required
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -194,6 +240,7 @@ class cadastroProduto extends Component {
                                                 type="text"
                                                 name="descricaoDoProduto"
                                                 value={this.state.postOferta.descricaoDoProduto}
+                                                required
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -208,6 +255,7 @@ class cadastroProduto extends Component {
                                                 type="number"
                                                 name="quantidade"
                                                 value={this.state.postOferta.quantidade}
+                                                required
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -226,6 +274,7 @@ class cadastroProduto extends Component {
                                                 type="valor"
                                                 name="preco"
                                                 value={this.state.postOferta.preco}
+                                                required
                                                 onChange={this.postSetState}
                                             />
                                         </div>
@@ -241,6 +290,7 @@ class cadastroProduto extends Component {
                                                 name="idProduto"
                                                 type="file"
                                                 onChange={this.postSetState}
+                                                required
                                             >
                                                 <option value="" >Selecione</option>
                                                 {
@@ -254,34 +304,39 @@ class cadastroProduto extends Component {
                                                 }
                                             </select>
                                         </div>
-                                </div>
-
-                                <div className="input_cadastro">
-                                    <label htmlFor="valProd">Validade do Produto</label>
-                                    <div className="input-button">
-                                        <input
-                                            className="estilo_input3"
-                                            id="validade"
-                                            type="date"
-                                            name="validade"
-                                            value={this.state.postOferta.validade}
-                                            onChange={this.postSetState}
-                                        />
                                     </div>
-                                </div>
+
+                                    <div className="input_cadastro">
+                                        <label htmlFor="valProd">Validade do Produto</label>
+                                        <div className="input-button">
+                                            <input
+                                                className="estilo_input3"
+                                                id="validade"
+                                                type="date"
+                                                name="validade"
+                                                value={this.state.postOferta.validade}
+                                                onChange={this.postSetState}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div>
                                     <input
-                                    className="input_imagens"
+                                        className="input_imagens"
                                         type="file"
                                         accept="image/png, image/jpeg"
                                         placeholder="Coloque uma imagem"
                                         aria-label="Coloque uma imagem"
                                         name="fotoUrlOferta"
+                                        required
                                         ref={this.state.postOferta.fotoUrlOferta}
                                     />
                                 </div>
+                                {this.state.MsgSuccess && <div className="text-success">{this.state.MsgSuccess}</div>}
+                                {this.state.erroMsg && <div className="text-danger">{this.state.erroMsg}</div>}
+
                                 <div>
                                     <button
                                         type="submit"

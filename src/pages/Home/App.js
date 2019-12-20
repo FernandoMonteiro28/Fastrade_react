@@ -8,7 +8,9 @@ import documentoPng from '../../assets/img/document_home.png';
 import ClientePng from '../../assets/img/cliente_home.png';
 import bannerFinal from '../../assets/img/img_2.png';
 import Rodape from '../../components/rodape/Rodape.js'
-import Venda from '../../assets/img/marke.png'
+import Venda from '../../assets/img/maca1.png'
+import maca1 from '../../assets/img/maca1.png'
+import morango from '../../assets/img/morango.jpg'
 
 //importa Link  
 import { Link } from 'react-router-dom';
@@ -100,7 +102,7 @@ class App extends Component {
 
           <div className=" card_home">
             <figure class="snip1401">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample67.jpg" alt="sample67" />
+              <img src={morango} alt="sample67" />
               <figcaption>
                 <h3>Valores a baixo do mercado </h3>
                 <p>Produtos de qualidade e com o preço que cabe no bolso.</p>
@@ -108,23 +110,28 @@ class App extends Component {
               <a href="#"></a>
             </figure>
 
-            <figure class="snip1401"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+            <figure class="snip1401"><img src={maca1} alt="sample87" />
               <figcaption>
                 <h3>Facilidade na compra e venda</h3>
                 <p>Ofertas mas faceis e práticas. </p>
               </figcaption>
               <a href="#"></a>
             </figure>
-
-            <figure class="snip1401"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
-              <figcaption>
-                <h3>Cadastre-se!</h3>
-                <p>Encontre ofertas mas proxímas de vocês. </p>
-              </figcaption>
-              <a href="#"></a>
-            </figure>
           </div>
 
+          {/* card */}
+
+
+
+
+
+
+
+
+
+
+
+          {/* card */}
 
 
           <div className="destaque">
