@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../../assets/img/menu.png';
+import Icon_menu from '../../assets/img/menu-button.png'
 import '../../assets/css/cabecalho.css';
 import Logotipo from '../../assets/img/FONTE-1.png';
 import User from '../../assets/img/usuario.png';
@@ -32,7 +33,7 @@ class Header extends Component {
     }
 
     toggleIsOpen = () => {
-        this.setState({isOpen : !this.state.isOpen}, () => console.log(this.state.isOpen));
+        this.setState({ isOpen: !this.state.isOpen }, () => console.log(this.state.isOpen));
     }
 
     render() {
@@ -46,6 +47,31 @@ class Header extends Component {
 
                 <header>
                     <div className="container">
+                        <div className="tudooo">
+                       
+                            <div class="dropdown">
+                           <img src={Icon_menu} alt="menu sanduiche" className="icone_sanduba"/>
+                                <div class="dropdown-content">
+
+                                <nav className="menuHeader_mobile">
+                            <ul className="quebrar_menu">
+                            <div className="pesquisaHamburguer">
+                                <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
+                                    className="txt_buscaHamburguer" />
+                                <img src={Lupa} alt="Buscar" className="btn_buscaHamburguer" />
+                            </div>
+                                <li className="frase_menuHamburguer"><Link to="/Home" className="cor-link">HOME</Link></li>
+                                <li className="frase_menuHamburguer"><Link to="/produtos" className="cor-link">PRODUTOS</Link></li>
+                                <li className="frase_menuHamburguer"><Link to="/Dicas" className="cor-link">DICAS</Link></li>
+                                <li className="frase_menuHamburguer"><Link to="/quemSomos" className="cor-link">QUEM SOMOS</Link></li>
+                            </ul>
+                        </nav>
+                                    
+                                </div>
+                            </div>
+                            </div>
+                        
+                        
                         <div className="sub_menu">
                             <img src={Logotipo} alt="Logo do site" className="logo" />
                             <div className="pesquisa">

@@ -45,6 +45,7 @@ import text from './pages/text/text.js';
 
 import './assets/css/login.css';
 
+
 //Criamos uma variavel que Realiza a criação das rotas:
 const Rotas = (
 	<Router>
