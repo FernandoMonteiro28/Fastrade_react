@@ -16,24 +16,25 @@ class Arroz extends Component {
                     <p className="titulo_do_prato">RECEITAS</p>
                 </div>
 
+                <div className="conj_card_receitas">
                 <div className="card_receitas">
                     <div className="foto_receita">
                   <img src={img_Arroz} alt="imagem arroz" className="img_receita" />
                         <div className="nome_prato">
-                            <p className="textop">Arroz Brasileirinho</p><br />
+                            <p className="textop">Arroz Brasileirinho</p>
                         </div>
                     </div>
                     <div className="texto_receita">
-                         <br />
+                   
                         <h3 className="til_receita">INGREDIENTES: </h3>
                         <p className="corp_receita">
-                        400 g de arroz cozido (podem ser sobras do dia anterior)<br />
-                        1 caldo de legumes<br />
-                        1 cebola pequena cortada em pedaços pequenos<br />
-                        4 colheres de sopa de azeitona<br />
-                        2 colheres de sopa de açafrão<br />
-                        1 colher de sopa de azeite<br />
-                        1 lata de ervilha.<br />
+                        400 g de arroz cozido (podem ser sobras do dia anterior)
+                        1 caldo de legumes
+                        1 cebola pequena cortada em pedaços pequenos
+                        4 colheres de sopa de azeitona
+                        2 colheres de sopa de açafrão
+                        1 colher de sopa de azeite
+                        1 lata de ervilha.
                         </p>
                     
                         <h3 className="til_receita"> MODO DE PREPARO: </h3>
@@ -46,10 +47,9 @@ class Arroz extends Component {
                         Acrescente as ervilhas e por último o açafrão, mexendo sempre.
                         Assim que tiver misturado bem os ingredientes com o açafrão acrescente o arroz 
                         e misture bem. Continue mexendo até o arroz estar totalmente misturado aos outros 
-                        ingredientes.
-                        Fica uma delícia acompanhado de peixe ou peito de frango grelhado.</p>
-                        <br />
-
+                        ingredientes. Fica uma delícia acompanhado de peixe ou peito de frango grelhado.</p>
+                        
+                        </div> 
                     </div>
                 </div>
                 <div className="embarque">
@@ -63,7 +63,8 @@ class Arroz extends Component {
                     </div>
                     <Rodape></Rodape>
                 </div>
-                </div>
+                </div>         
+                      
                 );
             }
         }

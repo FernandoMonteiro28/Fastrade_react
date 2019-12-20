@@ -42,7 +42,13 @@
 	justify-content: space-between;
 	align-items: center;
 	
-	
+}
+.link_perfil{
+	width: 400px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
 }
 .conj_barra2{
 	margin-left: 220px;
@@ -51,7 +57,7 @@
 }
 
 .opcoes_perfil2{
-	width: 00px;
+	width: 200px;
 	font-family:'Dosis', sans-serif;
 	font-size: 20px;
 	padding-top: 15px;

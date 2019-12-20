@@ -154,9 +154,11 @@ export default class PerfilConsumidor extends Component {
                             <div className="cabeca_adm2">
 
                                 <div className="barra_user2">
-                                    <div><Link to="/PerfilConsumidor" className="opcoes_perfil2">Perfil</Link></div>
-                                    <div><Link to="/PerfilConsumidor" className="opcoes_perfil2">Minha Oferta</Link></div>
-                                    <div><Link to="/PerfilConsumidor" className="opcoes_perfil2">Cadastrar oferta</Link></div>
+                                    <div className="link_perfil">
+                                    <Link to="/PerfilComerciante" className="opcoes_perfil2"><div>Perfil</div></Link>                                   
+                                    <Link to="/PerfilProduto" className="opcoes_perfil2"> <div>Minha Oferta</div></Link>
+                                    <Link to="/cadastroProduto" className="opcoes_perfil2"><div>Cadastrar oferta</div></Link>
+                                    </div>
                                 </div>
                             </div>
                             <div className="conj_barra2">

@@ -24,8 +24,8 @@ class quemSomos extends Component {
                     <div className="direito">
                         <h1 className="qualidadeSomos">Missão</h1>
                         <div>
-                            <p className="tex_somos">Somos uma plataforma de venda de alimentos. <br/>
-                              Que busca intermediar a venda e a comprar de <br/>
+                            <p className="tex_somos">
+                              Temos como missão intermediar a venda e a comprar de <br/>
                               produtos de qualidade. Ofertando com menores valores<br />
                             </p>
                         </div>
@@ -34,8 +34,8 @@ class quemSomos extends Component {
                 <section className="deitadas">
                     <div className="esquerdo">
                         <h1 className="qualidadeSomos">Visão</h1>
-                        <p className="tex_somos">Atender cada vez mas e melhora nossos usuarios.<br/>
-                        Temos objetivo de conectar pessoas com comum objetivo,<br/>
+                        <p className="tex_somos">Atender cada vez mais e melhor nossos usuarios.<br/>
+                        Conectando pessoas com um comum objetivo,<br/>
                         que é oferta produtos e facilitar a comprar. <br/>
                         </p>
                     </div>
@@ -46,8 +46,8 @@ class quemSomos extends Component {
                     <div className="direito">
                         <h1 className="qualidadeSomos">Valores</h1>
                         <p className="tex_somos">Procuramos disponibilizar uma plataforma de facil acesso <br />
-                        e trazer uma navegção segura para os usuarios. <br/>
-                        Para que consiga buscar o resultado que deseja com tranquilidade.<br />
+                        e trazer uma navegação segura para os usuarios. <br/>
+                        De forma que consiga buscar o resultado desejado com tranquilidade.<br />
                         </p>
                     </div>
                 </section>

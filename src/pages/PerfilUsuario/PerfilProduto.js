@@ -29,7 +29,7 @@ export default class PerfilProduto extends Component {
                         <div className="barra">
                             <Link to="/PerfilComerciante" className="opcoes">Perfil</Link>
                             <Link to="/PerfilProduto" className="opcoes">Meu Produtos</Link>
-                            <Link to="/" className="opcoes">Cadastrar Produtos</Link>
+                            <Link to="/cadastroProduto" className="opcoes">Cadastrar Produtos</Link>
                         </div>
                         <div className="produt"> 
                             <h3 class="content__title">PERFIL DE OFERTA</h3>

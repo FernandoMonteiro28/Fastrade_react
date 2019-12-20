@@ -12,13 +12,6 @@ import { parseJwt } from '../../services/auth';
 //impotar link 
 import { Link } from 'react-router-dom';
 
-import {
-    MDBTable,
-    MDBTableBody,
-    MDBTableHead
-} from 'mdbreact';
-
-
 
 class cadastroProduto extends Component {
 
@@ -170,10 +163,10 @@ class cadastroProduto extends Component {
 
 
                                     <div className="input_cadastro">
-                                        <label htmlFor="nomeProd">Nome do Produto</label>
                                         <div className="input-button">
                                             <input
                                                 className="estilo_input2"
+                                                placeholder="Nome Produto"
                                                 id="nomeProduto"
                                                 type="text"
                                                 name="nomeProduto"
@@ -186,10 +179,10 @@ class cadastroProduto extends Component {
 
 
                                     <div className="input_cadastro">
-                                        <label htmlFor="descProd">Descrição do Produto</label>
-                                        <div className="input-button">
+                                         <div className="input-button">
                                             <input
                                                 className="estilo_input2"
+                                                placeholder="Descriçao Do Produto"
                                                 id="descricaoDoProduto"
                                                 type="text"
                                                 name="descricaoDoProduto"
@@ -200,10 +193,10 @@ class cadastroProduto extends Component {
                                     </div>
 
                                     <div className="input_cadastro">
-                                        <label htmlFor="quant">Quantidade</label>
-                                        <div className="input-button">
+                                     <div className="input-button">
                                             <input
                                                 className="estilo_input3"
+                                                placeholder="Quantidade"
                                                 id="quantidade"
                                                 type="number"
                                                 name="quantidade"
@@ -218,10 +211,10 @@ class cadastroProduto extends Component {
                                 <div className="cadastro_pp">
 
                                     <div className="input_cadastro">
-                                        <label htmlFor="PrecoProd">Preço do Produto</label>
-                                        <div className="input-button">
+                                      <div className="input-button">
                                             <input
                                                 className="estilo_input3"
+                                                placeholder="Preco"
                                                 id="preco"
                                                 type="valor"
                                                 name="preco"
@@ -233,8 +226,7 @@ class cadastroProduto extends Component {
 
 
                                     <div className="input_cadastro">
-                                        <label htmlFor="catProd">Categoria do Produto</label>
-                                        <div className="input-button">
+                                      <div className="input-button">
                                             <select
                                                 className="estilo_input3"
                                                 id="categorias"
@@ -242,7 +234,7 @@ class cadastroProduto extends Component {
                                                 type="file"
                                                 onChange={this.postSetState}
                                             >
-                                                <option value="" >Selecione</option>
+                                                <option value="" >Tipo de Categoria</option>
                                                 {
                                                     this.state.ListaProduto.map(function (o) {
                                                         return (
@@ -254,26 +246,26 @@ class cadastroProduto extends Component {
                                                 }
                                             </select>
                                         </div>
-                                </div>
-
-                                <div className="input_cadastro">
-                                    <label htmlFor="valProd">Validade do Produto</label>
-                                    <div className="input-button">
-                                        <input
-                                            className="estilo_input3"
-                                            id="validade"
-                                            type="date"
-                                            name="validade"
-                                            value={this.state.postOferta.validade}
-                                            onChange={this.postSetState}
-                                        />
                                     </div>
-                                </div>
+
+                                    <div className="input_cadastro">
+                                        <div className="input-button">
+                                            <input
+                                                className="estilo_input3"
+                                                placeholder="Validade"
+                                                id="validade"
+                                                type="date"
+                                                name="validade"
+                                                value={this.state.postOferta.validade}
+                                                onChange={this.postSetState}
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div>
                                     <input
-                                    className="input_imagens"
+                                        className=""
                                         type="file"
                                         accept="image/png, image/jpeg"
                                         placeholder="Coloque uma imagem"
@@ -285,7 +277,7 @@ class cadastroProduto extends Component {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="botao_cadastrar2">Salvar</button>
+                                        className="botao_cadastrarproduto">Salvar</button>
                                 </div>
                             </form>
                         </div>

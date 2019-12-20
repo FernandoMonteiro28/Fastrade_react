@@ -27,44 +27,42 @@ class Bolo extends Component {
                         </div>
                     </div>
                     <div className="texto_receita">
-                        <br />
-                        <br />
-                        <h3 className="til_receita">INGREDIENTES: </h3>                        <br />
+                        <div className="comidas">
+                        <h3 className="til_receita">INGREDIENTES: </h3>                      
                         <p className="corp_receita">
-                        1 colher (sopa) de fermento em pó;<br />
-                        1 e ½ xícara (chá) de farinha de trigo;<br />
-                        2 xícaras (chá) de casca de abóbora picada;<br />
-                        2 xícaras (chá) de açúcar;<br />
-                        1 xícara (chá) de amido de milho; <br />
-                        1 xícara (chá) de óleo; <br />
-                        3 ovos.<br />
+                        1 colher (sopa) de fermento em pó;  
+                        1 e ½ xícara (chá) de farinha de trigo;     
+                        2 xícaras (chá) de casca de abóbora picada;     
+                        2 xícaras (chá) de açúcar;  
+                        1 xícara (chá) de amido de milho;   
+                        1 xícara (chá) de óleo;     
+                        3 ovos.     
                         </p>
 
                         <h3 className="til_receita">COBERTURA: </h3>
                         <p className="corp_receita">
-                        4 colheres (sopa) de chocolate em pó; <br />
-                        4 colheres (sopa) de açúcar; <br />
-                        4 colheres (sopa) de leite.  <br />
+                        4 colheres (sopa) de chocolate em pó;   
+                        4 colheres (sopa) de açúcar;    
+                        4 colheres (sopa) de leite.     
                         </p>
-                        <br />
-                        <h3 className="til_receita"> MODO DE PREPARO: </h3><br />
+                      
+                        <h3 className="til_receita"> MODO DE PREPARO: </h3>
                                         
                         <h5 className="til_receita" >Massa:</h5>
-                        <br/>
+                       
                         <p className="corp_receita">Bater no liquidificador as cascas, ovos e óleo. Á parte, 
                         peneirar numa tigela a farinha, amido de milho, açúcar e 
                         fermento. Juntar a mistura no liquidificador e bater muito 
                         bem. Untar uma assadeira média com margarina e farinha, colocar
                         a mistura e levar para assar em forno médio (200ºC) por 
                         aproximadamente 30 minutos.</p>
-                        <br/>
+                      
                         <h3 className="til_receita">Cobertura:</h3>
-                        <br/>
+                       
                         <p className="corp_receita">Misturar todos os ingredientes e levar ao fogo até ferver e 
                         reservar. Depois de assar o bolo, espalhar esta cobertura por
                         cima e deixar esfriar</p>
-                           <br />
-            
+                        </div>
                     </div>
                 </div>
                 <div className="embarque">

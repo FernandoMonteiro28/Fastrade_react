@@ -67,18 +67,20 @@ class App extends Component {
 
         {/* <MenuMobile/> */}
         <div className="tod_home">
-          <div className="estrut_frase">
-            <p className="frase_dicas">
-              Sem tempo para fazer Compras?<br />
-              seja rápido, seja  FASTRADE</p>
-            <Link to="/#" className="botao_dicas">Conheça nossa loja</Link>
-          </div>
+
         </div>
+
 
 
         <main>
 
-          {/* <div className="container_oferta">
+          <div className="home_card_pro">
+            <p className="frase_dicas">
+              Sem tempo para fazer Compras?<br />
+              seja rápido, seja  FASTRADE</p>
+          </div>
+
+           {/* <div className="container_oferta">
             <p className="oferte">Produtos em ofertas</p>
             <div className="conteudo">
               {
@@ -96,7 +98,11 @@ class App extends Component {
               }
 
             </div>
-          </div> */}
+          </div>  */}
+
+
+        
+
 
           <div className=" card_home">
             <figure class="snip1401">
@@ -125,10 +131,12 @@ class App extends Component {
             </figure>
           </div>
 
+          <div >
+            <div><p className="frase_destaque">Sua melhor plataforma de venda!!!</p></div>
+          </div>
 
-
-          <div className="destaque">
-            <img src={bannerFinal} alt="imagem da fruta flaboesa no pote" className="img_destaque" /> </div>
+          {/* <div className="destaque">
+            <img src={bannerFinal} alt="imagem da fruta flaboesa no pote" className="img_destaque" /> </div> */}
 
           <div className="tod_informativo">
             <div className="dica_informativa">
@@ -184,9 +192,6 @@ class App extends Component {
             </div>
           </div>
 
-          <div >
-            <div><p className="frase_destaque">Sua melhor plataforma de venda!!!</p></div>
-          </div>
 
         </main>
         <Rodape></Rodape>

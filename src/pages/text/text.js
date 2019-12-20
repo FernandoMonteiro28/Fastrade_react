@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../assets/css/text.css';
 import api from '../../services/api';
 
-import ProdutoVenda from '../../assets/img/comida.png';
+// import ProdutoVenda from '../../assets/img/comida.png';
 import Header from '../../components/cabecalho/cabecalho';
 import Rodape from '../../components/rodape/Rodape';
 import { MDBBtn, MDBInput, MDBAlert, MDBContainer, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";

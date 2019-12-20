@@ -5,6 +5,7 @@ import Rodape from '../../components/rodape/Rodape.js';
 import '../../assets/css/inputs.css';
 import '../../assets/css/botao.css';
 import '../../assets/css/login.css';
+import { Link } from 'react-router-dom';
 
 
 class Login extends Component {
@@ -136,7 +137,7 @@ class Login extends Component {
                                     </div>
                                     <div className="caixabotao">
                                        <button className="botao_cadastrarlogin" type="submit">Entrar</button>
-                                       <button className="botao_cadastrarlogin" type="submit">Cadastrar</button>
+                                      <Link to="/CadastroCliente"> <button className="botao_cadastrarlogin" type="submit">Cadastrar</button></Link>
                                     </div>
 
                                 </div>

@@ -22,7 +22,7 @@ import Produtos from'./pages/produtos/produtos';
 import App from './pages/Home/App';
 import Dicas from './pages/Dicas/Dicas';
 import quemSomos from './pages/quemSomos/quemSomos';
-import Receitas from './pages/Receitas/receita';
+import Receitas from './pages/Receitas/macarrao';
 import Pudim from './pages/Receitas/Pudim';
 import Arroz from './pages/Receitas/Arroz';
 import Doce from './pages/Receitas/Doce';
@@ -76,6 +76,7 @@ const Rotas = (
 				<Route path="/Login" component={Login}/>
 				<Route path="/PerfilAdministrador" component={PerfilAdministrador}/>
 				<Route path="/text" component={text}/>
+				
 				
 				<Route component={Erro} />
 			</Switch>

@@ -66,3 +66,17 @@ button.botao_cadastrar2 {
 	}
 	
  }
+
+ /* cadastro produto*/
+ button.botao_cadastrarproduto {
+    color: #BC3908;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    border: white;
+    border: 1px solid #BC3908;
+    border-radius: 10px;
+    margin-top:40px ;
+    width: 100px;
+}

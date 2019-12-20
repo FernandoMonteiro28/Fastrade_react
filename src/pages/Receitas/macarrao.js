@@ -21,32 +21,28 @@ class Macarrao extends Component {
                 <div class="foto_receita">
                     <img src={img_macarrao} alt="imagem macarrão" class="img_receita" />
                     <div class="nome_prato">
-                        <p class="textop">Macarrão de Talos</p><br />
+                        <p class="textop">Macarrão de Talos</p>
                     </div>
                 </div>
                 <div class="texto_receita">
-                    <br />
-                    <br />
-                    <h3>INGREDIENTES: </h3><br />
-                    <br />
-                    <p>
-                        300 Gramas de macarrão parafuso<br />
-                        4 Dentes de alho<br />
-                        3 Colheres de sopa de azeite<br />
-                        1 Xícara de chá de ramos de cenoura<br />
-                        3 Xícaras de chá de talos (brócolis, beterraba, couve)<br />
+                    
+                    <h3 className="til_receita">INGREDIENTES: </h3>
+                    <p className="corp_receita">
+                        300 Gramas de macarrão parafuso
+                        4 Dentes de alho
+                        3 Colheres de sopa de azeite
+                        1 Xícara de chá de ramos de cenoura
+                        3 Xícaras de chá de talos (brócolis, beterraba, couve)
                         Sal a gosto.
                 </p>
-                    <br />
-                    <br />
-                    <h3> MODO DE PREPARO: </h3><br />
-                    <br />
-                    <p>
-                        Em uma panela, doure os dentes de alho inteiros no azeite.<br />
-                        Acrescente os talos, os ramos, e refogue junto com o<br/>
+                 
+                    <h3 className="til_receita"> MODO DE PREPARO: </h3>
+                    <p className="corp_receita">
+                        Em uma panela, doure os dentes de alho inteiros no azeite.
+                        Acrescente os talos, os ramos, e refogue junto com o
                             macarrão cozido al dente e verifique o sal.
                 </p>
-                        <br />
+                        
 
             </div>
                 </div>
