@@ -31,6 +31,11 @@
     bottom: 60px;
 
 }
+.conjunto_color{
+    background-color: #f5f5f5;
+    /* background-color: rgba(218, 165, 32, 0.78); */
+    height: 700px;
+}
 .frase_dicas{
     font-family: 'Dosis', sans-serif;
     font-size: 30px;
@@ -42,7 +47,39 @@
     bottom: 30px;
 
 }
-
+.conju_frase{
+    display: flex;
+    align-content: space-between;
+    margin: auto;
+    width: 1200px;  
+    margin-top: 40px;
+}
+.img_1home{
+    width: 600px;
+    margin-right: 200px;
+}
+.gl.frase{
+    width: 600px;
+    text-align: center;
+}
+.Frase_fastrade{
+    color:#BC3908;
+    font-size: 40px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    /* text-align: center; */
+    padding-bottom: 20px;
+    margin-top: 80px;
+}
+.ref_home{
+    width: 500px;
+    text-align: justify;
+}
+.frase_referencia_home{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 20px;
+}
 
 .frase_home{
     margin-top: 60px;   
@@ -194,7 +231,7 @@ p.frase_destaque{
  .card_home{
     display: flex;
     margin: auto;
-    width: 900px;
+    width: 600px;
     margin-top:100px;
     margin-bottom: 100px;
 }
@@ -305,6 +342,7 @@ p.frase_destaque{
 
 /* tablete*/
 @media (max-width:1169px){
+
 	
     .dica_informativa{
         width: 250;
@@ -315,38 +353,81 @@ p.frase_destaque{
         width: 50px;
     }
 	.informativo{
-		font-size: 20px;
-        
-     
-	}	
+		font-size: 20px;    
+    }	
+    .img_1home{
+        width: 400px;
+        margin: 92px;
+    }
+    .conju_frase{
+        width: 900px;
+    }
 	.alimentos{
 		width: 250px;
-	}	 
+    }
+    .ref_home{
+        width: 300px;
+    }	 
+    .frase_referencia_home{
+        margin: 10px;
+        padding: 0p;
+    }
+    .Frase_fastrade{
+        margin: 0;
+    }
 }
 
 @media (max-width: 767px){
-	
+
     .dica_informativa{
-        width: 150;
-        position: relative;
-        right: 285px;
-        display: flex;
-        flex-direction: column;
+        width: 400px;
+        height: 270px;
+        display: block;
+        margin: 20px;
+        /* margin-left: 10px; */
     }
     .tod_informativo{
-        width: 100px;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        margin-right: 120px;
+       
+        /* margin-left: 10px; */
     }
 	.informativo{
 		font-size: 20px;
     }	
-    .global_informativa{
+    /* .global_informativa{
         width: 50px;
     }
     .frase_informativa{
         font-size: 15px;
     }
 	.alimentos{
-		width: 250px;
-	}	
-	
+		width: 250px; 
+	}	*/
+	.home_card_pro{
+        width: 400px;
+        height: 100px;
+    }
+    .frase_dicas{
+        font-size: 25px;
+    }
+    .img_1home{
+        width: 200px;
+        margin: 32px;
+    }
+     .ref_home{
+        width: 300px;
+    }
+    .Frase_fastrade{
+        font-size: 20px;
+    }	 
+    .frase_referencia_home{
+        font-size: 15px;
+        width: 200px;
+    }
+    .conjunto_color  {
+        height: 530px;
+    }
 }

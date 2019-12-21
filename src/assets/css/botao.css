@@ -61,7 +61,8 @@ button.botao_cadastrar2 {
 }
 @media(max-width:768px){
 	.botao_cadastrarlogin{
-		width: 100px;
+        width: 60px;
+        font-size: 15px;
 		margin: auto;
 	}
 	

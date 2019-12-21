@@ -24,6 +24,7 @@ class Arroz extends Component {
                             <p className="textop">Arroz Brasileirinho</p>
                         </div>
                     </div>
+                    
                     <div className="texto_receita">
                    
                         <h3 className="til_receita">INGREDIENTES: </h3>

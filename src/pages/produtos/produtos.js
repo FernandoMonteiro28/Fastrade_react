@@ -90,35 +90,49 @@ class Produtos extends Component {
             <div>
                 <div>
                     <Header />
-                    <div className="container_lista">
-                        <div className="busca">
-                            <h3 className="ordenar">Ordenar por:</h3>
-                            <select className="filtroProduto" name="">
-                                <option value="">Selecione</option>
-                                <option value="">Menor Preço</option>
-                                <option value="">Maior preço</option>
-                                <option value="">Mais Vendidos</option>
-                                <option value="">Data de Vencimento</option>
-                                <option value="">Melhor Desconto</option>
-                            </select>
-                        </div>
-                    </div>
+                    <div className="container_filtro">
+        <div className="busca">
+          <label className="ordenar">Categoria:</label>
+          <select name="idCatProduto" className="filtroProduto" id="filtroo"
+            onChange={(e) => this.atualizaSelect(e.target.value)}
+          >
+
+            <option value="Todos"> Todos </option>
+
+            {
+              this.state.listaCategoria.map(function (c) {
+                return (
+                  <option
+                    key={c.idCatProduto}
+                    value={c.tipo}
+                  >
+                    {c.tipo}
+                  </option>
+                )
+              }.bind(this))
+            }
+          </select>
+        </div>
+        </div>
+
                     <div className={this.state.ativo ? 'modal_container' : ''} id="modal-produto">
                         <div className={this.state.ativo ? 'modal ativo' : 'modal'}>
+                                    {
+                              this.state.listaOferta.map(   
+                                function (oferta) {
+                                    return (
                             <div className="modal_content">
                                 <div>
                                     <button onClick={event => this.setState({ ativo: false })} className="fechar">x</button>
                                 </div>
                                 <div className="produto">
                                     <div>
-                                        <img src={Maca} className="fotoProduto" />
-                                        <p>Imagens meramente ilustrativa</p>
+                                        <img src={"http://localhost:5000/" + oferta.fotoUrlOferta} className="fotoProduto" />
                                     </div>
-                                    <div className="conteudoModal">
+                                    <div className="conteudoModal">            
                                         <div className="conteudoModal2">
-                                            <p className="produtor">Direto do produtor</p>
-                                            <p>Maça Fuji Nacional 1 Unidade 220g</p><br />
-                                            <p>R$ 45,00</p>
+                                            <p className="produtor">{oferta.nomeProduto}</p>                                   
+                                            <p>{oferta.preco}</p>
                                         </div>
                                         <div className="buttomModal">
                                             <a href="#" class="btn_1 ">ADICIONAR</a>
@@ -127,22 +141,18 @@ class Produtos extends Component {
                                 </div>
                                 <div className="descricaoModal">
                                     <h1 className="descricaoProdutoModal btn_2">Descrição do produto</h1>
-                                    <p>As propriedades benéficas da maçã Red Chilena vão desde a casca, onde se encontra a pectina, que reduz o colesterol ruim do sangue e, além disso, também tem vitaminas essenciais à saúde. Essa fruta possui propriedades antioxidantes, que combatem os radicais livres Aproximadamente 200g.</p>
+                                <p>{oferta.descricaoDoProduto}</p>
                                 </div>
                             </div>
+                               );
+                            }
+                          .bind(this)
+
+                        )
+                      }
                         </div>
                     </div>
-                    <div className="container_cards">
-                        <div onClick={event => this.setState({ ativo: true })} class="card">
-                            <div class="card_conteudo">
-                                <img src={Maca} alt="" />
-                                <p class="produtor">Direto do produtor</p>
-                                <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                                <p class="preco">R$ 45,00</p>
-                            </div>
-                            <a href="#" class="btn_1Produto">ADICIONAR</a>
-                        </div>
-
+                    <div className="container_cards">                 
                         {
                             this.state.listaOferta.map(
                                 function (oferta) {
@@ -151,8 +161,8 @@ class Produtos extends Component {
                                             <div class="card_conteudo">
 
                                                 {/* <img src={Laranja} alt="" /> */}
-                                                <p className="produtor">{oferta.idUsuarioNavigation.nomeRazaoSocial}</p>
-                                                <p class="descricao">{oferta.descricaoDoProduto}</p>
+                                                <img src={"http://localhost:5000/" + oferta.fotoUrlOferta} className="img_home" alt="Imagem de Arroz" />
+                                                <p className="produtor">{oferta.nomeProduto}</p>
                                                 <p className="preco">R${oferta.preco}</p>
                                                 {/* <button className="btn_1" onClick={() => this.manipulaModal(oferta)}>ADICIONAR</button> */}
                                                 {/* <a href="#" className="btn_1">ADICIONAR</a> */}
@@ -165,70 +175,7 @@ class Produtos extends Component {
                                     )
                                 }
         
-        
-                        <div onClick={event => this.setState({ ativo: true })} class="card">
-                                <div class="card_conteudo">
-                                    <img src={Maca} alt=""/>
-                                    <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional -1 Unidade 220g</p>
-                                    <p class="preco">R$ 45,00</p>
-                                </div>
-                                <a href="#" class="btn_1Produto">ADICIONAR</a>
-                            </div>
-                            <div onClick={event => this.setState({ ativo: true })} class="card">
-                                <div class="card_conteudo">
-                                    <img src={Maca} alt=""/>
-                                    <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                                    <p class="preco">R$ 45,00</p>
-                                </div>
-                                <a href="#" class="btn_1Produto">ADICIONAR</a>
-                            </div>
-                            <div onClick={event => this.setState({ ativo: true })} class="card">
-                                <div class="card_conteudo">
-                                    <img src={Maca} alt=""/>
-                                    <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                                    <p class="preco">R$ 45,00</p>
-                                </div>
-                                <a href="#" class="btn_1Produto">ADICIONAR</a>
-                            </div>
-                            <div onClick={event => this.setState({ ativo: true })} class="card">
-                                <div class="card_conteudo">
-                                    <img src={Maca} alt=""/>
-                                    <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                                    <p class="preco">R$ 45,00</p>
-                                </div>
-                                <a href="#" class="btn_1Produto">ADICIONAR</a>
-                            </div>
-                            <div onClick={event => this.setState({ ativo: true })} class="card">
-                                <div class="card_conteudo">
-                                    <img src={Maca} alt=""/>
-                                    <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                                    <p class="preco">R$ 45,00</p>
-                                </div>
-                                <a href="#" class="btn_1Produto">ADICIONAR</a>
-                            </div>
-                            <div onClick={event => this.setState({ ativo: true })} class="card">
-                                <div class="card_conteudo">
-                                    <img src={Maca} alt=""/>
-                                    <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                                    <p class="preco">R$ 45,00</p>
-                                </div>
-                                <a href="#" class="btn_1Produto">ADICIONAR</a>
-                            </div>
-                            <div onClick={event => this.setState({ ativo: true })} class="card">
-                                <div class="card_conteudo">
-                                    <img src={Maca} alt=""/>
-                                    <p class="produtor">Direto do produtor</p>
-                                    <p class="descricao">Maça Fuji Nacional 1 Unidade 220g</p>
-                                    <p class="preco">R$ 45,00</p>
-                                </div>
-                                <a href="#" class="btn_1Produto">ADICIONAR</a>
-                            </div>
+
 
                         <p className="vermais"><a href="" className="btn_1">Ver Mais</a></p>
 

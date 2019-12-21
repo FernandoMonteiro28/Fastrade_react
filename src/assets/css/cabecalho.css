@@ -139,6 +139,10 @@ header {
     display: block;
   }
   
+  .container{
+    margin: 0;
+  
+  }
   .dropdown-content {
     display: none;
     position: absolute;

@@ -8,7 +8,8 @@ import documentoPng from '../../assets/img/document_home.png';
 import ClientePng from '../../assets/img/cliente_home.png';
 import bannerFinal from '../../assets/img/img_2.png';
 import Rodape from '../../components/rodape/Rodape.js'
-import Venda from '../../assets/img/marke.png'
+
+import compras from '../../assets/img/photo-1516321318423-f06f85e504b3.jpeg'
 
 //importa Link  
 import { Link } from 'react-router-dom';
@@ -70,70 +71,31 @@ class App extends Component {
 
         </div>
 
-
-
         <main>
-
+        <div className="conjunto_color">
           <div className="home_card_pro">
             <p className="frase_dicas">
               Sem tempo para fazer Compras?<br />
               seja rápido, seja  FASTRADE</p>
           </div>
-
-           {/* <div className="container_oferta">
-            <p className="oferte">Produtos em ofertas</p>
-            <div className="conteudo">
-              {
-                this.state.listaNomeOferta.map(
-                  function (oferta) {
-                    return (
-                      <div key={oferta.idOferta} className="alimentos">
-                        <img src={"http://localhost:5000/" + oferta.fotoUrlOferta} className="img_home" alt="Imagem de Arroz" />
-                        <p>{oferta.idProdutoNavigation.nome}</p>
-                        <p className="vermelho">30% Desconto</p>
-                      </div>
-                    );
-                  }
-                )
-              }
-
-            </div>
-          </div>  */}
-
-
         
+            <div className="conju_frase">
 
+              <div>
+                <img src={compras} alt="" className="img_1home" />
+              </div>
 
-          <div className=" card_home">
-            <figure class="snip1401">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample67.jpg" alt="sample67" />
-              <figcaption>
-                <h3>Valores a baixo do mercado </h3>
-                <p>Produtos de qualidade e com o preço que cabe no bolso.</p>
-              </figcaption>
-              <a href="#"></a>
-            </figure>
+              <div className="gl_frase">
+                <h6 className="Frase_fastrade">O que é Fastrade?</h6>
 
-            <figure class="snip1401"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
-              <figcaption>
-                <h3>Facilidade na compra e venda</h3>
-                <p>Ofertas mas faceis e práticas. </p>
-              </figcaption>
-              <a href="#"></a>
-            </figure>
+                <div className="ref_home">
+                  <p className="frase_referencia_home">FASTRADE é um site de intermediação entre consumidores e pequenas ou grandes comerciantes,
+                   que buscam ofertar seus produtos, sejam eles próximo da data de validade ou não, mas com menores preço e de otima qualidade.</p>
+                </div>
+              </div>
+            </div>
+          </div>      
 
-            <figure class="snip1401"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
-              <figcaption>
-                <h3>Cadastre-se!</h3>
-                <p>Encontre ofertas mas proxímas de vocês. </p>
-              </figcaption>
-              <a href="#"></a>
-            </figure>
-          </div>
-
-          <div >
-            <div><p className="frase_destaque">Sua melhor plataforma de venda!!!</p></div>
-          </div>
 
           {/* <div className="destaque">
             <img src={bannerFinal} alt="imagem da fruta flaboesa no pote" className="img_destaque" /> </div> */}

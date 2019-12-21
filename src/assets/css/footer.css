@@ -16,6 +16,10 @@
     font-weight: bold;
     width: 300px;
 }
+.logo_rodape {
+    width: 250px;
+    height: 50px;
+  }
 .contato_rodape{
     font-size: 16px;
 }
@@ -36,31 +40,46 @@
     display: flex;
     justify-content: space-between;
 }
+@media (max-width:1169px){
+
+    .todo_rodape{
+    width: 900px;
+    padding: 20px;
+    /* margin: auto; */
+    }
+}
+
 
 @media (max-width: 768px){
 
-    .container{
-        width: 200px;
-        float: left;
-      
+    .todo_rodape{
+        width: 0;
+        padding: 0;
     }
 
-    
+
+    .container_rodape{
+        width: 460px;
+        /* float: left; */
+    }
+        
 .frase_rodape{
-   font-size: 10px;
-   padding-right: 30px;
-}
+    font-size: 10px;
+    padding-right: 30px;
+ }
+
 
 .localicate {
-    width: 50px;
-   
+    width: 50px; 
+    position: relative;
+    right: 100px;
     
 }
-
-.localizacao {
-    width: 50px;
-    padding-right: 30px;
+.logo_rodape{
+    width: 100px;
+    height: 30px;
+    position: relative;
+    right: 50px;
 }
-
 
 }

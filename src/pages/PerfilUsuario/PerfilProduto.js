@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Header from '../../components/cabecalho/cabecalho.js';
 import Rodape from '../../components/rodape/Rodape.js';
-import ProdutoVenda from '../../assets/img/comida.png';
+import maca from '../../assets/img/maca.jpg';
+import azeitona from '../../assets/img/azeitona-verde-light-la-violetera-pote-200g.jpg';
+import milho from '../../assets/img/milho.jpg';
+import morango from '../../assets/img/morango.jpg';
 import { Link } from 'react-router-dom';
 import pproduto from '../../assets/css/pproduto.css';
 
@@ -37,7 +40,7 @@ export default class PerfilProduto extends Component {
 
                                 <li class="product__item">
                                     <div class="product__img">
-                                        <img src={ProdutoVenda} alt="Imagem do Produto" className="venda_produto" />
+                                        <img src={maca} alt="Imagem do Produto" className="venda_produto" />
                                     </div>
                                     <div class="product-info">
                                         <h4 class="product-info__name">Nome do Produto</h4>
@@ -52,7 +55,7 @@ export default class PerfilProduto extends Component {
 
                                 <li class="product__item">
                                     <div class="product__img">
-                                        <img src={ProdutoVenda} alt="Imagem do Produto" className="venda_produto" />
+                                        <img src={morango} alt="Imagem do Produto" className="venda_produto" />
                                     </div>
                                     <div class="product-info">
                                         <h4 class="product-info__name">Nome do Produto</h4>
@@ -67,7 +70,7 @@ export default class PerfilProduto extends Component {
 
                                 <li class="product__item">
                                     <div class="product__img">
-                                        <img src={ProdutoVenda} alt="Imagem do Produto" className="venda_produto" />
+                                        <img src={azeitona} alt="Imagem do Produto" className="venda_produto" />
                                     </div>
                                     <div class="product-info">
                                         <h4 class="product-info__name">Nome do Produto</h4>
@@ -82,7 +85,7 @@ export default class PerfilProduto extends Component {
 
                                 <li class="product__item">
                                     <div class="product__img">
-                                        <img src={ProdutoVenda} alt="Imagem do Produto" className="venda_produto" />
+                                        <img src={milho} alt="Imagem do Produto" className="venda_produto" />
                                     </div>
                                     <div class="product-info">
                                         <h4 class="product-info__name">Nome do Produto</h4>

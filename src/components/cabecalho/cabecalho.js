@@ -48,30 +48,30 @@ class Header extends Component {
                 <header>
                     <div className="container">
                         <div className="tudooo">
-                       
+
                             <div class="dropdown">
-                           <img src={Icon_menu} alt="menu sanduiche" className="icone_sanduba"/>
+                                <img src={Icon_menu} alt="menu sanduiche" className="icone_sanduba" />
                                 <div class="dropdown-content">
 
-                                <nav className="menuHeader_mobile">
-                            <ul className="quebrar_menu">
-                            <div className="pesquisaHamburguer">
-                                <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
-                                    className="txt_buscaHamburguer" />
-                                <img src={Lupa} alt="Buscar" className="btn_buscaHamburguer" />
-                            </div>
-                                <li className="frase_menuHamburguer"><Link to="/Home" className="cor-link">HOME</Link></li>
-                                <li className="frase_menuHamburguer"><Link to="/produtos" className="cor-link">PRODUTOS</Link></li>
-                                <li className="frase_menuHamburguer"><Link to="/Dicas" className="cor-link">DICAS</Link></li>
-                                <li className="frase_menuHamburguer"><Link to="/quemSomos" className="cor-link">QUEM SOMOS</Link></li>
-                            </ul>
-                        </nav>
-                                    
+                                    <nav className="menuHeader_mobile">
+                                        <ul className="quebrar_menu">
+                                            <div className="pesquisaHamburguer">
+                                                <input type="text" placeholder="Busque aqui..." aria-label="Barra de busca" name="Barra_busca"
+                                                    className="txt_buscaHamburguer" />
+                                                <img src={Lupa} alt="Buscar" className="btn_buscaHamburguer" />
+                                            </div>
+                                            <li className="frase_menuHamburguer"><Link to="/Home" className="cor-link">HOME</Link></li>
+                                            <li className="frase_menuHamburguer"><Link to="/produtos" className="cor-link">PRODUTOS</Link></li>
+                                            <li className="frase_menuHamburguer"><Link to="/Dicas" className="cor-link">DICAS</Link></li>
+                                            <li className="frase_menuHamburguer"><Link to="/quemSomos" className="cor-link">QUEM SOMOS</Link></li>
+                                        </ul>
+                                    </nav>
+
                                 </div>
                             </div>
-                            </div>
-                        
-                        
+                        </div>
+
+
                         <div className="sub_menu">
                             <img src={Logotipo} alt="Logo do site" className="logo" />
                             <div className="pesquisa">
@@ -80,10 +80,39 @@ class Header extends Component {
                                 <img src={Lupa} alt="Buscar" className="btn_busca" />
                             </div>
 
-                            <div><Link to="/login"><img src={User} alt="login" className="btn_login" /></Link>
+                            <div>
+                                {/* <Link to="/login"><img src={User} alt="login" className="btn_login" /></Link> */}
+
+                                {usuarioAutenticado() && parseJwt().Role === "3" ? (
+                                    // Se o usuário for admnistrador
+                                    <>
+                                        <Link to="/PerfilAdministrador"><img src={User} alt="login" className="btn_login" /></Link>
+                                    </>
+                                ) : (
+                                        usuarioAutenticado() && parseJwt().Role === "2" ? (
+                                            // Se o usuário for Aluno
+                                            <>
+                                                <Link to="/PerfilComerciante"><img src={User} alt="login" className="btn_login" /></Link>
+                                            </>
+                                        ) : (
+                                                usuarioAutenticado() && parseJwt().Role === "1" ? (
+
+                                                    // Se o usuário não estiver logado
+                                                    <>
+                                                        <Link to="/PerfilConsumidor"><img src={User} alt="login" className="btn_login" /></Link>
+                                                    </>
+                                                ) : (
+                                                        <>
+                                                            <Link to="/login"><img src={User} alt="login" className="btn_login" /></Link>
+
+                                                        </>
+                                                    )
+                                            )
+                                    )}
+
                                 {usuarioAutenticado() ? (
                                     <>
-                                        <a href="index_comprador.html"><img src={"http://localhost:5000/" + parseJwt().FotoUsuario} alt="" /></a>
+                                        <a href="/#" className="opcoes_perfil2" onClick={this.logout}>Sair</a >
                                     </>
                                 ) : (
                                         this.props.headerprops

@@ -17,43 +17,40 @@ class Pudim extends Component {
                 <div className="banner_dicas">
                     <p className="titulo_do_prato">RECEITAS</p>
                 </div>
+                <div className="conj_card_receitas">
                 <div className="card_receitas">
                     <div className="foto_receita">
                   <img src={img_pudim} alt="imagem pudim" className="img_receita" />
                         <div className="nome_prato">
-                            <p className="textop">Pudim de pão amanhecidos</p><br />
+                            <p className="textop">Pudim de pão amanhecidos</p>
                         </div>
                     </div>
                     <div className="texto_receita">
-                        <br />
-                        <br />
-                        <h3>INGREDIENTES: </h3><br />
-                        <br />
+                        <h3 className="til_receita">INGREDIENTES: </h3>
                         <p>
-                            3 pães franceses amanhecidos<br />
-                            1 lata de leite condensado<br />
-                            1/2 litro de leite<br />
-                            1 xícara (chá) de açúcar para a calda<br />
-                            4 ovos<br />
+                            3 pães franceses amanhecidos
+                            1 lata de leite condensado
+                            1/2 litro de leite
+                            1 xícara (chá) de açúcar para a calda
+                            4 ovos
                             50 g de coco ralado.
-                        </p>
-                        <br />
-                        <br />
-                        <h3> MODO DE PREPARO: </h3><br />
-                        <br />
-                        <p>Pique os pães em pedaços e coloque no liquidificador</p>
-                           <p> Acrescente os ovos, o leite condensado, o leite e o coco ralado;</p >
-                            <p>bata por 5 minutos e reserve
+                        </p>                       
+                        
+                        <h3 className="til_receita"> MODO DE PREPARO: </h3>
+                        
+                        <p className="corp_receita">Pique os pães em pedaços e coloque no liquidificador
+                            Acrescente os ovos, o leite condensado, o leite e o coco ralado;
+                            bata por 5 minutos e reserve
                             Coloque a xícara de açúcar em uma forma de pudim com 50 ml de água;
                             deixe ferver no fogo baixo até virar caramelo
                             Adicione a mistura do pudim na forma do caramelo
                             Cubra com papel alumínio
                             Leve ao forno em banho-maria por aproximadamente 1 hora e 30 minutos;
                             Retirar do forno, deixar esfriar para desenformar e leve à geladeira
-                        </p>
-                        <br />
+                        </p>                        
 
                     </div>
+                </div>
                 </div>
                 <div className="embarque">
                     <div className="carrossel">

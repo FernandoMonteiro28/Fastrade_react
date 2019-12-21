@@ -14,37 +14,36 @@ class Macarrao extends Component {
         return (
             <div>
                 <Header></Header>
-            <div class="banner_dicas">
-                <p class="titulo_do_prato">RECEITAS</p>
-            </div>
-            <div class="card_receitas">
-                <div class="foto_receita">
-                    <img src={img_macarrao} alt="imagem macarrão" class="img_receita" />
-                    <div class="nome_prato">
-                        <p class="textop">Macarrão de Talos</p>
-                    </div>
+                <div class="banner_dicas">
+                    <p class="titulo_do_prato">RECEITAS</p>
                 </div>
-                <div class="texto_receita">
-                    
-                    <h3 className="til_receita">INGREDIENTES: </h3>
-                    <p className="corp_receita">
-                        300 Gramas de macarrão parafuso
-                        4 Dentes de alho
-                        3 Colheres de sopa de azeite
-                        1 Xícara de chá de ramos de cenoura
-                        3 Xícaras de chá de talos (brócolis, beterraba, couve)
-                        Sal a gosto.
-                </p>
-                 
-                    <h3 className="til_receita"> MODO DE PREPARO: </h3>
-                    <p className="corp_receita">
-                        Em uma panela, doure os dentes de alho inteiros no azeite.
-                        Acrescente os talos, os ramos, e refogue junto com o
-                            macarrão cozido al dente e verifique o sal.
-                </p>
-                        
+                <div className="conj_card_receitas">
+                    <div class="card_receitas">
+                        <div class="foto_receita">
+                            <img src={img_macarrao} alt="imagem macarrão" class="img_receita" />
+                            <div class="nome_prato">
+                                <p class="textop">Macarrão de Talos</p>
+                            </div>
+                        </div>
+                        <div class="texto_receita">
 
-            </div>
+                            <h3 className="til_receita">INGREDIENTES: </h3>
+                            <p className="corp_receita">
+                                300 Gramas de macarrão parafuso
+                                4 Dentes de alho
+                                3 Colheres de sopa de azeite
+                                1 Xícara de chá de ramos de cenoura
+                                3 Xícaras de chá de talos (brócolis, beterraba, couve)
+                                Sal a gosto.</p>
+
+                            <h3 className="til_receita"> MODO DE PREPARO: </h3>
+                            <p className="corp_receita">
+                                Em uma panela, doure os dentes de alho inteiros no azeite.
+                                Acrescente os talos, os ramos, e refogue junto com o
+                                    macarrão cozido al dente e verifique o sal. </p>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="embarque">
                     <div class="carrossel">
@@ -57,8 +56,8 @@ class Macarrao extends Component {
                     </div>
                     <Rodape></Rodape>
                 </div>
-                </div>
-                );
-            }
-        }
-        export default Macarrao;
+            </div>
+        );
+    }
+}
+export default Macarrao;

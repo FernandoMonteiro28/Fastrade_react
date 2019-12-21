@@ -19,6 +19,7 @@ class Bolo extends Component {
                 <div className="banner_dicas">
                     <p className="titulo_do_prato">RECEITAS</p>
                 </div>
+                <div className="conj_card_receitas">
                 <div className="card_receitas">
                     <div className="foto_receita">
                   <img src={img_Bolo} alt="imagem arroz" className="img_receita" />
@@ -26,8 +27,10 @@ class Bolo extends Component {
                             <p className="textop">Bolo de Casca de Abóbora</p><br />
                         </div>
                     </div>
+
                     <div className="texto_receita">
-                        <div className="comidas">
+
+                      
                         <h3 className="til_receita">INGREDIENTES: </h3>                      
                         <p className="corp_receita">
                         1 colher (sopa) de fermento em pó;  

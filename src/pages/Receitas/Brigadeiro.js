@@ -17,38 +17,36 @@ class Brigadeiro extends Component {
                 <div className="banner_dicas">
                     <p className="titulo_do_prato">RECEITAS</p>
                 </div>
+                <div className="conj_card_receitas">
                 <div className="card_receitas">
                     <div className="foto_receita">
                   <img src={img_Brigadeiro} alt="imagem Brigadeiro" className="img_receita" />
                         <div className="nome_prato">
-                            <p className="textop">Brigadeiro de Casca de Banana</p><br />
+                            <p className="textop">Brigadeiro de Casca de Banana</p>
                         </div>
                     </div>
                     <div className="texto_receita">
-                        <br />
-                        <br />
-                        <h3>INGREDIENTES: </h3><br />
-                        <br />
-                        <p>
-                        1 lata de Leite Condensado<br />
-                        1 colher de sopa de Manteiga<br />
-                        2 colheres de sopa de Chocolate em Pó<br />
-                        1 casca de Banana<br />
-                        1 1/2 xícara de chá de Chocolate Granulado<br />
-                            
+                        
+                        <h3 className="til_receita" >INGREDIENTES: </h3>
+                        
+                        <p className="corp_receita">
+                        1 lata de Leite Condensado
+                        1 colher de sopa de Manteiga
+                        2 colheres de sopa de Chocolate em Pó
+                        1 casca de Banana
+                        1 1/2 xícara de chá de Chocolate Granulado   
                         </p>
-                        <br />
-                        <br />
-                        <h3> MODO DE PREPARO: </h3><br />
-                        <br />
-                        <p>
-                        Depois de higienizar a casca da banana, corte-a em pequenos cubos<br />
+                        
+                        <h3 className="til_receita"> MODO DE PREPARO: </h3>
+                       
+                        <p className="corp_receita"> 
+                        Depois de higienizar a casca da banana, corte-a em pequenos cubos
                         Junte todos os ingredientes no liquidificador, a Manteiga (sem sal), 
                         Banana, o Leite Condensado e Chocolate em Pó para preparar a massa do 
                         brigadeiro de casca de banana com granulado de chocolate.
                         Em uma panela, coloque a massa do brigadeiro de casca de 
                         banana com granulado de chocolate e cozinhe em fogo baixo até soltar
-                        da panela, desligue o fogo e deixe esfriar.<br />
+                        da panela, desligue o fogo e deixe esfriar.
                         Depois de esfriar, enrole e passe no granulado ou sirva em copinhos o 
                         brigadeiro de casca de banana com granulado de chocolate.
                         Experimente o saboroso Brigadeiro de Casca de Banana com Granulado 
@@ -60,6 +58,7 @@ class Brigadeiro extends Component {
 
                     </div>
                 </div>
+                </div> 
                 <div className="embarque">
                     <div className="carrossel">
 

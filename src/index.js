@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 //Importamos as dependencias necessarias:
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 
 // importamos ccs
 import './assets/css/dicas.css';
@@ -10,15 +10,17 @@ import './assets/css/receita.css';
 import './assets/css/produtos.css';
 import './assets/css/pproduto.css';
 import './assets/css/login.css';
-import 'mdbreact/dist/css/mdb.css'; 	
+import 'mdbreact/dist/css/mdb.css';
 import './assets/css/botao.css';
-import './assets/css/inputs.css'; 
-import './assets/css/text.css';	
+import './assets/css/inputs.css';
+import './assets/css/text.css';
 import perfilusuario from './assets/css/perfilusuario.css';
 
 
 //importamos as paginas
-import Produtos from'./pages/produtos/produtos'; 
+import { usuarioAutenticado, parseJwt } from './services/auth';
+
+import Produtos from './pages/produtos/produtos';
 import App from './pages/Home/App';
 import Dicas from './pages/Dicas/Dicas';
 import quemSomos from './pages/quemSomos/quemSomos';
@@ -35,9 +37,9 @@ import cadastroProduto from './pages/cadastroProduto/cadastroProduto';
 import PerfilComerciante from './pages/PerfilUsuario/PerfilComerciante';
 import PerfilConsumidor from './pages/PerfilUsuario/PerfilConsumidor';
 import PerfilProduto from './pages/PerfilUsuario/PerfilProduto';
-import CadastroCliente from './pages/CadastroCliente/CadastroCliente'; 
+import CadastroCliente from './pages/CadastroCliente/CadastroCliente';
 import Erro from './pages/paginaErro/Erro';
-import Login from'./pages/Login/Login';
+import Login from './pages/Login/Login';
 import PerfilAdministrador from './pages/PerfilUsuario/PerfilAdministrador.js';
 
 
@@ -45,8 +47,54 @@ import text from './pages/text/text.js';
 
 import './assets/css/login.css';
 
-
 //Criamos uma variavel que Realiza a criação das rotas:
+
+const PermissaoAdminVendedor = ({ component: Component }) => (
+	<Route
+		render={props =>
+			usuarioAutenticado() && (parseJwt().Role == "2" || parseJwt().Role == "3") ? (
+				<Component {...props} />
+			) : (
+					<Redirect to={{ pathname: "/home" }} />
+				)
+		}
+	/>
+)
+const PermissaoAdminConsumidor = ({ component: Component }) => (
+	<Route
+		render={props =>
+			usuarioAutenticado() && (parseJwt().Role == "1" || parseJwt().Role == "3") ? (
+				<Component {...props} />
+			) : (
+					<Redirect to={{ pathname: "/home" }} />
+				)
+		}
+	/>
+)
+
+const PermissaoAdmin = ({ component: Component }) => (
+	<Route
+		render={props =>
+			usuarioAutenticado() && (parseJwt().Role == "1") ? (
+				<Component {...props} />
+			) : (
+					<Redirect to={{ pathname: "/home" }} />
+				)
+		}
+	/>
+)
+const Sempermissao = ({ component: Component }) => (
+	<Route
+		render={props =>
+			usuarioAutenticado() === false ? (
+				<Component {...props} />
+			) : (
+					<Redirect to={{ pathname: "/home" }} />
+				)
+		}
+	/>
+)
+
 const Rotas = (
 	<Router>
 		<div>
@@ -67,17 +115,18 @@ const Rotas = (
 				<Route path="/produtos" component={Produtos} />
 				<Route path="/quemSomos" component={quemSomos} />
 				<Route path="/receitas" component={Receitas} />
-				<Route path="/cadastroProduto" component={cadastroProduto} />
-				<Route path="/CadastroCliente" component={CadastroCliente} />
-				<Route path="/PerfilComerciante" component={PerfilComerciante} />
-            	<Route path="/PerfilConsumidor" component={PerfilConsumidor} />
-            	<Route path="/PerfilProduto" component={PerfilProduto} />
-				<Route path="/cadastroProdutos" component={cadastroProduto} />
-				<Route path="/Login" component={Login}/>
-				<Route path="/PerfilAdministrador" component={PerfilAdministrador}/>
-				<Route path="/text" component={text}/>
-				
-				
+				<PermissaoAdminVendedor Route path="/cadastroProduto" component={cadastroProduto} />
+				<PermissaoAdminVendedor Route Route path="/cadastroProdutos" component={cadastroProduto} />
+				<Sempermissao Route path="/CadastroCliente" component={CadastroCliente} />
+				<PermissaoAdminVendedor Route path="/PerfilComerciante" component={PerfilComerciante} />
+				<PermissaoAdminConsumidor Route path="/PerfilConsumidor" component={PerfilConsumidor} />
+				<PermissaoAdmin Route path="/PerfilAdministrador" component={PerfilAdministrador} />
+				<PermissaoAdminVendedor Route path="/PerfilProduto" component={PerfilProduto} />
+				<Sempermissao Route path="/Login" component={Login} />
+				<Route path="/text" component={text} />
+
+
+
 				<Route component={Erro} />
 			</Switch>
 		</div>

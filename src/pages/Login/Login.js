@@ -135,9 +135,14 @@ class Login extends Component {
                                                 onChange={this.atualizaSenha.bind(this)} />
                                         </label>
                                     </div>
+
                                     <div className="caixabotao">
+                                    <div className="">
                                        <button className="botao_cadastrarlogin" type="submit">Entrar</button>
+                                       </div> 
+                                       <div className="">
                                       <Link to="/CadastroCliente"> <button className="botao_cadastrarlogin" type="submit">Cadastrar</button></Link>
+                                    </div>
                                     </div>
 
                                 </div>
